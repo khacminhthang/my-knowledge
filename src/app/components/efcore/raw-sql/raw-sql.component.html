@@ -1,0 +1,57 @@
+<div>
+  <h1 style="font-size: 3rem;">Execute Raw SQL Queries in Entity Framework Core</h1>
+  <br>
+  <p>Entity Framework Core provides the DbSet.FromSql() method to execute raw SQL queries for the underlying database
+    and get the results as entity objects.
+  </p>
+  <p>The following example demonstrates executing a raw SQL query to MS SQL Server database</p>
+  <pre>
+    {{text1}}
+  </pre>
+  <p>In the above example, the FromSql() method is used after the Students entity set (DbSet Student>), so the specified
+    SQL query must return records from the Students table which will transform in Student entities. Entity Framework
+    Core will execute the specified query to the database. Select * from Students where Name = 'Bill' in above example
+  </p>
+  <br>
+
+  <!-- Parameterized Query -->
+  <span style="font-size: 2rem;" class="pb-0">Parameterized Query</span>
+  <div class="border-b1"></div>
+  <p>The FromSql method allows parameterized queries using string interpolation syntax in C#, as shown below</p>
+  <pre>
+          {{text2}}
+        </pre>
+  <p>The following is also valid.</p>
+  <pre>
+    {{text3}}
+  </pre>
+  <p>The examples above will execute the following SQL query to the SQL Server database:</p>
+  <pre>
+    {{text4}}
+  </pre>
+  <br>
+
+  <!-- LINQ Operators -->
+  <span style="font-size: 2rem;" class="pb-0">LINQ Operators
+  </span>
+  <div class="border-b1"></div>
+  <p>You can aslo use LINQ Operators after a raw query using FromSql method</p>
+  <pre>
+        {{text5}}
+      </pre>
+  <p>In the above example, EF Core executes the following query by combining FromSql method and OrderBy operator.</p>
+  <pre>
+    {{text6}}
+  </pre>
+
+  <!-- FromSql Limitations -->
+  <span style="font-size: 2rem;" class="pb-0">FromSql Limitations
+  </span>
+  <div class="border-b1"></div>
+  <p>1. SQL queries must return entities of the same type as DbSet T> type. the specified query cannot return the Course
+    entities If FromSql is used after Students. Returning ad-hoc types from FromSql() method is in the backlog.</p>
+  <p>2. The Sql query must return all the columns of the table context.Students.FromSql("Select StudentId, LastName from
+    Students).ToList() will throw an exception.</p>
+  <p>3. The SQL query cannot include JION queries to get related data. Use Include method to load related entities after
+    FromSql() method</p>
+</div>

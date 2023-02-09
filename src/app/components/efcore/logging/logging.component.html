@@ -1,0 +1,146 @@
+<div>
+  <h1 style="font-size: 3rem;">Logging in Entity Framework Core</h1>
+  <br>
+  <p>We often need to log the SQL and change tracking information for debugging purposes in EF Core.
+  </p>
+  <p>EF Core logging automatically integrates with the logging mechanisms of .NET Core. So, learn about fundamentals of
+    logging in .NET Core before implimenting logging in EF Core.</p>
+  <p>Entity Framework Core integrates with the .NET Core logging to log SQL and change tracking information to the
+    various output targets. First, install the Nuget package for logging provider of your choice and then tie up the
+    DbContext to ILoggerFactory.</p>
+
+  <p>Let's install the logging provider's NuGet package. Here, we will display the logs on the console, so install the
+    Microsoft.Extensions.Logging.Console NuGet package from the NuGet Package Manager or execute the following command
+    in the Package Manager Console:</p>
+
+  <p>The following figure illustrates how the DbContext works with the logging API and console logging provider.</p>
+  <p>After installing the console logger provider, you need to create a static/singleton instance of the LoggerFactory
+    and then tie it with a DbContext, as shown below.
+  </p>
+  <pre>
+    {{text1}}
+  </pre>
+  <p>In the above example, we have created an object of the LoggerFactory class and assigned it to the ILoggerFactory
+    type static variable. Then, we passed this object in the optionsBuilder.UseLoggerFactory() method in the
+    OnConfiguring() method. This will enable the DbContext to share the information with the loggerFactory object, which
+    in turn will display all the logging information on the console.</p>
+  <p>By default, EF Core will not log sensitive data, such as filter parameter values. So, call the
+    EnableSensitiveDataLogging() to log sensitive data.</p>
+
+  <p>The EF team recommends using the same logger factory object with all the instances of the DbContext class during
+    the application lifetime. Otherwise, it may result in a memory leak and poor performance. You can also create a
+    separate factory class that provides you the singleton object of the LoggerFactory class to use with the DbContext.
+  </p>
+  <p>Let's understand the above example in detail.</p>
+  <p>First, we created an object of the LoggerFactory class and assigned it to ILoggerFactory type static variable, as
+    shown below.</p>
+  <pre>
+      {{text2}}
+    </pre>
+  <p>The LoggerFactory can contain one or more logging providers which can be used to log to multiple mediums
+    concurrently. The constructor of the LoggerFactory accept an array of different logger provider objects as new[]
+    }. We want to display logs on the console, so create an object of the console logger provider ConsoleLoggerProvider.
+  </p>
+  <p>There are four constructors of the ConsoleLoggerProvider. Use the one that allows lambda expression (Func>) for
+    log filtration and includeScope Boolean, as shown below</p>
+  <pre>
+        {{text3}}
+      </pre>
+  <p>Here, we don't want to filter any information so the lambda expression would always return true (_, __) => true.
+  </p>
+  <p>After creating an object of ILoggerFactory, tied-up DbContext with the ILoggerFactory in the OnConfiguring() method
+    using the DbContextOptionsBuilder.</p>
+  <p>optionsBuilder.UseLoggerFactory(loggerFactory)</p>
+  <p>Thus, we tied-up the DbContext with the LoggerFactory which includes the console logger provider. Now, we can see
+    all the logs on the console whenever an instance of the DbContext executes any action.</p>
+  <p>Consider the following example.</p>
+  <pre>
+    {{text4}}
+  </pre>
+  <p>The above example will display the following logs on the console:</p>
+  <pre>
+    {{text5}}
+  </pre>
+  <br>
+
+  <!-- Filter Logs -->
+  <span style="font-size: 2rem;" class="pb-0">Filter Logs</span>
+  <div class="border-b1"></div>
+  <p>In the above example, the DbContext logged all the information while saving an entity. Sometime you don't want to
+    log all the information and filter some unwanted logs. In EF Core, you can filter logs by specifying the logger
+    category and log level.</p>
+
+  <strong>Logger Categories</strong>
+  <p>EF Core 2.x includes the DbLoggerCategory class to get an Entity Framework Core logger categories using its Name
+    property. The following table lists different logger categories.</p>
+  <table>
+    <thead>
+      <th>Logger Category Class</th>
+      <th>Description</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Database.Command</td>
+        <td>Logger category for command execution, including SQL sent to database.</td>
+      </tr>
+      <tr>
+        <td>Database.Connection</td>
+        <td>Logger category for db connection operations.</td>
+      </tr>
+      <tr>
+        <td>Database.Transaction</td>
+        <td>Logger category for db transactions.</td>
+      </tr>
+      <tr>
+        <td>Infrastructure</td>
+        <td>Logger category for miscellaneous messages for the EF infrastructure.</td>
+      </tr>
+      <tr>
+        <td>Migration</td>
+        <td>Logger category for migrations.</td>
+      </tr>
+      <tr>
+        <td>Model</td>
+        <td>Logger category for model building and metadata.</td>
+      </tr>
+      <tr>
+        <td>Query</td>
+        <td>Logger category for queries (excluding generated SQL)</td>
+      </tr>
+      <tr>
+        <td>Scaffolding</td>
+        <td>Logger category for scaffolding and reverse engineering.</td>
+      </tr>
+      <tr>
+        <td>Update</td>
+        <td>Logger category for DbContext.SaveChanges() messages.</td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <strong>Log SQL Queries</strong>
+  <p>To log only SQL queries, specify the DbLoggerCategory.Database.Command category and LogLevel.Information in the
+    lambda expression in the constructor of the ConsoleLoggerProvider, as shown below.</p>
+  <pre>
+      {{text6}}
+    </pre>
+  <p>Or, just call the AddConsole() method on LoggerFactory to log SQL queries, by default.</p>
+  <pre>
+    {{text7}}
+  </pre>
+  <p>Now, this will log the following query information which saving an entity using the DbContext.</p>
+  <span>
+    info: Microsoft.EntityFrameworkCore.Database.Command[200101]
+    Executed DbCommand (73ms) [Parameters=[@p0='' (DbType = DateTime2), @p1=''
+    (DbType = Int32), @p2='0', @p3='' (Size = 8000) (DbType = Binary), @p4='Steve'
+    (Size = 4000), @p5='0'], CommandType='Text', CommandTimeout='30']
+    SET NOCOUNT ON;
+    INSERT INTO [Students] ([DateOfBirth], [GradeId], [Height], [Photo], [Stud
+    entName], [Weight])
+    VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+    SELECT [StudentID]
+    FROM [Students]
+    WHERE @@ROWCOUNT = 1 AND [StudentID] = scope_identity();
+  </span>
+  <br>
+</div>

@@ -1,0 +1,38 @@
+<div>
+  <h1 style="font-size: 3rem;">Configurations in Entity Framework Core</h1>
+  <br>
+  <p>You learned about default Conventions in EF COre in the previous chapter. Many times we want to customize the
+    entity to table mapping and do not want to follow default conventions. EF Core allows us to configure domanin
+    classes in order to customize the EF model to database mappings. This programming pattern is referred to as
+    Convention over Configuration.
+  </p>
+  <p>There are two ways to configure domain classes in EF Core.</p>
+  <p>
+    1. By using Data Annotation Attributes
+  </p>
+  <p>2. By using Fluent API</p>
+  <br>
+
+  <!-- Data Annotation Attributes -->
+  <span style="font-size: 2rem;" class="pb-0">Data Annotation Attributes
+  </span>
+  <div class="border-b1"></div>
+  <p>Data Annotations is a simple attribute based configuration method where different .NET attributes can be applied to
+    domain classes and properties to Configure the model</p>
+  <p>Data annotation attributes are not dedicated to Entity Framework, as they are also used in ASP.NET MVC. This is why
+    these attributes are included in separate namespace System.ComponentModel.DataAnnotations</p>
+  <p>The following example demonstrates how the data annotations can be applied to domain class and properties to
+    override conventions</p>
+  <pre>
+      {{text1}}
+    </pre>
+  <br>
+
+  <!-- Fluent API -->
+  <span style="font-size: 2rem;" class="pb-0">Fluent API
+  </span>
+  <div class="border-b1"></div>
+  <p>Another way to configure domain classes is by using Entity Framework Fluent API. EF Fluent API is based on a Fluent
+    API design pattern where the result is formulated by method channing</p>
+  <br>
+</div>

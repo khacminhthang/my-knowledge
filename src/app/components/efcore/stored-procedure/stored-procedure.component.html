@@ -1,0 +1,23 @@
+<div>
+  <h1 style="font-size: 3rem;">Working with Stored Procedure in Entity Framework Core</h1>
+  <br>
+  <p>Here, you will learn how to execute the database stored procedure in Entity Framework Core.
+  </p>
+  <p>EF Core provides the following methods to execute a stored procedure:</p>
+  <p>1. DbSet TEntity>.FromSql()</p>
+  <p>2. DbContext.Database.ExecuteSqlCommand()</p>
+  <pre>
+    {{text1}}
+  </pre>
+  <p>There are some limitations on the execution of database stored procedures using FromSql or ExecuteSqlCommand
+    methods in EF Core2:
+  </p>
+  <p>1. Result must be an entity type. This means that a stored procedure must return all the columns of the
+    corresponding table of an entity.</p>
+  <p>2. Result cannot contain related data. This means that a stored procedure cannot perform JOINs to formulate the
+    result.
+  </p>
+  <p>3. Insert, Update and Delete procedures cannot be mapped with the entity, so the SaveChanges method cannot call
+    stored procedures for CUD operations.</p>
+  <br>
+</div>
