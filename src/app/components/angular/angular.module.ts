@@ -44,6 +44,7 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { ReactiveForm2Component } from './reactive-form2/reactive-form2.component';
 import { AsyncValidatorComponent } from './async-validator/async-validator.component';
 import { DynamicComponentComponent } from './dynamic-component/dynamic-component.component';
+import { ShareModule } from '../share/share.module';
 
 @NgModule({
   declarations: [
@@ -97,7 +98,8 @@ import { DynamicComponentComponent } from './dynamic-component/dynamic-component
     FormsModule,
     HttpClientModule,
     MatNativeDateModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ShareModule
   ]
 })
 export class AngularModule { }

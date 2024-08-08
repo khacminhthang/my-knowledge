@@ -1,0 +1,9 @@
+<div class="image-zoom-container" (click)="toggleZoom()">
+  <img [src]="imageUrl" [ngClass]="{ 'zoomed': isZoomed }" [alt]="alt" />
+</div>
+
+<div class="overlay" *ngIf="isZoomed" (click)="toggleZoom()">
+  <div class="zoomed-container">
+    <img [src]="imageUrl" class="zoomed-image" [alt]="alt" />
+  </div>
+</div>

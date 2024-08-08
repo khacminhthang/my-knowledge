@@ -542,5 +542,10 @@ export const menuMessageBroker = [
     "text": "RabbitMQ",
     "icon": "inventory_2",
     "routerLink": "rabbitmq"
+  },
+  {
+    "text": "Apache Kafka",
+    "icon": "inventory_2",
+    "routerLink": "kafka"
   }
 ];

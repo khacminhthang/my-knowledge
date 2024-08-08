@@ -1,12 +1,12 @@
 <div class="mt-4">
-    <span style="font-size: 2rem;" class="pb-0">Message broker là gì</span>
+    <span class="title pb-0">Message broker là gì</span>
     <div class="border-b1"></div>
     <p><strong>Message broker </strong>là một ứng dụng phần mềm đóng vai trò là trung gian trong việc truyền đạt thông
         điệp giữa các ứng dụng, hệ thống, hoặc thành phần.
         Nó cho phép các ứng dụng gửi và nhận thông điệp mà không cần biết về sự tồn tại lẫn nhau,
         từ đó giảm thiểu sự phụ thuộc và tăng cường khả năng mở rộng và linh hoạt của hệ thống.</p>
     <br>
-    <span style="font-size: 2rem;" class="pb-0">Các loại mô hình Message broker</span>
+    <span class="title pb-0">Các loại mô hình Message broker</span>
     <div class="border-b1"></div>
     <p>Có nhiều loại mô hình <strong>Message Broker</strong>, mỗi loại phục vụ cho các mục đích giao tiếp khác nhau.</p>
     <p>Dưới đây là 3 mô hình Message broker phổ biến:</p>
@@ -16,7 +16,7 @@
     <br>
     <strong>1. Mô hình Point-to-Point (P2P)</strong>
     <div class="d-flex justify-content-center">
-        <img class="my-4 h-50 w-50" src="assets/mesage-broker/p2p.webp" alt="P2P">
+        <app-image-zoom [imageUrl]="'assets/mesage-broker/p2p.webp'" [alt]="'P2P'"></app-image-zoom>
     </div>
     <p>Buổi sáng, tôi đặt gửi một món hàng cho bạn A từ Hà Nội tới Sài Gòn trên ứng dụng của Giao hàng nhanh (GHN).
         Buổi chiều, shipper của GHN tới nhà tôi để lấy món hàng và đưa tôi một mã giao hàng.
@@ -32,7 +32,7 @@
     <br>
     <strong>2. Mô hình Publish/Subscribe (Pub/Sub)</strong>
     <div class="d-flex justify-content-center">
-        <img class="my-4 h-50 w-50" src="assets/mesage-broker/pub-sub.webp" alt="Pub/Sub">
+        <app-image-zoom [imageUrl]="'assets/mesage-broker/pub-sub.webp'" [alt]="'Pub/Sub'"></app-image-zoom>
     </div>
     <p>Khi tôi tham gia lớp học online của trên Google Meet, mỗi lần tôi vào link trong thời điểm khoá học diễn
         ra, tôi sẽ nghe được giảng viên và học viên nói chuyện. Nếu tôi bị mất mạng hoặc tắt meet thì tôi sẽ không thể
@@ -60,7 +60,7 @@
     <p>Vì những ưu điểm trên nên mô hình Hybrid được tận dụng trong các công nghệ nổi tiếng như ActiveMQ và Kafka.</p>
 
     <br>
-    <span style="font-size: 2rem;" class="pb-0">Ưu điểm của message broker</span>
+    <span class="title pb-0">Ưu điểm của message broker</span>
     <div class="border-b1"></div>
     <p><strong>Giảm sự phụ thuộc</strong>: Message broker giúp tách biệt giữa người gửi và người nhận, giảm sự phụ thuộc
         trực tiếp giữa
@@ -74,7 +74,7 @@
     <br>
 
     <br>
-    <span style="font-size: 2rem;" class="pb-0">Nhược điểm của message broker</span>
+    <span class="title pb-0">Nhược điểm của message broker</span>
     <div class="border-b1"></div>
     <p><strong>Tăng độ trễ</strong>: Do có một trung gian, thời gian để thông điệp được chuyển từ nguồn đến đích có thể
         lâu hơn so với giao tiếp trực tiếp. Điều này có thể không phù hợp với các ứng dụng cần xử lý thời gian thực hoặc
@@ -90,7 +90,7 @@
     <br>
 
     <br>
-    <span style="font-size: 2rem;" class="pb-0">Sử dụng Message broker trong thực tế</span>
+    <span class="title pb-0">Sử dụng Message broker trong thực tế</span>
     <div class="border-b1"></div>
     <p><strong>RabbitMQ</strong>: Một message broker mã nguồn mở rất phổ biến, hỗ trợ nhiều giao thức giao tiếp.</p>
     <p><strong>Apache Kafka</strong>: Được thiết kế cho việc xử lý dữ liệu dòng với khả năng mở rộng và độ tin cậy cao.

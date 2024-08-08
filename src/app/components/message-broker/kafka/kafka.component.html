@@ -1,0 +1,60 @@
+<div class="mt-4">
+    <span class="title pb-0">1. Kafka là gì?</span>
+    <div class="border-b1"></div>
+    <p>Apache Kafka là một nền tảng phân phối sự kiện phân tán mã nguồn mở được phát triển bởi Apache Software
+        Foundation và được viết bằng Java và Scala.</p>
+    <p>Kafka được tạo ra để giải quyết những thách thức trong việc xử lý lượng dữ liệu khổng lồ trong thời gian thực
+        (real-time), cho phép các ứng dụng xuất bản (publish), đăng ký (subscribe), lưu trữ (store) và xử lý (process)
+        các luồng bản ghi (streaming event) một cách hiệu quả.</p>
+    <br>
+    <span class="title pb-0">2. Apache Kafka hoạt động như thế nào? Các thành phần
+        chính trong Apache
+        Kafka</span>
+    <div class="border-b1"></div>
+    <div class="d-flex justify-content-center">
+        <app-image-zoom [imageUrl]="'assets/mesage-broker/Apache-Kafka-Architecture.webp'"
+            [alt]="'Kiến trúc của Kafka'"></app-image-zoom>
+    </div>
+    <br>
+    <strong>2.1 Kafka Events</strong>
+    <p>Một Kafka event (sự kiện) ghi lại thực tế rằng "điều gì đó đã xảy ra" trên thế giới hoặc trong doanh nghiệp của
+        bạn. Nó còn được gọi là record (bản ghi) hoặc message (thông điệp). Trong nhiều tài liệu về Kafka, việc sử dụng
+        3 thuật ngữ event, record và message mang nghĩa tương đương nhau.</p>
+    <p>Việc đọc và ghi dữ liệu trong Kafka thực hiện thông qua event. Mỗi event chứa một key (khoá), value (giá trị) và
+        metadata (nếu có).</p>
+    <p>Ví dụ về một event chứa key, value và metadata (timestamp):</p>
+    <code>{{text1}}</code>
+    <strong>2.2 Kafka Topics</strong>
+    <p>Các event được tổ chức và lưu trữ lâu dài trong các topics (chủ đề). Có thể coi một topic ví như một thư mục
+        (folder) trong hệ thống tập tin (filesystem), còn mỗi event là một tập tin (file) nằm bên trong thư mục đó.</p>
+    <p>Hình dưới cho thấy một topic có 4 partitions, với phần ghi được thêm vào cuối mỗi partition. Kafka cung cấp khả
+        năng dự phòng (redundancy) và khả năng mở rộng (scalability) thông qua các partitions. Mỗi partition có thể được
+        lưu trữ trên một máy chủ khác nhau, điều đó có nghĩa là một topic có thể được mở rộng theo chiều ngang trên
+        nhiều máy chủ để cung cấp hiệu suất vượt xa khả năng của một máy chủ.
+    </p>
+    <div class="d-flex justify-content-center">
+        <app-image-zoom [imageUrl]="'assets/mesage-broker/kafka_partitions.webp'"
+            [alt]="'Môt topic chứa 4 partition'"></app-image-zoom>
+    </div>
+    <strong>2.3 Kafka Brokers và Kafka Clusters</strong>
+    <p>Kafka được chạy dưới dạng một Kafka cluster gồm một hoặc nhiều Kafka server có thể mở rộng trên nhiều data center
+        hoặc cloud. Một Kafka server này tạo thành lớp lưu trữ, được gọi là Kafka broker.</p>
+    <p>Brokers chịu trách nhiệm quản lý bộ lưu trữ, xử lý các yêu cầu đọc và ghi cũng như sao chép dữ liệu trên toàn
+        cluster (cụm).</p>
+    <p>Trong mỗi cluster sẽ có một broker sẽ hoạt động như một cluster controller (bộ điều khiển cụm), chịu trách nhiệm
+        chỉ định phân vùng cho brokers và theo dõi lỗi của brokers.</p>
+    <strong>2.4 Kafka Partitions và Kafka Replication</strong>
+    <p>Các topic được chia thành các partitions (phân vùng), là đơn vị cơ bản của tính song song và phân phối trong
+        Kafka. Mỗi phân vùng được lưu trữ trên một broker duy nhất và nhiều phân vùng cho phép mở rộng quy mô theo chiều
+        ngang và cải thiện hiệu suất.</p>
+    <p>Mỗi event trong một partition được gán một offset duy nhất, bắt đầu từ 0 cho event đầu tiên trong partition và
+        tăng dần một cho mỗi event tiếp theo. Offset được sử dụng để xác định vị trí của event trong một partition.</p>
+    <p>Kafka đảm bảo độ bền của dữ liệu bằng cách sao chép dữ liệu (replication) trên nhiều brokers. Mỗi partition có
+        thể có một hoặc nhiều replica (bản sao) trên các brokers khác nhau, ngăn ngừa mất dữ liệu trong trường hợp
+        broker lỗi.</p>
+    <div class="d-flex justify-content-center">
+        <app-image-zoom [imageUrl]="'assets/mesage-broker/relication-partitition-kafka.webp'"
+            [alt]="'Sao chép dữ liệu partitions trong một cluster'"></app-image-zoom>
+    </div>
+    <br>
+</div>

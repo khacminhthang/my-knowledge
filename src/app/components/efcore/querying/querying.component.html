@@ -7,7 +7,7 @@
   <br>
 
   <!-- C#/VB.NET Functions in Queries  -->
-  <span style="font-size: 2rem;" class="pb-0">C#/VB.NET Functions in Queries</span>
+  <span  class="title pb-0">C#/VB.NET Functions in Queries</span>
   <div class="border-b1"></div>
   <p>EF Core has a new feature in LINQ-to-Entities where we can include C# or VB.NET functions in the query. This was
     not possible in EF 6.</p>
@@ -23,7 +23,7 @@
 
   <!-- Eager Loading
   -->
-  <span style="font-size: 2rem;" class="pb-0">Eager Loading
+  <span  class="title pb-0">Eager Loading
   </span>
   <div class="border-b1"></div>
   <p>Entity Framework Core supports eager loading of related entities, same as EF 6, using the Include() extension
@@ -32,7 +32,7 @@
 
   <!-- Include
   -->
-  <span style="font-size: 2rem;" class="pb-0">Include
+  <span  class="title pb-0">Include
   </span>
   <div class="border-b1"></div>
   <p>Unlike EF 6, we can spectify a lambda expression as a parameter in the Include() method to specify a navigation
@@ -62,7 +62,7 @@
     context.Students.Find(1).Include() is not possible in EF Core 2.0. This may be possible in future versions.</p>
 
   <!-- Multiple Include -->
-  <span style="font-size: 2rem;" class="pb-0">Multiple Include
+  <span  class="title pb-0">Multiple Include
   </span>
   <div class="border-b1"></div>
   <p>Use the Include() method multiple times to load multiple navigation properties of the same entity. For example, the
@@ -76,7 +76,7 @@
   </pre>
 
   <!-- ThenInclude -->
-  <span style="font-size: 2rem;" class="pb-0">ThenInclude
+  <span  class="title pb-0">ThenInclude
   </span>
   <div class="border-b1"></div>
   <p>EF Core introduced the new ThenInclude() extension method to load multiple levels of related entities. Consider the
@@ -94,7 +94,7 @@
   </pre>
 
   <!-- Projection Query -->
-  <span style="font-size: 2rem;" class="pb-0">Projection Query
+  <span  class="title pb-0">Projection Query
   </span>
   <div class="border-b1"></div>
   <p>We can also load multiple related entities by using the projection query instead of Include() or ThenInclude()

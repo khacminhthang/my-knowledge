@@ -31,7 +31,7 @@ const routes: Routes = [
     path: 'message-broker',
     loadChildren: () =>
       import("src/app/components/message-broker/message-broker.module").then((m) => m.MessageBrokerModule),
-  }
+  },
 ]
 
 @NgModule({

@@ -12,13 +12,13 @@
   <br>
 
   <!-- Schema  -->
-  <span style="font-size: 2rem;" class="pb-0">Schema</span>
+  <span  class="title pb-0">Schema</span>
   <div class="border-b1"></div>
   <p>EF Core will create all the database objects in the dbo schema by default</p>
   <br>
 
   <!-- Table -->
-  <span style="font-size: 2rem;" class="pb-0">Table
+  <span  class="title pb-0">Table
   </span>
   <div class="border-b1"></div>
   <p>EF Core will create database tables for all DbSet TEntity> properties in a context class with the same name as the
@@ -31,7 +31,7 @@
   <br>
 
   <!-- Column -->
-  <span style="font-size: 2rem;" class="pb-0">Column
+  <span  class="title pb-0">Column
   </span>
   <div class="border-b1"></div>
   <p>EF Core will create columns for all the scalar properties of an entity class with the same as the property, by
@@ -39,7 +39,7 @@
     database</p>
 
   <!-- Column Data Type -->
-  <span style="font-size: 2rem;" class="pb-0">Column Data Type
+  <span  class="title pb-0">Column Data Type
   </span>
   <div class="border-b1"></div>
   <p>The data type for columns in the database table is depending on how the provider for the database has mapped C#
@@ -111,7 +111,7 @@
   </table>
 
   <!-- Nullable Column -->
-  <span style="font-size: 2rem;" class="pb-0">Nullable Column
+  <span  class="title pb-0">Nullable Column
   </span>
   <div class="border-b1"></div>
   <p>EF Core creates null columns for all reference data type and nullable primitive type properties e.g.string,
@@ -119,7 +119,7 @@
   </p>
 
   <!-- NotNull Column -->
-  <span style="font-size: 2rem;" class="pb-0">NotNull Column
+  <span  class="title pb-0">NotNull Column
   </span>
   <div class="border-b1"></div>
   <p>EF Core creates NotNull columns in the database for all primary key properties, and primitive type properties e.g.
@@ -127,7 +127,7 @@
   </p>
 
   <!-- Primary Key -->
-  <span style="font-size: 2rem;" class="pb-0">Primary Key
+  <span  class="title pb-0">Primary Key
   </span>
   <div class="border-b1"></div>
   <p>EF Core will create the primary key column for the property named Id or Entity Class Name Id (case insensitive).
@@ -136,7 +136,7 @@
   </p>
 
   <!-- Foreign Key   -->
-  <span style="font-size: 2rem;" class="pb-0">Foreign Key
+  <span  class="title pb-0">Foreign Key
   </span>
   <div class="border-b1"></div>
   <p>As per the foreign key convention, EF Core API will create a foreign key column for each reference navigation
@@ -146,7 +146,7 @@
     as depicted in the following figure.</p>
 
   <!-- Index   -->
-  <span style="font-size: 2rem;" class="pb-0">Index
+  <span  class="title pb-0">Index
   </span>
   <div class="border-b1"></div>
   <p>EF Core creates a clustered index on Primarykey columns and a non-clustered index on ForeignKey columns, by default.

@@ -24,7 +24,7 @@
   <br>
 
   <!-- Unchanged State -->
-  <span style="font-size: 2rem;" class="pb-0">Unchanged State
+  <span  class="title pb-0">Unchanged State
   </span>
   <div class="border-b1"></div>
   <p>First, all the entities retrieved using direct SQL query or LINQ-to-Entities queries will have the Unchanged state
@@ -36,7 +36,7 @@
   <br>
 
   <!-- Added State -->
-  <span style="font-size: 2rem;" class="pb-0">Added State
+  <span  class="title pb-0">Added State
   </span>
   <div class="border-b1"></div>
   <p>All the new entities without key property value, added in the DbContext using the Add() or Update() method will be
@@ -49,7 +49,7 @@
   <br>
 
   <!-- Modified State -->
-  <span style="font-size: 2rem;" class="pb-0">Modified State
+  <span  class="title pb-0">Modified State
   </span>
   <div class="border-b1"></div>
   <p>If the value of any property of an entity is changed in the scope of the DbContext, then it will be marked as
@@ -62,7 +62,7 @@
   <br>
 
   <!-- Deleted State -->
-  <span style="font-size: 2rem;" class="pb-0">Deleted State
+  <span  class="title pb-0">Deleted State
   </span>
   <div class="border-b1"></div>
   <p>If any entity is removed from the DbContext using the DbContext.Remove or DbSet.Remove method, then it will be
@@ -75,7 +75,7 @@
   <br>
 
   <!-- Detached State -->
-  <span style="font-size: 2rem;" class="pb-0">Detached State
+  <span  class="title pb-0">Detached State
   </span>
   <div class="border-b1"></div>
   <p>All the entities which were created or retrieved out of the scope of the current DbContext instance, will have the

@@ -3,7 +3,7 @@
   <br>
 
   <!-- Observable Execution -->
-  <span style="font-size: 2rem;" class="pb-0">Observable Execution</span>
+  <span class="title pb-0">Observable Execution</span>
   <div class="border-b1"></div>
   <br>
   <p>Như chúng ta đã biết, đối với các Observable thông thường, mỗi khi thực hiện subscribe sẽ sinh ra một execution
@@ -22,7 +22,7 @@
   <p>Câu hỏi đặt ra là có cách nào để bất cứ khi nào có một observer mới nào subscribe vào thì chúng sẽ share cùng một
     execution không?</p>
   <p>Hãy xem xét lại một chút về RxJS, nó có apply một design pattern có tên là Observer Pattern.</p>
-  <img src="assets/observer-pattern.png" style="height: 413px; width: 1000px;">
+  <app-image-zoom [imageUrl]="'assets/observer-pattern.png'"></app-image-zoom>
   <br>
   <br>
   <p>Bây giờ thay vì subscribe riêng lẻ như ở các ví dụ trên, chúng ta hãy thêm một hybrid observer như sau:</p>
@@ -60,7 +60,7 @@
   <br>
 
   <!-- Subject -->
-  <span style="font-size: 2rem;" class="pb-0">Subject</span>
+  <span class="title pb-0">Subject</span>
   <div class="border-b1"></div>
   <br>
   <p>Do Subject vừa là một Observable (chúng ta có thể subscribe vào nó), vừa là một Observer (có các method để chúng ta
@@ -77,7 +77,7 @@
 
 
   <!-- BehaviorSubject -->
-  <span style="font-size: 2rem;" class="pb-0">BehaviorSubject</span>
+  <span class="title pb-0">BehaviorSubject</span>
   <div class="border-b1"></div>
   <br>
   <p>Một trong những vấn đề khi làm việc với Subject đó là tình huống late subscriber sẽ không nhận được các value đã
@@ -105,7 +105,7 @@
   <br>
 
   <!-- ReplaySubject -->
-  <span style="font-size: 2rem;" class="pb-0">ReplaySubject</span>
+  <span class="title pb-0">ReplaySubject</span>
   <div class="border-b1"></div>
   <br>
   <p>Một ReplaySubject tương tự như một BehaviorSubject khi nó có thể gửi những dữ liệu trước đó cho Observer mới
@@ -133,7 +133,7 @@
   <br>
 
   <!-- AsyncSubject -->
-  <span style="font-size: 2rem;" class="pb-0">AsyncSubject</span>
+  <span class="title pb-0">AsyncSubject</span>
   <div class="border-b1"></div>
   <br>
   <p>Đây là biến thể mà chỉ emit giá trị cuối cùng của Observable execution cho các observers, và chỉ khi execution
@@ -150,7 +150,7 @@
   <br>
 
   <!-- Subject Completion -->
-  <span style="font-size: 2rem;" class="pb-0">Subject Completion</span>
+  <span class="title pb-0">Subject Completion</span>
   <div class="border-b1"></div>
   <br>
   <p>Khi BehaviorSubject complete, thì các Observers subscribe vào sau đó sẽ chỉ nhận được complete signal.
@@ -173,7 +173,7 @@
   <br>
 
   <!-- Multicasting -->
-  <span style="font-size: 2rem;" class="pb-0">Multicasting</span>
+  <span class="title pb-0">Multicasting</span>
   <div class="border-b1"></div>
   <br>
   <p>Quay trở lại vấn đề ban đầu khi chúng ta mong muốn multicast. Chúng ta mong muốn cả hai observer đều chạy cùng một

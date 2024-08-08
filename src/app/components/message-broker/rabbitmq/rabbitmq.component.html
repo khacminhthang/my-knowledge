@@ -1,5 +1,5 @@
 <div class="mt-4">
-    <span style="font-size: 2rem;" class="pb-0">RabbitMQ là gì?</span>
+    <span class="title pb-0">RabbitMQ là gì?</span>
     <div class="border-b1"></div>
     <p><strong>RabbitMQ</strong> là một <strong>message broker</strong> (nhà môi giới tin nhắn) mã nguồn mở viết bằng
         Erlang.</p>
@@ -14,7 +14,8 @@
     <br>
     <strong>RabbitMQ hoạt động như nào?</strong>
     <div class="d-flex justify-content-center">
-        <img class="my-4 h-50 w-50" src="assets/mesage-broker/rabbitmq1.webp" alt="Luồng message trong RabbitMQ">
+        <app-image-zoom [imageUrl]="'assets/mesage-broker/rabbitmq1.webp'"
+            [alt]="'Luồng message trong RabbitMQ'"></app-image-zoom>
     </div>
     <p>Luồng message trong RabbitMQ hoạt động như sau:</p>
     <p>1. Producer gửi một message tới một exchange. Exchange phải được chỉ định type khi được tạo.</p>
@@ -96,8 +97,8 @@
     <p>Trong RabbitMQ, exchange (sàn giao dịch) đóng vai trò như một bộ định tuyến message. Khi producer gửi message tới
         RabbitMQ, message sẽ được gửi tới exchange. Sau đó, exchange sẽ định tuyến message đến queue thích hợp.</p>
     <div class="d-flex justify-content-center">
-        <img class="my-4 h-50 w-50" src="assets/mesage-broker/rabbitmq-exchange.webp"
-            alt="Các loại RabbitMQ exchange phổ biến">
+        <app-image-zoom [imageUrl]="'assets/mesage-broker/rabbitmq-exchange.webp'"
+            [alt]="'Các loại RabbitMQ exchange phổ biến'"></app-image-zoom>
     </div>
     <p>RabbitMQ có 5 loại exchange khác nhau dùng để định tuyến message. Mỗi loại exchange sẽ có cách sử dụng tham số và
         thiết lập binding khác nhau. Client có thể tự tạo exchange hoặc sử dụng exchange mặc định khi server khởi tạo.
@@ -107,7 +108,8 @@
         với routing key của queue, message sẽ được chuyển đến queue đó. Ngược lại, nếu routing key của message không
         khớp với bất kỳ routing key của queue nào, message sẽ bị loại bỏ.</p>
     <div class="d-flex justify-content-center">
-        <img class="my-4 h-50 w-50" src="assets/mesage-broker/direct-exchange.webp" alt="Direct exchange">
+        <app-image-zoom [imageUrl]="'assets/mesage-broker/direct-exchange.webp'"
+            [alt]="'Direct exchange'"></app-image-zoom>
     </div>
     <p>Ở hình trên, chúng ta có</p>
     <p>Exchange: pdf_events</p>
@@ -125,7 +127,8 @@
     <p>Trong fanout exchange, message được định tuyến đến tất cả các queue được liên kết với nó, bất kể chúng có routing
         key như nào.</p>
     <div class="d-flex justify-content-center">
-        <img class="my-4 h-50 w-50" src="assets/mesage-broker/fanout-exchange.webp" alt="Fanout exchange">
+        <app-image-zoom [imageUrl]="'assets/mesage-broker/fanout-exchange.webp'"
+            [alt]="'Fanout exchange'"></app-image-zoom>
     </div>
     <p>Ở hình trên, chúng ta có</p>
     <p>Exchange: sport news</p>
@@ -139,7 +142,8 @@
     <p>Trong topic exchange, message được định tuyến đến queue dựa trên topic, cho phép sử dụng regular expression
         pattern trong routing key như * để đại diện cho một ký tự và # đại diện cho không hoặc nhiều ký tự.</p>
     <div class="d-flex justify-content-center">
-        <img class="my-4 h-50 w-50" src="assets/mesage-broker/topic-exchange.webp" alt="Topic exchange">
+        <app-image-zoom [imageUrl]="'assets/mesage-broker/topic-exchange.webp'"
+            [alt]="'Topic exchange'"></app-image-zoom>
     </div>
     <p>Ở hình trên, chúng ta có</p>
     <p>Exchange: aggreements</p>
@@ -155,7 +159,8 @@
     <strong>4.5 Header exchange</strong>
     <p>Trong header exchange, message được định tuyến dựa trên thuộc tính header của message thay vì routing key.</p>
     <div class="d-flex justify-content-center">
-        <img class="my-4 h-50 w-50" src="assets/mesage-broker/headers-exchange.webp" alt="Header exchange">
+        <app-image-zoom [imageUrl]="'assets/mesage-broker/headers-exchange.webp'"
+            [alt]="'Header exchange'"></app-image-zoom>
     </div>
     <p>Ở hình trên, chúng ta có</p>
     <p>Message 1: header có dạng key: value là format: pdf, type: report</p>
@@ -221,7 +226,7 @@
         người nhận.)</p>
     <p>2 - Manual: yêu cầu xác nhận của consumer</p>
     <br>
-    <span style="font-size: 2rem;" class="pb-0">Ưu điểm của RabbitMQ</span>
+    <span class="title pb-0">Ưu điểm của RabbitMQ</span>
     <div class="border-b1"></div>
     <strong>Open source (Mã nguồn mở)</strong>
     <p>RabbitMQ dược viết bằng mã nguồn mở nên các nhà phát triển và kỹ sư trong cộng đồng RabbitMQ có thể đóng góp cải
@@ -262,7 +267,7 @@
         nguyên. Ngoài ra, quyền truy cập cấu hình, đọc từ queues (hàng đợi) và ghi vào exchanges (sàn giao dịch) được
         quản lý bằng regex.</p>
     <br>
-    <span style="font-size: 2rem;" class="pb-0">Nhược điểm của RabbitMQ</span>
+    <span class="title pb-0">Nhược điểm của RabbitMQ</span>
     <div class="border-b1"></div>
     <strong>Learning curve (Đường cong học tập)</strong>
     <p>Việc thiết lập và định cấu hình RabbitMQ có thể phức tạp, đặc biệt đối với những người mới làm quen với khái niệm
@@ -278,14 +283,14 @@
     <p>Việc tuần tự hóa và giải tuần tự hóa các đối tượng phức tạp có thể tốn thời gian, ảnh hưởng đến hiệu suất tổng
         thể.</p>
     <br>
-    <span style="font-size: 2rem;" class="pb-0">Ứng dụng của RabbitMQ</span>
+    <span class="title pb-0">Ứng dụng của RabbitMQ</span>
     <div class="border-b1"></div>
     <strong>Real-time data streaming (Truyền dữ liệu thời gian thực)</strong>
     <p>Mạng quảng cáo trên thiết bị di động AdMob của Google sử dụng RabbitMQ trong dự án Rocksteady để phân tích số
         liệu theo thời gian thực, từ đó, phát hiện nguyên nhân gốc rễ của vấn đề rồi biến chúng thành các event gửi qua
         RabbitMQ tới hệ thống xử lý sự kiện Esper Complex Event Processing (CEP).</p>
     <div class="d-flex justify-content-center">
-        <img class="my-4 h-50 w-50" src="assets/mesage-broker/Rockesteady.webp" alt="Rocksteady">
+        <app-image-zoom [imageUrl]="'assets/mesage-broker/Rockesteady.webp'" [alt]="'Rocksteady'"></app-image-zoom>
     </div>
     <p>Dưới đây design (thiết kế) của dự án Rockesteady.</p>
     <p>1.Các metric (chỉ số) được gửi từ các host tới RabbitMQ</p>

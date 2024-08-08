@@ -9,6 +9,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { RouterModule } from '@angular/router';
 import { AspDotNetRoutingModule } from './aspdotnet-routing.module';
 import { RepositoryComponent } from './repository/repository.component';
+import { ShareModule } from '../share/share.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { RepositoryComponent } from './repository/repository.component';
     FormsModule,
     HttpClientModule,
     MatNativeDateModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ShareModule
   ]
 })
 export class AspdotnetModule { }

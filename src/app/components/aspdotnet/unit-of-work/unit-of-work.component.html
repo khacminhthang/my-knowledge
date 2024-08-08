@@ -13,7 +13,7 @@
     <br>
 
     <!-- Repository Pattern -->
-    <span style="font-size: 2rem;" class="pb-0">Repository Pattern</span>
+    <span class="title pb-0">Repository Pattern</span>
     <div class="border-b1"></div>
     <br>
     <p>Một repository nó không là gì cả, nó chỉ là một class được định nghĩa cho một thực thể, với tất cả các hành động
@@ -31,7 +31,7 @@
     <br>
 
     <!-- Unit Of Work trong Repository Pattern -->
-    <span style="font-size: 2rem;" class="pb-0">Unit Of Work trong Repository Pattern</span>
+    <span class="title pb-0">Unit Of Work trong Repository Pattern</span>
     <div class="border-b1"></div>
     <br>
     <p>Unit Of Work được sử dụng để đảm bảo nhiều hành động như insert, update, delete...được thực thi trong cùng một
@@ -56,7 +56,7 @@
         liệu cho Order và Customer trong một transaction duy nhất, cả hai sẽ sử dụng cùng 1 thể hiện của DbContext.
         Trường hợp nếu không dùng và có dùng Unit Of Work có thể được trình bày như sau:</p>
     <br>
-    <img src="assets/Repository-Pattern1.jpg" style="height: 413px; width: 600px;">
+    <app-image-zoom [imageUrl]="'assets/Repository-Pattern1.jpg'" [alt]="''"></app-image-zoom>
     <p>Trong trình bày hình ảnh trên, trong khi một hành động xảy ra, cả Customer và Order đều sử dụng chung một đối
         tượng của lớp DbContext. Điều này sẽ đảm bảo ngay cả khi một trong hai bị lỗi, cái kia sẽ không được lưu lại, vì
         thế database sẽ toàn vẹn. Khi SaveChange() được thực thi, nó sẽ thành công khi cả 2 hành động trên 2 Repository
