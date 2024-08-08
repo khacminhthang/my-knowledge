@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { menuAngular, menuCSharp, menuDotNetCore, menuEFCore } from 'src/assets/menu';
+import { menuAngular, menuCSharp, menuDotNetCore, menuEFCore, menuMessageBroker } from 'src/assets/menu';
 
 @Component({
   selector: 'app-main-shell',
@@ -37,6 +37,11 @@ export class MainShellComponent implements OnInit {
         case 'efcore':
           {
             this.menuList = menuEFCore;
+            break;
+          }
+        case 'message-broker':
+          {
+            this.menuList = menuMessageBroker;
             break;
           }
         default:

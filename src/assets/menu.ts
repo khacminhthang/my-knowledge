@@ -531,3 +531,16 @@ export const menuCSharp = [
     ]
   }
 ];
+
+export const menuMessageBroker = [
+  {
+    "text": "Overview",
+    "icon": "inventory_2",
+    "routerLink": "overview"
+  },
+  {
+    "text": "RabbitMQ",
+    "icon": "inventory_2",
+    "routerLink": "rabbitmq"
+  }
+];

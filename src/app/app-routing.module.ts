@@ -26,6 +26,11 @@ const routes: Routes = [
     path: 'efcore',
     loadChildren: () =>
       import("src/app/components/efcore/efcore.module").then((m) => m.EFCoreModule),
+  },
+  {
+    path: 'message-broker',
+    loadChildren: () =>
+      import("src/app/components/message-broker/message-broker.module").then((m) => m.MessageBrokerModule),
   }
 ]
 
