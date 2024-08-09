@@ -12,11 +12,11 @@ export class MainShellComponent implements OnInit {
   menuList: any;
 
   constructor(
-    private route: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
   ) { }
 
   ngOnInit() {
-    this.route.params.subscribe((param) => {
+    this.activatedRoute.params.subscribe((param) => {
       let pathname = window.location.pathname.split('/')[1];
       switch (pathname) {
         case 'angular':
@@ -52,5 +52,4 @@ export class MainShellComponent implements OnInit {
       }
     })
   }
-
 }

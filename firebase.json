@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist",
+    "public": "dist/dynamic-nested-sidemwnu",
     "ignore": [
       "firebase.json",
       "**/.*",

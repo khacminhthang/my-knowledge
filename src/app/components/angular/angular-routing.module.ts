@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainShellComponent } from 'src/app/layout/fragments/main-shell/main-shell.component';
-import { HomeComponent } from '../home/home.component';
 import { AsyncValidatorComponent } from './async-validator/async-validator.component';
 import { AttributeDirectiveComponent } from './attribute-directive/attribute-directive.component';
 import { ComponentInteractionP2Component } from './component-interaction-p2/component-interaction-p2.component';

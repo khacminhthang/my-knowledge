@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-side-navbar',
@@ -7,10 +8,26 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class SideNavbarComponent implements OnInit {
 
+  currentUrl: string;
+
   @Input() menuList: any;
 
-  constructor() { }
+  constructor(private router: Router) {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.currentUrl = event.urlAfterRedirects;
+      }
+    });
+  }
 
   ngOnInit() {
+    this.currentUrl = this.router.url;
+  }
+
+  isExpanded(menu: any): boolean {
+    if (menu.children) {
+      return menu.children.some((submenu: { routerLink: string; }) => this.currentUrl.includes(submenu.routerLink));
+    }
+    return false;
   }
 }
