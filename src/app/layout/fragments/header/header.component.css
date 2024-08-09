@@ -5,6 +5,7 @@
     padding: 10px 20px;
     background-color: #3f51b5;
     color: white;
+    position: relative;
 }
 
 .nav ul {
@@ -34,7 +35,7 @@
     display: flex;
 }
 
-/* @media (max-width: 768px) {
+@media (max-width: 768px) {
     .nav {
         display: none;
     }
@@ -42,9 +43,19 @@
     .mobile-menu {
         display: none;
     }
-} */
+
+    .dropdown-menu{
+        display: block;
+        color: #fff;
+        background-color: #3f51b5;
+    }
+    h1.sidebar-app-name {
+        margin-left     : 8px;
+        width           : 185px;   
+      }
+}
 
 .dropdown-item:hover {
-    background-color: #007bff;
+    background-color: #3f51b5;
     color: white;
   }

@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ActivationStart, NavigationEnd, Router } from '@angular/router';
-import { filter, startWith } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
