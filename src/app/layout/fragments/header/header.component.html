@@ -1,5 +1,5 @@
 <header class="header">
-  <div class="d-flex align-items-center hamburger-menu" (click)="toggleMenu()">
+  <div class="nav-icon d-flex align-items-center hamburger-menu" (click)="toggleMenu()">
     <mat-icon>menu</mat-icon>
     <h1 class="sidebar-app-name">Side</h1>
   </div>
@@ -26,10 +26,10 @@
     Select an option
   </button>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <li><span style="cursor: pointer;" routerLink="/angular">Angular</span></li>
-    <li><span style="cursor: pointer;" routerLink="/csharp">C#</span></li>
-    <li><span style="cursor: pointer;" routerLink="/dotnetcore">ASP.NetCore</span></li>
-    <li><span style="cursor: pointer;" routerLink="/efcore">EFCore</span></li>
-    <li><span style="cursor: pointer;" routerLink="/message-broker">Message Broker</span></li>
+    <li style="cursor: pointer;" routerLink="/angular/data-binding"><span>Angular</span></li>
+    <li style="cursor: pointer;" routerLink="/csharp/overview"><span>C#</span></li>
+    <li style="cursor: pointer;" routerLink="/dotnetcore/repository"><span>ASP.NetCore</span></li>
+    <li style="cursor: pointer;" routerLink="/efcore/intro"><span>EFCore</span></li>
+    <li style="cursor: pointer;" routerLink="/message-broker/overview"><span>Message Broker</span></li>
   </ul>
 </div>
