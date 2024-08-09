@@ -10,11 +10,13 @@ import { RouterModule } from '@angular/router';
 import { AspDotNetRoutingModule } from './aspdotnet-routing.module';
 import { RepositoryComponent } from './repository/repository.component';
 import { ShareModule } from '../share/share.module';
+import { CqrsPatternComponent } from './cqrs-pattern/cqrs-pattern.component';
 
 @NgModule({
   declarations: [
     UnitOfWorkComponent,
-    RepositoryComponent
+    RepositoryComponent,
+    CqrsPatternComponent
   ],
   imports: [
     CommonModule,

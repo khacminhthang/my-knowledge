@@ -215,6 +215,11 @@ export const menuDotNetCore = [
         "icon": "all_inbox",
         "routerLink": "unit-of-work"
       },
+      {
+        "text": "CQRS pattern",
+        "icon": "all_inbox",
+        "routerLink": "cqrs-pattern"
+      },
     ]
   }
 ];

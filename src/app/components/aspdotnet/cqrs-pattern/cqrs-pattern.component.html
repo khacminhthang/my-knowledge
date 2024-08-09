@@ -1,0 +1,22 @@
+<div class="mt-4">
+	<span class="title pb-0">CQRS pattern</span>
+	<div class="border-b1"></div>
+	<p><strong>CQRS</strong> Command and Query Responsibility Segregation là một thiết kế(pattern) phân tách việc
+		đọc(read) và ghi(write) dữ liệu cho một kho dữ liệu.</p>
+	<p>Việc triển khai CQRS trong ứng dụng có thể tối đa hóa hiệu xuất, khả năng mở rộng và tỉnh bảo mật cho hệ thống.</p>
+	<strong>Vấn đề gặp phải?</strong>
+	<p>Trong kiến trúc truyền thống, một model sẽ được dùng chung để query và update một cơ sở dữ liệu. Điều này là đơn
+		giản và hoạt động tốt trong các hệ thống CRUD đơn giản. Tuy nhiên trong một số ứng dụng phức tạp hơn, các tiếp cận
+		này sẽ gặp phải một số vấn đề.</p>
+	<p>Ví dụ ở phía read, ứng dụng cần đáp ứng nhiều truy vấn khác nhau, trả về các đối tượng (dto) khác nhau và khác với
+		model. Việc ánh xạ các đối tượng có thể trở nên phức tạp</p>
+	<p>Về mặt write, model có thể phải thực thi các validation và bussiness logic phức tạp. Kết quả là có 1 model quá lớn,
+		xử lý quá nhiều mà không hẳn lúc nào cũng dùng tất cả những cấu hình đó.</p>
+	<p>Trong một vài ứng dụng, khối lượng công việc đọc và ghi có thể không đối xứng và có nhu cầu về hiệu năng và tính mở
+		rộng khác nhau.</p>
+	<div class="d-flex justify-content-center">
+		<app-image-zoom
+			[imageUrl]="'assets/design_pattern/command-and-query-responsibility-segregation-cqrs-tradition-crud.png'"
+			[alt]="''" [width]="'100%'"></app-image-zoom>
+	</div>
+</div>

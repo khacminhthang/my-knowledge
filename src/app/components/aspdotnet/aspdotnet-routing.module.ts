@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainShellComponent } from 'src/app/layout/fragments/main-shell/main-shell.component';
 import { RepositoryComponent } from './repository/repository.component';
 import { UnitOfWorkComponent } from './unit-of-work/unit-of-work.component';
+import { CqrsPatternComponent } from './cqrs-pattern/cqrs-pattern.component';
 
 const aspdotnetRoutes: Routes = [
   {
@@ -16,6 +17,10 @@ const aspdotnetRoutes: Routes = [
       {
         path: 'repository',
         component: RepositoryComponent
+      },
+      {
+        path: 'cqrs-pattern',
+        component: CqrsPatternComponent
       },
     ]
   }]
