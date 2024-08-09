@@ -14,8 +14,8 @@
     <br>
     <strong>RabbitMQ hoạt động như nào?</strong>
     <div class="d-flex justify-content-center">
-        <app-image-zoom [imageUrl]="'assets/mesage-broker/rabbitmq1.webp'"
-            [alt]="'Luồng message trong RabbitMQ'"></app-image-zoom>
+        <app-image-zoom [imageUrl]="'assets/mesage-broker/rabbitmq1.webp'" [alt]="'Luồng message trong RabbitMQ'"
+            [width]="'100%'"></app-image-zoom>
     </div>
     <p>Luồng message trong RabbitMQ hoạt động như sau:</p>
     <p>1. Producer gửi một message tới một exchange. Exchange phải được chỉ định type khi được tạo.</p>
@@ -108,8 +108,8 @@
         với routing key của queue, message sẽ được chuyển đến queue đó. Ngược lại, nếu routing key của message không
         khớp với bất kỳ routing key của queue nào, message sẽ bị loại bỏ.</p>
     <div class="d-flex justify-content-center">
-        <app-image-zoom [imageUrl]="'assets/mesage-broker/direct-exchange.webp'"
-            [alt]="'Direct exchange'"></app-image-zoom>
+        <app-image-zoom [imageUrl]="'assets/mesage-broker/direct-exchange.webp'" [alt]="'Direct exchange'"
+            [width]="'100%'"></app-image-zoom>
     </div>
     <p>Ở hình trên, chúng ta có</p>
     <p>Exchange: pdf_events</p>
@@ -127,8 +127,8 @@
     <p>Trong fanout exchange, message được định tuyến đến tất cả các queue được liên kết với nó, bất kể chúng có routing
         key như nào.</p>
     <div class="d-flex justify-content-center">
-        <app-image-zoom [imageUrl]="'assets/mesage-broker/fanout-exchange.webp'"
-            [alt]="'Fanout exchange'"></app-image-zoom>
+        <app-image-zoom [imageUrl]="'assets/mesage-broker/fanout-exchange.webp'" [alt]="'Fanout exchange'"
+            [width]="'100%'"></app-image-zoom>
     </div>
     <p>Ở hình trên, chúng ta có</p>
     <p>Exchange: sport news</p>
@@ -142,8 +142,8 @@
     <p>Trong topic exchange, message được định tuyến đến queue dựa trên topic, cho phép sử dụng regular expression
         pattern trong routing key như * để đại diện cho một ký tự và # đại diện cho không hoặc nhiều ký tự.</p>
     <div class="d-flex justify-content-center">
-        <app-image-zoom [imageUrl]="'assets/mesage-broker/topic-exchange.webp'"
-            [alt]="'Topic exchange'"></app-image-zoom>
+        <app-image-zoom [imageUrl]="'assets/mesage-broker/topic-exchange.webp'" [alt]="'Topic exchange'"
+            [width]="'100%'"></app-image-zoom>
     </div>
     <p>Ở hình trên, chúng ta có</p>
     <p>Exchange: aggreements</p>
@@ -159,8 +159,8 @@
     <strong>4.5 Header exchange</strong>
     <p>Trong header exchange, message được định tuyến dựa trên thuộc tính header của message thay vì routing key.</p>
     <div class="d-flex justify-content-center">
-        <app-image-zoom [imageUrl]="'assets/mesage-broker/headers-exchange.webp'"
-            [alt]="'Header exchange'"></app-image-zoom>
+        <app-image-zoom [imageUrl]="'assets/mesage-broker/headers-exchange.webp'" [alt]="'Header exchange'"
+            [width]="'100%'"></app-image-zoom>
     </div>
     <p>Ở hình trên, chúng ta có</p>
     <p>Message 1: header có dạng key: value là format: pdf, type: report</p>
@@ -290,7 +290,8 @@
         liệu theo thời gian thực, từ đó, phát hiện nguyên nhân gốc rễ của vấn đề rồi biến chúng thành các event gửi qua
         RabbitMQ tới hệ thống xử lý sự kiện Esper Complex Event Processing (CEP).</p>
     <div class="d-flex justify-content-center">
-        <app-image-zoom [imageUrl]="'assets/mesage-broker/Rockesteady.webp'" [alt]="'Rocksteady'"></app-image-zoom>
+        <app-image-zoom [imageUrl]="'assets/mesage-broker/Rockesteady.webp'" [alt]="'Rocksteady'"
+            [width]="'100%'"></app-image-zoom>
     </div>
     <p>Dưới đây design (thiết kế) của dự án Rockesteady.</p>
     <p>1.Các metric (chỉ số) được gửi từ các host tới RabbitMQ</p>

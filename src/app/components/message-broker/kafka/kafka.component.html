@@ -12,8 +12,8 @@
         Kafka</span>
     <div class="border-b1"></div>
     <div class="d-flex justify-content-center">
-        <app-image-zoom [imageUrl]="'assets/mesage-broker/Apache-Kafka-Architecture.webp'"
-            [alt]="'Kiến trúc của Kafka'"></app-image-zoom>
+        <app-image-zoom [imageUrl]="'assets/mesage-broker/Apache-Kafka-Architecture.webp'" [alt]="'Kiến trúc của Kafka'"
+            [width]="'100%'"></app-image-zoom>
     </div>
     <br>
     <strong>2.1 Kafka Events</strong>
@@ -24,6 +24,7 @@
         metadata (nếu có).</p>
     <p>Ví dụ về một event chứa key, value và metadata (timestamp):</p>
     <code>{{text1}}</code>
+    <br>
     <strong>2.2 Kafka Topics</strong>
     <p>Các event được tổ chức và lưu trữ lâu dài trong các topics (chủ đề). Có thể coi một topic ví như một thư mục
         (folder) trong hệ thống tập tin (filesystem), còn mỗi event là một tập tin (file) nằm bên trong thư mục đó.</p>
@@ -33,8 +34,8 @@
         nhiều máy chủ để cung cấp hiệu suất vượt xa khả năng của một máy chủ.
     </p>
     <div class="d-flex justify-content-center">
-        <app-image-zoom [imageUrl]="'assets/mesage-broker/kafka_partitions.webp'"
-            [alt]="'Môt topic chứa 4 partition'"></app-image-zoom>
+        <app-image-zoom [imageUrl]="'assets/mesage-broker/kafka_partitions.webp'" [alt]="'Môt topic chứa 4 partition'"
+            [width]="'100%'"></app-image-zoom>
     </div>
     <strong>2.3 Kafka Brokers và Kafka Clusters</strong>
     <p>Kafka được chạy dưới dạng một Kafka cluster gồm một hoặc nhiều Kafka server có thể mở rộng trên nhiều data center
@@ -54,7 +55,183 @@
         broker lỗi.</p>
     <div class="d-flex justify-content-center">
         <app-image-zoom [imageUrl]="'assets/mesage-broker/relication-partitition-kafka.webp'"
-            [alt]="'Sao chép dữ liệu partitions trong một cluster'"></app-image-zoom>
+            [alt]="'Sao chép dữ liệu partitions trong một cluster'" [width]="'100%'"></app-image-zoom>
+    </div>
+    <p>Mỗi partition có một broker được chỉ định làm leader, nắm quyền sở hữu partition đó, trong khi các brokers còn
+        lại lưu trữ các replicas (bản sao) của phân vùng đó được gọi là followers.</p>
+    <p>Nếu leader broker xảy ra lỗi, một trong những followers có dữ liệu cập nhật sẽ được chọn làm leader mới. Quá
+        trình này được gọi là leader failover (chuyển đổi dự phòng lãnh đạo), nhằm đảm bảo tính khả dụng của dữ liệu.
+    </p>
+    <strong>2.5 Kafka Producers</strong>
+    <p>Kafka Producer là một client appication (ứng dụng khách), publish (xuất bản) event vào một topic cụ thể trong
+        Kafka và luôn ghi vào leader broker. Theo mặc định, producers không quan tâm tới event được ghi ở partition nào
+        mà sẽ publish đều event trên tất cả partition của một topic. Trong vài trường hợp, một producer sẽ gửi trực tiếp
+        event tới các partition cụ thể.</p>
+    <p>Producers kết nối tới Kafka Brokers thông qua giao thức mạng TCP. Đây là kết nối hai chiều (bi-directional
+        connection).</p>
+    <p>Hình vẽ dưới đây mô tả tổng quan về các thành phần trong Kafka producers.</p>
+    <div class="d-flex justify-content-center">
+        <app-image-zoom [imageUrl]="'assets/mesage-broker/kafka_producer.webp'"
+            [alt]="'Tổng quan về các thành phần trong Kafka producers'" [width]="'100%'"></app-image-zoom>
+    </div>
+    <p>Quá trình gửi event từ Kafka producers tới Kafka brokers bao gồm 4 bước.</p>
+    <strong>Bước 1: Tạo ProducerRecord</strong>
+    <p>Producer publish event tới Kafka bằng cách tạo một ProducerRecord, trong đó bắt buộc có topic và value, và không
+        bắc buộc có partition và key.</p>
+    <strong>Bước 2: Serializer</strong>
+    <p>Trước khi gửi ProducerRecord qua network, producer sẽ serialize (tuần tự hoá) key và value thành ByteArrays (mảng
+        các bytes).</p>
+    <strong>Bước 3: Xác định số partitions</strong>
+    <p>Sau bước Serializer, dữ liệu được gửi tới một Partitioner. Nếu chúng ta chỉ định sẵn partition thì partitioner sẽ
+        trả về partition được chỉ định, còn không thì partitioner sẽ chọn một partition dựa vào ProducerRecord key.</p>
+    <strong>Bước 4: Brokers xử lý events và trả về kết quả cho producers</strong>
+    <p>Khi biết event cần được gửi tới topic và partition nào, producer sẽ thêm event vào một lô các bản ghi (a batch of
+        records). Từ đó, chúng sẽ được gửi đi cùng topic và partition. Một thread độc lập chịu trách nhiệm gửi các lô
+        bản ghi tới Kafka brokers phù hợp.</p>
+    <p>Broker sẽ gửi lại một response khi nhận được events. Nếu event được ghi thành công vào Kafka, broker sẽ gửi lại
+        một object chứa RecordMetadata bao gồm topic, partition và offset của record bên trong partition. Còn nếu không
+        thành công thì broker trả về lỗi. Khi producer nhận được lỗi, event sẽ được gửi lại (retry) vài lần trước khi bỏ
+        cuộc và trả về lỗi.</p>
+    <strong>2.6 Kafka Consumers</strong>
+    <p>Kafka consumer là một client application (ứng dụng khách), subscribe (đăng ký) một hoặc nhiều Kafka topics và đọc
+        các bản ghi theo thứ tự chúng được tạo ra. Consumers đọc dữ liệu theo thời gian thực hoặc theo tốc độ của riêng
+        chúng, cho phép các ứng dụng phản ứng với các sự kiện khi chúng xảy ra.</p>
+    <p>Consumers kết nối tới Kafka Brokers thông qua giao thức mạng TCP. Đây là kết nối hai chiều (bi-directional
+        connection).</p>
+    <p>Consumers hoạt động trong một consumer group, làm việc cùng nhau để xử lý dữ liệu từ các partitions, cung cấp khả
+        năng mở rộng theo chiều ngang và cho phép nhiều phiên bản của cùng một ứng dụng xử lý dữ liệu đồng thời.</p>
+    <p>Khi một consumer group đọc các event từ các partitions, chúng ta có 3 trường hợp xảy ra như sau:</p>
+    <p>Trường hợp 1: Consumer group có số consumers nhỏ hơn số partitions của một topic.</p>
+    <p>Trường hợp 2: Consumer group có số consumers bằng số partitions của một topic.</p>
+    <p>Trường hợp 3: Consumer group có số consumers lớn hơn số partitions của một topic.</p>
+    <strong>Trường hợp 1: Consumer group có số consumers nhỏ hơn số partitions của một topic.</strong>
+    <p>Consumer 1 và 2 lần lượt đọc các event từ 4 partitions của Topic T1.</p>
+    <div class="d-flex justify-content-center">
+        <app-image-zoom [imageUrl]="'assets/mesage-broker/consumer_partition_1.webp'"
+            [alt]="'Số consumer nhỏ hơn số partition'" [width]="'100%'"></app-image-zoom>
+    </div>
+    <strong>Trường hợp 2: Consumer group có số consumers bằng số partitions của một topic.</strong>
+    <p>Nếu ta thêm 2 consumers vào Consumer Group 1, số consumer bằng với số partition, mỗi consumer sẽ đọc event từ một
+        partition tương ứng. Trong trường hợp consumers thực hiện các hoạt động có độ trễ cao như ghi vào database hoặc
+        tính toán tốn thời gian trên dữ liệu, tăng số consumers lên sẽ chia tải, giúp việc đọc dữ liệu từ một topic
+        nhanh hơn.</p>
+    <div class="d-flex justify-content-center">
+        <app-image-zoom [imageUrl]="'assets/mesage-broker/consumer_partition_2.webp'"
+            [alt]="'Số consumer bằng số partition'" [width]="'100%'"></app-image-zoom>
+    </div>
+    <strong>Trường hợp 3: Consumer group có số consumers lớn hơn số partitions của một topic.</strong>
+    <p>Chúng ta không nên để số consumer nhiều hơn số partition của một topic vì một vài consumers có thể trở nên nhàn
+        rỗi do tất cả partitions đều bận rộn, dẫn tới event bị bỏ sót hoặc chưa đọc.</p>
+    <div class="d-flex justify-content-center">
+        <app-image-zoom [imageUrl]="'assets/mesage-broker/consumer_partition_3.webp'"
+            [alt]="'Số consumer nhiều hơn số partition'" [width]="'100%'"></app-image-zoom>
+    </div>
+    <strong>2.7 Zookeepers</strong>
+    <p>ZooKeeper là một dịch vụ điều phối phân tán mã nguồn mở thuộc Apache Software Foundation, nhằm duy trì thông tin
+        cấu hình, đặt tên, cung cấp đồng bộ hóa phân tán và cung cấp dịch vụ nhóm trong hệ thống phân tán. Cái tên
+        ZooKeeper lấy cảm hứng từ câu nói "Điều phối các hệ thống phân tán giống như làm việc trong sở thú" ("Because
+        Coordinating Distributed Systems is a Zoo")</p>
+    <p>ZooKeepers được sử dụng để quản lý, lưu trữ metadata của clusters và điều phối các consumers.</p>
+    <div class="d-flex justify-content-center">
+        <app-image-zoom [imageUrl]="'assets/mesage-broker/Zookeepers.webp'" [alt]="'Zookeepers'"
+            [width]="'100%'"></app-image-zoom>
+    </div>
+    <p>Lưu ý: Apache Kafka phiên bản 2.8.0 (phát hành vào tháng 5 năm 2021), Kafka đã giới thiệu một tính năng gọi là
+        chế độ KRaft (Apache Kafka Raft) cho phép Kafka hoạt động mà không phụ thuộc vào ZooKeeper.</p>
+    <strong>2.8. Kafka APIs</strong>
+    <p>Apache Kafka APIs bao gồm 5 loại APIs chính:</p>
+    <p>1. Kafka Producer API cho phép các ứng dụng gửi luồng dữ liệu đến các Topics trong Kafka clusters.</p>
+    <p>2. Kafka Consumer API cho phép các ứng dụng đọc luồng dữ liệu từ các Topics trong Kafka clusters.</p>
+    <p>3. Kafka Streams API cho phép chuyển đổi luồng dữ liệu từ Topic đầu vào sang Topic đầu ra.</p>
+    <p>4. Kafka Connect API cho phép triển khai các trình kết nối liên tục kéo từ một số hệ thống nguồn hoặc ứng dụng
+        vào Kafka hoặc đẩy từ Kafka vào một số hệ thống hoặc ứng dụng background.</p>
+    <p>5. Kafka Admin API cho phép quản lý và kiểm tra các Topics, Brokers và các đối tượng Kafka khác.</p>
+    <br>
+    <span class="title pb-0">3. Các tích hợp nâng cao dùng với Kafka</span>
+    <div class="border-b1"></div>
+    <strong>3.1. Kafka Connect</strong>
+    <div class="d-flex justify-content-center">
+        <app-image-zoom [imageUrl]="'assets/mesage-broker/Kafka_101_-_Kafka_Connect.webp'"
+            [alt]="'Kafka Connect'"></app-image-zoom>
+    </div>
+    <p>Kafka Connect là một công cụ để truyền dữ liệu có thể mở rộng và đáng tin cậy giữa Kafka và các hệ thống khác.
+        Kafka Connect có thể nhập toàn bộ cơ sở dữ liệu hoặc thu thập số liệu từ tất cả các máy chủ ứng dụng của bạn vào
+        các chủ đề Kafka, làm cho dữ liệu có sẵn để xử lý luồng với độ trễ thấp.</p>
+    <strong>3.2. Kafka Streams</strong>
+    <p>Kafka Streams là một thư viện máy khách để xây dựng các ứng dụng và microservices có dữ liệu đầu vào và đầu ra
+        được lưu trữ trong các Kafka clusters. Nó kết hợp sự đơn giản của việc viết và triển khai các ứng dụng Java và
+        Scala tiêu chuẩn ở phía client (máy khách) với những lợi ích của server-side cluster (công nghệ cụm phía máy
+        chủ) của Kafka.</p>
+    <div class="d-flex justify-content-center">
+        <app-image-zoom [imageUrl]="'assets/mesage-broker/streams-introduction-your-app.webp'"
+            [alt]="'Kafka Streams API'"></app-image-zoom>
+    </div>
+    <strong>3.3. Schema Registry</strong>
+    <p>Schema registry là một quá trình máy chủ độc lập (standalone server process) chạy trên một thiết bị bên ngoài
+        Kafka brokers. Schema registry cung cấp một kho lưu trữ tập trung để quản lý và xác thực các schemas cho dữ liệu
+        event trong topic, đồng thời tuần tự hóa và giải tuần tự hóa dữ liệu qua mạng.</p>
+    <div class="d-flex justify-content-center">
+        <app-image-zoom [imageUrl]="'assets/mesage-broker/schema_registry.webp'" [alt]="'Schema Registry'"
+            [width]="'100%'"></app-image-zoom>
+    </div>
+    <p>Schema Registry cung cấp API cho phép producers và consumers dự đoán liệu event mà họ sắp sản xuất hoặc tiêu thụ
+        có tương thích với các phiên bản trước hay không. Nếu một consumer đọc một event không tương thích với version
+        nó kỳ vọng, Schema registry sẽ yêu cầu ngừng sử dụng event này.</p>
+    <p>Schema Registry cung cấp API cho phép producers và consumers dự đoán liệu event mà họ sắp sản xuất hoặc tiêu thụ
+        có tương thích với các phiên bản trước hay không. Nếu một consumer đọc một event không tương thích với version
+        nó kỳ vọng, Schema registry sẽ yêu cầu ngừng sử dụng event này.</p>
+    <br>
+    <span class="title pb-0">4. Ưu điểm của Kafka</span>
+    <div class="border-b1"></div>
+    <p>1. Scalability (Khả năng mở rộng): Kiến trúc phân tán của Kafka cho phép khả năng mở rộng liền mạch. Nó có thể xử
+        lý
+        khối lượng lớn dữ liệu và tăng thông lượng dữ liệu bằng cách thêm nhiều brokers và partitions.</p>
+    <p>2. Durability (Độ bền): Kafka đảm bảo độ bền của dữ liệu thông qua sao chép. Dữ liệu được sao chép trên nhiều
+        brokers, ngăn ngừa mất dữ liệu ngay cả khi các brokers bị lỗi. Bên cạnh đó, bằng cách tuân thủ nguyên tắc Append
+        only commit log, Kafka commit log cung cấp độ bền dữ liệu, khả năng chịu lỗi và xử lý thông báo hiệu quả.</p>
+    <p>3. Real-time processing (Xử lý theo thời gian thực): Kafka cho phép truyền và xử lý dữ liệu theo thời gian thực,
+        làm cho nó phù hợp với các ứng dụng yêu cầu phân tích và truyền dữ liệu có độ trễ thấp.</p>
+    <p>4. Open-source (Mã nguồn mở): Kafka là phần mềm mã nguồn mở, cung cấp quyền tự do sửa đổi, tùy chỉnh và mở rộng
+        chức năng của nó để đáp ứng các yêu cầu cụ thể. Kafka có thể được sử dụng mà không phải trả phí cấp phép, giúp
+        giảm chi phí liên quan đến phần mềm độc quyền. Kafka chạy được đa nền tảng và tích hợp được với nhiều công cụ,
+        thư viện khác nhau, tạo thành một ecosystem lớn.</p>
+    <p>Long polling: Mặc dù long polling không phải là một tính năng tích hợp sẵn của Kafka, nhưng khái niệm này có thể
+        được áp dụng cho cách Kafka consumers tương tác với các Kafka brokers để đạt được mức tiêu thụ dữ liệu hiệu quả.
+    </p>
+    <br>
+    <span class="title pb-0">5. Nhược điểm của Kafka</span>
+    <div class="border-b1"></div>
+    <p>1. ZooKeepers dependency (Phụ thuộc vào Zookeepers): Trong các phiên bản cũ hơn của Kafka, có sự phụ thuộc vào
+        Apache ZooKeeper để điều phối cụm, làm tăng thêm độ phức tạp và chứa các điểm lỗi tiềm ẩn.</p>
+    <p>2. Complexity (Cài đặt, cấu hình và quản lý phức tạp): Bản chất phân tán của Kafka có thể gây ra sự phức tạp
+        trong thiết lập, cấu hình và quản lý, đòi hỏi chuyên môn để triển khai và bảo trì hiệu quả. Bên cạnh đó, học
+        cách sử dụng hiệu quả Kafka và các thành phần hệ sinh thái của nó có thể cần thời gian và công sức, đặc biệt đối
+        với người dùng mới sử dụng hệ thống phân tán.</p>
+    <p>3. Resource requirement (Yêu cầu tài nguyên): Quản lý Kafka clusters yêu cầu tài nguyên phần cứng đáng kể, bao
+        gồm bộ nhớ, dung lượng lưu trữ và dung lượng mạng.</p>
+    <br>
+    <span class="title pb-0">6. Ứng dụng của Kafka</span>
+    <div class="border-b1"></div>
+    <p>Activity tracking (Theo dõi hoạt động): Ứng dụng đầu tiên của Kafka ở LinkedIn là theo dõi hoạt động của người
+        dùng. Người dùng tương tác với ứng dụng, hệ thống sẽ ghi lại thông tin như số lượt xem, số lượt click hoặc thông
+        tin người dùng tạo trên hồ sơ của họ. Những thông tin này được gửi tới một hoặc nhiều topic, để các ứng dụng
+        backend xử lý sau đó.</p>
+    <p>Metrics and Logging (Số liệu và ghi nhật ký): Kafka có thể xử lý dữ liệu thông lượng cao từ các ứng dụng và hệ
+        thống khác nhau, làm cho nó có giá trị để theo dõi và phân tích hiệu suất của hệ thống.</p>
+    <p>Stream processing (Xử lý luồng): Kafka thường được sử dụng để truyền và xử lý dữ liệu thời gian thực, chẳng hạn
+        như tương tác của người dùng, đọc cảm biến và giao dịch tài chính.</p>
+    <p>Event Sourcing (Tìm nguồn sự kiện): Các kiến trúc hướng sự kiện được hưởng lợi từ khả năng nắm bắt và lưu trữ các
+        sự kiện của Kafka đại diện cho các thay đổi trạng thái, cho phép triển khai tìm nguồn sự kiện đáng tin cậy và có
+        thể mở rộng.</p>
+    <p>Data Integration (Tích hợp dữ liệu): Kafka đóng vai trò là cầu nối giữa các hệ thống khác nhau, cho phép tích hợp
+        dữ liệu trơn tru giữa các ứng dụng và cơ sở dữ liệu.</p>
+    <p>Commit Log: Kafka có thể phục vụ như một loại commit log bên ngoài cho hệ thống phân tán. Log giúp sao chép dữ
+        liệu giữa các nodes và hoạt động như một cơ chế đồng bộ hóa lại để các nodes bị lỗi khôi phục dữ liệu của chúng.
+        Tính năng log compaction (nén nhật ký) trong Kafka giúp hỗ trợ việc sử dụng này, tương tự như Apache BookKeeper.
+    </p>
+    <div class="d-flex justify-content-center">
+        <app-image-zoom [imageUrl]="'assets/mesage-broker/kafka_apply.webp'" [alt]="'Ứng dụng của Kafka'"
+            [width]="'50%'"></app-image-zoom>
     </div>
     <br>
 </div>

@@ -10,6 +10,7 @@ export class ImageZoomComponent implements OnInit {
 
   @Input() imageUrl = '';
   @Input() alt = '';
+  @Input() width = '70%';
   isZoomed = false;
   constructor(
     private shareDataService: ShareDataService

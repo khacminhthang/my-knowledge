@@ -1,11 +1,12 @@
 .image-zoom-container {
   position: relative;
   cursor: pointer;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
 }
 
 .image-zoom-container img {
-  width: 100%;
+  max-width: 100%;
   transition: transform 0.3s ease;
   cursor: zoom-in;
 }
@@ -25,10 +26,14 @@
 
 .zoomed-container {
   position: relative;
-  width: 80%; /* Điều chỉnh theo kích thước mong muốn */
-  max-width: 800px; /* Giới hạn kích thước khung */
-  height: 80%; /* Điều chỉnh theo kích thước mong muốn */
-  max-height: 600px; /* Giới hạn kích thước khung */
+  width: 80%;
+  /* Điều chỉnh theo kích thước mong muốn */
+  max-width: 800px;
+  /* Giới hạn kích thước khung */
+  height: 80%;
+  /* Điều chỉnh theo kích thước mong muốn */
+  max-height: 600px;
+  /* Giới hạn kích thước khung */
   background-color: #fff;
   padding: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -38,6 +43,7 @@
 .zoomed-image {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Đảm bảo ảnh được giữ nguyên tỷ lệ */
+  object-fit: contain;
+  /* Đảm bảo ảnh được giữ nguyên tỷ lệ */
   cursor: zoom-out;
 }
