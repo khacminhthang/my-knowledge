@@ -3,20 +3,94 @@
 	<div class="border-b1"></div>
 	<p><strong>CQRS</strong> Command and Query Responsibility Segregation là một thiết kế(pattern) phân tách việc
 		đọc(read) và ghi(write) dữ liệu cho một kho dữ liệu.</p>
-	<p>Việc triển khai CQRS trong ứng dụng có thể tối đa hóa hiệu xuất, khả năng mở rộng và tỉnh bảo mật cho hệ thống.</p>
-	<strong>Vấn đề gặp phải?</strong>
+	<p>Việc triển khai CQRS trong ứng dụng có thể tối đa hóa hiệu xuất, khả năng mở rộng và tỉnh bảo mật cho hệ thống.
+	</p>
+	<span class="title pb-0">Context and problem</span>
+	<div class="border-b1"></div>
 	<p>Trong kiến trúc truyền thống, một model sẽ được dùng chung để query và update một cơ sở dữ liệu. Điều này là đơn
-		giản và hoạt động tốt trong các hệ thống CRUD đơn giản. Tuy nhiên trong một số ứng dụng phức tạp hơn, các tiếp cận
+		giản và hoạt động tốt trong các hệ thống CRUD đơn giản. Tuy nhiên trong một số ứng dụng phức tạp hơn, các tiếp
+		cận
 		này sẽ gặp phải một số vấn đề.</p>
-	<p>Ví dụ ở phía read, ứng dụng cần đáp ứng nhiều truy vấn khác nhau, trả về các đối tượng (dto) khác nhau và khác với
+	<p>Ví dụ ở phía read, ứng dụng cần đáp ứng nhiều truy vấn khác nhau, trả về các đối tượng (dto) khác nhau và khác
+		với
 		model. Việc ánh xạ các đối tượng có thể trở nên phức tạp</p>
-	<p>Về mặt write, model có thể phải thực thi các validation và bussiness logic phức tạp. Kết quả là có 1 model quá lớn,
+	<p>Về mặt write, model có thể phải thực thi các validation và bussiness logic phức tạp. Kết quả là có 1 model quá
+		lớn,
 		xử lý quá nhiều mà không hẳn lúc nào cũng dùng tất cả những cấu hình đó.</p>
-	<p>Trong một vài ứng dụng, khối lượng công việc đọc và ghi có thể không đối xứng và có nhu cầu về hiệu năng và tính mở
+	<p>Trong một vài ứng dụng, khối lượng công việc đọc và ghi có thể không đối xứng và có nhu cầu về hiệu năng và tính
+		mở
 		rộng khác nhau.</p>
 	<div class="d-flex justify-content-center">
 		<app-image-zoom
 			[imageUrl]="'assets/design_pattern/command-and-query-responsibility-segregation-cqrs-tradition-crud.png'"
 			[alt]="''" [width]="'100%'"></app-image-zoom>
 	</div>
+	<p>Thường có sự không trùng khớp giữa việc đọc và ghi dữ liệu, chẳng hạn như các cột và thuộc tính (không xuất hiện)
+		cũng phải được cập nhật chính xác ngay cả khi chúng không bắt buộc phải được cập nhật trong thao tác</p>
+	<p>Tranh chấp dữ liệu có thể xảy ra khi các hoạt động được thực hiện song song trên cùng một bộ dữ liệu.(Trong một
+		vài trường hợp quá trình write có thể block quá trình read)</p>
+	<p>Cách tiếp cận truyền thống có thể làm giảm hiệu suất do tải lên data store và data access layer (Do cùng 1
+		DataBase)
+	</p>
+	<p>Việc quản lý bảo mật và quyền có thể trở nên phức tạp vài mỗi entity đều có thể thực hiện đọc và ghi dữ liệu.</p>
+	<br>
+	<span class="title pb-0">Solution</span>
+	<div class="border-b1"></div>
+	<p>CQRS chia tách việc đọc và ghi thành các model khác nhau, sử dụng commands để ghi dữ liệu và queries để đọc dữ
+		liệu</p>
+	<p>Commands nên tập trung vào nhiệm vụ(task-based) thay vì tập trung vào dữ liệu. ("Đặt phòng khách sạn", không phải
+		"đặt trạng thái đặt chỗ thành Đã đặt trước").Điều này có thể yêu cầu một số thay đổi tương ứng với phong cách
+		tương tác của người dùng. Mặt khác là để xem xét việc sửa đổi logic nghiệp vụ xử lý các commands đó.</p>
+	<p>Commands có thể được đẩy vào queue để xử lý bất đồng bộ</p>
+	<p>Queries không bao giờ thay đổi database</p>
+	<p>Các model nên được tách biệt, xem sơ đồ sau:</p>
+	<div class="d-flex justify-content-center">
+		<app-image-zoom [imageUrl]="'assets/design_pattern/command-and-query-responsibility-segregation-cqrs-basic.png'"
+			[alt]="''" [width]="'100%'"></app-image-zoom>
+	</div>
+	<p>Các mô hình đọc và ghi riêng biệt giúp đơn giản hóa việc thiết kế và triển khai. Tuy nhiên, mã CQRS không thể
+		được tạo tự động từ database.</p>
+	<p>Để tách biệt hơn, chúng ta có thể tách biệt vật lý dữ liệu đọc và ghi(thành 2 database). Trong trường hợp này
+		việc đọc dữ liệu từ database đọc có thể sử dụng data schema riêng được tối ưu hóa cho truy vấn.
+		Ví dụ: Có thể sử dụng một materialized view của dữ liệu để tránh việc join hoặc ánh xạ ORM phức tạp.
+		Thậm chí là sử dụng một cơ sở dữ liệu khác. Ví dụ: write database dùng cơ sở dữ liệu quan hệ(relational
+		database), trong khi read
+		database dùng document database.
+	</p>
+	<p>Nếu sử dụng database riêng cho đọc và ghi, thì chúng phải được đồng bộ hóa. Thông thường thì khi ghi dữ liệu xong
+		sẽ publish một event để update read database. Vì message brokers và databases thường không được đưa vào cùng một
+		giao dịch phân tán(distributed transaction) nên sẽ có thách thức trong việc đảm báo tính nhất quán của dữ liệu.
+	</p>
+	<div class="d-flex justify-content-center">
+		<app-image-zoom
+			[imageUrl]="'assets/design_pattern/command-and-query-responsibility-segregation-cqrs-separate-stores.png'"
+			[alt]="''" [width]="'100%'"></app-image-zoom>
+	</div>
+	<p>Read Database có thể là bản sao(replication) của write database hoặc có thể có cấu trúc hoàn toàn khác. Việc sử
+		dụng nhiều bản sao read database có thể tăng hiệu suất truy vấn, đặc biệt trong các tình huống phân tán mà các
+		read database được đặt gần ứng dụng(ở cùng 1 khu vực).</p>
+	<p>Việc tách biệt đọc và ghi cũng cho phép mỗi data store được điều chỉnh phù hợp với nhu cầu tải. Ví dụ read data
+		store thường sẽ chịu tải nhiều hơn write data store(do nhu cầu đọc dữ liệu thường nhiều hơn).</p>
+	<p>CQRS hay được sử dụng với Event Sourcing pattern. Với thiết kế này, application state được lưu trữ dưới dạng
+		chuối sự kiện(sequence of events). Mỗi một sự kiện(event) đại diện cho một tập hợp các thay đổi với dữ liệu.
+		Trạng thái hiện tại (current state) sẽ sẽ được xây dựng dựa trên lịch sử của sự kiện (replaying the events).
+		Với việc sử dụng CQRS, event của của Event Sourcing có thể được sử dụng để notify cho read model.(Một công đôi
+		việc). Read model sẽ sử dụng các event để tạo một snapshot of the current state để tăng hiệu quả truy vấn, nhưng
+		cũng tăng độ phức tạp của thiết kế.
+	</p>
+	<strong>Lợi ích của CQRS:</strong>
+	<p><strong>Independent scaling (Độc lập mở rộng): </strong> CQRS cho phép read side và write side mở rộng độc lập
+		với nhau, hạn chế lock connection.</p>
+	<p><strong>Optimized data schemas:</strong> Read side có thể sử dụng schema tối ưu truy vấn, write side có thể sử
+		dụng schema tối ưu cập nhật.</p>
+	<p><strong>Security: Việc chia tách read side, write side cũng khiến việc phân quyền đọc và ghi rõ ràng
+			hơn.</strong> </p>
+	<p><strong>Separation of concerns:</strong> Việc chia tách read side và write side có thể tạo ra các mô hình dễ bảo
+		trì và linh hoạt
+		hơn. Hầu hết các nghiệp vụ phức tạp được đưa vào write side.</p>
+	<p><strong>Simpler querie:</strong> Bằng cách lưu trữ dữ liệu trong materialized view ở read database, ứng dụng có
+		thể tránh được các phép join phức tạp.</p>
+	<br>
+	<span class="title pb-0">Implementation issues and considerations</span>
+	<div class="border-b1"></div>
 </div>
