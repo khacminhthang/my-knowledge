@@ -353,11 +353,6 @@ export const menuCSharp = [
         "routerLink": "data-types"
       },
       {
-        "text": "Template Variable",
-        "icon": "all_inbox",
-        "routerLink": "template-variable"
-      },
-      {
         "text": "Type Conversion",
         "icon": "all_inbox",
         "routerLink": "type-conversion"

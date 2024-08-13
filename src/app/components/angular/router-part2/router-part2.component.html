@@ -23,18 +23,18 @@
     services, etc.
   </p>
   <pre>
-              <code>{{text1}}</code>
+              <code><pre>{{text1}}</pre></code>
           </pre>
   <p>Tiếp theo, chúng ta sẽ config RouterModule giống như đã từng làm với AppRoutingModule, nhưng thay vì gọi forRoot
     thì chúng ta sẽ gọi forChild (nguyên nhân tại sao thì các bạn quay trở lại Day 27).</p>
   <br>
   <pre>
-                    <code>{{text2}}</code>
+                    <code><pre>{{text2}}</pre></code>
                 </pre>
   <p>Như thế là chúng ta đã tạo xong Feature Module kèm theo Router, bây giờ chúng ta cần import nó vào AppModule để có
     thể sử dụng.</p>
   <pre>
-                <code>{{text3}}</code>
+                <code><pre>{{text3}}</pre></code>
               </pre>
   <br>
 
@@ -45,7 +45,7 @@
   <p>Để redirect người dùng khi vào một route nào đó đến một route khác, bạn có thể config như sau:
   </p>
   <pre>
-                <code>{{text4}}</code>
+                <code><pre>{{text4}}</pre></code>
             </pre>
   <p>Các bạn lưu ý rằng ở trong trường hợp redirect, thông thường chúng ta nên dùng strategy để check path là full.</p>
   <p>Vậy có những strategy nào?</p>
@@ -78,7 +78,7 @@
   </p>
   <p>Bạn hoàn toàn có thể áp dụng kỹ thuật này với các Feature Module như sau.</p>
   <pre>
-                            <code>{{text5}}</code>
+                            <code><pre>{{text5}}</pre></code>
                         </pre>
 
   <p>Ở đây chúng ta sẽ config routing với RouterModule.forChild(routes), sau đó chúng ta exports RouterModule ra ngoài
@@ -86,7 +86,7 @@
     RouterModule.</p>
   <br>
   <pre>
-      <code>{{text6}}</code>
+      <code><pre>{{text6}}</pre></code>
   </pre>
 
   <!-- Child Routes -->
@@ -98,18 +98,18 @@
   </p>
   <p>Cách 1</p>
   <pre>
-    <code>{{text7}}</code>
+    <code><pre>{{text7}}</pre></code>
   </pre>
   <p>Angular Router cho phép bạn truyền vào cấu trúc parent-child như sau:</p>
   <br>
   <pre>
-          <code>{{text8}}</code>
+          <code><pre>{{text8}}</pre></code>
         </pre>
   <p>Đây là cách config tương đương với Cách 1. Chúng ta sẽ có dạng parent + child cho path ở trên.</p>
   <p>Ngoài ra, parent route có thể activate một component, chúng ta thường gọi nó là layout component. Trong component
     này nhất định phải có chứa router-outlet, nó sẽ là điểm đánh dấu để activate các child component.</p>
   <pre>
-        <code>{{text9}}</code>
+        <code><pre>{{text9}}</pre></code>
     </pre>
   <br>
 
@@ -125,12 +125,12 @@
   <p>Ví dụ trong Day 27, chúng ta muốn lấy thông tin của params, lúc đó chúng ta đã inject service này vào
     ArticleDetailComponent như sau:</p>
   <pre>
-    <code>{{text10}}</code>
+    <code><pre>{{text10}}</pre></code>
   </pre>
   <p>Ngoài cách sử dụng snapshot ở trên chúng ta có thể sử dụng Observable để observe như sau</p>
   <br>
   <pre>
-          <code>{{text11}}</code>
+          <code><pre>{{text11}}</pre></code>
         </pre>
   <p>Lý do tại sao chúng ta sử dụng Observable ở đây mà không phải là snapshot?</p>
   <p>Về nguyên tắc mặc định, khi di chuyển vào một path, Angular Router sẽ cố gắng reuse component trước đó, nếu chưa
@@ -150,7 +150,7 @@
   <p>Ví dụ bạn vào một URL là tiepphan.com/page/2?sort=createdDate, thì bạn có thể lấy về sort query qua
     snapshot.queryParamMap.get('sort') hoặc</p>
   <pre>
-        <code>{{text12}}</code>
+        <code><pre>{{text12}}</pre></code>
     </pre>
   <br>
 
@@ -166,14 +166,14 @@
   <p>Ví dụ trong Day 27, chúng ta muốn lấy thông tin của params, lúc đó chúng ta đã inject service này vào
     ArticleDetailComponent như sau:</p>
   <pre>
-    <code>{{text13}}</code>
+    <code><pre>{{text13}}</pre></code>
   </pre>
   <pre>
-          <code>{{text14}}</code>
+          <code><pre>{{text14}}</pre></code>
         </pre>
   <p>Ngoài ra bạn có thể observe Router Event để làm gì đó:</p>
   <pre>
-        <code>{{text15}}</code>
+        <code><pre>{{text15}}</pre></code>
     </pre>
   <br>
 </div>

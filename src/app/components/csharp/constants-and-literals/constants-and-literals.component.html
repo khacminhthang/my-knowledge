@@ -1,0 +1,133 @@
+<div>
+    <h1 style="font-size: 3rem;">Hằng (Constant/Literal) trong C#</h1>
+    <br>
+    <p>Constant liên quan tới các giá trị cố định mà chương trình không thể thay đổi trong khi thực thi. Những giá trị
+        cố định này cũng được gọi là literal.</p>
+    <p>Constant là một kiểu dữ liệu thay thế cho Literal, còn Literal thể hiện chính nó. Trong ví dụ: const PI = 3.14
+        thì Constant ở đây là PI, còn Literal là 3.14.</p>
+    <p>Constant có thể là bất kỳ kiểu dữ liệu cơ bản nào trong C#, và có thể được phân chia thành giá trị hằng số
+        nguyên, hằng số thực, hằng ký tự, hằng chuỗi và Boolean literal (tạm dịch: hằng logic). Ngoài ra, C# cũng có các
+        kiểu hằng liệt kê.</p>
+    <p>Ngoài ra, constant được đối xử giống như các biến thông thường, ngoại trừ việc giá trị của chúng là không thể
+        thay đổi sau khi định nghĩa.</p>
+    <br>
+
+    <span class="title pb-0">Hằng số nguyên trong C#</span>
+    <div class="border-b1"></div>
+    <br>
+    <p>Hằng số nguyên có thể là decimal (cơ số 10), octal (cơ số 8) hay hexadecimal (cơ số 16). Giá trị có tiền tố
+        (prefix) là 0 cho octal, là 0x hay 0X cho hexadecimal và không có gì cho decimal.</p>
+    <p>Một hằng số nguyên cũng có các hậu tố (suffix) U hay L thể hiện kiểu unsigned hay long. Hậu tố có thể là chữ hoa
+        hoặc chữ thường và có thể trong bất kỳ thứ tự nào.</p>
+    <p>Ví dụ về các hằng số nguyên:</p>
+    <code><pre>{{text1}}</pre></code>
+    <p>Dưới đây là các kiểu hằng số nguyên đa dạng:</p>
+    <code><pre>{{text2}}</pre></code>
+    <br>
+
+    <span class="title pb-0">Hằng số thực trong C#</span>
+    <div class="border-b1"></div>
+    <br>
+    <p>Một hằng số thực bao gồm phần nguyên (integer part), dấu chấm thập phân (decimal point), phần lẻ (fraction part)
+        và phần mũ (exponent part). Chúng ta có thể biểu diễn hằng số thực theo dạng decimal hay dạng mũ.</p>
+    <p>Xét các ví dụ sau:</p>
+    <code><pre>{{text3}}</pre></code>
+    <p>Khi thể hiện dạng decimal phải bao gồm dấu chấm thập phân, phần mũ hoặc cả hai. Khi thể hiện dạng mũ phải gồm
+        phần nguyên, phần lẻ hoặc cả hai. Dạng mũ đi kèm với kí tự E hoặc e.</p>
+    <br>
+
+    <span class="title pb-0">Hằng ký tự trong C#</span>
+    <div class="border-b1"></div>
+    <br>
+    <p>Các hằng kí tự trong C# mở đầu và kết thúc bởi dấu nháy đơn. Nếu hằng ký tự bắt đầu với L (ví dụ L'x') thì nó là
+        kiểu wchar_t. Nếu không thì, nó là hằng ký tự kiểu char, ví dụ như 'x'.</p>
+    <p>Hằng kí tự có thể là một kí tự (như 'X'), một escape sequence (như '\t') hay một kí tự mở rộng (như '\u02c0′).
+    </p>
+    <p>Một số kí tự trong C# khi được đứng trước bởi dấu \ thì chúng sẽ mang một ý nghĩa đặc biệt như bắt đầu dòng mới
+        '\n' hay tạo một tab '\t'. Chúng được biết như là escape sequence (dãy thoát). Bảng dưới đây thể hiện một số mã
+        escape sequence phổ biến:</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Dãy thoát</th>
+                <th>Ý nghĩa</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>\\</td>
+                <td>Ký tự \</td>
+            </tr>
+            <tr>
+                <td>\'</td>
+                <td>Ký tự '</td>
+            </tr>
+            <tr>
+                <td>\"</td>
+                <td>Ký tự "</td>
+            </tr>
+            <tr>
+                <td>\?</td>
+                <td>Ký tự ?</td>
+            </tr>
+            <tr>
+                <td>\a</td>
+                <td>Tiếng chuông</td>
+            </tr>
+            <tr>
+                <td>\b</td>
+                <td>Backspace</td>
+            </tr>
+            <tr>
+                <td>\f</td>
+                <td>Form feed</td>
+            </tr>
+            <tr>
+                <td>\n</td>
+                <td>Dòng mới</td>
+            </tr>
+            <tr>
+                <td>\r</td>
+                <td>Carriage return</td>
+            </tr>
+            <tr>
+                <td>\t</td>
+                <td>tab ngang</td>
+            </tr>
+            <tr>
+                <td>\v</td>
+                <td>tab dọc</td>
+            </tr>
+            <tr>
+                <td>\ooo</td>
+                <td>Số trong cơ số 8 của 1 đến 3 chữ số</td>
+            </tr>
+            <tr>
+                <td>\xhh . . .</td>
+                <td>Số thập lục phân của một hoặc nhiều chữ số</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <span class="title pb-0">Hằng chuỗi trong C#</span>
+    <div class="border-b1"></div>
+    <br>
+    <p>Hằng chuỗi chứa trong dấu nháy kép, ví dụ "abc". Một chuỗi sẽ chứa các kí tự tương tự hằng kí tự, gồm các ký tự
+        thuần, escape sequence, và các ký tự mở rộng.</p>
+    <p>Có thể ngắt một dòng dài thành nhiều dòng bởi sử dụng hằng chuỗi và phân biệt chúng bởi sử dụng khoảng trắng
+        (whitespace).</p>
+    <code><pre>{{text3}}</pre></code>
+    <p>Khi thể hiện dạng decimal phải bao gồm dấu chấm thập phân, phần mũ hoặc cả hai. Khi thể hiện dạng mũ phải gồm
+        phần nguyên, phần lẻ hoặc cả hai. Dạng mũ đi kèm với kí tự E hoặc e.</p>
+    <p>Xét ví dụ một hằng chuỗi trong C# thể hiện theo 3 cách khác nhau:</p>
+    <code><pre>{{text4}}</pre></code>
+    <br>
+
+    <span class="title pb-0">Định nghĩa hằng trong C#</span>
+    <div class="border-b1"></div>
+    <br>
+    <p>Hằng trong C# được định nghĩa bởi sử dụng từ khóa const. Cú pháp để định nghĩa một hằng là:</p>
+    <code><pre>{{text5}}</pre></code>
+    <br>
+</div>

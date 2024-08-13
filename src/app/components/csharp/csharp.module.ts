@@ -12,6 +12,9 @@ import { ProgramStructureComponent } from './program-structure/program-structure
 import { BasicSyntaxComponent } from './basic-syntax/basic-syntax.component';
 import { DataTypesComponent } from './data-types/data-types.component';
 import { StructuresComponent } from './structures/structures.component';
+import { TypeConversionComponent } from './type-conversion/type-conversion.component';
+import { VariablesComponent } from './variables/variables.component';
+import { ConstantsAndLiteralsComponent } from './constants-and-literals/constants-and-literals.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { StructuresComponent } from './structures/structures.component';
     ProgramStructureComponent,
     BasicSyntaxComponent,
     DataTypesComponent,
-    StructuresComponent
+    StructuresComponent,
+    TypeConversionComponent,
+    VariablesComponent,
+    ConstantsAndLiteralsComponent
   ],
   imports: [
     CommonModule,

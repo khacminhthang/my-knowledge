@@ -11,7 +11,7 @@
   <p>Ví dụ chúng ta có một hàm listen() như sau:</p>
   <br>
   <pre>
-        <code>{{text1}}</code>
+        <code><pre>{{text1}}</pre></code>
       </pre>
   <br>
 
@@ -19,7 +19,7 @@
   <p>Trả về kiểu dữ liệu của biến</p>
   <br>
   <pre>
-          <code>{{text2}}</code>
+          <code><pre>{{text2}}</pre></code>
         </pre>
   <br>
   <p>Quay trở lại hàm listen(), hàm listen() nhận vào 1 tham số port có type là unknown, nghĩa là chúng ta truyền vào 1
@@ -30,7 +30,7 @@
     lý như thế nào? Cách tốt nhất là dùng Union Type. Chúng ta sẽ viết lại hàm listen() như sau:</p>
   <br>
   <pre>
-    <code>{{text3}}</code>
+    <code><pre>{{text3}}</pre></code>
   </pre>
   <br>
   <p>TS sẽ báo (Compilation Time Error) ngay nếu như truyền vào 1 boolean (không phải string HOẶC number) hoặc không
@@ -39,13 +39,13 @@
   <p>Tương tự như tạo Union Type cho tham số, các bạn cũng có thể tạo Union Type cho giá trị trả về của hàm nhé.</p>
   <br>
   <pre>
-          <code>{{text5}}</code>
+          <code><pre>{{text5}}</pre></code>
         </pre>
   <br>
   <p>Để tái sử dụng (reuse) 1 Union Type bất kỳ, các bạn có thể tạo Type Alias cho Union Type đó.</p>
   <br>
   <pre>
-          <code>{{text6}}</code>
+          <code><pre>{{text6}}</pre></code>
         </pre>
   <br>
 
@@ -57,7 +57,7 @@
     Type là type có tính chất: AND (dịch nôm na là và).</p>
   <br>
   <pre>
-          <code>{{text7}}</code>
+          <code><pre>{{text7}}</pre></code>
         </pre>
   <br>
   <p>Hàm merge( foo: 'bar' }, bar: 'foo' }) này sẽ có giá trị trả về là foo: string } & bar: string }.</p>
@@ -66,7 +66,7 @@
     Components. Ví dụ:</p>
   <br>
   <pre>
-            <code>{{text8}}</code>
+            <code><pre>{{text8}}</pre></code>
           </pre>
   <br>
   <p>Những Component này có những type Style khác nhau, nhưng cũng có những type cơ bản giống nhau. Ví dụ như Text sẽ có
@@ -81,7 +81,7 @@
   <p>Giúp chúng ta tạo ra những type điều kiện</p>
   <br>
   <pre>
-           <code>{{text9}}</code>
+           <code><pre>{{text9}}</pre></code>
          </pre>
   <br>
   <p>Đoạn code trên có thể hiểu nôm na là khi type T có thể gán được cho type U thì sẽ trả về type X, còn không thì trả
@@ -96,7 +96,7 @@
     qua một số built-in types hay dùng nhé:</p>
   <br>
   <pre>
-           <code>{{text10}}</code>
+           <code><pre>{{text10}}</pre></code>
          </pre>
   <br>
   <p>Đoạn code trên có thể hiểu nôm na là khi type T có thể gán được cho type U thì sẽ trả về type X, còn không thì trả

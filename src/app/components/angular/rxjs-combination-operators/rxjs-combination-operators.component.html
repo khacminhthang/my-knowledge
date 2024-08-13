@@ -6,7 +6,7 @@
     nhau. Những operators này gọi là Combination Operators.</p>
   <br>
   <pre>
-    <code>{{text1}}</code>
+    <code><pre>{{text1}}</pre></code>
 </pre>
   <br>
 
@@ -24,7 +24,7 @@
     Dictionary (tuỳ vào tham số truyền vào) rồi sau đó sẽ complete.</p>
   <br>
   <pre>
-        <code>{{text2}}</code>
+        <code><pre>{{text2}}</pre></code>
     </pre>
   <strong>Lưu ý:</strong>
   <ul>
@@ -39,14 +39,14 @@
   <p>forkJoin() sử dụng rất nhiều trong ứng dụng Angular, đặc biệt là khi bạn cần request cùng lúc một loạt các
     Dropdown/Select.</p>
   <pre>
-    <code>{{text3}}</code>
+    <code><pre>{{text3}}</pre></code>
   </pre>
   <p>forkJoin() khi dùng với children Observables là 1 Array, thì forkJoin() có thể nhận vào 1 tham số thứ 2 gọi là
     projectFunction. projectFunction này sẽ được gọi với các tham số là giá trị của children Observables và kết quả của
     projectFunction sẽ là kết quả emit của forkJoin(). projectFunction chỉ được thực thi nếu như forkJoin() SẼ emit
     (nghĩa là tất cả children Observables đều complete)</p>
   <pre>
-      <code>{{text4}}</code>
+      <code><pre>{{text4}}</pre></code>
   </pre>
   <br>
 
@@ -67,7 +67,7 @@
     combineLatest() là 1 Array. Vì vậy, mình chỉ đề cập đến cách dùng combineLatest([obs1, obs2])
   </p>
   <pre>
-                  <code>{{text5}}</code>
+                  <code><pre>{{text5}}</pre></code>
               </pre>
   <strong>Lưu ý:</strong>
   <ul>
@@ -89,11 +89,11 @@
     1 lần emit, combineLatest() là sự lựa chọn tốt cho việc combine các state trong Service và kết hợp với AsyncPipe để
     dùng trong template.</p>
   <pre>
-      <code>{{text6}}</code>
+      <code><pre>{{text6}}</pre></code>
   </pre>
   <br>
   <pre>
-                  <code>{{text7}}</code>
+                  <code><pre>{{text7}}</pre></code>
               </pre>
   <p>Như trên là 1 ví dụ khá hoàn chỉnh về việc xử lý PaginationComponent trong Angular sử dụng combineLatest() và
     AsyncPipe. Khi updateSize() và updatePage() được thực thi thì currentPage$ và currentSize$ sẽ emit giá trị mới, dẫn
@@ -105,7 +105,7 @@
     về vm$ ở trên viết lại với projectFunction</p>
   <br>
   <pre>
-                    <code>{{text8}}</code>
+                    <code><pre>{{text8}}</pre></code>
                 </pre>
   <br>
 
@@ -122,16 +122,16 @@
     combineLatest() thì giá trị mà các bạn nhận được là:</p>
   <br>
   <pre>
-                  <code>{{text9}}</code>
+                  <code><pre>{{text9}}</pre></code>
               </pre>
   <p>Nhưng khi dùng zip với ví dụ trên:</p>
   <pre>
-                  <code>{{text10}}</code>
+                  <code><pre>{{text10}}</pre></code>
               </pre>
   <p>zip() sẽ complete khi 1 trong các children Observables complete. Nghĩa là các bạn chỉ luôn luôn nhận được giá trị
     đã được gộp lại của zip</p>
   <pre>
-                  <code>{{text11}}</code>
+                  <code><pre>{{text11}}</pre></code>
               </pre>
   <p>zip() sẽ throw error nếu 1 trong các children Observables throw error.</p>
   <p>Nếu tham số cuối cùng của zip() là 1 Function thì zip() sẽ coi tham số này là projectFunction. Cách thức hoạt động
@@ -140,13 +140,13 @@
   <p>zip() cực kỳ hữu hiệu nếu như các bạn rơi vào các trường hợp sau:</p>
   <p>Giá trị cuối cùng mà bạn cần được cung cấp bởi nhiều Observables khác nhau. Ví dụ:</p>
   <pre>
-    <code>{{text12}}</code>
+    <code><pre>{{text12}}</pre></code>
 </pre>
   <p>Kết hợp giá trị của 2 Observables khác nhau ở 2 thời điểm khác nhau. Ví dụ: các bạn muốn biết toạ độ chuột của
     người dùng từ lúc họ mousedown cho đến lúc họ mouseup, hoặc có thể lấy khoảng thời gian họ rê chuột (dùng new Date()
     thay vì getCoords() như ví dụ bên dưới)</p>
   <pre>
-      <code>{{text13}}</code>
+      <code><pre>{{text13}}</pre></code>
   </pre>
   <br>
 
@@ -171,14 +171,14 @@
     concat() sẽ complete.</p>
   <br>
   <pre>
-        <code>{{text14}}</code>
+        <code><pre>{{text14}}</pre></code>
       </pre>
   <p>Các bạn có thể thấy là concat() sẽ chờ cho of(4, 5, 6).pipe(delay(1000)) emit và complete thì concat() mới emit
     4-5-6 rồi subscribe vào of(1, 2, 3).</p>
   <p>Các bạn cũng có thể truyền 1 Observable nhiều lần vào cho concat().</p>
   <br>
   <pre>
-        <code>{{text15}}</code>
+        <code><pre>{{text15}}</pre></code>
       </pre>
   <br>
 
@@ -202,7 +202,7 @@
   </ul>
   <br>
   <pre>
-        <code>{{text16}}</code>
+        <code><pre>{{text16}}</pre></code>
       </pre>
   <p>Các bạn thấy sự khác biệt với concat() chưa? Ở đây, merge() emit luôn 1,2,3 rồi mới tới 4,5,6 và không hề quan tâm
     đến thứ tự mà các children Observables này được truyền vào. Mình thêm 1 ví dụ khác để các bạn thấy rõ hơn cách hoạt
@@ -210,12 +210,12 @@
   </p>
   <br>
   <pre>
-      <code>{{text17}}</code>
+      <code><pre>{{text17}}</pre></code>
     </pre>
   <p>Ví dụ trên sẽ cho các bạn thấy merge() sẽ emit khi mà child Observable emit thôi và có thể emit xen kẽ nhau. Sau
     đây sẽ là ví dụ truyền vào tham số concurrent</p>
   <pre>
-      <code>{{text18}}</code>
+      <code><pre>{{text18}}</pre></code>
     </pre>
   <p>Các bạn sẽ thấy khi truyền vào tham số concurrent là 2, merge sẽ chỉ subscribe vào first và second song song mà
     thôi. Cho đến khi first complete, thì third mới bắt đầu đc subscribe. Điều này cũng sẽ cho các bạn thấy được rằng
@@ -226,7 +226,7 @@
     nào sẽ thay đổi, các bạn chỉ cần quan tâm là nếu FormControl đó thay đổi thì sẽ xử lý hợp lý.</p>
   <br>
   <pre>
-          <code>{{text19}}</code>
+          <code><pre>{{text19}}</pre></code>
         </pre>
   <br>
 
@@ -245,7 +245,7 @@
   </ul>
   <br>
   <pre>
-        <code>{{text20}}</code>
+        <code><pre>{{text20}}</pre></code>
       </pre>
   <br>
   <strong>Use-case:</strong>
@@ -261,7 +261,7 @@
     thoả mà thôi.</p>
   <br>
   <pre>
-          <code>{{text21}}</code>
+          <code><pre>{{text21}}</pre></code>
         </pre>
   <p>Tất cả các operators trên đây đều là static function. Các operators sau sẽ là các pipeable operator, nghĩa là các
     operator sau đây đều được dùng với pipe() và sẽ được bao bên ngoài 1 Observable gọi là Outer Observable.</p>
@@ -277,7 +277,7 @@
     giá trị gần nhất của tham số Observable thành 1 Array rồi emit Array này.</p>
   <br>
   <pre>
-            <code>{{text22}}</code>
+            <code><pre>{{text22}}</pre></code>
           </pre>
   <p>withLatestFrom() cũng nhận vào tham số thứ 2 optional là projectFunction. Cách thức hoạt động như những
     projectFunction được đề cập trong bài viết này.</p>
@@ -288,7 +288,7 @@
     muốn.</p>
   <br>
   <pre>
-              <code>{{text23}}</code>
+              <code><pre>{{text23}}</pre></code>
             </pre>
   <br>
 
@@ -304,13 +304,13 @@
     trị ngay lặp tức mà không phụ thuộc vào việc Outer Observable có emit hay là chưa.</p>
   <br>
   <pre>
-            <code>{{text24}}</code>
+            <code><pre>{{text24}}</pre></code>
           </pre>
   <strong>Use-case</strong>
   <p>startWith() có thể được dùng trong Angular để cung cấp giá trị ban đầu cho các API call. Ví dụ:</p>
   <br>
   <pre>
-              <code>{{text25}}</code>
+              <code><pre>{{text25}}</pre></code>
             </pre>
   <br>
 
@@ -324,7 +324,7 @@
     điểm khác biệt lớn là endWith() chỉ emit giá trị của endWith() khi Outer Observable complete mà thôi.</p>
   <br>
   <pre>
-            <code>{{text26}}</code>
+            <code><pre>{{text26}}</pre></code>
           </pre>
   <br>
 
@@ -338,7 +338,7 @@
     được emit của Outer Observable thành 1 Array (1 cặp giá trị) và emit Array này.</p>
   <br>
   <pre>
-              <code>{{text27}}</code>
+              <code><pre>{{text27}}</pre></code>
             </pre>
   <br>
 

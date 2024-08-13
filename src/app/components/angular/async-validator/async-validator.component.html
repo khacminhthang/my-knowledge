@@ -34,11 +34,11 @@
   <p>Mình sẽ setup form như ở dưới nhé.</p>
   <br>
   <pre>
-      <code>{{text1}}</code>
+      <code><pre>{{text1}}</pre></code>
   </pre>
   <p>Phần HTML của form sẽ có dạng như sau.</p>
   <pre>
-    <code>{{text2}}</code>
+    <code><pre>{{text2}}</pre></code>
 </pre>
   <br>
 
@@ -64,7 +64,7 @@
     trungvo, tieppt, chautran, nếu ko sẽ trả lại true. Mỗi khi validateUsername dc gọi mình cũng sẽ in ra console một
     dòng text Trigger API call để tiện cho việc demo ở dưới.</p>
   <pre>
-      <code>{{text3}}</code>
+      <code><pre>{{text3}}</pre></code>
     </pre>
   <p>Giờ mình sẽ tiến hành viết custom async validator để validate username trùng khớp. Để viết đc một async validator,
     các bạn có hai lựa chọn:</p>
@@ -85,11 +85,11 @@
   </ul>
   <br>
   <pre>
-    <code>{{text4}}</code>
+    <code><pre>{{text4}}</pre></code>
 </pre>
   <p>Sau khi viết xong function, chúng ta cần config control để sử dụng validator đó.</p>
   <pre>
-    <code>{{text5}}</code>
+    <code><pre>{{text5}}</pre></code>
 </pre>
   <p>Tại sao phải có bind(this) thì đây là một chủ đề khá dài dòng 😂 Mình sẽ giải thích sau nhé.</p>
   <p>Kết quả như hình dưới. Khi điền đủ 6 kí tự alpha, khi đó username đã pass toàn bộ sync validator thì async
@@ -100,11 +100,11 @@
     mà chỉ call API nếu như giữa hai keystroke cách nhau một khoảng thời gian, thường là 300ms. Chúng ta cũng có thể
     implement behavior đó tương tự như dùng async validator. Sửa đoạn code ở trên có dùng timer như ở dưới:</p>
   <pre>
-      <code>{{text6}}</code>
+      <code><pre>{{text6}}</pre></code>
       </pre>
   <p>Sau đó config control để dùng validateUserNameFromAPIDebounce.</p>
   <pre>
-    <code>{{text7}}</code>
+    <code><pre>{{text7}}</pre></code>
     </pre>
   <p>Kết quả đây, sau khi đã type chautr đủ 6 kí tự. Mình sẽ type ba lăng nhăng và sau khi dừng ko type nữa thì API sẽ
     được trigger sau 300ms, chứ ko phải sau mỗi keystroke.
@@ -122,7 +122,7 @@
   <br>
   <p>Để chứng minh thì mình sẽ add thêm hàm onSubmit:</p>
   <pre>
-      <code>{{text8}}</code>
+      <code><pre>{{text8}}</pre></code>
   </pre>
   <p>Có thể thấy là mình vẫn bấm được nút Register trong khi đang validate username 😂 Để fix lỗi này thì mình có tham
     khảo một câu trả lời trên stackoveflow.</p>
@@ -130,10 +130,10 @@
     và handle chỉ khi nào status của form chuyển thành VALID thì formSubmit$ mới emit một value, từ đó mới call hàm
     submitForm.</p>
   <pre>
-      <code>{{text8}}</code>
+      <code><pre>{{text8}}</pre></code>
   </pre>
   <pre>
-    <code>{{text9}}</code>
+    <code><pre>{{text9}}</pre></code>
   </pre>
   <p>Test thôi anh em. Như trong hình thì trong khoảng thời gian đang validate mà nút Register đc enable thì có bấm nút
     cũng sẽ ko trigger hàm submitForm và ko có console hiện ra.</p>
@@ -142,7 +142,7 @@
     giản hơn, nhưng hàm này vì cần value của 2 controls nên mình sẽ apply validator này cho formGroup nhé. Code của
     function validateControlsValue sẽ như sau:</p>
   <pre>
-      <code>{{text10}}</code>
+      <code><pre>{{text10}}</pre></code>
   </pre>
   <ul>
     <li>Mình tạo ra hàm validateControlsValue và truyền vào tên của 2 controls. Function này sẽ return lại một function
@@ -153,7 +153,7 @@
   </ul>
   <p>Sau đó mình apply validator này vào form group.</p>
   <pre>
-    <code>{{text11}}</code>
+    <code><pre>{{text11}}</pre></code>
 </pre>
   <br>
 </div>

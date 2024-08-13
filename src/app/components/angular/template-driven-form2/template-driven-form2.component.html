@@ -72,27 +72,27 @@
   </ul>
   <p>Với yêu cầu trên chúng ta sẽ làm thế nào để hiển thị cho người dùng biết khi họ nhập chưa chính xác.</p>
   <pre>
-      <code>{{text1}}</code>
+      <code><pre>{{text1}}</pre></code>
   </pre>
   <strong>Username input</strong>
   <p>Chúng ta sẽ lần lượt thêm các directives vào để validate như sau:</p>
   <br>
   <pre>
-        <code>{{text2}}</code>
+        <code><pre>{{text2}}</pre></code>
     </pre>
   <pre>
-    <code>{{text3}}</code>
+    <code><pre>{{text3}}</pre></code>
   </pre>
   <p>Chỉ với việc thêm vào một số directives có sẵn, chúng ta đã có kết quả rất khả quan. Các bạn hãy để ý phần html bị
     thay đổi khi typing như sau:</p>
   <p>Nếu chúng ta muốn hiển thị message báo lỗi tùy thuộc vào từng loại lỗi thì sao? Điều này hoàn toàn có thể giải
     quyết bằng cách lấy ra instance của ngModel, sau đó bạn có thể truy cập vào property errors như sau:</p>
   <pre>
-      <code>{{text4}}</code>
+      <code><pre>{{text4}}</pre></code>
   </pre>
   <p>Giờ đây chúng ta có thể sử dụng NgIf để hiển thị được lỗi tương ứng:</p>
   <pre>
-    <code>{{text5}}</code>
+    <code><pre>{{text5}}</pre></code>
 </pre>
   <p>Nhưng khi chạy bạn sẽ thấy có một lỗi runtime như sau:</p>
   <p>TypeError: Cannot read property 'required' of null at SignInComponent_Template (sign-in.component.html:17)</p>
@@ -100,20 +100,20 @@
     valid thì nó sẽ có errors là null, do đó chúng ta cần check null hoặc dùng safe navigation operator (trong template
     của Angular component có operator đặc biệt này).</p>
   <pre>
-      <code>{{text6}}</code>
+      <code><pre>{{text6}}</pre></code>
   </pre>
   <p>Nếu bạn sử dụng Angular Material như ở trên, nó sẽ check một cách khá thông minh là khi người dùng touched rồi thì
     nó mới hiển thị error message. Nên nếu bạn không sử dụng Angular Material thì bạn hoàn toàn có thể áp dụng tương tự
     bằng cách check thêm điều kiện có touched/dirty hay chưa chẳng hạn.</p>
   <pre>
-      <code>{{text7}}</code>
+      <code><pre>{{text7}}</pre></code>
   </pre>
   <p>Giờ đây bạn sẽ có thể có những validation giúp UX được nâng cao hơn trước đây.</p>
   <br>
   <strong>Password input</strong>
   <p>Tương tự như Username input, bạn cũng có thể làm cho Password input với cách thức như đã được đề cập.</p>
   <pre>
-    <code>{{text8}}</code>
+    <code><pre>{{text8}}</pre></code>
 </pre>
   <br>
 </div>

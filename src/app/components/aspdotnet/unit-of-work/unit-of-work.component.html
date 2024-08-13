@@ -42,7 +42,7 @@
     <p>Để hiểu khái niệm này, hãy xem cách triển khai Repository Pattern sau đây sử dụng non-generic Repository Pattern
         cho thực thể Customer:</p>
     <pre>
-            <code>{{text1}}</code>
+            <code><pre>{{text1}}</pre></code>
             </pre>
     <p>Đoạn code trên nhìn có vẻ đúng. Nhưng có một vấn đề ở đây khi chúng ta thêm một repository cho thực thể khác ví
         dụ như Order. Trong trường hợp này cả hai repository sẽ cùng phải khởi tạo, và sử dụng trên đối tượng DbContext
@@ -66,16 +66,16 @@
         nói cách khác thì các thể hiện của Repository Order và Customer đều được sử dụng chung 1 đối tượng DbContext:
     </p>
     <pre>
-        <code>{{text2}}</code>
+        <code><pre>{{text2}}</pre></code>
         </pre>
     <p>Và Customer Repository của chúng ta sẽ được thay đổi để nhận đối tượng của DbContext từ Class Unit Of Work như
         đoạn code dưới đây:</p>
     <pre>
-        <code>{{text3}}</code>
+        <code><pre>{{text3}}</pre></code>
     </pre>
     <p>Tương tự, chúng ta có thể làm với Order Repository. Cuối cùng Controlelr của chúng ta sẽ như sau:</p>
     <pre>
-        <code>{{text4}}</code>
+        <code><pre>{{text4}}</pre></code>
     </pre>
     <p>Cả hai Repository là Order và Customer sử dụng chung một thể hiện của lớp DbContext và thực thi phương thức
         SaveChange() sử dụng thể hiện của Unit Of Work. Transaction chỉ hoàn thành khi cả 2 hành động trên 2 repository

@@ -43,7 +43,7 @@
     tiết những phần code RxJS dưới đây:</p>
   <br>
   <pre>
-            <code>{{text1}}</code>
+            <code><pre>{{text1}}</pre></code>
         </pre>
   <p>Với cách sử dụng RxJS cho bài toán trên quả không tệ, và nếu cần transform thêm nữa thì chúng ta hoàn toàn có thể
     handle được</p>
@@ -99,12 +99,12 @@
   <p>Để create một Observable chúng ta chỉ cần gọi constructor và truyền vào một function (gọi là subscribe), trong đó
     subscribe function sẽ nhận đầu vào là một Observer.</p>
   <pre>
-            <code>{{text2}}</code>
+            <code><pre>{{text2}}</pre></code>
         </pre>
   <br>
   <p>Để có thể clean up chúng ta sẽ return về một function trong subscribe function như sau:</p>
   <pre>
-            <code>{{text3}}</code>
+            <code><pre>{{text3}}</pre></code>
         </pre>
   <br>
 
@@ -116,7 +116,7 @@
     Subscription.</p>
 
   <pre>
-            <code>{{text4}}</code>
+            <code><pre>{{text4}}</pre></code>
         </pre>
   <br>
   <p>Ở trong ví dụ trên chúng ta đã cung cấp đầy đủ 3 hàm callback cho một Observer, bạn hoàn toàn có thể không cung cấp
@@ -155,7 +155,7 @@
   <p>Lưu ý: nếu bạn tự tạo Observable (bằng new Observable chẳng hạn) thì bạn phải tự thiết lập cơ chế để hủy.</p>
 
   <pre>
-            <code>{{text5}}</code>
+            <code><pre>{{text5}}</pre></code>
         </pre>
   <br>
   <p>Ở trong ví dụ trên chúng ta đã cung cấp đầy đủ 3 hàm callback cho một Observer, bạn hoàn toàn có thể không cung cấp
@@ -171,13 +171,13 @@
   <p>Một Observer có dạng như sau:</p>
   <br>
   <pre>
-          <code>{{text6}}</code>
+          <code><pre>{{text6}}</pre></code>
       </pre>
   <br>
   <p>Observer được cung cấp là tham số đầu vào của subscribe để kích hoạt Observable execution.</p>
   <br>
   <pre>
-          <code>{{text7}}</code>
+          <code><pre>{{text7}}</pre></code>
       </pre>
   <br>
   <p>Observe có thể chỉ có một số callbacks trong bộ 3 callbacks kể trên (có thể là một object không có callback nào
@@ -188,13 +188,13 @@
     notification.</p>
   <br>
   <pre>
-          <code>{{text8}}</code>
+          <code><pre>{{text8}}</pre></code>
       </pre>
   <br>
   <p>Lưu ý: Nếu bạn không muốn truyền error handler function vào, hãy truyền null/undefined:</p>
   <br>
   <pre>
-          <code>{{text9}}</code>
+          <code><pre>{{text9}}</pre></code>
       </pre>
   <br>
 
@@ -209,7 +209,7 @@
     hủy phần thực thi này.</p>
   <br>
   <pre>
-          <code>{{text10}}</code>
+          <code><pre>{{text10}}</pre></code>
       </pre>
   <br>
   <p>Một Subscription có thể chứa trong nó nhiều Subscriptions con, khi Subscription unsubscribe, các Subscriptions con
@@ -218,7 +218,7 @@
     này.</p>
   <br>
   <pre>
-          <code>{{text11}}</code>
+          <code><pre>{{text11}}</pre></code>
       </pre>
   <br>
   <br>

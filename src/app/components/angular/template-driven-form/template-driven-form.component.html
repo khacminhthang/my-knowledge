@@ -30,18 +30,18 @@
   <p>Chúng ta sẽ cần một component (sign-in) mới và setup routing cho nó như sau:</p>
   <br>
   <pre>
-    <code>{{text1}}</code>
+    <code><pre>{{text1}}</pre></code>
 </pre>
   <br>
   <pre>
-      <code>{{text2}}</code>
+      <code><pre>{{text2}}</pre></code>
   </pre>
   <p>Giờ đây bạn có thể navigate vào trang http://localhost:4200/sign-in và bắt đầu code được rồi.</p>
   <p>Giả sử page Sign in sẽ có một input cho việc nhập Username, một input cho Password, và một checkbox cho chức năng
     Remember me, kèm theo đó là một button để submit form chẳng hạn.</p>
   <p>Chúng ta có thể có template như sau:</p>
   <pre>
-  <code>{{text3}}</code>
+  <code><pre>{{text3}}</pre></code>
 </pre>
   <p>forkJoin() khi dùng với children Observables là 1 Array, thì forkJoin() có thể nhận vào 1 tham số thứ 2 gọi là
     projectFunction. projectFunction này sẽ được gọi với các tham số là giá trị của children Observables và kết quả của
@@ -51,7 +51,7 @@
     NgModule quản lý component hiện tại. Ví dụ trong trường hợp này SignInComponent được quản lý bởi AppModule nên chúng
     ta có một số imports sau:</p>
   <pre>
-    <code>{{text4}}</code>
+    <code><pre>{{text4}}</pre></code>
 </pre>
   <br>
 
@@ -63,44 +63,44 @@
     NgModule là FormsModule từ package @angular/forms như sau vào AppModule:</p>
   <br>
   <pre>
-    <code>{{text5}}</code>
+    <code><pre>{{text5}}</pre></code>
 </pre>
   <br>
   <strong>ngForm và ngModel directives</strong>
   <p>Để có thể lấy về NgForm instance, chúng ta chỉ cần tạo một template variable cho thẻ form kèm theo chỉ định về
     exportAs như sau:</p>
   <pre>
-<code>{{text6}}</code>
+<code><pre>{{text6}}</pre></code>
 </pre>
   <br>
   <p>Từ đây bạn có thể sử dụng variable signInForm này ở trong template, cũng như truyền về component class.</p>
   <p>Ví dụ, chúng ta truyền instance này vào hàm lắng nghe event submit của form chẳng hạn:</p>
   <pre>
-    <code>{{text7}}</code>
+    <code><pre>{{text7}}</pre></code>
 </pre>
   <p>Ở thời điểm hiện tại chúng ta mặc dù đã khai báo một số input/control, nhưng form của chúng ta không thể xác nhận
     được những control đó, nên nếu bạn print thử value của form hiện tại sẽ là một object rỗng:</p>
   <br>
   <pre>
-      <code>{{text8}}</code>
+      <code><pre>{{text8}}</pre></code>
   </pre>
   <p>Lúc này bạn sẽ cần phải register các control vào form thông qua ngModel directive.
   </p>
   <pre>
-                  <code>{{text9}}</code>
+                  <code><pre>{{text9}}</pre></code>
               </pre>
   <p>Ngay khi chúng ta save lại, bạn sẽ nhận được một thông báo lỗi runtime như sau ở console:</p>
   <pre>
-                  <code>{{text10}}</code>
+                  <code><pre>{{text10}}</pre></code>
               </pre>
   <p>Một thông báo khá rõ ràng, chúng ta cần phải gắn thêm name attribute cho thẻ input hoặc sẽ thêm một config nữa.
     Trong trường hợp này, chúng ta mong muốn register control nên chúng ta sẽ thêm name attribute.</p>
   <pre>
-                  <code>{{text11}}</code>
+                  <code><pre>{{text11}}</pre></code>
               </pre>
   <p>Thực hiện tương tự cho các control khác, chúng ta sẽ có một form hoàn chỉnh như sau:</p>
   <pre>
-    <code>{{text12}}</code>
+    <code><pre>{{text12}}</pre></code>
 </pre>
   <br>
 
@@ -114,7 +114,7 @@
     dụng submit, trang web của bạn sẽ reload, còn nếu bạn sử dụng ngSubmit, nó sẽ không reload – phiên bản lúc này tôi
     đang sử dụng.</p>
   <pre>
-      <code>{{text13}}</code>
+      <code><pre>{{text13}}</pre></code>
   </pre>
   <p>Lời khuyên dành cho bạn là nên dùng ngSubmit cho việc listen form submit.</p>
   <p>Lưu ý rằng ngSubmit có thể áp dụng cho cả Reactive Forms</p>
@@ -134,11 +134,11 @@
   <p>Ví dụ, chúng ta có thể có một object (model) với những data có sẵn để binding ra form (form edit chẳng hạn):</p>
   <br>
   <pre>
-        <code>{{text14}}</code>
+        <code><pre>{{text14}}</pre></code>
       </pre>
   <br>
   <pre>
-        <code>{{text15}}</code>
+        <code><pre>{{text15}}</pre></code>
       </pre>
   <p>Khi render, những gì có trong model sẽ được binding vào control, nhưng control thay đổi giá trị thì không thay đổi
     ngược lại model, vì chúng ta mới chỉ binding một chiều:</p>
@@ -146,7 +146,7 @@
     lại:</p>
   <br>
   <pre>
-          <code>{{text16}}</code>
+          <code><pre>{{text16}}</pre></code>
         </pre>
   <br>
 </div>

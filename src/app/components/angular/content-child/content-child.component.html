@@ -16,7 +16,7 @@
     liệu chúng ta có bao nhiêu component đã được khởi tạo như sau:</p>
   <br>
   <pre>
-            <code>{{text1}}</code>
+            <code><pre>{{text1}}</pre></code>
         </pre>
   <p>Thật bất ngờ, chúng ta hi vọng rằng chỉ có 1 instance của counter, nhưng thực thế chúng ta đang có đến 4 instances,
     chỉ là có 1 instances được hiển thị. Vậy nếu trong trường hợp các tabs của chúng ta có những component có phần phức
@@ -33,24 +33,24 @@
     ViewChild.</p>
   <br>
   <pre>
-            <code>{{text2}}</code>
+            <code><pre>{{text2}}</pre></code>
         </pre>
   <p>Trước tiên, chúng ta sẽ tạo một directive đã.</p>
   <br>
   <pre>
-            <code>{{text3}}</code>
+            <code><pre>{{text3}}</pre></code>
         </pre>
   <p>Directive sẽ giúp chúng ta thêm các tính năng lên một phần tử (DOM Node, Component chẳng hạn), chúng ta có thể thấy
     directive ở trên muốn target đến bất kỳ thẻ ng-template nào có kèm thêm attribute [tabPanelContent].</p>
   <p>Và đây là cách sử dụng ContentChild để lấy về directive đó.</p>
   <br>
   <pre>
-            <code>{{text4}}</code>
+            <code><pre>{{text4}}</pre></code>
         </pre>
   <br>
   <p>Và chúng ta có thể thay đổi cách sử dụng TabPanelComponent như sau:</p>
   <pre>
-    <code>{{text5}}</code>
+    <code><pre>{{text5}}</pre></code>
   </pre>
   <br>
   <p>Nhưng nếu bạn đặt debugger (hoặc console.log) thì sẽ thấy nó trả về một instance của TabPanelContentDirective, vậy
@@ -58,16 +58,16 @@
   <p>Lúc này bạn có thể inject TemplateRef vào constructor của directive hoặc chúng ta có thể sử dụng cách khác, đó là
     thay đổi cách read một element.</p>
   <pre>
-      <code>{{text6}}</code>
+      <code><pre>{{text6}}</pre></code>
     </pre>
   <br>
   <p>Bây giờ chúng ta chỉ cần thêm thắt một chút là Tab component sẽ chạy như những gì chúng ta mong muốn.</p>
   <pre>
-      <code>{{text7}}</code>
+      <code><pre>{{text7}}</pre></code>
     </pre>
   <br>
   <pre>
-      <code>{{text8}}</code>
+      <code><pre>{{text8}}</pre></code>
     </pre>
   <br>
   <p>Vậy là bây giờ chúng ta chỉ có 2 instances được khởi tạo.</p>
@@ -82,11 +82,11 @@
   <p>Đây chính là lúc mà bạn có thể sử dụng đến ContentChildren.</p>
   <br>
   <pre>
-            <code>{{text9}}</code>
+            <code><pre>{{text9}}</pre></code>
         </pre>
   <br>
   <pre>
-            <code>{{text10}}</code>
+            <code><pre>{{text10}}</pre></code>
         </pre>
   <br>
   <p>Chỉ cần có thế là chúng ta đã có thể query được tất cả theo yêu cầu.</p>
@@ -103,7 +103,7 @@
     sau:</p>
   <br>
   <pre>
-            <code>{{text11}}</code>
+            <code><pre>{{text11}}</pre></code>
         </pre>
   <p>Bạn sẽ nhận được một Error như sau:</p>
   <p>Error in src/app/bs-tab-group/bs-tab-group.component.ts

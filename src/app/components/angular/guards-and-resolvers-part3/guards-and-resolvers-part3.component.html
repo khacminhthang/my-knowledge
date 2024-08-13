@@ -13,7 +13,7 @@
     cho component đó.</p>
   <p>Ví dụ như component ArticleDetailComponent ở đây:</p>
   <pre>
-                <code>{{text1}}</code>
+                <code><pre>{{text1}}</pre></code>
             </pre>
   <p>Đúng vậy, khi component được activated, chúng ta sẽ tiến hành connect đến DataSource để lấy về dữ liệu cần thiết.
     Trong khá nhiều trường hợp, quá trình đó là quá trình bất đồng bộ như trên.</p>
@@ -23,18 +23,18 @@
     một dạng như middleware ở trong Angular Router mà chúng ta được biết đến dưới tên gọi Resolvers.</p>
   <br>
   <pre>
-                <code>{{text2}}</code>
+                <code><pre>{{text2}}</pre></code>
             </pre>
   <p>Resolver chỉ là một service, có implement interface Resolve ở trên. Các Resolvers sẽ được call hàm resolve và
     Router sẽ đợi đến khi nào data được resolved xong xuôi thì mới activate components.</p>
   <p>Ví dụ, chúng ta có thể tạo một resolver để lấy về thông tin một Article như sau:</p>
   <br>
   <pre>
-                <code>{{text3}}</code>
+                <code><pre>{{text3}}</pre></code>
             </pre>
   <p>Sau đó, config routing của article detail sẽ có thêm một key mới:</p>
   <pre>
-        <code>{{text4}}</code>
+        <code><pre>{{text4}}</pre></code>
     </pre>
   <p>Bây giờ chúng ta chạy thử sẽ thấy, thay vì hiển thị loading ở component, chúng ta đã lấy về data trước khi thực
     hiện activate component, do đó sau khi navigate, resolver phải resolved rồi chúng ta mới có thể thấy component được
@@ -55,7 +55,7 @@
   <p>Ví dụ, giả sử chúng ta có một service và nó emit 5 giá trị mỗi lần như sau:
   </p>
   <pre>
-      <code>{{text5}}</code>
+      <code><pre>{{text5}}</pre></code>
   </pre>
   <p>Nếu bạn sử dụng trong component thông thường, chúng sẽ hiển thị rất bình thường, nhưng trong Resolvers thì chỉ khi
     nào Observable trả về bởi getArticleBySlug complete, lúc đó bạn mới navigate vào page được.</p>

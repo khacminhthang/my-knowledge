@@ -9,7 +9,7 @@
   <p>Trong ngày 24 này, chúng ta sẽ tiếp tục sử dụng observer mặc định như sau:</p>
   <br>
   <pre>
-      <code>{{text1}}</code>
+      <code><pre>{{text1}}</pre></code>
   </pre>
   <br>
 
@@ -28,7 +28,7 @@
   </p>
   <br>
   <pre>
-          <code>{{text2}}</code>
+          <code><pre>{{text2}}</pre></code>
       </pre>
   <p>Trong trường hợp trên nếu chúng ta không bắt error thì observer.error sẽ là nơi đón Error, nhưng vì chúng ta trả về
     là một next: Error nên error này đã được handle bởi observer.next.</p>
@@ -37,13 +37,13 @@
     ra ở pipe tiếp theo thì chỉ cần catchError lại như trên là được.</p>
   <br>
   <pre>
-      <code>{{text3}}</code>
+      <code><pre>{{text3}}</pre></code>
     </pre>
   <p>Nếu bạn return về Observable trước đó (source Observable), chúng ta có thể tiến hành retry. Nhưng hãy thật cẩn thận
     vì có thể sinh ra infinite loop. Nếu bạn muốn retry kèm theo giới hạn về số lần, chúng ta có thể kết hợp với take:
   </p>
   <pre>
-        <code>{{text4}}</code>
+        <code><pre>{{text4}}</pre></code>
     </pre>
   <p>Ngoài ra, trong catchError bạn hoàn toàn có thể throw về một error để pipe phía sau có thể handle tiếp.</p>
   <br>
@@ -60,13 +60,13 @@
     Create, Update, Delete vì có thể sinh ra race condition.
   </p>
   <pre>
-                    <code>{{text5}}</code>
+                    <code><pre>{{text5}}</pre></code>
                 </pre>
   <strong>Lưu ý, cách hoạt động của retry operator khác với catch kèm theo kỹ thuật retry ở trên.</strong>
   <p>Ngoài retry chúng ta có thể dùng retryWhen để có thể control vào quá trình retry (ví dụ: khi nào sẽ retry).</p>
   <p>Một use-case khá hay là retryBackoff operator, nó sẽ tăng thời gian sau mỗi lần retry:</p>
   <pre>
-        <code>{{text6}}</code>
+        <code><pre>{{text6}}</pre></code>
     </pre>
   <br>
 
@@ -86,7 +86,7 @@
     không confirm thì hủy và báo lỗi cho người dùng.</p>
   <br>
   <pre>
-    <code>{{text7}}</code>
+    <code><pre>{{text7}}</pre></code>
 </pre>
   <br>
 
@@ -102,13 +102,13 @@
   <p>Lưu ý nếu source không complete thì sẽ không có gì emit ra cả.</p>
   <br>
   <pre>
-      <code>{{text8}}</code>
+      <code><pre>{{text8}}</pre></code>
   </pre>
   <p>Các method của Array trong JS, có cả every và some, nếu các bạn muốn có một operator giống some ở trong RxJS thì có
     thể dùng first kèm theo predicate function. Giống như trong phần Router của Angular</p>
   <br>
   <pre>
-                    <code>{{text9}}</code>
+                    <code><pre>{{text9}}</pre></code>
                 </pre>
   <br>
 
@@ -123,6 +123,6 @@
   <p>Opeartor này cho phép chúng ta lựa chọn Observable tương ứng với hàm điều kiện khi thực hiện subscribe.
   </p>
   <pre>
-                    <code>{{text10}}</code>
+                    <code><pre>{{text10}}</pre></code>
                 </pre>
 </div>

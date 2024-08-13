@@ -16,7 +16,7 @@
     hoặc falsy. Nếu như truthy thì filter() sẽ emit giá trị của Observable tại thời điểm đó. Ngược lại nếu như falsy,
     thì filter() sẽ không emit giá trị đó. Cách hoạt động giống như Array.prototype.filter() vậy.</p>
   <pre>
-      <code>{{text1}}</code>
+      <code><pre>{{text1}}</pre></code>
   </pre>
   <br>
 
@@ -33,7 +33,7 @@
   </p>
   <br>
   <pre>
-      <code>{{text2}}</code>
+      <code><pre>{{text2}}</pre></code>
   </pre>
   <p>Ngoài ra, first() còn có thể nhận vào 2 tham số optional: predicate và defaultValue. Nếu như bạn truyền vào
     predicate thì first() sẽ throw Error nếu như Observable đã complete mà chưa có giá trị nào thoả được điều kiện của
@@ -41,7 +41,7 @@
   <p>Nếu bạn nào từng làm qua .NET LINQ thì first(predicate, defaultValue) hoạt động tương tự FirstOrDefault</p>
   <br>
   <pre>
-                  <code>{{text3}}</code>
+                  <code><pre>{{text3}}</pre></code>
               </pre>
   <br>
 
@@ -61,7 +61,7 @@
   </ul>
   <br>
   <pre>
-                <code>{{text4}}</code>
+                <code><pre>{{text4}}</pre></code>
             </pre>
   <br>
 
@@ -75,7 +75,7 @@
     mà thoả mãn được điều kiện từ predicate rồi complete. Khác với first(), find() phải có predicate và find() sẽ không
     emit Error nếu như không có giá trị nào thoả mãn điều kiện.</p>
   <pre>
-                <code>{{text5}}</code>
+                <code><pre>{{text5}}</pre></code>
             </pre>
   <br>
 
@@ -89,7 +89,7 @@
     điều kiện khi truyền vào tham số predicate. Phần lớn single() chỉ nên sử dụng khi bạn có điều kiện predicate cần
     phải thoả mãn. Nếu dùng single() lên 1 Observable emit nhiều hơn 1 giá trị, single() sẽ throw Error.</p>
   <pre>
-                <code>{{text6}}</code>
+                <code><pre>{{text6}}</pre></code>
             </pre>
 
   <br>
@@ -102,7 +102,7 @@
   <p>take() nhận vào 1 tham số count để dùng cho số lần lấy giá trị được emit từ Observable sau đó sẽ complete.</p>
   <br>
   <pre>
-                <code>{{text7}}</code>
+                <code><pre>{{text7}}</pre></code>
             </pre>
   <strong>3Special case: take(1)</strong>
   <br>
@@ -127,7 +127,7 @@
     long-live Observable (ví dụ: interval()) thì takeLast() sẽ không bao giờ emit.</p>
   <br>
   <pre>
-                <code>{{text8}}</code>
+                <code><pre>{{text8}}</pre></code>
             </pre>
   <br>
 
@@ -140,7 +140,7 @@
     của Observable gốc CHO TỚI KHI notifier emit.</p>
   <br>
   <pre>
-                <code>{{text9}}</code>
+                <code><pre>{{text9}}</pre></code>
             </pre>
   <strong>Use-case trong Angular:</strong>
   <p>takeUntil() được dùng để unsubscribe Observable trong ngOnDestroy() là rất phổ biến. Các bạn suy nghĩ mình có 1
@@ -160,7 +160,7 @@
     takeUntil(). Các bạn xem qua 2 bài post trên group về vấn đề này nhé: post 1 và post 2</p>
   <br>
   <pre>
-                <code>{{text10}}</code>
+                <code><pre>{{text10}}</pre></code>
             </pre>
   <p>takeWhile() hoạt động hiệu quả nhất khi bạn muốn unsusbcribe từ chính giá trị mà Observable emit (internal). Giống
     như ví dụ trên, mình lấy chính giá trị của interval để kiểm tra điều kiện. takeUntil() hoạt động hiệu quả khi bạn có
@@ -176,7 +176,7 @@
     trị ban đầu, còn skip() là mình sẽ bỏ qua n giá trị ban đầu.</p>
   <br>
   <pre>
-                <code>{{text11}}</code>
+                <code><pre>{{text11}}</pre></code>
             </pre>
   <br>
 
@@ -188,7 +188,7 @@
   <p>skipUntil() hoạt động tương tự takeUntil() và mang tính chất giống với skip().</p>
   <br>
   <pre>
-                <code>{{text12}}</code>
+                <code><pre>{{text12}}</pre></code>
             </pre>
   <br>
 
@@ -200,7 +200,7 @@
   <p>skipWhile() hoạt động tương tự takeWhile() và mang tính chất giống với skip()</p>
   <br>
   <pre>
-                  <code>{{text13}}</code>
+                  <code><pre>{{text13}}</pre></code>
               </pre>
   <br>
 
@@ -212,13 +212,13 @@
   <p>distinct() sẽ so sánh các giá trị được emit từ Observable và chỉ emit các giá trị chưa được emit qua.</p>
   <br>
   <pre>
-      <code>{{text14}}</code>
+      <code><pre>{{text14}}</pre></code>
     </pre>
   <p>distinct() có thể nhận vào 1 tham số là hàm keySelector để có thể chọn được property nào cần được so sánh nếu như
     Observable emit giá trị là 1 complex Object</p>
   <br>
   <pre>
-      <code>{{text15}}</code>
+      <code><pre>{{text15}}</pre></code>
     </pre>
   <br>
 
@@ -232,7 +232,7 @@
     sắp được emit với giá trị vừa được emit (giá trị cuối) chứ không so sánh với tất cả giá trị đã được emit.</p>
   <br>
   <pre>
-      <code>{{text16}}</code>
+      <code><pre>{{text16}}</pre></code>
     </pre>
   <p>distinctUntilChanged() cũng có thể nhận vào 2 tham số optional: compare function và keySelector function. Tham số
     keySelector hoạt động giống như tham số keySelector của distinct(). Khi compare function không được truyền vào cho
@@ -241,7 +241,7 @@
   </p>
   <br>
   <pre>
-    <code>{{text17}}</code>
+    <code><pre>{{text17}}</pre></code>
   </pre>
   <br>
 
@@ -255,7 +255,7 @@
   <br>
   <br>
   <pre>
-      <code>{{text18}}</code>
+      <code><pre>{{text18}}</pre></code>
     </pre>
   <br>
   <strong>Note</strong>
@@ -282,7 +282,7 @@
     chờ giá trị tiếp theo của Observable gốc và quá trình này được lặp lại.</p>
   <br>
   <pre>
-      <code>{{text19}}</code>
+      <code><pre>{{text19}}</pre></code>
     </pre>
   <br>
   <p>throttleTime() có thể nhận vào tham số ThrottleConfig: leading: boolean, trailing: boolean để xác định xem
@@ -310,7 +310,7 @@
     tượng trưng cho durationSelector. timer của debounce sẽ hoạt động dựa trên durationSelector này thay vì dueTime</p>
   <br>
   <pre>
-      <code>{{text20}}</code>
+      <code><pre>{{text20}}</pre></code>
     </pre>
   <br>
   <p>Vì cách hoạt động như trên, debounceTime() được dùng phổ biến nhất cho 1 input dùng để filter 1 danh sách gì đó.
@@ -334,7 +334,7 @@
     tượng trưng cho durationSelector. timer của debounce sẽ hoạt động dựa trên durationSelector này thay vì dueTime</p>
   <br>
   <pre>
-      <code>{{text21}}</code>
+      <code><pre>{{text21}}</pre></code>
     </pre>
   <br>
 
@@ -350,7 +350,7 @@
   </p>
   <br>
   <pre>
-        <code>{{text22}}</code>
+        <code><pre>{{text22}}</pre></code>
       </pre>
   <br>
 </div>

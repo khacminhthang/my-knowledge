@@ -39,19 +39,19 @@
   <p>Mình có một biến tên là now ở trong component.</p>
   <br>
   <pre>
-              <code>{{text1}}</code>
+              <code><pre>{{text1}}</pre></code>
           </pre>
   <p>Và đây là cách mình hiển thị với built in pipe Date trong Angular
   </p>
   <br>
   <pre>
-              <code>{{text2}}</code>
+              <code><pre>{{text2}}</pre></code>
           </pre>
   <p>Chú ý phần giữa hai dấu ngoặc nhọn, ngoài việc truyền vào variable bạn muốn hiển thì thì có thêm dấu xổ dọc
     |. Đó là pipe operator, sau đó là tên của pipe bạn đã định nghĩa. Tất cả pipe đều hoạt động theo cách này.</p>
   <br>
   <pre>
-              <code>{{text3}}</code>
+              <code><pre>{{text3}}</pre></code>
           </pre>
 
   <!--Pipe and parameters-->
@@ -63,7 +63,7 @@
   <p>Đây chính là lúc mà bạn có thể sử dụng đến ContentChildren.</p>
   <br>
   <pre>
-              <code>{{text4}}</code>
+              <code><pre>{{text4}}</pre></code>
           </pre>
   <p>Bạn có thể truyền vào số lượng parameter không giới hạn.</p>
   <br>
@@ -75,7 +75,7 @@
   <p>Pipes cho phép chúng ta dùng nhiều pipe để transform một value, cú pháp có dạng như sau.</p>
   <br>
   <pre>
-              <code>{{text5}}</code>
+              <code><pre>{{text5}}</pre></code>
           </pre>
   <p>Sau khi có output pipe_name_1, thì output này sẽ được xử lý qua pipe_name_2 rồi tương tự đến pipe_name_n để ra
     output cuối cùng hiển thị lên UI. Vẫn ví dụ với date ở trên, mình sẽ thêm pipe uppercase để chuyển hết text thành
@@ -142,7 +142,7 @@
   <p>Thông thường bọn mình có thể viết đi viết lại một cái logic trong từng component.</p>
   <br>
   <pre>
-                <code>{{text6}}</code>
+                <code><pre>{{text6}}</pre></code>
             </pre>
   <br>
   <p>Cho đến một ngày một dev mắc một lỗi typo ngớ ngẩn là thay vì Add, bạn ấy type thành Adđ (Vì có bật Unikey :)))</p>
@@ -154,12 +154,12 @@
   <p>Interface này chỉ bao gồm một method duy nhất tên là transform.</p>
   <p>Đây là interface PipeTransform cần implement</p>
   <pre>
-    <code>{{text7}}</code>
+    <code><pre>{{text7}}</pre></code>
 </pre>
   <br>
   <p>Đây là ví dụ một class sau khi đã implement PipeTransform</p>
   <pre>
-    <code>{{text8}}</code>
+    <code><pre>{{text8}}</pre></code>
 </pre>
   <br>
   <p>Đại khái là method transform ở đây rất đơn giản. Nếu resourceId là truthy thì return Edit, nếu ko thì return lại
@@ -168,7 +168,7 @@
   <strong>Thêm Pipe decorator cho class đã implement PipeTransform</strong>
   <p>Giống như component có decorator @Component. Pipe cũng có decorator @Pipe..</p>
   <pre>
-    <code>{{text9}}</code>
+    <code><pre>{{text9}}</pre></code>
 </pre>
   <br>
   <p>Khi thêm Pipe decorator thì có một property là required, đó chính là tên của pipe. Mình đặt là appTitle.</p>
@@ -176,7 +176,7 @@
     báo lỗi.</p>
   <p>Xong rồi đây, giờ mình có thể dùng appTitle như bình thường.</p>
   <pre>
-    <code>{{text10}}</code>
+    <code><pre>{{text10}}</pre></code>
 </pre>
   <br>
   <p>Chú ý cách đặt tên cho pipe và class:</p>
@@ -194,12 +194,12 @@
     set lại Add và Edit tương ứng.</p>
   <p>Code của mình có thể được viết lại như sau:</p>
   <pre>
-    <code>{{text11}}</code>
+    <code><pre>{{text11}}</pre></code>
 </pre>
   <br>
   <p>Và dùng trên UI</p>
   <pre>
-    <code>{{text12}}</code>
+    <code><pre>{{text12}}</pre></code>
 </pre>
   <br>
   <p>Method transform sẽ nhận vào nhiều argument. Trong đó:</p>
@@ -222,11 +222,11 @@
     thay đổi, pipe nhận biết được là có sự thay đổi và update UI tương ứng. Ví dụ:</p>
   <br>
   <pre>
-              <code>{{text13}}</code>
+              <code><pre>{{text13}}</pre></code>
           </pre>
   <br>
   <pre>
-              <code>{{text14}}</code>
+              <code><pre>{{text14}}</pre></code>
           </pre>
   <br>
   <p>Vậy đối với primitive type như string, boolean, number. Angular detech changes khá là straight forward. Mỗi khi
@@ -236,19 +236,19 @@
   <p>Ví dụ như có một mảng của users như sau.</p>
   <br>
   <pre>
-              <code>{{text15}}</code>
+              <code><pre>{{text15}}</pre></code>
           </pre>
   <br>
   <p>Mình có một pipe tên là isAdult, để filter ra những user lớn hơn 18 tuổi.</p>
   <br>
   <pre>
-    <code>{{text16}}</code>
+    <code><pre>{{text16}}</pre></code>
 </pre>
   <br>
   <p>Và mình render cả 2 list lên màn hình</p>
   <br>
   <pre>
-    <code>{{text17}}</code>
+    <code><pre>{{text17}}</pre></code>
 </pre>
   <br>
   <p>Như các bạn thấy list những người trưởng thành hiện không có user Tuan Anh dc render, chứng tỏ pipe đã hoạt động
@@ -257,7 +257,7 @@
     nhiên khi add thêm một user với tuổi lớn 18 vào mảng users. Phần render list người lớn bên phải ko tự update.</p>
   <br>
   <pre>
-    <code>{{text18}}</code>
+    <code><pre>{{text18}}</pre></code>
 </pre>
   <br>
   <p>Mình push thêm phần tử mới vào mảng khi click add. Tức là mutate giá trị của mảng trực tiếp, chứ không gán một
@@ -273,7 +273,7 @@
     và item mới được add. Đoạn code ở trên sẽ được sửa lại thành.</p>
   <br>
   <pre>
-    <code>{{text19}}</code>
+    <code><pre>{{text19}}</pre></code>
 </pre>
   <br>
   <strong>2. Set impure Pipe</strong>
@@ -282,7 +282,7 @@
     luôn có giá trị true.</p>
   <br>
   <pre>
-    <code>{{text20}}</code>
+    <code><pre>{{text20}}</pre></code>
 </pre>
   <p>Tuy nhiên khi sử dụng impure pipe phải hết sức cẩn thận vì như đã đề cập ở trên. Việc check từng phần trong array
     hay từng property trong object xem có thay đổi hay không rất tốn performance. Nên khi tập dữ liệu của bạn đủ lớn,

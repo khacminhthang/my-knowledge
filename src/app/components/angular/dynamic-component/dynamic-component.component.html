@@ -29,10 +29,10 @@
   <p>Chúng ta khởi tạo template example-component với 2 nút và 1 ViewChild như sau.</p>
   <br>
   <pre>
-          <code>{{text1}}</code>
+          <code><pre>{{text1}}</pre></code>
       </pre>
   <pre>
-          <code>{{text2}}</code>
+          <code><pre>{{text2}}</pre></code>
       </pre>
 
   <p>Flow chính:</p>
@@ -43,18 +43,18 @@
   <p>4. Dùng Resolver connect với component nào chúng ta muốn load dynamic. => Kết quả sẽ trả về 1 Component
     Factory</p>
   <pre>
-    <code>{{text3}}</code>
+    <code><pre>{{text3}}</pre></code>
 </pre>
   <p>Dùng ViewContainerRef với Component Factory chúng ta vừa tạo ở trên để load Dynamic Component.</p>
   <pre>
-  <code>{{text4}}</code>
+  <code><pre>{{text4}}</pre></code>
 </pre>
 
   <strong>Step 4: Add các dynamic components vào entryComponents</strong>
   <p>Để code trên hoạt động được, các bạn cần add 2 components DynamicContentOne và DynamicContentTwo vào
     entryComponents như sau. Nếu không sẽ xảy ra lỗi "No component factory found ... "</p>
   <pre>
-      <code>{{text5}}</code>
+      <code><pre>{{text5}}</pre></code>
     </pre>
   <p>Ngoài ra từ khi có Angular Ivy, chúng ta có thể bỏ đi step này.</p>
 
@@ -62,7 +62,7 @@
   <p>Tiếp đến chúng ta thực hiện 1 tính năng là clear các components đã load dynamic. Chúng ta làm điều này
     như sau:</p>
   <pre>
-      <code>{{text6}}</code>
+      <code><pre>{{text6}}</pre></code>
     </pre>
 
   <strong>Step 6: Tương tác với các dynamic components</strong>
@@ -70,12 +70,12 @@
     component cha với con. Cụ thể như sau:</p>
   <p>Ở component con, chúng ta tạo 1 @Input như sau:</p>
   <pre>
-    <code>{{text7}}</code>
+    <code><pre>{{text7}}</pre></code>
   </pre>
   <p>Ở component cha, chúng ta sẽ truyền data thông qua componentRef (Đây là kết quả trả về sau khi chúng ta
     dùng ViewContainerRef load dynamic component)</p>
   <pre>
-      <code>{{text8}}</code>
+      <code><pre>{{text8}}</pre></code>
     </pre>
   <br>
 
@@ -93,12 +93,12 @@
   </ul>
   <p>Code sẽ như sau:</p>
   <pre>
-    <code>{{text9}}</code>
+    <code><pre>{{text9}}</pre></code>
   </pre>
   <strong>Step 7.3 Update code ở app.module.ts</strong>
   <p>Remove 2 cái import components ở đầu file. Code sẽ như sau:</p>
   <pre>
-    <code>{{text10}}</code>
+    <code><pre>{{text10}}</pre></code>
   </pre>
   <p>Vậy là đã xong, các bạn đã thực hiện thành công việc lazy load các dynamic components mà không phải
     add trực tiếp vào như ở những step đầu. Lưu ý: Đối với những bạn nào dùng Angular phiên bản cũ thì
