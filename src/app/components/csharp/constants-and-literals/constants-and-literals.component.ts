@@ -26,17 +26,17 @@ export class ConstantsAndLiteralsComponent implements OnInit {
 
   text3 = `
   3.14159       /* hợp lệ */
-314159E-5L    /* hợp lệ */
-510E          /* không hợp lệ: phần exponent chưa hoàn thành */
-210f          /* không hợp lệ: thiếu phần decimal hoặc exponent */
-.e55          /* không hợp lệ: thiếu phần integer hoặc fraction */
+  314159E-5L    /* hợp lệ */
+  510E          /* không hợp lệ: phần exponent chưa hoàn thành */
+  210f          /* không hợp lệ: thiếu phần decimal hoặc exponent */
+  .e55          /* không hợp lệ: thiếu phần integer hoặc fraction */
   `;
   text4 =`
   "hello, dear"
-"hello, \
-dear"
-"hello, " "d" "ear"
-@"hello dear"
+  "hello, \
+  dear"
+  "hello, " "d" "ear"
+  @"hello dear"
   `;
 
   text5=`const <kiểu_dữ_liệu> <tên_hằng> = giá_trị;`;
