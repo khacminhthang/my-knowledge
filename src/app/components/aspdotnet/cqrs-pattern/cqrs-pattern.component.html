@@ -5,7 +5,7 @@
 		đọc(read) và ghi(write) dữ liệu cho một kho dữ liệu.</p>
 	<p>Việc triển khai CQRS trong ứng dụng có thể tối đa hóa hiệu xuất, khả năng mở rộng và tỉnh bảo mật cho hệ thống.
 	</p>
-	<span class="title pb-0">Context and problem</span>
+	<span class="title pb-0">Bối cảnh và vấn đề thực tế</span>
 	<div class="border-b1"></div>
 	<p>Trong kiến trúc truyền thống, một model sẽ được dùng chung để query và update một cơ sở dữ liệu. Điều này là đơn
 		giản và hoạt động tốt trong các hệ thống CRUD đơn giản. Tuy nhiên trong một số ứng dụng phức tạp hơn, các tiếp
@@ -34,7 +34,7 @@
 	</p>
 	<p>Việc quản lý bảo mật và quyền có thể trở nên phức tạp vài mỗi entity đều có thể thực hiện đọc và ghi dữ liệu.</p>
 	<br>
-	<span class="title pb-0">Solution</span>
+	<span class="title pb-0">Giải pháp</span>
 	<div class="border-b1"></div>
 	<p>CQRS chia tách việc đọc và ghi thành các model khác nhau, sử dụng commands để ghi dữ liệu và queries để đọc dữ
 		liệu</p>
@@ -91,6 +91,67 @@
 	<p><strong>Simpler querie:</strong> Bằng cách lưu trữ dữ liệu trong materialized view ở read database, ứng dụng có
 		thể tránh được các phép join phức tạp.</p>
 	<br>
-	<span class="title pb-0">Implementation issues and considerations</span>
+	<span class="title pb-0">Cân nhắc một số vấn đề khi muốn áp dụng CQRS</span>
 	<div class="border-b1"></div>
+	<p><strong>Complexity(Sự phức tạp)</strong>: Ý tưởng của CQRS khá đơn giản, nhưng có thể dẫn đến sự phức tạp trong
+		thiết kế ứng dụng, đặc biệt là khi triển khai cùng Event Sourcing pattern. </p>
+	<p><strong>Messaging</strong> Mặc dù CQRS bắt buộc sử dụng messaging nhưng việc sử dụng messaging để xử lý commands
+		và publish events là phổ biến. Trong trường hợp đó, ứng dụng phải xử lý các tin nhắn lỗi hoặc trùng lặp.</p>
+	<p><strong>Eventual consistency(Tính nhất quán cuối cùng): Khi chia tách read và write database cần đảm bảo tính
+			nhất quán của dữ liệu. Read database cần được cập nhật với những thay đổi dữ liệu ở write database.</strong>
+	</p>
+	<span class="title pb-0">Khi nào nên sử dụng CQRS</span>
+	<div class="border-b1"></div>
+	<strong>1.Collaborative domains</strong>
+	<p>Trong Collaborative domains(Những hệ thống và ứng dụng mà nhiều người dùng cùng làm việc và truy cập cùng một dữ
+		liệu) cho phép định nghĩa các commands với độ chi tiết giảm thiểu để giảm xung đột khi nhiều người dùng chỉnh
+		sửa dữ liệu. Ví dụ: Thay vì cho phép người dùng chỉnh sửa trực tiếp tất cả các thuộc tính của 1 model, ứng dụng
+		CQRS chia nhỏ các commands "Cập nhật địa chỉ", "Cập nhật trạng thái."Nếu xung đột xảy ra khi nhiều lệnh cố gắng
+		thay đổi cùng một phần dữ liệu, CQRS cho phép các xung đột này được xử lý và hợp nhất khi lệnh thực hiện. Hệ
+		thống có thể áp dụng các quy tắc để xác định cách các thay đổi sẽ được kết hợp.</p>
+	<p>Giả sử bạn đang phát triển một ứng dụng quản lý dự án, và nhiều người dùng có thể cập nhật thông tin của cùng một
+		dự án đồng thời.</p>
+	<p>Không sử dụng CQRS: Nếu người dùng A và người dùng B cùng thay đổi thông tin của dự án (ví dụ, thay đổi tên dự
+		án) mà không có cơ chế kiểm soát xung đột, có thể dẫn đến việc dữ liệu bị ghi đè hoặc mất mát thông tin.</p>
+	<p>Sử dụng CQRS: Bạn có thể định nghĩa các lệnh như "Thay đổi tên dự án" và "Thay đổi mô tả dự án" như các lệnh
+		riêng biệt. Khi người dùng A thay đổi tên dự án và người dùng B thay đổi mô tả dự án, hệ thống có thể thực hiện
+		các lệnh này mà không xảy ra xung đột. Nếu hai người dùng cùng cố gắng thay đổi cùng một thuộc tính, CQRS có thể
+		xử lý xung đột bằng cách áp dụng quy tắc hợp nhất như "Luôn giữ thay đổi mới nhất" hoặc yêu cầu người dùng chọn
+		một phiên bản từ các thay đổi.</p>
+	<p>Việc sử dụng CQRS trong tình huống này giúp hệ thống xử lý đồng thời tốt hơn và giảm thiểu các vấn đề về xung
+		đột dữ liệu.</p>
+	<strong>2.Task-based user interfaces</strong>
+	<p>Giao diện người dùng dựa trên tác vụ (Task-based user interfaces) là các giao diện hướng dẫn người dùng qua một
+		quy trình phức tạp bằng cách chia quy trình thành các bước nhỏ hoặc sử dụng các domain model phức tạp.</p>
+	<p>Write model sẽ bao gồm đầy đủ xử lý với logic nghiệp vụ, input validation, bussiness validation. Write model có
+		thể coi là một tập hợp các đối tượng liên quan - a single unit of datachanges (an aggregate in DDD), và đảm bảo
+		các đối tượng này luôn nhất quán. Read model thì không có logic nghiệp vụ, validation chỉ trả về DTO để sử dụng
+		hiển thị. Read model - Eventually consistent - Write model.</p>
+	<p>Ví dụ:</p>
+	<p>Giả sử bạn đang phát triển một ứng dụng đặt vé máy bay.
+		Giao diện người dùng dựa trên tác vụ: Người dùng được hướng dẫn qua các bước như chọn chuyến bay, nhập thông tin
+		hành khách, và thanh toán.
+	</p>
+	<p>Mô hình ghi:
+		Khi người dùng hoàn tất việc đặt vé, mô hình ghi xử lý lệnh đặt vé, kiểm tra tính hợp lệ của thông tin hành
+		khách, và cập nhật trạng thái vé.
+		Nếu có nhiều hành khách trong một đơn đặt vé, tất cả thông tin liên quan đến hành khách được xử lý như một đơn
+		vị để đảm bảo tính nhất quán (tập hợp đối tượng).</p>
+	<p>Mô hình đọc:
+		Sau khi đặt vé thành công, mô hình đọc sẽ cung cấp thông tin vé cho giao diện người dùng, chẳng hạn như số hiệu
+		chuyến bay và chi tiết hành khách.
+		Mô hình đọc có thể có một chút độ trễ để đồng bộ hóa với mô hình ghi, vì vậy thông tin trên giao diện người dùng
+		có thể được cập nhật không ngay lập tức sau khi đặt vé.</p>
+	<p>Mô hình này giúp tách biệt việc xử lý dữ liệu từ việc hiển thị dữ liệu, cải thiện hiệu suất và dễ dàng quản lý
+		các quy trình phức tạp.</p>
+	<strong>Cấu hình riêng biệt cho read side và write side</strong>
+	<p>Trong trường hợp hiệu xuất đọc dữ liệu cần được tinh chỉnh riêng biệt với ghi dữ liệu, đặc biệt khi số lần đọc
+		lớn hơn nhiều so với số lần ghi. Trong trường hợp này có thể mở rộng read side và chỉ cần sử dụng một số lượng
+		nhỏ instance write side.</p>
+	<strong>Phát triển độc lập</strong>
+	<p>Chia một nhóm các developer tập trung xử lý các write model phức tạp, một nhóm khác xử lý read model và hiển thị
+		giao diện người dùng.</p>
+	<strong>KHÔNG NÊN SỬ DỤNG CQRS KHI:</strong>
+	<p>Nghiệp vụ đơn giản</p>
+	<p>Ứng dụng CRUD đơn giản, không nhiều thao tác truy cập dữ liệu.</p>
 </div>
