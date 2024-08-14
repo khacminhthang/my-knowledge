@@ -1,1 +1,76 @@
-<p>classes works!</p>
+<div>
+    <h1 style="font-size: 2rem;">Lớp (Class) trong C#</h1>
+    <br>
+    <p>Khi bạn định nghĩa một lớp (class) trong C#, bạn định nghĩa một blueprint cho một kiểu dữ liệu. Điều này không
+        thực sự định nghĩa bất kỳ dữ liệu nào, nhưng nó định nghĩa ý nghĩa của tên lớp đó. Tức là, một đối tượng của lớp
+        đó gồm những cái gì, các hoạt động nào có thể được thực hiện trên đối tượng đó. Các đối tượng là instance (sự
+        thể hiện) của một lớp. Các phương thức và các biến mà cấu tạo nên một lớp được gọi là các thành viên của lớp đó.
+    </p>
+    <strong>Định nghĩa một Class trong C#</strong>
+    <code><pre>{{text1}}</pre></code>
+    <p>Ghi chú:</p>
+    <p>Access specifier xác định các qui tắc truy cập cho các thành viên cũng như chính lớp đó. Nếu không được đề cập,
+        thì Access Specifier mặc định cho một kiểu lớp là internal. Chế độ truy cập mặc định cho các thành viên là
+        private.</p>
+    <p>kiểu_dữ_liệu xác định kiểu biến, và trả về kiểu dữ liệu mà phương thức trả về.</p>
+    <p>Để truy cập các thành viên lớp, bạn sử dụng toán tử dot (.).</p>
+    <p>Toán tử dot (.) liên kết với tên của một đối tượng với tên của một thành viên.</p>
+    <p>Ví dụ sau minh họa các khái niệm về lớp trong C# được đề cập ở trên: tạo hai class có tên lần lượt là Box và
+        TestCsharp trong hai file riêng biệt.</p>
+    <p>Lớp Box: chứa các thuộc tính của một hộp</p>
+    <code><pre>{{text2}}</pre></code>
+    <p>Lớp TestCsharp: chứa phương thức main() để thao tác trên đối tượng Box</p>
+    <code><pre>{{text3}}</pre></code>
+    <strong>Hàm thành viên và tính đóng gói trong C#</strong>
+    <p>Một hàm thành viên trong C# của một lớp là một hàm mà có định nghĩa và nguyên mẫu (prototype) của nó bên trong
+        định nghĩa lớp tương tự như bất kỳ biến nào khác. Nó hoạt động trên bất kỳ đối tượng nào của lớp mà nó là thành
+        viên và có truy cập tới tất cả thành viên của một lớp cho đối tượng đó.</p>
+    <p>Các biến thành viên là các thuộc tính của một đối tượng (từ bối cảnh thiết kế) và chúng được giữ private để triển
+        khai tính đóng gói. Những biến này chỉ có thể được truy cập bởi sử dụng các hàm thành viên public.</p>
+    <p>Ví dụ sau minh họa cách sử dụng các khái niệm trên để thiết lập và lấy giá trị của các thành viên khác nhau trong
+        một lớp: tạo hai lớp có tên lần lượt là Box và TestCsharp trong hai file riêng biệt.</p>
+    <p>Lớp Box: chứa các thuộc tính và phương thức thành viên</p>
+    <code><pre>{{text4}}</pre></code>
+    <p>Lớp TestCsharp: chứa phương thức main() để thao tác trên đối tượng Box</p>
+    <code><pre>{{text5}}</pre></code>
+    <strong>Constructor trong C#</strong>
+    <p>Một constructor của một Class, là một hàm thành viên đặc biệt của một lớp, được thực thi bất cứ khi nào chúng ta
+        tạo các đối tượng mới của lớp đó.</p>
+    <p>Một constructor có tên giống như tên lớp và nó không có bất kỳ kiểu trả về nào. Dưới đây là ví dụ minh họa khái
+        niệm constructor trong C#:</p>
+    <code><pre>{{text6}}</pre></code>
+    <p>Một constructor mặc định trong C# không có bất kỳ tham số nào, nhưng nếu bạn cần, một constructor có thể có tham
+        số. Những constructor này được gọi là constructor được tham số hóa. Kỹ thuật này giúp bạn gán giá trị khởi đầu
+        cho một đối tượng tại thời điểm tạo ra nó, như trong ví dụ sau:</p>
+    <code><pre>{{text7}}</pre></code>
+    <strong>Destructor trong C#</strong>
+    <p>Một destructor trong C#, là một hàm thành viên đặc biệt của một lớp, được thực thi bất cứ khi nào một đối tượng
+        của lớp đó thoát ra khởi phạm vi. Một destructor có tên giống tên lớp với một dẫu ngã (~) ở trước và nó có thể:
+        không trả về một giá trị hoặc không nhận bất kỳ tham số nào.</p>
+    <p>Destructor trong C# có thể rất hữu ích để giải phóng tài nguyên bộ nhớ trước khi thoát khỏi chương trình.
+        Destructor không thể bị kế thừa hoặc nạp chồng.</p>
+    <p>Ví dụ sau minh họa khái niệm về destructor trong C#:</p>
+    <code><pre>{{text8}}</pre></code>
+    <strong>Thành viên Static của một Class trong C#</strong>
+    <p>Chúng ta có thể định nghĩa các thành viên lớp là static bởi sử dụng từ khóa static trong C#. Khi chúng ta khai
+        báo một thành viên lớp là static, nghĩa là, dù cho có bao nhiêu đối tượng của lớp được tạo, thì chỉ có một bản
+        sao của thành viên static.</p>
+    <p>Từ khóa static ngụ ý rằng chỉ có một instance (sự thể hiện) của thành viên tồn tại cho một lớp đó. Các biến
+        static được sử dụng để định nghĩa các hằng số (constant) bởi vì giá trị của chúng có thể được thu nhận bằng việc
+        gọi lớp đó mà không cần tạo một instance của nó. Các biến static có thể được khởi tạo bên ngoài hàm thành viên
+        hoặc định nghĩa lớp. Bạn cũng có thể khởi tạo các biến static bên trong định nghĩa lớp.</p>
+    <p>Ví dụ sau minh họa cách sử dụng của các biến static trong C#: tạo hai class có tên lần lượt là ThanhVienStatic và
+        TestCsharp như sau:</p>
+    <p>Lớp ThanhVienStatic: chứa thành viên static và các phương thức</p>
+    <code><pre>{{text9}}</pre></code>
+    <p>Lớp TestCsharp: chứa phương thức main() để thao tác trên đối tượng ThanhVienStatic này</p>
+    <code><pre>{{text10}}</pre></code>
+    <p>Bạn cũng có thể khai báo một hàm thành viên là static. Những hàm này chỉ có thể truy cập các biến static. Hàm
+        static có thể tồn tại trước cả khi đối tượng được tạo. Ví dụ sau minh họa cách sử dụng của hàm static trong C#:
+        ở trên bạn đã tạo hai lớp này rồi, bây giờ chỉ cần thay đổi phần code của hai lớp một chút như sau:</p>
+    <p>Lớp ThanhVienStatic: chứa thành viên static và các phương thức static</p>
+    <code><pre>{{text11}}</pre></code>
+    <p>Lớp TestCsharp: chứa phương thức main() để thao tác trên đối tượng ThanhVienStatic này</p>
+    <code><pre>{{text12}}</pre></code>
+    <br>
+</div>

@@ -11,7 +11,6 @@ import { OverviewComponent } from './overview/overview.component';
 import { ProgramStructureComponent } from './program-structure/program-structure.component';
 import { BasicSyntaxComponent } from './basic-syntax/basic-syntax.component';
 import { DataTypesComponent } from './data-types/data-types.component';
-import { StructuresComponent } from './structures/structures.component';
 import { TypeConversionComponent } from './type-conversion/type-conversion.component';
 import { VariablesComponent } from './variables/variables.component';
 import { ConstantsAndLiteralsComponent } from './constants-and-literals/constants-and-literals.component';
@@ -43,7 +42,6 @@ import { FileIoComponent } from './file-io/file-io.component';
     ProgramStructureComponent,
     BasicSyntaxComponent,
     DataTypesComponent,
-    StructuresComponent,
     TypeConversionComponent,
     VariablesComponent,
     ConstantsAndLiteralsComponent,

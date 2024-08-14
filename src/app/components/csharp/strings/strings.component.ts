@@ -32,7 +32,7 @@ namespace Csharp
             Console.WriteLine("Loi chao bang tieng Anh: {0}", greetings);
 
             //tu cac phuong thuc ma tra ve mot chuoi
-            string[] sarray = { "VietJack", "xin", "chao", "cac","ban" };
+            string[] sarray = { "xxxx", "xin", "chao", "cac","ban" };
             string message = String.Join(" ", sarray);
             Console.WriteLine("Thong diep: {0}", message);
 

@@ -1,1 +1,51 @@
-<p>inheritance works!</p>
+<div>
+    <h1 style="font-size: 2rem;">Tính kế thừa trong C#</h1>
+    <br>
+    <p>Một trong những khái niệm quan trọng nhất trong lập trình hướng đối tượng là Tính kế thừa (Inheritance). Tính kế
+        thừa cho phép chúng ta định nghĩa một lớp trong điều kiện một lớp khác, mà làm cho nó dễ dàng hơn để tạo và duy
+        trì một ứng dụng. Điều này cũng cung cấp một cơ hội để tái sử dụng tính năng code và thời gian thực thi nhanh
+        hơn.
+    </p>
+    <p>Khi tạo một lớp, thay vì viết toàn bộ các thành viên dữ liệu và các hàm thành viên mới, lập trình viên có thể nên
+        kế thừa các thành viên của một lớp đang tồn tại. Lớp đang tồn tại này được gọi là Base Class - lớp cơ sở, và lớp
+        mới được xem như là Derived Class – lớp thừa kế.</p>
+    <p>Ý tưởng của tính kế thừa triển khai mối quan hệ IS-A (Là Một). Ví dụ, mammal IS A animal, dog IS-A mammal, vì thế
+        dog IS-A animal, và ....</p>
+    <strong>Lớp cơ sở (Base Class) và Lớp thừa kế (Derived Class) trong C#</strong>
+    <p>Một lớp có thể được kế thừa từ hơn một lớp khác, nghĩa là, nó có thể kế thừa dữ liệu và hàm từ nhiều Lớp hoặc
+        Interface cơ sở.</p>
+    <p>Cú pháp để tạo lớp kế thừa trong C# là:</p>
+    <code><pre>{{text1}}</pre></code>
+    <p>Xét một lớp cơ sở Shape và lớp kế thừa Rectangle sau: tạo 3 lớp có tên lần lượt là Shape, HinhChuNhat, TestCsharp
+        trong đó:</p>
+    <p>Lớp Shape là lớp cơ sở</p>
+    <code><pre>{{text2}}</pre></code>
+    <p>Lớp HinhChuNhat là lớp kế thừa</p>
+    <code><pre>{{text3}}</pre></code>
+    <p>Lớp TestCsharp chứa phương thức main() để thao tác trên đối tượng HinhChuNhat</p>
+    <code><pre>{{text4}}</pre></code>
+    <strong>Khởi tạo Lớp cơ sở (Base Class) trong C#</strong>
+    <p>Lớp kế thừa (Derived Class) trong C# kế thừa các biến thành viên và các phương thức thành viên từ lớp cơ sở. Vì
+        thế, đối tượng của lớp cha nên được tạo trước khi lớp phụ được tạo. Bạn có thể cung cấp các chỉ thị để khởi tạo
+        lớp phụ trong danh sách khởi tạo thành viên.</p>
+    <p>Chương trình ví dụ sau minh họa cách khởi tạo Lớp cơ sở (Base Class) trong C#: tạo 3 lớp có tên lần lượt là
+        HinhChuNhat, ChiPhiXayDung, TestCsharp như sau:</p>
+    <p>Lớp HinhChuNhat là lớp cơ sở</p>
+    <code><pre>{{text5}}</pre></code>
+    <p>Lớp ChiPhiXayDung kế thừa lớp HinhChuNhat</p>
+    <code><pre>{{text6}}</pre></code>
+    <p>Lớp TestCsharp chứa phương thức main() để thao tác trên đối tượng ChiPhiXayDung</p>
+    <code><pre>{{text7}}</pre></code>
+    <strong>Đa kế thừa trong C#</strong>
+    <p>C# không hỗ trợ đa kế thừa. Tuy nhiên, bạn có thể sử dụng Interface để triển khai đa kế thừa. Ví dụ sau minh họa
+        cách sử dụng Interface để triển khai đa kế thừa trong C#: chúng ta tạo 2 lớp có tên lần lượt là Shape,
+        HinhChuNhat, TestCsharp và một interface có tên là ChiPhiSon như sau:</p>
+    <p>Lớp Shape là lớp cơ sở</p>
+    <code><pre>{{text8}}</pre></code>
+    <p>interface ChiPhiSon</p>
+    <code><pre>{{text9}}</pre></code>
+    <p>Lớp HinhChuNhat là lớp kế thừa lớp Shape và interface ChiPhiSon</p>
+    <code><pre>{{text10}}</pre></code>
+    <p>Lớp TestCsharp chứa phương thức main() để thao tác trên đối tượng HinhChuNhat</p>
+    <code><pre>{{text11}}</pre></code>
+</div>
