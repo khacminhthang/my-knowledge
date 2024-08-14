@@ -15,6 +15,27 @@ import { StructuresComponent } from './structures/structures.component';
 import { TypeConversionComponent } from './type-conversion/type-conversion.component';
 import { VariablesComponent } from './variables/variables.component';
 import { ConstantsAndLiteralsComponent } from './constants-and-literals/constants-and-literals.component';
+import { OperatorsComponent } from './operators/operators.component';
+import { FlowControlComponent } from './flow-control/flow-control.component';
+import { ShareModule } from '../share/share.module';
+import { LoopsComponent } from './loops/loops.component';
+import { EncapsulationComponent } from './encapsulation/encapsulation.component';
+import { MethodsComponent } from './methods/methods.component';
+import { NullablesComponent } from './nullables/nullables.component';
+import { ArrayComponent } from './array/array.component';
+import { StringsComponent } from './strings/strings.component';
+import { StructureComponent } from './structure/structure.component';
+import { EnumsComponent } from './enums/enums.component';
+import { ClassesComponent } from './classes/classes.component';
+import { InheritanceComponent } from './inheritance/inheritance.component';
+import { PolymorphismComponent } from './polymorphism/polymorphism.component';
+import { OperatorOverloadingComponent } from './operator-overloading/operator-overloading.component';
+import { InterfaceComponent } from './interface/interface.component';
+import { NamespacesComponent } from './namespaces/namespaces.component';
+import { PreprocessorDirectivesComponent } from './preprocessor-directives/preprocessor-directives.component';
+import { RegularExpressionsComponent } from './regular-expressions/regular-expressions.component';
+import { ExceptionHandlingComponent } from './exception-handling/exception-handling.component';
+import { FileIoComponent } from './file-io/file-io.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +46,27 @@ import { ConstantsAndLiteralsComponent } from './constants-and-literals/constant
     StructuresComponent,
     TypeConversionComponent,
     VariablesComponent,
-    ConstantsAndLiteralsComponent
+    ConstantsAndLiteralsComponent,
+    OperatorsComponent,
+    FlowControlComponent,
+    LoopsComponent,
+    EncapsulationComponent,
+    MethodsComponent,
+    NullablesComponent,
+    ArrayComponent,
+    StringsComponent,
+    StructureComponent,
+    EnumsComponent,
+    ClassesComponent,
+    InheritanceComponent,
+    PolymorphismComponent,
+    OperatorOverloadingComponent,
+    InterfaceComponent,
+    NamespacesComponent,
+    PreprocessorDirectivesComponent,
+    RegularExpressionsComponent,
+    ExceptionHandlingComponent,
+    FileIoComponent
   ],
   imports: [
     CommonModule,
@@ -34,6 +75,7 @@ import { ConstantsAndLiteralsComponent } from './constants-and-literals/constant
     FragmentsModule,
     RouterModule,
     FormsModule,
+    ShareModule,
     HttpClientModule,
     MatNativeDateModule,
     ReactiveFormsModule

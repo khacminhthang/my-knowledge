@@ -1,0 +1,485 @@
+<div>
+    <h1 style="font-size: 3rem;">Toán tử trong C#</h1>
+    <br>
+    <p>Một toán tử là một biểu tượng để cho compiler thực hiện các thao tác toán học và logic cụ thể. C# cung cấp
+        nhiều toán tử có sẵn, đó là:</p>
+    <ul>
+        <li>Toán tử số học</li>
+        <li>Toán tử quan hệ</li>
+        <li>Toán tử logic</li>
+        <li>Toán tử so sánh bit</li>
+        <li>Toán tử gán</li>
+        <li>Toán tử hỗn hợp</li>
+    </ul>
+    <br>
+
+    <!-- Value Type -->
+    <span class="title pb-0">Toán tử số học trong C#</span>
+    <div class="border-b1"></div>
+    <br>
+    <p>Bảng dưới liệt kê các toán tử số học được hỗ trợ bởi ngôn ngữ C#. Giả sử biến A giữ giá trị 10, biến B giữ 20
+        thì:</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Toán tử</th>
+                <th>Miêu tả</th>
+                <th>Ví dụ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>+</td>
+                <td>Thêm hai toán hạng</td>
+                <td>A + B sẽ cho kết quả là 30</td>
+            </tr>
+            <tr>
+                <td>-</td>
+                <td>Trừ giá trị toán hạng hai từ toán hạng đầu</td>
+                <td>A - B sẽ cho kết quả là -10</td>
+            </tr>
+            <tr>
+                <td>*</td>
+                <td>Nhân hai toán hạng</td>
+                <td>A * B sẽ cho kết quả là 200</td>
+            </tr>
+            <tr>
+                <td>/</td>
+                <td>Chia lấy phần nguyên hai toán hạng</td>
+                <td>B / A sẽ cho kết quả là 2</td>
+            </tr>
+            <tr>
+                <td>%</td>
+                <td>Chia lấy phần dư</td>
+                <td>B % A sẽ cho kết quả là 0</td>
+            </tr>
+            <tr>
+                <td>++</td>
+                <td>Lượng gia giá trị toán hạng thêm 1 đơn vị</td>
+                <td>A++ sẽ cho kết quả là 11</td>
+            </tr>
+            <tr>
+                <td>--</td>
+                <td>Lượng giảm giá trị toán hạng một đơn vị</td>
+                <td>A-- sẽ cho kết quả là 9</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <!-- Reference Type -->
+    <span class="title pb-0">Toán tử quan hệ trong C#</span>
+    <div class="border-b1"></div>
+    <br>
+    <p>Bảng dưới đây liệt kê các toán tử quan hệ được hỗ trợ bởi ngôn ngữ C#. Giả sử biến A giữ giá trị 10, biến B giữ
+        20 thì:</p>
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Toán tử</th>
+                <th>Miêu tả</th>
+                <th>Ví dụ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>==</td>
+                <td>Kiểm tra nếu 2 toán hạng bằng nhau hay không. Nếu bằng thì điều kiện là true. </td>
+                <td>(A == B) là không đúng.</td>
+            </tr>
+            <tr>
+                <td>!=</td>
+                <td>Kiểm tra 2 toán hạng có giá trị khác nhau hay không. Nếu không bằng thì điều kiện là true.</td>
+                <td>(A != B) là true.</td>
+            </tr>
+            <tr>
+                <td>></td>
+                <td>Kiểm tra nếu toán hạng bên trái có giá trị lớn hơn toán hạng bên phải hay không. Nếu lớn hơn thì
+                    điều kiện là true.</td>
+                <td>(A > B) là không đúng.</td>
+            </tr>
+            <tr>
+                <td>
+                    < </td>
+                <td>Kiểm tra nếu toán hạng bên trái nhỏ hơn toán hạng bên phải hay không. Nếu nhỏ hơn thì là true.</td>
+                <td>(A < B) là true.</td>
+            </tr>
+            <tr>
+                <td>>=</td>
+                <td>Kiểm tra nếu toán hạng bên trái có giá trị lớn hơn hoặc bằng giá trị của toán hạng bên phải hay
+                    không. Nếu đúng là true.</td>
+                <td>(A >= B) là không đúng.</td>
+            </tr>
+            <tr>
+                <td>
+                    <= </td>
+                <td>Kiểm tra nếu toán hạng bên trái có giá trị nhỏ hơn hoặc bằng toán hạng bên phải hay không. Nếu đúng
+                    là true.</td>
+                <td>(A <= B) là true.</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <!-- Value Type -->
+    <span class="title pb-0">Toán tử logic trong C#</span>
+    <div class="border-b1"></div>
+    <br>
+    <p>Bảng dưới đây chỉ rõ tất cả các toán tử logic được hỗ trợ bởi ngôn ngữ C#. Giả sử biến A có giá trị 1 và biến B
+        có giá trị 0:</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Toán tử</th>
+                <th>Miêu tả</th>
+                <th>Ví dụ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>&&</td>
+                <td>Được gọi là toán tử logic AND (và). Nếu cả hai toán tử đều có giá trị khác 0 thì điều kiện trở lên
+                    true.</td>
+                <td>(A && B) là false.</td>
+            </tr>
+            <tr>
+                <td>||</td>
+                <td>Được gọi là toán tử logic OR (hoặc). Nếu một trong hai toán tử khác 0, thì điều kiện là true.</td>
+                <td>(A || B) là true.</td>
+            </tr>
+            <tr>
+                <td>!</td>
+                <td>Được gọi là toán tử NOT (phủ định). Sử dụng để đảo ngược lại trạng thái logic của toán hạng đó. Nếu
+                    điều kiện toán hạng là true thì phủ định nó sẽ là false.</td>
+                <td>!(A && B) là true.</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <!-- Value Type -->
+    <span class="title pb-0">Toán tử so sánh bit trong C#</span>
+    <div class="border-b1"></div>
+    <br>
+    <p>Toán tử so sánh bit làm việc trên đơn vị bit, tính toán biểu thức so sánh từng bit. Bảng dưới đây về &, |, và ^
+        như sau:</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>p</th>
+                <th>q</th>
+                <th>p & q</th>
+                <th>p | q</th>
+                <th>p ^ q</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <p>Các toán tử so sánh bit được hỗ trợ bởi ngôn ngữ C# được liệt kê trong bảng dưới đây. Giá sử ta có biến A có giá
+        tri 60 và biến B có giá trị 13, ta có:z</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Toán tử</th>
+                <th>Miêu tả</th>
+                <th>Ví dụ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>&</td>
+                <td>Toán tử AND (và) nhị phân sao chép một bit tới kết quả nếu nó tồn tại trong cả hai toán hạng.</td>
+                <td>(A & B) sẽ cho kết quả là 12, tức là 0000 1100</td>
+            </tr>
+            <tr>
+                <td>|</td>
+                <td>Toán tử OR (hoặc) nhị phân sao chép một bit tới kết quả nếu nó tồn tại trong một hoặc hai toán hạng.
+                </td>
+                <td>(A | B) sẽ cho kết quả là 61, tức là 0011 1101</td>
+            </tr>
+            <tr>
+                <td>^</td>
+                <td>Toán tử XOR nhị phân sao chép bit mà nó chỉ tồn tại trong một toán hạng mà không phải cả hai.</td>
+                <td>(A ^ B) sẽ cho kết quả là 49, tức là 0011 0001</td>
+            </tr>
+            <tr>
+                <td>
+                    ~ </td>
+                <td>Toán tử đảo bit (đảo bit 1 thành bit 0 và ngược lại).</td>
+                <td>(~A ) sẽ cho kết quả là -61, tức là 1100 0011.</td>
+            </tr>
+            <tr>
+                <td>
+                    << </td>
+                <td>Toán tử dịch trái. Giá trị toán hạng trái được dịch chuyển sang trái bởi số các bit được xác định
+                    bởi toán hạng bên phải.</td>
+                <td>A << 2 sẽ cho kết quả 240, tức là 1111 0000 (dịch sang trái hai bit)</td>
+            </tr>
+            <tr>
+                <td>
+                    >> </td>
+                <td>Toán tử dịch phải. Giá trị toán hạng trái được dịch chuyển sang phải bởi số các bit được xác định
+                    bởi toán hạng bên phải.</td>
+                <td>A >> 2 sẽ cho kết quả là 15, tức là 0000 1111 (dịch sang phải hai bit)</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <!-- Value Type -->
+    <span class="title pb-0">Toán tử gán trong C#</span>
+    <div class="border-b1"></div>
+    <br>
+    <p>Đây là những toán tử gán được hỗ trợ bởi ngôn ngữ C#:</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Toán tử</th>
+                <th>Miêu tả</th>
+                <th>Ví dụ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>=</td>
+                <td>Toán tử gán đơn giản. Gán giá trị toán hạng bên phải cho toán hạng trái.</td>
+                <td>C = A + B sẽ gán giá trị của A + B vào trong C</td>
+            </tr>
+            <tr>
+                <td>+=</td>
+                <td>Thêm giá trị toán hạng phải tới toán hạng trái và gán giá trị đó cho toán hạng trái.</td>
+                <td>C += A tương đương với C = C + A</td>
+            </tr>
+            <tr>
+                <td>-=</td>
+                <td>Trừ đi giá trị toán hạng phải từ toán hạng trái và gán giá trị này cho toán hạng trái.</td>
+                <td>C -= A tương đương với C = C - A</td>
+            </tr>
+            <tr>
+                <td>*=</td>
+                <td>Nhân giá trị toán hạng phải với toán hạng trái và gán giá trị này cho toán hạng trái.</td>
+                <td>C *= A tương đương với C = C * A</td>
+            </tr>
+            <tr>
+                <td>/=</td>
+                <td>Chia toán hạng trái cho toán hạng phải và gán giá trị này cho toán hạng trái.</td>
+                <td>C /= A tương đương với C = C / A</td>
+            </tr>
+            <tr>
+                <td>%=</td>
+                <td>Lấy phần dư của phép chia toán hạng trái cho toán hạng phải và gán cho toán hạng trái.</td>
+                <td>C %= A tương đương với C = C % A</td>
+            </tr>
+            <tr>
+                <td>
+                    <<= </td>
+                <td>Dịch trái toán hạng trái sang số vị trí là giá trị toán hạng phải</td>
+                <td>C <<= 2 tương đương với C=C << 2</td>
+            </tr>
+            <tr>
+                <td> >>= </td>
+                <td>Dịch phải toán hạng trái sang số vị trí là giá trị toán hạng phải.</td>
+                <td>C >>= 2 tương đương với C = C >> 2</td>
+            </tr>
+            <tr>
+                <td>&=</td>
+                <td>Phép AND bit</td>
+                <td>C &= 2 tương đương với C = C & 2</td>
+            </tr>
+            <tr>
+                <td>^=</td>
+                <td>Phép OR loại trừ bit</td>
+                <td>C ^= 2 tương đương với C = C ^ 2</td>
+            </tr>
+            <tr>
+                <td>|=</td>
+                <td>Phép OR bit.</td>
+                <td>C |= 2 tương đương với C = C | 2</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <!-- Value Type -->
+    <span class="title pb-0">Các toán tử hỗn hợp trong C#</span>
+    <div class="border-b1"></div>
+    <br>
+    <p>Dưới đây là một số toán tử hỗn hợp quan trọng gồm sizeof, typeof và ? : được hỗ trợ bởi ngôn ngữ C#.</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Toán tử</th>
+                <th>Miêu tả</th>
+                <th>Ví dụ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>sizeof()</td>
+                <td>Trả về kích cỡ của một kiểu dữ liệu</td>
+                <td>sizeof(int), trả về 4</td>
+            </tr>
+            <tr>
+                <td>typeof()</td>
+                <td>Trả về kiểu của một lớp</td>
+                <td>typeof(StreamReader);</td>
+            </tr>
+            <tr>
+                <td>&</td>
+                <td>Trả về địa chỉ của một biến</td>
+                <td> & a; trả về địa chỉ thực sự của biến </td>
+            </tr>
+            <tr>
+                <td>*</td>
+                <td>Trỏ tới một biến</td>
+                <td>*a; tạo con trỏ với tên là a tới một biến</td>
+            </tr>
+            <tr>
+                <td>? :</td>
+                <td>Biểu thức điều kiện (Conditional Expression)</td>
+                <td>Nếu Condition là true ? Thì giá trị X : Nếu không thì Y</td>
+            </tr>
+            <tr>
+                <td>is</td>
+                <td>Xác định đối tượng là một kiểu cụ thể hay không</td>
+                <td>If( Ford is Car) // Kiểm tra nếu Ford là một đối tượng của lớp Car</td>
+            </tr>
+            <tr>
+                <td>as</td>
+                <td>Ép kiểu mà không tạo một exception nếu việc ép kiểu thất bại</td>
+                <td>Object obj = new StringReader("Hello");
+                    StringReader r = obj as StringReader;</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <!-- Value Type -->
+    <span class="title pb-0">Thứ tự ưu tiên toán tử trong C#</span>
+    <div class="border-b1"></div>
+    <br>
+    <p>Thứ tự ưu tiên toán tử trong C# xác định cách biểu thức được tính toán. Ví dụ, toán tử nhân có quyền ưu tiên hơn
+        toán tử cộng, và nó được thực hiện trước.</p>
+    <p>Ví dụ, x = 7 + 3 * 2; ở đây, x được gán giá trị 13, chứ không phải 20 bởi vì toán tử * có quyền ưu tiên cao hơn
+        toán tử +, vì thế đầu tiên nó thực hiện phép nhân 3 * 2 và sau đó thêm với 7.</p>
+    <p>Bảng dưới đây liệt kê thứ tự ưu tiên của các toán tử. Các toán tử với quyền ưu tiên cao nhất xuất hiện trên cùng
+        của bảng, và các toán tử có quyền ưu tiên thấp nhất thì ở bên dưới cùng của bảng. Trong một biểu thức, các toán
+        tử có quyền ưu tiên cao nhất được tính toán đầu tiên.</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Loại</th>
+                <th>Toán tử </th>
+                <th>Thứ tự ưu tiên </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Postfix</td>
+                <td>() [] -> . ++ - - </td>
+                <td>Trái sang phải </td>
+            </tr>
+            <tr>
+                <td>Unary </td>
+                <td>+ - ! ~ ++ - - (type)* & sizeof </td>
+                <td>Phải sang trái </td>
+            </tr>
+            <tr>
+                <td>Tính nhân </td>
+                <td>* / % </td>
+                <td>Trái sang phải </td>
+            </tr>
+            <tr>
+                <td>Tính cộng </td>
+                <td>+ - </td>
+                <td>Trái sang phải </td>
+            </tr>
+            <tr>
+                <td>Dịch chuyển</td>
+                <td>
+                    <<>>
+                </td>
+                <td>Trái sang phải </td>
+            </tr>
+            <tr>
+                <td>Quan hệ </td>
+                <td>
+                    < <=> >=
+                </td>
+                <td>Trái sang phải </td>
+            </tr>
+            <tr>
+                <td>Cân bằng </td>
+                <td>== != </td>
+                <td>Trái sang phải </td>
+            </tr>
+            <tr>
+                <td>Phép AND bit </td>
+                <td>& </td>
+                <td>Trái sang phải </td>
+            </tr>
+            <tr>
+                <td>Phép XOR bit </td>
+                <td>^ </td>
+                <td>Trái sang phải </td>
+            </tr>
+            <tr>
+                <td>Phép OR bit </td>
+                <td>| </td>
+                <td>Trái sang phải </td>
+            </tr>
+            <tr>
+                <td>Phép AND logic </td>
+                <td>&& </td>
+                <td>Trái sang phải </td>
+            </tr>
+            <tr>
+                <td>Phép OR logic </td>
+                <td> || </td>
+                <td>Trái sang phải </td>
+            </tr>
+            <tr>
+                <td>Điều kiện </td>
+                <td>?: </td>
+                <td>Phải sang trái </td>
+            </tr>
+            <tr>
+                <td>Gán </td>
+                <td>= += -= *= /= %=>>= <<= &=^=|=</td>
+                <td>Phải sang trái /td>
+            </tr>
+            <tr>
+                <td>Dấu phảy </td>
+                <td>, </td>
+                <td>Trái sang phải </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+</div>

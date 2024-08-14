@@ -1,0 +1,78 @@
+<div>
+    <h1 style="font-size: 3rem;">Vòng lặp trong C#</h1>
+    <br>
+    <p>Có một tình huống mà bạn cần phải thực hiện một đoạn code một vài lần. Nhìn chung, các câu lệnh được thực hiện
+        một cách tuần tự. Câu lệnh đầu tiên của hàm được thực hiện trước, sau đó đến câu thứ 2 và tiếp tục.</p>
+    <p>Ngôn ngữ lập trình cung cấp cho chúng ta nhiều cấu trúc điều khiển và cho phép bạn thực hiện những phần phức tạp.
+    </p>
+    <p>Vòng lặp cho phép thực hiện một lệnh và một nhóm lệnh nhiều lần , dưới đây là dạng tổng quát:</p>
+    <div class="d-flex justify-content-center">
+        <app-image-zoom [imageUrl]="'assets/csharp/loop_architecture.jpg'" [alt]="'loop_architecture'"
+            [width]="'100%'"></app-image-zoom>
+    </div>
+    <p>C# hỗ trợ những lệnh điều khiển sau đây. Click chuột vào link để xem chi tiết.</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Kiểu vòng lặp</th>
+                <th>Miêu tả</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Vòng lặp while trong C#</td>
+                <td>Lặp lại một hoặc một nhóm các lệnh trong khi điều kiện đã cho là đúng. Nó kiểm tra điều kiện trước
+                    khi thực hiện thân vòng lặp.</td>
+            </tr>
+            <tr>
+                <td>Vòng lặp for trong C#</td>
+                <td>Thực thi một dãy các lệnh nhiều lần và tóm tắt đoạn code mà quản lý biến vòng lặp.</td>
+            </tr>
+            <tr>
+                <td>Vòng lặp do...while trong C#</td>
+                <td>Giống lệnh while, ngoại trừ ở điểm là nó kiểm tra điều kiện ở cuối thân vòng lặp.</td>
+            </tr>
+            <tr>
+                <td>Lồng các vòng lặp trong C#</td>
+                <td>Bạn có thể sử dụng một hoặc nhiều vòng lặp trong các vòng lặp while, for hoặc do..while khác.</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <span class="title pb-0">Các lệnh điều khiển vòng lặp trong C#</span>
+    <div class="border-b1"></div>
+    <br>
+    <p>Các lệnh điều khiển vòng lặp thay đổi sự thực thi lệnh từ dãy thông thường của nó. Khi sự thực thi lệnh rời khỏi
+        một phạm vi, tất cả các đối tượng tự động mà được tạo ra trong phạm vi đó bị hủy.</p>
+    <p>C# hỗ trợ các lệnh điều khiển vòng lặp sau đây. Click vào các đường link sau để biết thêm chi tiết.</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Lệnh điều khiển</th>
+                <th>Miêu tả</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Lệnh break trong C#</td>
+                <td>Kết thúc vòng lặp hoặc lệnh switch và chuyển sang thực thi vòng lặp hoặc lệnh switch ngay sau nó.
+                </td>
+            </tr>
+            <tr>
+                <td>Lệnh continue trong C#</td>
+                <td>Khi gặp lệnh này thì chương trình sẽ bỏ qua các câu lệnh ở dưới nó (trong cùng một câu lệnh lặp) để
+                    thực hiện vòng lặp mới.</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <span class="title pb-0">Vòng lặp vô hạn trong C#</span>
+    <div class="border-b1"></div>
+    <p>Một vòng lặp là vòng lặp vô hạn khi một điều kiện không bao giờ false. Vòng lặp for thường được sử dụng cho mục
+        đích này. Khi bạn để ba biểu thức điều kiện trong vòng lặp for trống thì bạn sẽ tạo ra một vòng lặp vô hạn.</p>
+    <code><pre>{{text1}}</pre></code>
+    <p>Khi biểu thức điều kiện vắng mặt, nó được giả sử là luôn đúng. Bạn có thể có một biểu thức khởi tạo và biểu thức
+        lượng gia, nhưng các lập trình viên C# thường sử dụng for(;;) để biểu thị một vòng lặp vô hạn.
+    </p>
+</div>

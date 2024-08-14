@@ -9,7 +9,7 @@ export class TypeConversionComponent implements OnInit {
 
   text1 = `using System;
 
-namespace VietJackCsharp
+namespace Csharp
 {
     class TestCsharp
     {

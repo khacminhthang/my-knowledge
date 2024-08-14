@@ -1,7 +1,7 @@
 <header class="header">
-  <div class="nav-icon d-flex align-items-center hamburger-menu" (click)="toggleMenu()">
+  <div class="nav-icon d-flex align-items-center flex-row-reverse hamburger-menu" (click)="toggleMenu()">
     <mat-icon>menu</mat-icon>
-    <h1 class="sidebar-app-name">Category</h1>
+    <h1 style="margin-right: 12px;">Category</h1>
   </div>
   <nav class="nav">
     <ul>
@@ -21,10 +21,6 @@
 </header>
 
 <div class="dropdown mobile-menu" [ngClass]="{'open': isMenuOpen}">
-  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
-    aria-expanded="false">
-    Select an option
-  </button>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
     <li style="cursor: pointer;" routerLink="/angular/data-binding"><span>Angular</span></li>
     <li style="cursor: pointer;" routerLink="/csharp/overview"><span>C#</span></li>

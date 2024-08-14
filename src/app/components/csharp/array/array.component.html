@@ -1,0 +1,74 @@
+<div>
+    <h1 style="font-size: 3rem;">Mảng (Array) trong C#</h1>
+    <br>
+    <p>Một mảng lưu giữ một tập hợp các phần tử có kích cỡ cố định trong cùng kiểu. Một mảng được sử dụng để lưu giữ một
+        tập hợp dữ liệu, nhưng nó thường hữu ích hơn khi nghĩ về một mảng như là một tập hợp các biến cùng kiểu được lưu
+        giữ tại các vị trí bộ nhớ kề nhau.</p>
+    <p>Thay vì khai báo biến một cách rời rạc, như biến number0, number1,… và number99, bạn có thể khai báo một mảng các
+        giá trị như numbers[0], numbers[1] và … numbers[99] để biểu diễn các giá trị riêng biệt. Một thành viên cụ thể
+        của mảng có thể được truy cập qua index (chỉ số).</p>
+    <p>Tất cả mảng đều bao gồm các vị trí nhớ liền kề nhau. Địa chỉ thấp nhất tương ứng với thành viên đầu tiền và địa
+        chỉ cao nhất tương ứng với thành viên cuối cùng của mảng.</p>
+    <div class="d-flex justify-content-center">
+        <app-image-zoom [imageUrl]="'assets/csharp/arrays.jpg'" [alt]="'arrays'" [width]="'100%'"></app-image-zoom>
+    </div>
+    <strong>Khai báo mảng trong C#</strong>
+    <p>Để khai báo một mảng trong ngôn ngữ C#, bạn có thể sử dụng cú pháp:</p>
+    <code><pre>{{text1}}</pre></code>
+    <p>Tại đây:</p>
+    <p>kiểu_dữ_liệu được sử dụng để xác định kiểu của phần tử trong mảng.</p>
+    <p>[ ] xác định rank hay kích cỡ của mảng.</p>
+    <p>tên_mảng xác định tên mảng.</p>
+    <p>Ví dụ:</p>
+    <code><pre>{{text2}}</pre></code>
+    <strong>Khởi tạo mảng trong C#</strong>
+    <p>Việc khai báo một mảng không khởi tạo mảng trong bộ nhớ. Khi biến mảng được khởi tạo, bạn có thể gán giá trị cho
+        mảng đó.</p>
+    <p>Mảng là một kiểu tham chiếu, vì thế bạn cần sử dụng từ khóa new trong C# để tạo một Instance (sự thể hiện) của
+        mảng đó. Ví dụ:</p>
+    <code><pre>{{text3}}</pre></code>
+    <strong>Gán giá trị cho một mảng trong C#</strong>
+    <code><pre>{{text4}}</pre></code>
+    <p>Khi bạn tạo một mảng, C# compiler ngầm định khởi tạo mỗi phần tử mảng thành một giá trị mặc định phụ thuộc vào
+        kiểu mảng. Ví dụ, với một mảng int, thì tất cả phần tử được khởi tạo là 0.</p>
+    <strong>Truy cập các phần tử mảng trong C#</strong>
+    <p>Một phần tử được truy cập bởi chỉ mục mảng. Điều này được thực hiện bởi việc đặt chỉ số của phần tử bên trong dấu
+        ngoặc vuông ở sau tên mảng. Ví dụ:</p>
+    <code><pre>{{text5}}</pre></code>
+    <strong>Chi tiết về mảng trong C#</strong>
+    <p>Mảng là một phần rất quan trọng trong ngôn ngữ C#. Dưới đây là những định nghĩa quan trọng liên quan đến mảng mà
+        được trình bày rõ ràng hơn cho các lập trình viên C#:</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Khái niệm</th>
+                <th>Miêu tả</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Mảng đa chiều trong C#</td>
+                <td>C# hỗ trợ mảng đa chiều. Mẫu đơn giản nhất của mảng đa chiều là mảng hai chiều</td>
+            </tr>
+            <tr>
+                <td>Jagged array trong C#</td>
+                <td>C# hỗ trợ mảng đa chiều, mà là mảng của các mảng</td>
+            </tr>
+            <tr>
+                <td>Truyền mảng tới hàm trong C#</td>
+                <td>Bạn có thể truyền cho hàm một con trỏ tới một mảng bằng việc xác định tên mảng mà không cần chỉ số
+                    của mảng</td>
+            </tr>
+            <tr>
+                <td>Mảng tham số trong C#</td>
+                <td>Được sử dụng để truyền một số lượng chưa biết của các tham số tới một hàm</td>
+            </tr>
+            <tr>
+                <td>Lớp Array trong C#</td>
+                <td>Được định nghĩa trong System namespace, nó là lớp cơ sở cho tất cả mảng, và cung cấp các thuộc tính
+                    và phương thức để làm việc với mảng</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+</div>

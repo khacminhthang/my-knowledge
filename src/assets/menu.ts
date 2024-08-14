@@ -333,62 +333,62 @@ export const menuCSharp = [
     "icon": "inventory_2",
     "children": [
       {
-        "text": "Overview",
+        "text": "Tổng quan",
         "icon": "category",
         "routerLink": "overview"
       },
       {
-        "text": "Program Structure",
+        "text": "Cấu trúc chương trình",
         "icon": "all_inbox",
         "routerLink": "program-structure"
       },
       {
-        "text": "Basic Syntax",
+        "text": "Cú pháp cơ bản",
         "icon": "all_inbox",
         "routerLink": "basic-syntax"
       },
       {
-        "text": "Data Types",
+        "text": "Kiểu dữ liệu",
         "icon": "all_inbox",
         "routerLink": "data-types"
       },
       {
-        "text": "Type Conversion",
+        "text": "Ép kiểu",
         "icon": "all_inbox",
         "routerLink": "type-conversion"
       },
       {
-        "text": "Variables",
+        "text": "Biến",
         "icon": "all_inbox",
         "routerLink": "variables"
       },
       {
-        "text": "Constants and Literals",
+        "text": "Hằng",
         "icon": "all_inbox",
         "routerLink": "constants-and-literals"
       },
       {
-        "text": "Operators",
+        "text": "Toán tử",
         "icon": "all_inbox",
         "routerLink": "operators"
       },
       {
-        "text": "Decision Making",
+        "text": "If, Else, Switch",
         "icon": "category",
-        "routerLink": "decision-making"
+        "routerLink": "flow-control"
       },
       {
-        "text": "Loops",
+        "text": "Vòng lặp",
         "icon": "layers",
         "routerLink": "loops"
       },
       {
-        "text": "Encapsulation",
+        "text": "Tính đóng gói",
         "icon": "all_inbox",
         "routerLink": "encapsulation"
       },
       {
-        "text": "Methods",
+        "text": "Phương thức",
         "icon": "all_inbox",
         "routerLink": "methods"
       },
@@ -398,12 +398,12 @@ export const menuCSharp = [
         "routerLink": "nullables"
       },
       {
-        "text": "Arrays",
+        "text": "Mảng",
         "icon": "all_inbox",
         "routerLink": "array"
       },
       {
-        "text": "Strings",
+        "text": "Chuỗi",
         "icon": "all_inbox",
         "routerLink": "strings"
       },
@@ -423,17 +423,17 @@ export const menuCSharp = [
         "routerLink": "classes"
       },
       {
-        "text": "Inheritance",
+        "text": "Tính kế thừa - Inheritance",
         "icon": "all_inbox",
         "routerLink": "inheritance"
       },
       {
-        "text": "Polymorphism",
+        "text": "Tính đa hình - Polymorphism",
         "icon": "all_inbox",
         "routerLink": "polymorphism"
       },
       {
-        "text": "Operator Overloading",
+        "text": "Nạp chồng toán tử - Operator Overloading",
         "icon": "all_inbox",
         "routerLink": "operator-overloading"
       },
@@ -448,7 +448,7 @@ export const menuCSharp = [
         "routerLink": "namespaces"
       },
       {
-        "text": "Preprocessor Directives",
+        "text": "Chỉ thị tiền xử lý - Preprocessor Directives",
         "icon": "all_inbox",
         "routerLink": "preprocessor-directives"
       },

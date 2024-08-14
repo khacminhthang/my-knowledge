@@ -1,0 +1,316 @@
+<div>
+    <h1 style="font-size: 3rem;">Chuỗi (String) trong C#</h1>
+    <br>
+    <p>Trong C#, bạn có thể sử dụng các chuỗi (string) như là mảng các ký tự. Tuy nhiên, phổ biến hơn là để sử dụng từ
+        khóa string để khai báo một biến chuỗi. Từ khóa string là một alias cho lớp System.String trong C#.</p>
+    <strong>Tạo một đối tượng String trong C#</strong>
+    <p>Bằng việc gán một hằng chuỗi cho một biến String</p>
+    <p>Sử dụng một constructor của lớp String</p>
+    <p>Sử dụng toán tử nối chuỗi (+)</p>
+    <p>Bởi việc thu nhận một thuộc tính hoặc gọi một phương thức mà trả về một chuỗi</p>
+    <p>Bằng việc gọi một phương thức định dạng để chuyển đổi một giá trị hoặc một đối tượng thành biểu diễn chuỗi của
+        nó.</p>
+    <p>Ví dụ sau minh họa các phương thức để tạo một chuỗi trong C#:</p>
+    <code><pre>{{text1}}</pre></code>
+    <strong>Các thuộc tính của lớp String trong C#</strong>
+    <p>Lớp String trong C# có hai thuộc tính:</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Thuộc tính</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td> Chars
+                    Lấy đối tượng Char tại một vị trí cụ thể trong đối tượng String hiện tại</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Length
+                    Lấy số ký tự của đối tượng String hiện tại</td>
+            </tr>
+        </tbody>
+    </table>
+    <strong>Phương thức của lớp String trong C#</strong>
+    <p>Lớp String có một số phương thức mà hữu ích cho bạn trong khi làm việc với các đối tượng String trong C#. Bảng
+        dưới đây liệt kê các phương thức được sử dụng phổ biến nhất:</p>
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th style="width:5%;">STT</th>
+                <th>Phương thức</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td><b>public static int Compare(string strA, string strB)</b>
+                    <p>So sánh hai đối tượng String cụ thể và trả về một integer mà chỉ vị trí có liên quan của chúng
+                        trong thứ tự sắp xếp</p>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><b>public static int Compare(string strA, string strB, bool ignoreCase )</b>
+                    <p>So sánh hai đối tượng String cụ thể và trả về một integer mà chỉ vị trí có liên quan của chúng
+                        trong thứ tự sắp xếp. Tuy nhiên, nó bỏ qua sự phân biệt kiểu nếu tham số Boolean là true</p>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td><b>public static string Concat(string str0, string str1)</b>
+                    <p>Nối chuỗi hai đối tượng String</p>
+                </td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td><b>public static string Concat(string str0, string str1, string str2)</b>
+                    <p>Nối chuỗi ba đối tượng String</p>
+                </td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td><b>public static string Concat(string str0, string str1, string str2, string str3)</b>
+                    <p>Nối chuỗi bốn đối tượng String</p>
+                </td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td><b>public bool Contains(string value)</b>
+                    <p>Trả về một giá trị chỉ dẫn có hay không đối tượng String đã cho xuất hiện bên trong chuỗi này</p>
+                </td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td><b>public static string Copy(string str)</b>
+                    <p>Tạo một đối tượng String mới với cùng giá trị như chuỗi đã cho</p>
+                </td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td><b>public void CopyTo(int sourceIndex, char[] destination, int destinationIndex, int count)</b>
+                    <p>Sao chép một số ký tự cụ thể từ một vị trí đã cho của đối tượng String tới một vị trí đã xác định
+                        trong một mảng các ký tự Unicode</p>
+                </td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>
+                    <b>public bool EndsWith(string value)</b>
+                    <p>Xác định có hay không phần kết thúc của đối tượng String là so khớp với chuỗi đã cho</p>
+                </td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>
+                    <b>public bool Equals(string value)</b>
+                    <p>Xác định có hay không đối tượng String hiện tại và đối tượng String đã cho là có cùng giá trị</p>
+                </td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>
+                    <b>public static bool Equals(string a, string b)</b>
+                    <p>Xác định có hay không hai đối tượng String đã cho có cùng giá trị</p>
+                </td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>
+                    <b>public static string Format(string format, Object arg0)</b>
+                    <p>Thay thế một hoặc nhiều mục định dạng trong một chuỗi đã cho với biểu diễn chuỗi của một đối
+                        tượng cụ thể</p>
+                </td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>
+                    <b>public int IndexOf(char value)</b>
+                    <p>Trả về chỉ mục (dựa trên cơ sở 0) cho sự xuất hiện đầu tiên của ký tự Unicode đã cho trong chuỗi
+                        hiện tại</p>
+                </td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>
+                    <b>public int IndexOf(string value)</b>
+                    <p>Trả về chỉ mục (dựa trên cơ sở 0) cho sự xuất hiện đầu tiên của chuỗi đã cho trong Instance (sự
+                        thể hiện) này</p>
+                </td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>
+                    <b>public int IndexOf(char value, int startIndex)</b>
+                    <p>Trả về chỉ mục (dựa trên cơ sở 0) cho sự xuất hiện đầu tiên của ký tự Unicode đã cho trong chuỗi
+                        này, bắt đầu tìm kiếm tại vị trí của ký tự đã cho</p>
+                </td>
+            </tr>
+            <tr>
+                <td>16</td>
+                <td>
+                    <b>public int IndexOf(string value, int startIndex)</b>
+                    <p>Trả về chỉ mục (dựa trên cơ sở 0) cho sự xuất hiện đầu tiên của chuỗi đã cho trong Instance (sự
+                        thể hiện) này, bắt đầu tìm kiếm tại vị trí của ký tự đã cho</p>
+                </td>
+            </tr>
+            <tr>
+                <td>17</td>
+                <td>
+                    <b>public int IndexOfAny(char[] anyOf)</b>
+                    <p>Trả về chỉ mục (dựa trên cơ sở 0) cho sự xuất hiện đầu tiên của Instance (sự thể hiện) này của
+                        bất kỳ ký tự nào trong một mảng ký tự Unicode đã xác định</p>
+                </td>
+            </tr>
+            <tr>
+                <td>18</td>
+                <td>
+                    <b>public int IndexOfAny(char[] anyOf, int startIndex)</b>
+                    <p>Trả về chỉ mục (dựa trên cơ sở 0) cho sự xuất hiện đầu tiên của Instance (sự thể hiện) này của
+                        bất kỳ ký tự nào trong một mảng ký tự Unicode đã xác định, bắt đầu tìm kiếm tại vị trí của ký tự
+                        đã cho</p>
+                </td>
+            </tr>
+            <tr>
+                <td>19</td>
+                <td>
+                    <b>public string Insert(int startIndex, string value)</b>
+                    <p>Trả về một chuỗi mới trong đó một chuỗi đã cho được chèn tại một vị trí có chỉ mục đã xác định
+                        trong đối tượng String hiện tại</p>
+                </td>
+            </tr>
+            <tr>
+                <td>20</td>
+                <td>
+                    <b>public static bool IsNullOrEmpty(string value)</b>
+                    <p>Chỉ rằng có hay không chuỗi đã cho là null hoặc là một chuỗi Empty</p>
+                </td>
+            </tr>
+            <tr>
+                <td>21</td>
+                <td>
+                    <b>public static string Join(string separator, params string[] value)</b>
+                    <p>Nối chuỗi tất cả phần tử của một mảng chuỗi, bởi sử dụng Separator (bộ tách) đã cho giữa mỗi phần
+                        tử</p>
+                </td>
+            </tr>
+            <tr>
+                <td>22</td>
+                <td>
+                    <b>public static string Join(string separator, string[] value, int startIndex, int count)</b>
+                    <p>Nối chuỗi các phần tử đã xác định của một mảng chuỗi, bởi sử dụng Separator (bộ tách) đã cho giữa
+                        mỗi phần tử</p>
+                </td>
+            </tr>
+            <tr>
+                <td>23</td>
+                <td>
+                    <b>public int LastIndexOf(char value)</b>
+                    <p>Trả về chỉ mục (dựa trên cơ sở 0) cho sự xuất hiện cuối cùng của ký tự Unicode đã cho bên trong
+                        đối tượng String hiện tại</p>
+                </td>
+            </tr>
+            <tr>
+                <td>24</td>
+                <td>
+                    <b>public int LastIndexOf(string value)</b>
+                    <p>Trả về chỉ mục (dựa trên cơ sở 0) cho sự xuất hiện cuối cùng của một chuỗi đã cho bên trong đối
+                        tượng String hiện tại</p>
+                </td>
+            </tr>
+            <tr>
+                <td>25</td>
+                <td>
+                    <b>public string Remove(int startIndex)</b>
+                    <p>Gỡ bỏ tất cả ký tự trong Instance hiện tại, bắt đầu tại vị trí đã xác định và tiếp tục tới vị trí
+                        cuối cùng, và trả về chuỗi đó</p>
+                </td>
+            </tr>
+            <tr>
+                <td>26</td>
+                <td>
+                    <b>public string Remove(int startIndex, int count)</b>
+                    <p>Gỡ bỏ số ký tự đã cho trong chuỗi hiện tại bắt đầu tại một vị trí đã xác định và trả về chuỗi đó
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>27</td>
+                <td>
+                    <b>public string Replace(char oldChar, char newChar)</b>
+                    <p>Thay thế tất cả ký tự Unicode đã cho xuất hiện trong đối tượng String hiện tại với ký tự Unicode
+                        đã xác định và trả về chuỗi mới</p>
+                </td>
+            </tr>
+            <tr>
+                <td>28</td>
+                <td>
+                    <b>public string Replace(string oldValue, string newValue)</b>
+                    <p>Thay thế tất cả chuỗi đã cho xuất hiện trong đối tượng String hiện tại với đối tượng string đã
+                        xác định và trả về chuỗi mới</p>
+                </td>
+            </tr>
+            <tr>
+                <td>29</td>
+                <td>
+                    <b>public string[] Split(params char[] separator)</b>
+                    <p>Trả về một mảng chuỗi mà chứa các chuỗi phụ trong đối tượng String hiện tại, được giới hạn bởi
+                        các phần tử của một mảng ký tự Unicode đã cho</p>
+                </td>
+            </tr>
+            <tr>
+                <td>30</td>
+                <td>
+                    <b>public string[] Split(char[] separator, int count)</b>
+                    <p>Trả về một mảng chuỗi mà chứa các chuỗi phụ trong đối tượng String hiện tại, được giới hạn bởi
+                        các phần tử của một mảng ký tự Unicode đã cho. Tham số int xác định số chuỗi phụ tối đa để trả
+                        về</p>
+                </td>
+            </tr>
+            <tr>
+                <td>31</td>
+                <td>
+                    <b>public bool StartsWith(string value)</b>
+                    <p>Xác định có hay không phần bắt đầu của instance của chuỗi này so khớp với chuỗi đã cho</p>
+                </td>
+            </tr>
+            <tr>
+                <td>32</td>
+                <td>
+                    <b>public char[] ToCharArray()</b>
+                    <p>Trả về một mảng ký tự Unicode với tất cả ký tự trong đối tượng String hiện tại</p>
+                </td>
+            </tr>
+            <tr>
+                <td>33</td>
+                <td><b>public char[] ToCharArray(int startIndex, int length)</b>
+                    <p>Trả về một mảng ký tự Unicode với tất cả ký tự trong đối tượng String hiện tại, bắt đầu từ chỉ
+                        mục đã xác định và tới độ dài đã cho</p>
+                </td>
+            </tr>
+            <tr>
+                <td>34</td>
+                <td>
+                    <b>public string ToLower()</b>
+                    <p>Trả về một bản sao của chuỗi này đã được biến đổi thành chữ thường</p>
+                </td>
+            </tr>
+            <tr>
+                <td>35</td>
+                <td>
+                    <b>public string ToUpper()</b>
+                    <p>Trả về một bản sao của chuỗi này đã được biến đổi thành chữ hoa</p>
+                </td>
+            </tr>
+            <tr>
+                <td>36</td>
+                <td>
+                    <b>public string Trim()</b>
+                    <p>Gỡ bỏ tất cả ký tự whitespace từ đối tượng String hiện tại</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+</div>

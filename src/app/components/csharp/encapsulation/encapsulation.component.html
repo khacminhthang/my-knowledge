@@ -1,0 +1,72 @@
+<div>
+    <h1 style="font-size: 3rem;">Tính đóng gói trong C#</h1>
+    <br>
+    <p>Encapsulation (Tính đóng gói) được định nghĩa là "tiến trình đóng gói một hoặc nhiều mục bên trong một gói logic
+        hoặc vật lý". Tính đóng gói, trong phương pháp lập trình hướng đối tượng, ngăn cản việc truy cập tới chi tiết
+        của trình trình triển khai (Implementation Detail).</p>
+    <p>Tính trừu tượng và tính đóng gói là hai đặc điểm có liên quan với nhau trong lập trình hướng đối tượng. Tính trừu
+        tượng cho phép tạo các thông tin liên quan có thể nhìn thấy và tính đóng gói cho lập trình viên khả năng triển
+        khai độ trừu tượng đã được kế thừa.
+    </p>
+    <p>Tính đóng gói được triển khai bởi sử dụng Access Specifier. Một Access Specifier định nghĩa phạm vi và tính nhìn
+        thấy của một thành viên lớp. C# hỗ trợ các Access Specifier sau:</p>
+    <ul>
+        <li>Public</li>
+        <li>Private</li>
+        <li>Protected</li>
+        <li>Internal</li>
+        <li>Protected internal</li>
+    </ul>
+    <strong>Public Access Specifier trong C#</strong>
+    <p>Public Access Specifier trong C# cho phép một lớp trưng bày các biến thành viên và các hàm thành viên của nó tới
+        các hàm và đối tượng khác. Bất kỳ thành viên public nào trong C# có thể được truy cập từ bên ngoài lớp đó.</p>
+    <p>Ví dụ sau minh họa Public Access Specifier trong C#</p>
+    <p>Để minh họa rõ ràng tính đóng gói trong C#, mình tạo hai lớp có tên lần lượt là: Rectangle và ExecuteRectangle.
+    </p>
+    <p>Lớp Rectangle: chứa các thuộc tính, phương thức</p>
+    <code><pre>{{text1}}</pre></code>
+    <p>Lớp ExecuteRectangle: chứa phương thức main() để thao tác trên đối tượng Rectangle</p>
+    <code><pre>{{text2}}</pre></code>
+    <p>Trong ví dụ, các biến thành viên length và width được khai báo là public, vì thế chúng có thể được truy cập từ
+        hàm Main() bởi sử dụng một Instance (một sự thể hiện) của lớp Rectangle, tên là r.</p>
+    <p>Hàm thành viên Display() và GetArea() cũng có thể truy cập các biến này một cách trực tiếp mà không cần sử dụng
+        bất kỳ instance nào của lớp.</p>
+    <p>Hàm thành viên Display() cũng được khai báo là public, vì thế nó cũng có thể được truy cập từ hàm Main() bởi sử
+        dụng một Instance (một sự thể hiện) của lớp Rectangle, tên là r.
+    </p>
+    <strong>Private Access Specifier trong C#</strong>
+    <p>Private Access Specifier trong C# cho phép một lớp ẩn các biến thành viên và các hàm thành viên của nó với các
+        hàm và đối tượng khác. Chỉ có các hàm trong cùng lớp đó có thể truy cập tới các thành viên private. Ngay cả khi
+        một Instance của một lớp cũng không thể truy cập các thành viên private của nó.</p>
+    <p>Ví dụ sau minh họa Private Access Specifier trong C#:</p>
+    <p>Lớp Rectangle</p>
+    <code><pre>{{text3}}</pre></code>
+    <p>Lớp ExecuteRectangle</p>
+    <code><pre>{{text4}}</pre></code>
+    <p>Trong ví dụ, các biến thành viên length và width được khai báo private, vì thế chúng không thể được truy cập từ
+        hàm Main().</p>
+    <p>Các hàm thành viên AcceptDetails() và Display() có thể truy cập các biến này. Khi các hàm thành viên
+        AcceptDetails() và Display() được khai báo public, chúng có thể được truy cập từ hàm Main() bởi sử dụng một
+        Instance (một sự thể hiện) của lớp Rectangle, tên là r.</p>
+    <strong>Protected Access Specifier trong C#</strong>
+    <p>Protected Access Specifier trong C# cho phép một lớp con truy cập các biến thành viên và các hàm thành viên của
+        lớp cơ sở của nó. Cách này giúp triển khai tính kế thừa. Chúng ta sẽ thảo luận chi tiết về tính kế thừa trong
+        chương sau đó.</p>
+    <strong>Internal Access Specifier trong C#</strong>
+    <p>Internal Access Specifier trong C# cho phép một lớp trưng bày các biến thành viên và các hàm thành viên của nó
+        tới các hàm và đối tượng khác trong Assembly hiện tại. Nói cách khác, bất kỳ thành viên nào với Internal Access
+        Specifier trong C# có thể được truy cập từ bất kỳ lớp hoặc phương thức được định nghĩa bên trong ứng dụng mà
+        thành viên đó được định nghĩa.</p>
+    <p>Ví dụ sau minh họa Internal Access Specifier trong C#:</p>
+    <p>Lớp Rectangle</p>
+    <code><pre>{{text5}}</pre></code>
+    <p>Lớp ExecuteRectangle</p>
+    <code><pre>{{text6}}</pre></code>
+    <p>Trong ví dụ, bạn chú ý rằng hàm thành viên GetArea() không được khai báo với bất kỳ Access Specifier nào. Thì
+        theo mặc định, Access Specifier của một thành viên lớp nếu chúng ta không khai báo là private.</p>
+    <strong>Protected Internal Access Specifier trong C#</strong>
+    <p>Protected Internal Access Specifier trong C# cho phép một lớp ẩn các biến thành viên và các hàm thành viên của nó
+        với các hàm và đối tượng khác, ngoại trừ một lớp con bên trong cùng ứng dụng đó. Điều này cũng được sử dụng
+        trong khi triển khai tính kế thừa trong C#.</p>
+    <br>
+</div>
