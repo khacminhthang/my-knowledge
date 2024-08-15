@@ -1,1 +1,23 @@
-<p>interface works!</p>
+<div>
+    <h1 style="font-size: 2rem;">Interface trong C#</h1>
+    <br>
+    <p>Một Interface được định nghĩa như là một giao ước có tính chất cú pháp (syntactical contract) mà tất cả lớp kế
+        thừa Interface đó nên theo. Interface định nghĩa phần "Là gì" của giao ước và các lớp kế thừa định nghĩa phần
+        "Cách nào" của giao ước đó.
+    </p>
+    <p>Interface định nghĩa các thuộc tính, phương thức và sự kiện, mà là các thành viên của Interface đó. Các Interface
+        chỉ chứa khai báo của các thành viên này. Việc định nghĩa các thành viên là trách nhiệm của lớp kế thừa. Nó
+        thường giúp ích trong việc cung cấp một Cấu trúc chuẩn mà các lớp kế thừa nên theo.</p>
+    <strong>Khai báo Interface trong C#</strong>
+    <p>Các Interface được khai báo bởi sử dụng từ khóa interface trong C#. Nó tương tự như khai báo lớp. Theo mặc định,
+        các lệnh Interface là puclic. Ví dụ sau minh họa một khai báo Interface trong C#:</p>
+    <code><pre>{{text1}}</pre></code>
+    <p>Sau đây là ví dụ minh họa trình triển khai của Interface trên: tạo 2 lớp có tên lần lượt là GiaoDichHangHoa,
+        TestCsharp và một interface có tên là GiaoDich</p>
+    <p>interface GiaoDich</p>
+    <code><pre>{{text2}}</pre></code>
+    <p>Lớp GiaoDichHangHoa kế thừa interface GiaoDich</p>
+    <code><pre>{{text3}}</pre></code>
+    <p>Lớp TestCsharp chứa phương thức main() để thao tác trên đối tượng GiaoDichHangHoa</p>
+    <code><pre>{{text4}}</pre></code>
+</div>

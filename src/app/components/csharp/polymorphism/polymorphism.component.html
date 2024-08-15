@@ -1,1 +1,56 @@
-<p>polymorphism works!</p>
+<div>
+    <h1 style="font-size: 2rem;">Tính đa hình trong C#</h1>
+    <br>
+    <p>Từ polymorphism (tính đa hình) nghĩa là có nhiều hình thái. Trong lập trình hướng đối tượng, tính đa hình thường
+        được diễn đạt như là "một Interface, nhiều hàm".
+    </p>
+    <p>Tính đa hình trong C# có thể là static hoặc dynamic. Trong đó, kiểu đa hình static có thể được gọi là đa hình
+        tĩnh và kiểu đa hình dynamic có thể được gọi là đa hình động.</p>
+    <p>Trong đa hình tĩnh, phần phản hồi tới một hàm được xác định tại compile time. Trong khi đó với đa hình động, nó
+        được quyết định tại runtime.</p>
+    <strong>Đa hình static trong C#</strong>
+    <p>Kỹ thuật liên kết một hàm với một đối tượng trong thời gian biên dịch được gọi là Early Binding. Nó cũng được gọi
+        là Static Binding. C# cung cấp hai kỹ thuật để triển khai đa hình tĩnh. Chúng là:</p>
+    <ul>
+        <li>Nạp chồng hàm (Function overloading)</li>
+        <li>Nạp chồng toán tử (Operator overloading)</li>
+    </ul>
+    <p>Bạn có thể có nhiều định nghĩa cho cùng tên hàm trong cùng một phạm vi. Các định nghĩa này của hàm phải khác
+        nhau: như kiểu và/hoặc số tham số trong danh sách tham số. Trong C#, bạn không thể nạp chồng các khai báo hàm mà
+        chỉ khác nhau ở kiểu trả về.</p>
+    <p>Ví dụ sau minh họa cách sử dụng hàm print() để in các kiểu dữ liệu khác nhau trong C#:</p>
+    <code><pre>{{text1}}</pre></code>
+    <strong>Đa hình dynamic trong C#</strong>
+    <p>C# cho phép bạn tạo các lớp abstract (trừu tượng) mà được sử dụng để cung cấp trình triển khai cục bộ lớp của một
+        Interface. Trình triển khai (Implementation) được hoàn thành khi một lớp kế thừa kế thừa từ nó. Các lớp Abstract
+        chứa các phương thức abstract, mà được triển khai bởi lớp kế thừa. Lớp kế thừa này có tính năng chuyên dụng hơn.
+    </p>
+    <p>Dưới đây là một số qui tắc về các lớp abstract trong C#:</p>
+    <p>Bạn không thể tạo một Instance (sự thể hiện) của một lớp abstract.</p>
+    <p>Bạn không thể khai báo một phương thức abstract ở bên ngoài một lớp abstract.</p>
+    <p>Khi một lớp được khai báo là sealed, nó không thể được kế thừa, các lớp abstract không thể được khai báo là
+        sealed</p>
+    <p>Ví dụ sau minh họa một lớp abstract trong C#: tạo 3 lớp có tên lần lượt là Shape, HinhChuNhat, TestCsharp như
+        sau:</p>
+    <p>Lớp Shape: là một lớp abstract</p>
+    <code><pre>{{text2}}</pre></code>
+    <p>Lớp HinhChuNhat: là một lớp kế thừa lớp Shape</p>
+    <code><pre>{{text3}}</pre></code>
+    <p>Lớp TestCsharp: chứa phương thức main() để thao tác trên đối tượng HinhChuNhat</p>
+    <code><pre>{{text4}}</pre></code>
+    <p>Khi bạn có một hàm được định nghĩa trong một lớp mà bạn muốn được triển khai một lớp được kế thừa, bạn sử dụng
+        hàm virtual trong C#. Các hàm virtual có thể được triển khai một cách khác nhau trong lớp được kế thừa khác nhau
+        và việc gọi những hàm này sẽ được quyết định tại runtime.</p>
+    <p>Đa hình động trong C# được triển khai bởi các lớp abstract và các hàm virtual.</p>
+    <p>Ví dụ sau minh họa điều này: tạo 5 lớp có tên lần lượt là như sau:</p>
+    <p>Lớp Shape: lớp cơ sở</p>
+    <code><pre>{{text5}}</pre></code>
+    <p>Lớp HinhChuNhat: là lớp kế thừa lớp Shape</p>
+    <code><pre>{{text6}}</pre></code>
+    <p>Lớp TamGiac: là lớp kế thừa lớp Shape</p>
+    <code><pre>{{text7}}</pre></code>
+    <p>Lớp HienThiDuLieu: in các dữ liệu</p>
+    <code><pre>{{text8}}</pre></code>
+    <p>Lớp TestCsharp: chứa phương thức main() để thao tác trên các đối tượng</p>
+    <code><pre>{{text9}}</pre></code>
+</div>

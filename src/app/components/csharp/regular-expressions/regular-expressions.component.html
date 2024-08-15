@@ -1,1 +1,84 @@
-<p>regular-expressions works!</p>
+<div>
+    <h1 style="font-size: 2rem;">Regular Expression trong C#</h1>
+    <br>
+    <p>Một regular expression là một pattern mà có thể được so khớp với một văn bản đầu vào. .Net Framework cung cấp một
+        phương tiện regular expression mà cho phép so khớp với như thế. Trong C#, một pattern gồm một hoặc nhiều hằng ký
+        tự, toán tử, hoặc construct.
+    </p>
+    <strong>Construct cho định nghĩa Regular Expression trong C#</strong>
+    <p>Có nhiều loại ký tự, toán tử và construct đa dạng mà giúp bạn định nghĩa Regular Expression trong C#. Bạn theo
+        các link sau để có chi tiết về các construct này.</p>
+    <ul>
+        <li></li>
+        <li>Lớp Character</li>
+        <li>Anchor</li>
+        <li>Grouping construct</li>
+        <li>Quantifier</li>
+        <li>Backreference construct</li>
+        <li>Alternation construct</li>
+        <li>Substitution</li>
+        <li>Miscellaneous constructs</li>
+    </ul>
+    <strong>Lớp Regex trong C#</strong>
+    <p>Lớp Regex trong C# được sử dụng để biểu diễn một Regular Expression. Nó có các phương thức được sử dụng phổ biến
+        sau:</p>
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th style="width:5%;">STT</th>
+                <th>Phương thức</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>
+                    <b>public bool IsMatch(string input)</b>
+                    <p>Chỉ rằng có hay không Regular Expression đã cho trong Regex constructor này tìm thấy một match
+                        trong chuỗi đầu vào đã xác định</p>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><b>public bool IsMatch(string input, int startat)</b>
+                    <p>Chỉ rằng có hay không Regular Expression đã cho trong Regex constructor này tìm thấy một match
+                        trong chuỗi đầu vào đã xác định, bắt đầu tại vị trí startat đã cho trong chuỗi</p>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td><b>public static bool IsMatch(string input, string pattern)</b>
+                    <p>Chỉ rằng có hay không Regular Expression đã cho tìm thấy một match trong chuỗi đầu vào đã xác
+                        định</p>
+                </td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>
+                    <b>public MatchCollection Matches(string input)</b>
+                    <p>Tìm kiếm chuỗi đầu vào đã xác định về tất cả sự xuất hiện của một Regular Expression </p>
+                </td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td><b>public string Replace(string input, string replacement)</b>
+                    <p>Trong một chuỗi đầu vào đã xác định, thay thế tất cả chuỗi mà so khớp với một Regular Expression
+                        pattern với một chuỗi thay thế đã cho</p>
+                </td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>
+                    <b>public string[] Split(string input)</b>
+                    <p>Chia một chuỗi đầu vào thành một mảng các chuỗi phụ tại vị trí được định nghĩa bởi một Regular
+                        Expression pattern đã xác định trong Regex constructor</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p>Để có danh sách đầy đủ các phương thức và thuộc tính, bạn vui lòng đọc Microsoft Documentation về C#.</p>
+    <p>Ví dụ sau so khớp với các từ mà bắt đầu với 'S':</p>
+    <code><pre>{{text1}}</pre></code>
+    <p>Ví dụ sau so khớp với các từ mà bắt đầu với 's' và kết thúc với 'n':</p>
+    <code><pre>{{text2}}</pre></code>
+    <p>Ví dụ sau thay thế các white space:</p>
+    <code><pre>{{text3}}</pre></code>
+</div>

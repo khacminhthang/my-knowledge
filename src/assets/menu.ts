@@ -516,7 +516,7 @@ export const menuCSharp = [
       {
         "text": "Anonymous Methods",
         "icon": "all_inbox",
-        "routerLink": "anonymous-methods"
+        "routerLink": "anonymous-method"
       },
       {
         "text": "Unsafe Codes",

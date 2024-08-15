@@ -1,1 +1,192 @@
-<p>file-io works!</p>
+<div>
+    <h1 style="font-size: 2rem;">File I/O trong C#</h1>
+    <br>
+    <p>Một file là một tập hợp dữ liệu được lưu giữ trong một disk với một tên cụ thể và một path thư mục. Khi một file
+        được mở để đọc hoặc ghi, nó trở thành một stream.
+    </p>
+    <p>Về cơ bản, stream là dãy các byte truyền qua path. Có hai stream quan trọng: Input stream và Output stream. Input
+        stream được sử dụng để đọc dữ liệu từ file (hoạt động read) và Output stream được sử dụng để ghi vào trong file
+        (hoạt động write).</p>
+    <strong>Lớp I/O trong C#</strong>
+    <p>System.IO namespace có nhiều lớp đa dạng mà được sử dụng để thực hiện các hoạt động khác nhau với File, như tạo
+        và xóa file, đọc và ghi một File, đóng một File, …</p>
+    <p>Bảng sau hiển thị một số lớp non-abstract được sử dụng phổ biến trong System.IO namespace trong C#:</p>
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th style="width:25%;">I/O Class</th>
+                <th>Miêu tả</th>
+            </tr>
+            <tr>
+                <td>BinaryReader</td>
+                <td>Đọc dữ liệu gốc (primitive data) từ một binary stream</td>
+            </tr>
+            <tr>
+                <td>BinaryWriter</td>
+                <td>Ghi dữ liệu gốc trong định dạng nhị phân</td>
+            </tr>
+            <tr>
+                <td>BufferedStream</td>
+                <td>Một nơi lưu giữ tạm thời cho một stream</td>
+            </tr>
+            <tr>
+                <td>Directory</td>
+                <td>Giúp ích trong việc thao tác một cấu trúc thư mục</td>
+            </tr>
+            <tr>
+                <td>DirectoryInfo</td>
+                <td>Được sử dụng để thực hiện các hoạt động trên các thư mục</td>
+            </tr>
+            <tr>
+                <td>DriveInfo</td>
+                <td>Cung cấp thông tin cho các Drive</td>
+            </tr>
+            <tr>
+                <td>File</td>
+                <td>Giúp ích trong việc thao tác các File</td>
+            </tr>
+            <tr>
+                <td>FileInfo</td>
+                <td>Được sử dụng để thực hiện các hoạt động trên các File</td>
+            </tr>
+            <tr>
+                <td>FileStream</td>
+                <td>Được sử dụng để đọc và ghi bất kỳ vị trí nào trong một File</td>
+            </tr>
+            <tr>
+                <td>MemoryStream</td>
+                <td>Được sử dụng để truy cập ngẫu nhiên tới stream được lưu giữ trong bộ nhớ</td>
+            </tr>
+            <tr>
+                <td>Path</td>
+                <td>Thực hiện các hoạt động trên thông tin path</td>
+            </tr>
+            <tr>
+                <td>StreamReader</td>
+                <td>Được sử dụng để đọc các ký tự từ một stream</td>
+            </tr>
+            <tr>
+                <td>StreamWriter</td>
+                <td>Được sử dụng để ghi các ký tự tới một stream</td>
+            </tr>
+            <tr>
+                <td>StringReader</td>
+                <td>Được sử dụng để đọc từ một string buffer</td>
+            </tr>
+            <tr>
+                <td>StringWriter</td>
+                <td>Được sử dụng để ghi vào một string buffer</td>
+            </tr>
+        </tbody>
+    </table>
+    <strong>Lớp FileStream trong C#</strong>
+    <p>Lớp FileStream trong System.IO namespace trong C# giúp đỡ trong việc đọc từ, ghi và đóng các File. Lớp này kế
+        thừa từ lớp abstract là Stream.</p>
+    <p>Bạn cần tạo một đối tượng FileStream để tạo một File mới hoặc mở một File đang tồn tại. Cú pháp để tạo một đối
+        tượng FileStream trong C# như sau:</p>
+    <code><pre>{{text1}}</pre></code>
+    <p>Ví dụ: chúng ta tạo một đối tượng FileStream là F để đọc một File với tên sample.txt, như sau:</p>
+    <code><pre>{{text2}}</pre></code>
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th style="width:20%;">Tham số</th>
+                <th>Miêu tả</th>
+            </tr>
+            <tr>
+                <td>FileMode</td>
+                <td>
+                    <p><b>FileMode</b> enumerator định nghĩa các phương thức đa dạng để mở các File. Các thành viên của
+                        FileMode enumerator là:</p>
+                    <ul class="list">
+                        <li>
+                            <p><b>Append</b>: Nó mở một File đang tồn tại và đặt con trỏ tại phần cuối của File, hoặc
+                                tạo File, nếu File đó chưa tồn tại</p>
+                        </li>
+                        <li>
+                            <p><b>Create</b>: Nó tạo một File mới</p>
+                        </li>
+                        <li>
+                            <p><b>CreateNew</b>: Nó xác định tới Hệ điều hành rằng nó nên tạo một File mới</p>
+                        </li>
+                        <li>
+                            <p><b>Open</b>: Nó mở một File đang tồn tại</p>
+                        </li>
+                        <li>
+                            <p><b>OpenOrCreate</b>: Nó xác định tới Hệ điều hành rằng nó nên mở một File nếu nó tồn tại,
+                                nếu không thì nó nên tạo một File mới</p>
+                        </li>
+                        <li>
+                            <p><b>Truncate</b>: Nó mở một File đang tồn tại và truncate (cắt) kích cỡ của nó về 0 byte
+                            </p>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>FileAccess</td>
+                <td>
+                    <p><b>FileAccess</b> enumerators có các thành viên là: <b>Read</b>, <b>ReadWrite</b> và
+                        <b>Write</b>.
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>FileShare</td>
+                <td>
+                    <p><b>FileShare</b> enumerators có các thành viên sau:</p>
+                    <ul class="list">
+                        <li>
+                            <p><b>Inheritable</b>: Nó cho phép một File truyền tính kế thừa tới các tiến trình con</p>
+                        </li>
+                        <li>
+                            <p><b>None</b>: Nó từ chối việc chia sẻ File hiện tại</p>
+                        </li>
+                        <li>
+                            <p><b>Read</b>: Nó cho phép mở File để đọc</p>
+                        </li>
+                        <li>
+                            <p><b>ReadWrite</b>: Nó cho phép mở File để đọc và ghi</p>
+                        </li>
+                        <li>
+                            <p><b>Write</b>: Nó cho phép mở File để ghi</p>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p>Dưới đây là ví dụ minh họa cách sử dụng của lớp FileStream trong C#:</p>
+    <code><pre>{{text3}}</pre></code>
+    <strong>Hoạt động File nâng cao trong C#</strong>
+    <p>Ví dụ trước minh họa các hoạt động đơn giản trên File trong C#. Tuy nhiên, để lợi dụng tối đa sức mạnh của các
+        lớp System.IO trong C#, bạn cần biết các thuộc tính và phương thức được sử dụng phổ biến về các lớp này.</p>
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th style="width:30%;">Chủ đề và Miêu tả</th>
+            </tr>
+            <tr>
+                <td>
+                    <p><a title="Đọc và ghi Text File trong C#">Đọc và ghi Text File trong C#</a></p>
+                    <p>Lớp <b>StreamReader</b> và <b>StreamWriter</b> giúp thực hiện việc đọc và ghi các File văn bản
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p><a title="Đọc và ghi File nhị phân trong C#">Đọc và ghi File nhị phân trong C#</a></p>
+                    <p>Lớp <b>BinaryReader</b> và <b>BinaryWriter</b> giúp thực hiện việc đọc và ghi các File nhị phân
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p><a title="Windows file system trong C#">Thao tác Windows file system trong C#</a></p>
+                    <p>Nó cung cấp cho lập trình viên C# khả năng duyệt và xác định vị trí các File và thư mục trong
+                        Windows</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

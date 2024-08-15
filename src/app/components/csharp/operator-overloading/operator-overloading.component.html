@@ -1,1 +1,62 @@
-<p>operator-overloading works!</p>
+<div>
+    <h1 style="font-size: 2rem;">Tính đa hình trong C#</h1>
+    <br>
+    <p>Operator Overloading là Nạp chồng toán tử. Bạn có thể tái định nghĩa hoặc nạp chồng hầu hết các toán tử có sẵn
+        trong C#. Vì thế, một lập trình viên có thể sử dụng các toán tử với các kiểu tự định nghĩa (user-defined). Các
+        toán tử được nạp chồng trong C# là các hàm với các tên đặc biệt: từ khóa operator được theo sau bởi biểu tượng
+        cho toán tử đang được định nghĩa. Tương tự như bất kỳ hàm nào khác, một toán tử được nạp chồng có một kiểu trả
+        về và một danh sách tham số.
+    </p>
+    <p>Ví dụ, bạn xét hàm sau:</p>
+    <code><pre>{{text1}}</pre></code>
+    <p>Hàm trên triển khai toán tử cộng (+) cho một lớp Box tự định nghĩa (user-defined). Nó cộng các thuộc tính của hai
+        đối tượng Box và trả về đối tượng kết quả Box.</p>
+    <strong>Triển khai Nạp chồng toán tử trong C#</strong>
+    <p>Ví dụ dưới đây minh họa cách triển khai nạp chồng toán tử trong C#: tạo hai lớp có tên lần lượt là Box,
+        TestCsharp như sau:</p>
+    <p>Lớp Box: chứa các thuộc tính và phương thức</p>
+    <code><pre>{{text2}}</pre></code>
+    <p>Lớp TestCsharp: chứa phương thức main() để thao tác trên đối tượng Box</p>
+    <code><pre>{{text3}}</pre></code>
+    <strong>Toán tử có thể nạp chồng và không thể nạp chồng trong C#</strong>
+    <p>Bảng dưới miêu tả các toán tử có thể nạp chồng trong C#:</p>
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th style="width:25%;">Toán tử</th>
+                <th>Miêu tả</th>
+            </tr>
+            <tr>
+                <td>+, -, !, ~, ++, --</td>
+                <td>Những toán tử một ngôi này nhận một toán hạng và <b>có thể</b> được nạp chồng</td>
+            </tr>
+            <tr>
+                <td>+, -, *, /, %</td>
+                <td>Những toán tử nhị phân này nhận một toán hạng và <b>có thể</b> được nạp chồng</td>
+            </tr>
+            <tr>
+                <td>=, !=, &lt;, &gt;, &lt;=, &gt;=</td>
+                <td>Các toán tử so sánh <b>có thể</b> được nạp chồng</td>
+            </tr>
+            <tr>
+                <td>&amp;&amp;, ||</td>
+                <td>Các toán tử logic điều kiện <b>không thể</b> được nạp chồng một cách trực tiếp</td>
+            </tr>
+            <tr>
+                <td>+=, -=, *=, /=, %=</td>
+                <td>Các toán tử gán <b>không thể</b> được nạp chồng</td>
+            </tr>
+            <tr>
+                <td>=, ., ?:, -&gt;, new, is, sizeof, typeof</td>
+                <td>Các toán tử này <b>không thể</b> được nạp chồng</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>Ví dụ</p>
+    <p>Từ các khái niệm trên, chúng ta kế thừa ví dụ trên và nạp chồng thêm một số toán tử trong C#: ở trên chúng ta đã
+        tạo hai lớp Box, TestCsharp, bây giờ chúng ta sửa lại code của mỗi lớp như sau:</p>
+    <p>Lớp Box: chứa các thuộc tính và phương thức</p>
+    <code><pre>{{text4}}</pre></code>
+    <p>Lớp TestCsharp: chứa phương thức main() để thao tác trên đối tượng Box</p>
+    <code><pre>{{text5}}</pre></code>
+</div>

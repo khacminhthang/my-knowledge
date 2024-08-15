@@ -1,1 +1,94 @@
-<p>exception-handling works!</p>
+<div>
+    <h1 style="font-size: 2rem;">Xử lý ngoại lệ (Try/Catch/Finally) trong C#</h1>
+    <br>
+    <p>Một Exception (ngoại lệ) là một vấn đề xuất hiện trong khi thực thi một chương trình. Một Exception trong C# là
+        một phản hồi về một tình huống ngoại lệ mà xuất hiện trong khi một chương trình đang chạy, ví dụ như chia cho số
+        0.
+    </p>
+    <p>Exception cung cấp một cách để truyền điều khiển từ một phần của một chương trình tới phần khác. Exception
+        Handling (Xử lý ngoại lệ) trong C# được xây dựng dựa trên 4 từ khóa là: try, catch, finally, và throw.</p>
+    <p>try: Một khối try nhận diện một khối code mà ở đó các exception cụ thể được kích hoạt. Nó được theo sau bởi một
+        hoặc nhiều khối catch.</p>
+    <p>catch: Một chương trình bắt một Exception với một Exception Handler tại vị trí trong một chương trình nơi bạn
+        muốn xử lý vấn đề đó. Từ khóa catch trong C# chỉ dẫn việc bắt một exception.</p>
+    <p>finally: Một khối finally được sử dụng để thực thi một tập hợp lệnh đã cho, dù có hay không một exception đươc
+        ném hoặc không được ném. Ví dụ, nếu bạn mở một file, nó phải được đóng, nếu không sẽ có một exception được tạo
+        ra.</p>
+    <p>throw: Một chương trình ném một exception khi có một vấn đề xuất hiện. Điều này được thực hiện bởi sử dụng từ
+        khóa throw trong C#.</p>
+    <strong>Cú pháp</strong>
+    <p>Giả sử một khối tạo một Exeption, một phương thức bắt một exception bởi sử dụng kết hợp các từ khóa try và catch.
+        Một khối try/catch được đặt xung quanh code mà có thể tạo một exception. Code bên trong một khối try/catch được
+        xem như là code được bảo vệ, và cú pháp để sử dụng try/catch trong C# như sau:</p>
+    <code><pre>{{text1}}</pre></code>
+    <p>Bạn có thể liệt kê nhiều lệnh catch để bắt các kiểu exception khác nhau trong trường hợp khối try của bạn xuất
+        hiện nhiều hơn một exception trong các tình huống khác nhau.</p>
+    <strong>Lớp Exception trong C#</strong>
+    <p>Các Exception trong C# được biểu diễn bởi các lớp. Các lớp Exception trong C# chủ yếu được kế thừa một cách trực
+        tiếp hoặc không trực tiếp từ lớp System.Exception trong C#. Một số lớp Exception kế thừa từ lớp System.Exception
+        là các lớp System.ApplicationException và System.SystemException.</p>
+    <p>Lớp System.ApplicationException hỗ trợ các exception được tạo bởi các chương trình ứng dụng. Vì thế, các
+        exception được định nghĩa bởi lập trình viên nên kế thừa từ lớp này.</p>
+    <p>Lớp System.SystemException là lớp cơ sở cho tất cả system exception tiền định nghĩa.</p>
+    <p>Bảng sau cung cấp một số lớp Exception tiền định nghĩa được kế thừa từ lớp Sytem.SystemException trong C#:</p>
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th style="width:40%;">Lớp Exception</th>
+                <th>Miêu tả</th>
+            </tr>
+            <tr>
+                <td>System.IO.IOException</td>
+                <td>Xử lý các I/O error</td>
+            </tr>
+            <tr>
+                <td>System.IndexOutOfRangeException</td>
+                <td>Xử lý các lỗi được tạo khi một phương thức tham chiếu tới một chỉ mục bên ngoài dãy mảng</td>
+            </tr>
+            <tr>
+                <td>System.ArrayTypeMismatchException</td>
+                <td>Xử lý các lỗi được tạo khi kiểu là không phù hợp với kiểu mảng </td>
+            </tr>
+            <tr>
+                <td>System.NullReferenceException</td>
+                <td>Xử lý các lỗi được tạo từ việc tham chiếu một đối tượng null</td>
+            </tr>
+            <tr>
+                <td>System.DivideByZeroException</td>
+                <td>Xử lý các lỗi được tạo khi chia cho số 0</td>
+            </tr>
+            <tr>
+                <td>System.InvalidCastException</td>
+                <td>Xử lý lỗi được tạo trong khi ép kiểu</td>
+            </tr>
+            <tr>
+                <td>System.OutOfMemoryException</td>
+                <td>Xử lý lỗi được tạo từ việc thiếu bộ nhớ rỗi</td>
+            </tr>
+            <tr>
+                <td>System.StackOverflowException</td>
+                <td>Xử lý lỗi được tạo từ việc tràn ngăn xếp (stack)</td>
+            </tr>
+        </tbody>
+    </table>
+    <strong>Xử lý ngoại lệ ( Exception Handling) trong C#</strong>
+    <p>C# cung cấp một giải pháp mang tính cấu trúc cao để xử lý ngoại lệ trong form các khối try và catch. Sử dụng các
+        khối này, các lệnh chương trình được phân biệt riêng rẽ với các lệnh xử lý ngoại lệ trong C#.</p>
+    <p>Những khối xử lý ngoại lệ này được triển khai bởi sử dụng các từ khóa try, catch và finally trong C#. Ví dụ sau
+        ném một exception khi chia cho số 0</p>
+    <code><pre>{{text2}}</pre></code>
+    <strong>Tạo User-Defined Exception trong C#</strong>
+    <p>Bạn cũng có thể định nghĩa exception cho riêng bạn. Các lớp User-Defined Exception được kế thừa từ lớp
+        ApplicationException trong C#. Ví dụ sau minh họa điều này:</p>
+    <p>Tạo 3 lớp có tên lần lượt là như sau:</p>
+    <p>Lớp Temperature</p>
+    <code><pre>{{text3}}</pre></code>
+    <p>Lớp TempIsZeroException: đây là một lớp ngoại lệ tự định nghĩa, kế thừa lớp ApplicationException</p>
+    <code><pre>{{text4}}</pre></code>
+    <p>Lớp TestCsharp</p>
+    <code><pre>{{text5}}</pre></code>
+    <strong>Ném (Throw) các Object trong C#</strong>
+    <p>Bạn có thể ném một đối tượng nếu nó: hoặc trực tiếp hoặc gián tiếp được kế thừa từ lớp System.Exception trong C#.
+        Bạn có thể sử dụng một lệnh throw trong khối catch để ném đối tượng hiện diện đó:</p>
+    <code><pre>{{text6}}</pre></code>
+</div>

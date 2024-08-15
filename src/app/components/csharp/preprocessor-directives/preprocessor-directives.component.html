@@ -1,1 +1,94 @@
-<p>preprocessor-directives works!</p>
+<div>
+    <h1 style="font-size: 2rem;">Chỉ thị tiền xử lý trong C#</h1>
+    <br>
+    <p>Các chỉ thị tiền xử lý (Preprocessor Directive) cung cấp chỉ lệnh tới compiler để tiền xử lý thông tin trước khi
+        sự biên dịch thực sự bắt đầu.
+    </p>
+    <p>Tất cả chỉ thị tiền xử lý trong C# bắt đầu với #, và chỉ có các ký tự white-space có thể xuất hiện ở trước một
+        chỉ thị tiền xử lý trong một dòng. Các chỉ thị tiền xử lý trong C# không là các lệnh, vì thế chúng không kết
+        thúc với một dấu chấm phảy (;).</p>
+    <p>Bộ biên dịch của C# không có một bộ tiền xử lý riêng biệt, tuy nhiên, các chỉ thị này được xử lý như khi thực sự
+        có một bộ tiền xử lý riêng vậy. Trong C#, các chỉ thị tiền xử lý được sử dụng để giúp ích việc biên dịch có điều
+        kiện. Không giống các chỉ thị tiền xử lý trong C và C++, chúng không được sử dụng để tạo các macro. Một chỉ thị
+        tiền xử lý phải chỉ là một chỉ lệnh trên một dòng.</p>
+    <strong>Các chỉ thị tiền xử lý trong C#</strong>
+    <p>Dưới đây là bảng liệt kê các chỉ thị tiền xử lý có sẵn trong C#:</p>
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th style="width:20%;">Chỉ thị tiền xử lý</th>
+                <th>Miêu tả</th>
+            </tr>
+            <tr>
+                <td>#define</td>
+                <td>Nó định nghĩa một dãy ký tự, được gọi là các biểu tượng</td>
+            </tr>
+            <tr>
+                <td>#undef</td>
+                <td>Nó cho phép bạn không định nghĩa (undefine) một biểu tượng</td>
+            </tr>
+            <tr>
+                <td>#if</td>
+                <td>Nó cho phép kiểm tra một biểu tượng hoặc nhiều biểu tượng để thấy nếu chúng ước lượng là true</td>
+            </tr>
+            <tr>
+                <td>#else</td>
+                <td>Nó cho phép tạo một chỉ thị có điều kiện phức hợp, cùng với #if</td>
+            </tr>
+            <tr>
+                <td>#elif</td>
+                <td>Nó cho phép tạo một chỉ thị có điều kiện phức hợp</td>
+            </tr>
+            <tr>
+                <td>#endif</td>
+                <td>Xác định phần cuối của một chỉ thị có điều kiện (conditional directive)</td>
+            </tr>
+            <tr>
+                <td>#line</td>
+                <td>Nó cho phép bạn sửa đổi số dòng của compiler và (tùy ý) tên file cho Error và Warning</td>
+            </tr>
+            <tr>
+                <td>#error</td>
+                <td>Nó cho phép tạo một error từ một vị trí cụ thể trong code của bạn</td>
+            </tr>
+            <tr>
+                <td>#warning</td>
+                <td>Nó cho phép tạo một mức độ cảnh báo từ một vị trí cụ thể trong code của bạn</td>
+            </tr>
+            <tr>
+                <td>#region</td>
+                <td>Nó cho phép bạn xác định một khối code mà bạn có thể mở rộng hoặc thu gọn bởi sử dụng đặc điểm của
+                    Visual Studio Code Editor</td>
+            </tr>
+            <tr>
+                <td>#endregion</td>
+                <td>Nó đánh dấu phần cuối của một khối #region</td>
+            </tr>
+        </tbody>
+    </table>
+    <strong>Chỉ thị tiền xử lý #define trong C#</strong>
+    <p>Chỉ thị tiền xử lý #define trong C# tạo các hằng biểu tượng.</p>
+    <p>#define cho phép bạn tạo một biểu tượng như vậy, bởi sử dụng biểu tượng dạng biểu thức được truyền tới chỉ thị
+        tiền xử lý #if, biểu thức ước lượng là true. Cú pháp của nó như sau:</p>
+    <code><pre>{{text1}}</pre></code>
+    <p>Ví dụ sau minh họa điều này:</p>
+    <code><pre>{{text2}}</pre></code>
+    <strong>Chỉ thị có điều kiện (Conditional Directive) trong C#</strong>
+    <p>Bạn có thể sử dụng chỉ thị tiền xử lý #if trong C# để tạo một chỉ thị có điều kiện (Conditional Directive). Các
+        chỉ thị có điều kiện là hữu ích khi kiểm tra một biểu tượng hoặc các biểu tượng để kiểm tra nếu chúng ước lượng
+        là true. Nếu chúng ước lượng là true, compiler ước lượng tất cả code giữa chỉ thị #if và chỉ thị tiếp theo.</p>
+    <p>Cú pháp cho chỉ thị có điều kiện trong C# là:</p>
+    <code><pre>{{text3}}</pre></code>
+    <p>Tại đây, symbol là tên của biểu tượng bạn muốn kiểm tra. Bạn cũng có thể sử dụng true và false hoặc phụ thêm vào
+        sau biểu tượng với toán tử phủ định.</p>
+    <p>operator symbol là toán tử được sử dụng để ước lượng biểu tượng đó. Các toán tử có thể là một trong các:
+        == (bằng)
+        != (không bằng)
+        && (và)
+        || (hoặc)</p>
+    <p>Bạn cũng có thể nhóm các biểu tượng và toán tử bởi các dấu ngoặc đơn. Các chỉ thị có điều kiện được sử dụng để
+        biên dịch code cho debug hoặc khi biên dịch cho một sự định cấu hình cụ thể. Một chỉ thị có điều kiện trong C#
+        bắt đầu với một chỉ thị tiền xử lý #if phải được kết thúc một cách rõ ràng bởi một chỉ thị #endif.</p>
+    <p>Ví dụ sau minh họa sự sử dụng các chỉ thị có điều kiện trong C#:</p>
+    <code><pre>{{text4}}</pre></code>
+</div>

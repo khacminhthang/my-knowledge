@@ -28,6 +28,17 @@ import { PreprocessorDirectivesComponent } from './preprocessor-directives/prepr
 import { RegularExpressionsComponent } from './regular-expressions/regular-expressions.component';
 import { ExceptionHandlingComponent } from './exception-handling/exception-handling.component';
 import { FileIoComponent } from './file-io/file-io.component';
+import { AttributesComponent } from './attributes/attributes.component';
+import { ReflectionComponent } from './reflection/reflection.component';
+import { PropertiesComponent } from './properties/properties.component';
+import { IndexersComponent } from './indexers/indexers.component';
+import { DelegatesComponent } from './delegates/delegates.component';
+import { EventsComponent } from './events/events.component';
+import { CollectionsComponent } from './collections/collections.component';
+import { GenericsComponent } from './generics/generics.component';
+import { AnonymousMethodsComponent } from './anonymous-methods/anonymous-methods.component';
+import { UnsafeCodesComponent } from './unsafe-codes/unsafe-codes.component';
+import { MultithreadingComponent } from './multithreading/multithreading.component';
 
 const csharpRoutes: Routes = [
   {
@@ -141,6 +152,50 @@ const csharpRoutes: Routes = [
       {
         path: 'file-io',
         component: FileIoComponent
+      },
+      {
+        path: 'attributes',
+        component: AttributesComponent
+      },
+      {
+        path: 'reflection',
+        component: ReflectionComponent
+      },
+      {
+        path: 'properties',
+        component: PropertiesComponent
+      },
+      {
+        path: 'indexers',
+        component: IndexersComponent
+      },
+      {
+        path: 'delegates',
+        component: DelegatesComponent
+      },
+      {
+        path: 'events',
+        component: EventsComponent
+      },
+      {
+        path: 'collections',
+        component: CollectionsComponent
+      },
+      {
+        path: 'generics',
+        component: GenericsComponent
+      },
+      {
+        path: 'anonymous-method',
+        component: AnonymousMethodsComponent
+      },
+      {
+        path: 'unsafe-codes',
+        component: UnsafeCodesComponent
+      },
+      {
+        path: 'multithreading',
+        component: MultithreadingComponent
       },
     ]
   }]

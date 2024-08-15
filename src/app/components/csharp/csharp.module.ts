@@ -35,6 +35,17 @@ import { PreprocessorDirectivesComponent } from './preprocessor-directives/prepr
 import { RegularExpressionsComponent } from './regular-expressions/regular-expressions.component';
 import { ExceptionHandlingComponent } from './exception-handling/exception-handling.component';
 import { FileIoComponent } from './file-io/file-io.component';
+import { AttributesComponent } from './attributes/attributes.component';
+import { ReflectionComponent } from './reflection/reflection.component';
+import { PropertiesComponent } from './properties/properties.component';
+import { IndexersComponent } from './indexers/indexers.component';
+import { DelegatesComponent } from './delegates/delegates.component';
+import { EventsComponent } from './events/events.component';
+import { CollectionsComponent } from './collections/collections.component';
+import { GenericsComponent } from './generics/generics.component';
+import { AnonymousMethodsComponent } from './anonymous-methods/anonymous-methods.component';
+import { UnsafeCodesComponent } from './unsafe-codes/unsafe-codes.component';
+import { MultithreadingComponent } from './multithreading/multithreading.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +75,18 @@ import { FileIoComponent } from './file-io/file-io.component';
     PreprocessorDirectivesComponent,
     RegularExpressionsComponent,
     ExceptionHandlingComponent,
-    FileIoComponent
+    FileIoComponent,
+    AttributesComponent,
+    ReflectionComponent,
+    PropertiesComponent,
+    IndexersComponent,
+    DelegatesComponent,
+    EventsComponent,
+    CollectionsComponent,
+    GenericsComponent,
+    AnonymousMethodsComponent,
+    UnsafeCodesComponent,
+    MultithreadingComponent
   ],
   imports: [
     CommonModule,
