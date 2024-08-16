@@ -1,1 +1,101 @@
-<p>attributes works!</p>
+<div>
+    <h1 style="font-size: 2rem;">Attribute trong C#</h1>
+    <p>Một attribute trong C#, là một thẻ tường thuật, được sử dụng để truyền thông tin tới runtime về các hành vi của
+        các phần tử đa dạng như các lớp, phương thức, cấu trúc, enum, assembly, … trong chương trình của bạn. Bạn có thể
+        thêm thông tin tường thuật tới một chương trình bởi việc sử dụng một Attribute. Một thẻ tường thuật được miêu tả
+        bởi các dấu ngoặc móc vuông ([]) được đặt bên trên phần tử mà nó được sử dụng cho.</p>
+    <p>Các Attribute được sử dụng để thêm metadata, ví dụ như chỉ lệnh biên dịch và thông tin khác như comment, miêu tả,
+        phương thức và các lớp tới một chương trình. .Net Framework cung cấp hai kiểu Attribute: các Attribute được định
+        nghĩa trước và các Custom Attribute.</p>
+    <strong>Xác định một Attribute trong C#</strong>
+    <p>Cú pháp để xác định một Attribute trong C# như sau:</p>
+    <code><pre>{{text1}}</pre></code>
+    <p>Tên của Attribute và giá trị của nó được xác định bên trong dấu ngoặc vuông, ở trước phần tử từ đó thuộc tính
+        được áp dụng cho. positional_parameter xác định thông tin thiết yếu và name_parameter xác định thông tin tùy ý.
+    </p>
+    <strong>Attribute được định nghĩa trước trong C#</strong>
+    <p>.Net Framework cung cấp 3 Attribute được định nghĩa trước:</p>
+    <ul>
+        <li>AttributeUsage</li>
+        <li>Conditional</li>
+        <li>Obsolete</li>
+    </ul>
+    <strong>AttributeUsage trong C#</strong>
+    <p>Attribute được định nghĩa trước AttributeUsage miêu tả cách một lớp custom Attribute có thể được sử dụng. Nó xác
+        định kiểu của các item, mà từ đó Attribute có thể áp dụng cho.</p>
+    <p>Cú pháp để xác định Attribute này trong C# như sau:</p>
+    <code><pre>{{text2}}</pre></code>
+    <p>Tại đây:</p>
+    <p>Tham số validon xác định các phần tử ngôn ngữ mà Attribute có thể được đặt. Nó là một sự tổ hợp giá trị của một
+        AttributeTargets enumerator. Giá trị mặc định là AttributeTargets.All.</p>
+    <p>Tham số allowmultiple (tùy ý) cung cấp giá trị cho thuộc tính AllowMultiple của attribute này, một giá trị
+        Boolean. Nếu điều này là true, Attribute là multiuse. Giá trị mặc định là false (tức là single-use).</p>
+    <p>Tham số inherited (tùy ý) cung cấp giá trị cho thuộc tính Inherited của attribute này, một giá trị Boolean. Nếu
+        nó là true, Attribute được kế thừa bởi các lớp kế thừa. Giá trị mặc định là false (không được kế thừa).</p>
+    <p>Ví dụ:</p>
+    <code><pre>{{text3}}</pre></code>
+    <strong>Conditional trong C#</strong>
+    <p>Attribute tiền định nghĩa này đánh dấu một phương thức có điều kiện mà sự thực thi của nó phụ thuộc vào một tiến
+        trình tiền xử lý định danh đã cho.</p>
+    <p>Nó tạo sự biên dịch có điều kiện của các lời gọi phương thức, phụ thuộc vào giá trị đã cho, như Debug hoặc Trace.
+        Ví dụ: nó hiển thị các giá trị của các biến trong khi debug một code.</p>
+    <p>Cú pháp để xác định Attribute này trong C# là như sau:</p>
+    <code><pre>{{text4}}</pre></code>
+    <p>Ví dụ:</p>
+    <code><pre>{{text5}}</pre></code>
+    <p>Sau đây là ví dụ minh họa Conditional trong C#: Tạo hai lớp có tên lần lượt là TestAttribute, TestScharp như sau:
+    </p>
+    <p>Lớp TestAttribute:</p>
+    <code><pre>{{text6}}</pre></code>
+    <p>Lớp TestCsharp:</p>
+    <code><pre>{{text7}}</pre></code>
+    <strong>Obsolete trong C#</strong>
+    <p>Attribute tiền định nghĩa này trong C# đánh dấu một thực thể chương trình mà không nên được sử dụng. Nó cho bạn
+        khả năng để thông báo cho compiler để loại bỏ một phần tử target cụ thể. Ví dụ, khi một phương thức mới đang
+        được sử dụng trong một lớp và nếu bạn vẫn muốn giữ lại phương thức cũ trong lớp này, bạn có thể đánh dấu nó là
+        obsolete bằng việc hiển thị một thông báo là phương thức mới nên được sử dụng, thay cho phương thức cũ.</p>
+    <p>Cú pháp để xác định Attribute này trong C# là như sau:</p>
+    <code><pre>{{text8}}</pre></code>
+    <p>Tại đây,</p>
+    <p>Tham số message là một chuỗi miêu tả lý do tại sao item là obsolete và cái gì được sử dụng thay cho nó.</p>
+    <p>Tham số iserror là một giá trị Boolean. Nếu giá trị của nó là true, compiler nên đối xử sự sử dụng của item này
+        như là một lỗi. Giá trị mặc định là false (tức là compiler tạo một warning).</p>
+    <p>Ví dụ sau minh họa obsolete trong C#:</p>
+    <code><pre>{{text9}}</pre></code>
+    <p>Khi đó, ở lời gọi PhuongThuc1() trong hàm main() sẽ xuất hiện dấu gạch đỏ, nếu bạn rê chuột qua sẽ có một thông
+        báo có dạng:</p>
+    <code><pre>{{text10}}</pre></code>
+    <strong>Tạo Custom Attribute trong C#</strong>
+    <p>Còn gọi là Attribute tùy biến hay Attribute do người dùng tự định nghĩa. .Net Framework cho phép tạo các Custom
+        Attribute mà có thể được sử dụng để lưu giữ thông tin tường thuật và có thể được thu nhận tại runtime. Thông tin
+        này có thể liên quan tới bất kỳ phần tử target nào phụ thuộc vào chuẩn thiết kế và yêu cầu ứng dụng.</p>
+    <p>Tạo và sử dụng Custom Attribute trong C# bao gồm 4 bước sau:</p>
+    <ul>
+        <li>Khai báo một Custom Attribute</li>
+        <li>Xây dựng Custom Attribute</li>
+        <li>Áp dụng Attribute trên một phần tử chương trình target</li>
+        <li>Truy cập các Attribute thông qua Reflection</li>
+    </ul>
+    <strong>Khai báo một Custom Attribute trong C#</strong>
+    <p>Một Custom Attribute mới nên được kế thừa từ lớp System.Attribute trong C#. Ví dụ:</p>
+    <code><pre>{{text11}}</pre></code>
+    <p>Trong code trên, chúng ta đã khai báo một Custom Attribute là DeBugInfo.</p>
+    <strong>Xây dựng Custom Attribute trong C#</strong>
+    <p>Chúng ta cùng xây dựng Custom Attribute có tên là DeBugInfo, mà lưu giữ thông tin thu được bởi việc debug bất kỳ
+        chương trình nào. Nó có thể giữ thông tin sau:</p>
+    <ul>
+        <li>Số hiệu code để bug</li>
+        <li>Tên lập trình viên, người nhận diện bug đó</li>
+        <li>Ngày review cuối cùng của code đó</li>
+        <li>Một thông báo dạng chuỗi để lưu giữ các lưu ý của lập trình viên</li>
+    </ul>
+    <p>Lớp DeBugInfo có 3 thuộc tính private để lưu giữ 3 thông tin đầu tiên và một thuộc tính public để lưu giữ thông
+        báo đó. Vì thế, số hiệu bug, tên lập trình viên, và ngày review là các tham số vị trí tương ứng của lớp
+        DeBugInfo và thông báo là một tham số tùy ý.</p>
+    <p>Mỗi Attribute phải có ít nhất một constructor. Các tham số vị trí tương ứng nên được truyền thông qua constructor
+        đó. Ví dụ sau minh họa lớp DeBugInfo trên:</p>
+    <code><pre>{{text12}}</pre></code>
+    <strong>Áp dụng Custom Attribute trong C#</strong>
+    <p>Custom Attribute trong C# được áp dụng bằng việc đặt nó ngay trước target của nó:</p>
+    <code><pre>{{text13}}</pre></code>
+</div>

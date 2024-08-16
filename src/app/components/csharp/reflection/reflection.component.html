@@ -1,1 +1,38 @@
-<p>reflection works!</p>
+<div>
+    <h1 style="font-size: 2rem;">Reflection trong C#</h1>
+    <p>Các đối tượng Reflection được sử dụng để thu được thông tin kiểu tại runtime. Các lớp này cung cấp truy cập tới
+        metadata của một chương trình đang chạy là trong System.Reflection namespace trong C#.</p>
+    <p>System.Reflection namespace trong C# chứa các lớp mà cho phép bạn thu được thông tin về ứng dụng và để thêm các
+        kiểu, giá trị, và các đối tượng một cách động tới Application.</p>
+    <strong>Các ứng dụng của Reflection</strong>
+    <p>Reflection có các ứng dụng sau:</p>
+    <ul>
+        <li>Nó cho phép quan sát thông tin attribute tại runtime.</li>
+        <li>Nó cho phép thẩm tra các kiểu đa dạng trong một Assembly và khởi tạo các kiểu này.</li>
+        <li>Nó cho phép Late Binding tới các phương thức và các thuộc tính.</li>
+        <li>Nó cho phép tạo các kiểu mới tại runtime và sau đó thực hiện một số tác vụ bởi sử dụng những kiểu này.</li>
+    </ul>
+    <p>Quan sát Metadata trong C#</p>
+    <p>Chúng ta đã đề cập trong chương trước rằng với việc sử dụng Reflection, bạn có thể quan sát thông tin attribute.
+    </p>
+    <p>Đối tượng MemberInfo của lớp System.Reflection trong C# cần được khởi tạo để phát hiện ra các attribute được liên
+        kết với một lớp. Để làm điều này, bạn định nghĩa một đối tượng của lớp target, như:</p>
+    <code><pre>{{text1}}</pre></code>
+    <p>Ví dụ sau minh họa điều này: tạo 3 lớp có tên lần lượt là HelpAttribute, MyClass, TestCsharp như sau:</p>
+    <p>Lớp HelpAttribute</p>
+    <code><pre>{{text2}}</pre></code>
+    <p>Lớp MyClass</p>
+    <code><pre>{{text3}}</pre></code>
+    <p>Lớp TestCsharp</p>
+    <code><pre>{{text4}}</pre></code>
+    <p>Ví dụ</p>
+    <p>Trong ví dụ này, chúng ta sử dụng attribute là DeBugInfo được tạo trong chương trước và sử dụng Reflection để đọc
+        metadata trong Rectangle class.</p>
+    <p>Tạo 3 lớp có tên lần lượt là</p>
+    <p>Lớp Rectangle:</p>
+    <code><pre>{{text5}}</pre></code>
+    <p>Lớp DeBugInfo:</p>
+    <code><pre>{{text6}}</pre></code>
+    <p>Lớp TestCsharp:</p>
+    <code><pre>{{text7}}</pre></code>
+</div>
