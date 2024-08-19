@@ -1,0 +1,77 @@
+<div class="mt-4">
+    <span class="title pb-0">Module Federation and Nx</span>
+    <div class="border-b1"></div>
+    <p>Module Federation là kỹ thuật cho phép chia sẻ code và resources trên nhiều ứng dụng. Kỹ thuật này đã trở nên phổ
+        biến hơn trong những năm gần đây kể từ khi <a target="_blank" rel="noreferrer"
+            class="text-blue-600 transition-colors ease-out hover:text-blue-700 dark:text-sky-500 dark:hover:text-sky-400"
+            href="https://webpack.js.org/plugins/module-federation-plugin/">ModuleFederationPlugin</a> được bổ sung
+        trong Webpack.</p>
+    <app-note title="Lưu ý" content="Nx sử dụng @module-federation/enhanced. 
+        Kể từ Nx 19.5, hỗ trợ Liên kết Mô-đun được cung cấp bởi gói @module-federation/enhanced. 
+        Gói này được sở hữu và duy trì bởi Zack Jackson, người tạo ra Liên kết Mô-đun và nhóm ByteDance." type="info">
+    </app-note>
+    <p>Module Federation là một phương pháp trong đó mã có thể được chia thành các module nhỏ hơn có thể triển khai để
+        chia sẻ và sử dụng giữa các ứng dụng trong thời gian chạy (runtime).</p>
+    <p>3 thuật ngữ cho các ứng dụng sử dụng kiến trúc Module Federation: host, remote và
+        federated modules.</p>
+    <span class="title pb-0">Remote</span>
+    <div class="border-b1"></div>
+    <p>Một <b>remote</b> là một ứng dụng(application), exposed một federated module, có thể tìm nạp qua mạng khi chạy.
+        Federated module có thể là bất kỳ module JavaScript hợp lệ nào.
+    </p>
+    <span class="title pb-0">Host</span>
+    <div class="border-b1"></div>
+    <p>Một <b>host</b> là một ứng dụng(application) có thể sử dụng các federated modules từ các remote applications
+        trong runtime.
+    </p>
+    <p>Khi viết host application, chúng ta import module từ <b>remote</b> như thể nó là một phần của bản build, nhưng
+        tại build time, Webpack biết rằng module này sẽ chỉ tồn tại trong runtime, sau khi nó thực hiện một yêu cầu mạng
+        tìm nạp remote application bundle.</p>
+    <p>Sau đó federated module sẽ được thực thi như thể nó luôn là một phần của host application.</p>
+    <span class="title pb-0">Federated Module</span>
+    <div class="border-b1"></div>
+    <p>Một <b>Federated Module</b> có thể là bất kỳ một module JavaScript hợp lệ nào được <b>remote</b> application
+        exposed ra với mục đích là nó sẽ được sử dụng bởi 1 <b>host</b> application.</p>
+    <p>Điều này có nghĩa là React Components, Angular Components, Services, Application State, Functions, UI
+        Components,... có thể được chia sẻ sử dụng giữa các ứng dụng.</p>
+    <span class="title pb-0">Những cạm bẫy phổ biến</span>
+    <div class="border-b1"></div>
+    <strong>Xung đột giữa các phiên bản phụ thuộc (Dependencies)</strong>
+    <p>Vấn đề: Khi nhiều ứng dụng (host và remote) chia sẻ cùng một thư viện nhưng sử dụng các phiên bản khác nhau, điều
+        này có thể dẫn đến xung đột phiên bản hoặc lỗi trong runtime.</p>
+    <p>Giải pháp: Đảm bảo rằng các ứng dụng sử dụng cùng một phiên bản của thư viện hoặc cấu hình shared trong Module
+        Federation để ưu tiên một phiên bản cụ thể. Có thể sử dụng thuộc tính singleton hoặc requiredVersion để kiểm
+        soát chặt chẽ hơn.
+    </p>
+    <strong>Kích thước bundle quá lớn</strong>
+    <p>Vấn đề: Việc chia sẻ quá nhiều module giữa các ứng dụng có thể dẫn đến tăng kích thước bundle, làm chậm tốc độ
+        tải trang.</p>
+    <p>Giải pháp: Chỉ chia sẻ những module thực sự cần thiết và tối ưu hóa việc phân tách mã (code splitting). Sử dụng
+        lazy loading để nạp module khi cần thiết thay vì tải toàn bộ lúc đầu.</p>
+    <strong>Khó khăn trong quản lý phiên bản</strong>
+    <p>Vấn đề: Khi các ứng dụng remote được phát triển và triển khai độc lập, việc đảm bảo sự tương thích giữa các phiên
+        bản của các module có thể trở nên khó khăn.</p>
+    <p>Giải pháp: Sử dụng công cụ quản lý phiên bản và CI/CD để đảm bảo các phiên bản mới của module luôn được kiểm tra
+        kỹ lưỡng trước khi tích hợp vào host. Ngoài ra, duy trì tài liệu về các thay đổi và phiên bản cho mỗi module
+        được chia sẻ.</p>
+    <strong>Khó khăn trong phát triển và debug</strong>
+    <p>Vấn đề: Khi làm việc với các module remote, việc phát triển và debug có thể trở nên phức tạp hơn do phải xử lý
+        nhiều ứng dụng cùng một lúc.</p>
+    <p>Giải pháp: Thiết lập môi trường phát triển tốt, bao gồm hot reloading và các công cụ debug hiệu quả. Đảm bảo rằng
+        bạn có thể chạy các ứng dụng remote cục bộ hoặc sử dụng proxy để debug dễ dàng hơn.</p>
+    <span class="title pb-0">Nx hỗ trợ cho Module Federation</span>
+    <div class="border-b1"></div>
+    <p>Nx cung cấp các hỗ trợ có sẵn cho Module Federation với Angular và React như là:</p>
+    <ul>
+        <li><b>Generators </b> hỗ trợ cho remotes, hosts và federated modules</li>
+        <li><b>Executors </b> giúp tự động hóa và tối ưu hóa các tác vụ như build, chạy server, và quản lý các module
+            được chia sẻ giữa các ứng dụng, đồng thời cải thiện trải nghiệm phát triển (Developer Experience - DX) khi
+            làm việc cục bộ</li>
+        <li><b>Type Safety </b> cho phép đảm bảo type-safety giữa host và remote để sớm phát hiện sự cố và tận dụng tính
+            năng tự động hoàn thành trong IDE</li>
+        <li><b>Versioning of Libraries </b> để hỗ trợ ngăn chặn một số vấn đề phổ biến liên quan đến các phiên bản gói
+            không tương thích đang được các federated modules sử dụng.</li>
+        <li><b>Scaling DX</b> các kỹ thuật để đảm bảo DX mượt mà bất kể số lượng remote trong không gian làm
+            việc</li>
+    </ul>
+</div>

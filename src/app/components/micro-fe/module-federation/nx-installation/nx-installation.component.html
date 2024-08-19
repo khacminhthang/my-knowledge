@@ -1,0 +1,57 @@
+<div class="mt-4">
+    <span class="title pb-0">Cài đặt Nx</span>
+    <div class="border-b1"></div>
+    <p>Tạo một Nx workspace:</p>
+    <code><pre>{{text1}}</pre></code>
+    <p>Where would you like to create your workspace? - Thư mục chứa workspace</p>
+    <p>Which stack do you want to use? - Chọn công nghệ hoặc framework mà bạn muốn sử dụng trong dự án của mình.</p>
+    <p>Integrated monorepo, or standalone project?</p>
+    <ul>
+        <li>Integrated Monorepo: quản lý nhiều ứng dụng hoặc thư viện trong một repository duy nhất.Workspace sẽ được tổ
+            chức với các thư mục apps và libs, nơi bạn có thể tạo và quản lý nhiều ứng dụng và thư viện khác nhau trong
+            cùng một codebase.</li>
+        <li>Standalone Project: tạo một dự án riêng lẻ và không có nhu cầu quản lý nhiều ứng dụng hoặc thư viện trong
+            cùng một workspace.Workspace sẽ chứa một dự án duy nhất, và không có các thư mục như apps hay libs.</li>
+    </ul>
+    <p>Application name: tên app</p>
+    <p>Which bundler would you like to use? </p>
+    <ul>
+        <li>Quyết định công cụ nào sẽ được sử dụng để đóng gói mã nguồn. Bundler là công cụ giúp
+            đóng gói các tệp mã nguồn, thư viện và tài nguyên khác vào một hoặc nhiều tệp đầu ra, thường là tệp
+            JavaScript hoặc CSS, để ứng dụng của bạn có thể chạy trên trình duyệt hoặc môi trường khác.</li>
+    </ul>
+    <p>Default stylesheet format: Chọn định dạng tệp stylesheet mặc định mà sẽ sử dụng</p>
+    <p>Do you want to enable Server-Side Rendering (SSR) and Static Site Generation (SSG/Prerendering)?: Quyết định xem
+        có muốn sử dụng các phương pháp này để cải thiện hiệu suất và SEO của ứng dụng web của bạn hay không</p>
+    <ul>
+        <li>SSR là phương pháp rendering các trang web trên máy chủ và gửi HTML đã được render tới trình duyệt của người
+            dùng. Điều này có nghĩa là khi người dùng yêu cầu một trang, máy chủ sẽ tạo ra HTML cho trang đó và gửi nó
+            đến trình duyệt.</li>
+        <li>SSG là phương pháp tạo các trang HTML tĩnh trong thời gian build (trước khi ứng dụng được triển khai), thay
+            vì tạo chúng trong thời gian chạy.</li>
+    </ul>
+    <p>Test runner to use for end to end (E2E) tests? - Quyết định công cụ nào sẽ được sử dụng để thực hiện các bài kiểm
+        tra E2E</p>
+    <ul>
+        <li>Cypress là một công cụ E2E testing hiện đại, được thiết kế để dễ sử dụng và có thời gian phản hồi nhanh. Nó
+            cung cấp một giao diện người dùng trực quan và khả năng gỡ lỗi mạnh mẽ.</li>
+        <li>Playwright là một công cụ E2E testing do Microsoft phát triển, hỗ trợ nhiều trình duyệt (Chrome, Firefox,
+            WebKit) và cung cấp khả năng kiểm tra mạnh mẽ</li>
+    </ul>
+    <p>Which CI provider would you like to use? - Quyết định công cụ Continuous Integration (CI) nào sẽ được sử dụng để
+        tự động hóa các quy trình xây dựng, kiểm tra, và triển khai dự án.</p>
+    <ul>
+        <li>GitHub Actions là dịch vụ CI/CD tích hợp sẵn trong GitHub, cho phép bạn tự động hóa các quy trình phát triển
+            phần mềm trực tiếp từ kho GitHub của bạn.</li>
+        <li>GitLab CI/CD là một dịch vụ CI/CD tích hợp sẵn trong GitLab, cung cấp một giải pháp toàn diện cho xây dựng,
+            kiểm tra, và triển khai ứng dụng.</li>
+        <li>CircleCI là một dịch vụ CI/CD được thiết kế để cung cấp các quy trình build, test, và deploy nhanh chóng và
+            hiệu quả.</li>
+        <li>Travis CI là một dịch vụ CI/CD nổi tiếng, dễ dàng tích hợp với GitHub để tự động hóa các quy trình phát
+            triển phần mềm.</li>
+        <li>Jenkins là một công cụ CI/CD mã nguồn mở phổ biến, cung cấp nhiều plugin để hỗ trợ quy trình build, test, và
+            deploy.</li>
+    </ul>
+    <p>Would you like remote caching to make your build faster? Quyết định có muốn sử dụng tính năng lưu trữ bộ nhớ đệm
+        từ xa (remote caching) để cải thiện tốc độ build không.</p>
+</div>

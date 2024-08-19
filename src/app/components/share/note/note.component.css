@@ -1,0 +1,21 @@
+.note {
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+  }
+  
+  .note-info {
+    background-color: #e7f3fe;
+    color: #31708f;
+  }
+  
+  .note-warning {
+    background-color: #fcf8e3;
+    color: #8a6d3b;
+  }
+  
+  .note-error {
+    background-color: #f2dede;
+    color: #a94442;
+  }
+  

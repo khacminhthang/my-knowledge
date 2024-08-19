@@ -1,0 +1,11 @@
+<div [ngClass]="getClasses()" class="note">
+    <h3>{{ title }}</h3>
+    <ng-container *ngFor="let paragraph of getContentParagraphs()">
+        <p>{{ paragraph }}</p>
+    </ng-container>
+</div>
+<!-- 
+<app-note title="Note Title" content="This is an informational note." type="info"></app-note>
+<app-note title="Warning" content="This is a warning note." type="warning"></app-note>
+<app-note title="Error" content="This is an error note." type="error"></app-note> 
+-->

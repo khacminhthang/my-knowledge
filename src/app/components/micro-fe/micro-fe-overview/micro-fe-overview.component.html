@@ -1,0 +1,31 @@
+<div class="mt-4">
+    <span class="title pb-0">Giới thiệu về Micro frontends</span>
+    <div class="border-b1"></div>
+    <p>Một phong cách kiến trúc trong đó các ứng dụng frontend độc lập có thể kết hợp thành một tổng thể lớn hơn.</p>
+    <p>Các ứng dụng web ngày càng phức tạp hơn. Nhiều tổ chức gặp khó khăn trong việc maintain monolithic frontend
+        codebase, và mở rộng quy trình phát triển frontend trên nhiều nhóm(team).</p>
+    <p><b>Micro frontends</b> chỉ là một cách tiếp cận để xử lý sự phức tạp đó, bằng cách chia ứng dụng thành các ứng
+        dụng nhỏ hơn, đơn giản hơn để có thể để các nhóm độc lập phát triển.</p>
+    <br>
+    <div class="d-flex justify-content-center">
+        <app-image-zoom [imageUrl]="'assets/micro-fe/deployment-microfe.png'" [alt]="'Ứng dụng của Kafka'"
+            [width]="'100%'"></app-image-zoom>
+    </div>
+    <br>
+    <span class="title pb-0">Phương pháp để áp dụng Micro Frontends</span>
+    <div class="border-b1"></div>
+    <strong>Iframe</strong>
+    <p>Phương pháp này dễ để áp dụng nhưng có chứa nhiều giới hạn như việc navigation, thực thi các đoạn JavaScript từ
+        Host App, ..</p>
+    <strong>Proxy like nginx</strong>
+    <p>Phương pháp này yêu cầu việc phát triển các ứng dụng phải độc lập, ví dụ /mailbox, /calendar là các app Frontend
+        khác nhau. Phương pháp này có một vấn đề là khi navigate từ app này sang app khác thì bạn sẽ bị reload giống như
+        ứng dụng client-server thông thường.
+    </p>
+    <strong>Web Components</strong>
+    <p>Đây là một công nghệ không quá mới trong thời gian trở lại đây. Các framework áp dụng hoặc tạo ra Custom Elements
+        khá nhiều. Ví dụ Angular Elements, Stencil. Chúng có ưu điểm là bạn có thể tạo ra được các element và có thể sử
+        dụng như là một thẻ html thông thường ở bất cứ framework nào (Framework Agnostic)</p>
+    <strong>Orchestrator Frameworks</strong>
+    <p>Webpack 5 and Module Federation, piral, luigi, single-spa</p>
+</div>

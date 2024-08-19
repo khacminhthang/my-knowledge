@@ -32,6 +32,11 @@ const routes: Routes = [
     loadChildren: () =>
       import("src/app/components/message-broker/message-broker.module").then((m) => m.MessageBrokerModule),
   },
+  {
+    path: 'micro-fe',
+    loadChildren: () =>
+      import("src/app/components/micro-fe/micro-fe.module").then((m) => m.MicroFeModule),
+  },
 ]
 
 @NgModule({

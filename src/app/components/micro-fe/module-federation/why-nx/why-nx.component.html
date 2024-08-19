@@ -1,0 +1,33 @@
+<div class="mt-4">
+    <span class="title pb-0">Lợi ích của Nx</span>
+    <div class="border-b1"></div>
+    <p>Có thể sử dụng Nx để:</p>
+    <ul>
+        <li>Tăng tốc build, test trên cả local và CI(cả standalone và monorepo application)</li>
+        <li>Nhanh chóng xây dựng ra 1 dự án mới(sử dụng các plugin của Nx).</li>
+        <li>Dễ dangg tích hợp công cụ mới(Storybook, Tailwind, ...) vào project hiện tại.</li>
+        <li>Đảm bảo tính nhất quán và chất code bằng custom generators and lint rules</li>
+        <li>Hỗ trợ cập nhật frameworks and tools bằng tính năng migration</li>
+    </ul>
+    <span class="title pb-0">Nx hoạt động như thế nào?</span>
+    <div class="border-b1"></div>
+    <p>Nx được xây dựng theo kiểu modular cho phép bạn chỉ sử dụng những tính năng bạn cần.</p>
+    <div class="d-flex justify-content-center">
+        <app-image-zoom [imageUrl]="'assets/micro-fe/nx-architecture.svg'" [alt]="'Ứng dụng của Kafka'"
+            style="width: 60%;" [width]="'100%'"></app-image-zoom>
+    </div>
+    <p><b>Nx</b> package cung cấp tính năng cơ bản như: workspace analysis, task running, caching, distribution, code
+        generation và automated code migrations.</p>
+    <p><b>Plugins </b> là các NPM package được xây dựng trên Nx package. Nx plugins chứa code generators, executors(để
+        trừu tượng hóa các lower-level build tooling) và tự động code migrations. Trái ngược với gói Nx, hoạt động theo
+        cách tương tự với bất kỳ dự án JS hoặc không phải JS nào, các plugin thường dành riêng cho công nghệ. Ví dụ:
+        @nx/react bổ sung hỗ trợ xây dựng ứng dụng React và lib, @nx/cypress bổ sung khả năng kiểm tra e2e với Cypress.
+        Các plugin giúp nhà phát triển làm việc hiệu quả hơn bằng cách loại bỏ mọi trở ngại khi tích hợp các công cụ
+        khác nhau với nhau và bằng cách cung cấp các tiện ích để cập nhật chúng. Nhóm Nx duy trì các plugin cho React,
+        Next, Remix, Angular, Jest, Cypress, Storybook, v.v. Bạn có thể sử dụng gói @nx/plugin để dễ dàng tạo một plugin
+        mới hoặc thậm chí chỉ tự động hóa không gian làm việc cục bộ của bạn. Ngoài ra còn có hơn 80 plugin cộng đồng.
+    </p>
+    <p><b>Devkit </b>: Tool để xây dựng các Nx plugins.</p>
+    <p><b>Nx Console</b>: extension cho VSCode, IntelliJ và VIM. Cung cấp code autocompletion, interactive generators,
+        workspace visualizations,...</p>
+</div>

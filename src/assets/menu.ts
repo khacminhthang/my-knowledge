@@ -549,3 +549,57 @@ export const menuMessageBroker = [
     "routerLink": "kafka"
   }
 ];
+
+export const menuMicroFrontend = [
+  {
+    "text": "Micro frontends overview",
+    "icon": "inventory_2",
+    "routerLink": "micro-fe-overview"
+  },
+  {
+    "text": "Nx and module-federation",
+    "icon": "inventory_2",
+    "children": [
+      {
+        "text": "Giới thiệu Nx",
+        "icon": "all_inbox",
+        "routerLink": "nx-intro"
+      },
+      {
+        "text": "Cài đặt Nx",
+        "icon": "all_inbox",
+        "routerLink": "nx-installation"
+      },
+      {
+        "text": "Why Nx?",
+        "icon": "all_inbox",
+        "routerLink": "why-nx"
+      },
+      {
+        "text": "Module Federation and Nx",
+        "icon": "all_inbox",
+        "routerLink": "module-federation-and-nx"
+      },
+      {
+        "text": "Nx Module Federation Technical Overview",
+        "icon": "all_inbox",
+        "routerLink": "nx-module-federation-technical-overview"
+      },
+      {
+        "text": "Faster Builds with Module Federation",
+        "icon": "all_inbox",
+        "routerLink": "faster-builds-with-module-federation"
+      },
+      {
+        "text": "Micro Frontend Architecture",
+        "icon": "all_inbox",
+        "routerLink": "micro-frontend-architecture"
+      },
+      {
+        "text": "Manage Library Versions with Module Federation",
+        "icon": "all_inbox",
+        "routerLink": "manage-library-versions-with-module-federation"
+      }
+    ]
+  }
+];
