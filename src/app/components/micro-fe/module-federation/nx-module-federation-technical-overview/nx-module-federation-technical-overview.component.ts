@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NxModuleFederationTechnicalOverviewComponent implements OnInit {
 
+  text1 = `nx run-many -t build --projects={listOfStaticRemotes}`;
   constructor() { }
 
   ngOnInit(): void {

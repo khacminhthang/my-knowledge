@@ -1,1 +1,28 @@
-<p>nx-module-federation-technical-overview works!</p>
+<div class="mt-4">
+    <span class="title pb-0">Nx Module Federation Technical Overview</span>
+    <div class="border-b1"></div>
+    <p>Module Federation của Nx được cung cấp thông qua sự kết hợp của excutors và tiện ích withModuleFederation() được
+        sử trong trong file webpack.config. </p>
+    <strong>Chuyện gì xảy ra khi serve a host?</strong>
+    <p>Khi serve một host application thông qua nx serve host, thì Nx module-federation-dev-serve sẽ được gọi. </p>
+    <p>Trình thực thi này sẽ:</p>
+    <ul>
+        <li>Tìm tất cả các remote app mà host app phụ thuộc vào</li>
+        <li>Xác định xem những remote app nào cần được phân phối tĩnh, và những remote app nào cần được phân phối thông
+            qua webpack-dev-server.</li>
+        <li>Với các remote app tĩnh, nó sẽ được gọi <b>{{text1}}</b></li>
+        <li>Nếu được yêu cầu, nó sẽ move bản build artifacts của mỗi remote app và một thư mục chung.</li>
+        <li>Nó sẽ chạy http-server tại thư mục chung sao cho các file sẽ có sẵn trên network từ một port duy nhất.</li>
+        <li>Nó sẽ tạo proxy servers thông qua express lắng nghe trên các port nơi đặt từng remote app(được cấu hình
+            trong file <b>module-federation.manifest.json</b> của host app.). Các proxy server này sẽ proxy requests từ
+            server đến http-server để tìm nạp cái file chính xác theo yêu cầu của Module-federation</li>
+        <li>Nếu tùy chọn <b>--devRemotes</b> passed, Nó sẽ serve mỗi remote app thông qua <b>webpack-dev-server</b> cho
+            phép HMR và live reloading khi làm việc trên các remote app đó.</li>
+        <li>Nó sẽ serve host app thông qua <b>webpack-dev-server</b>.</li>
+    </ul>
+    <p>Sơ đồ quá trình: </p>
+    <div class="d-flex justify-content-center">
+        <app-image-zoom [imageUrl]="'assets/micro-fe/module-federation-host-serve-light.png'"
+            [alt]="'module-federation-host-serve-light'"></app-image-zoom>
+    </div>
+</div>
