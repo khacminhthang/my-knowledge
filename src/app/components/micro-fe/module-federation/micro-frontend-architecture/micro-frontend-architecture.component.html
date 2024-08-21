@@ -1,1 +1,54 @@
-<p>micro-frontend-architecture works!</p>
+<div class="mt-4">
+    <span class="title pb-0">Micro Frontend Architecture</span>
+    <div class="border-b1"></div>
+    <p>Nx cung cấp các hỗ trợ Module Federation có sẵn cho cả React và Angular. Kiến trúc Micro Frontend được xây dựng
+        dựa trên Module Federation bằng cách cung cấp khả năng triển khai độc lập.</p>
+    <p>Module Federation cung cấp giải pháp cho vấn đề scale bằng việc cho phép chia một Single Page Application (SPA)
+        thành nhiều remote applications nhỏ hơn và được build độc lập.</p>
+    <strong>Tổng quan kiến trúc</strong>
+    <p>Với kiến trúc MFE một ứng dụng lớn được chia thành:</p>
+    <ul>
+        <li>Một <b>host</b> application duy nhất để tham chiếu bên ngoài</li>
+        <li>Nhiều <b>remote</b> application xử lý một hoặc nhiều domain, feature.</li>
+    </ul>
+    <p>Trong một thiết lập Module Federation thông thường, nên thiết lập implicit dependencies từ host app đến remote
+        app. Tuy nhiên, trong kiến trúc MFE, bạn không muốn những sự phụ thuộc này tồn tại.</p>
+    <p>Ví dụ: Nếu bạn có ứng dụng shell host app và 3 remote app -- about, cart, shop -- và shared một thư viện
+        ui-button, thì project graph sẽ trông như thế này:
+    </p>
+    <div class="d-flex justify-content-center">
+        <app-image-zoom [imageUrl]="'assets/micro-fe/mfe-dep-graph.png'"
+            [alt]="'module-federation-host-serve-light'"></app-image-zoom>
+    </div>
+    <p>Giữ các app độc lập và có thể triển khai độc lập đó là quan điểm của MFE.</p>
+    <strong>Generating applications</strong>
+    <p>Generator cho MFEs cũng giống với cho Module Federation. Bạn có thể dùng <b>nx g host</b> để tạo một host app và
+        <b>nx g remote</b> để tạo remote app.
+    </p>
+    <code><pre>{{text1}}</pre></code>
+    <p>Bạn có thể chạy <b>nx serve shell</b> để develop shell app, trong khi vẫn giữ tất cả remote app static. Để
+        develop một hay nhiều remote app, truyền thêm tham số <b>--devRemotes</b>.</p>
+    <b>nx serve shell --devRemotes=cart,shop.</b>
+    <br>
+    <br>
+    <strong>Chiến lược triển khai(Deployment strategies)</strong>
+    <p>Có 2 cách tiếp cận triển khai</p>
+    <ul>
+        <li>Triển khai theo kiểu gọi món(À la carte deployments): Mỗi ứng dụng được triển khai theo lịch phát hành và có
+            thể khác nhau.</li>
+        <li>Triển khai đồng bộ (Affected deployments): Khi các thay đổi được merge lại với nhau, dùng Nx để test và
+            deploy tất cả các ứng dụng bị ảnh hưởng.</li>
+    </ul>
+    <strong>Shared libraries</strong>
+    <p>Vì việc triển khai với MFE không phải là atomic(nguyên tử), nên sẽ có khả năng các thư viện dùng chung -- kể cả
+        bên ngoài (npm) và workspace giữa host và remote app đều không khớp nhau. Thiếp lập mặc định của Nx sẽ cấu hình
+        tất cả các thư viện dưới dạng singletons, yêu cầu tất cả các ứng dụng bị ảnh hưởng phải được deploy cho bất cứ
+        thay đổi nào khiến việc deploy gom nhóm rủi ro hơn.</p>
+    <p>Chia sẻ càng ít càng tốt.</p>
+    <p>Ví dụ: tạo base configuration file chỉ chia sẻ các thư viện cốt cần được chia sẻ.</p>
+    <p>module-federation.config.ts</p>
+    <code><pre>{{text2}}</pre></code>
+    <p>Sau đó trong host app và remote app, có thể extend từ base configuration.</p>
+    <p>apps/shell/module-federation.config.ts</p>
+    <code><pre>{{text3}}</pre></code>
+</div>

@@ -1,1 +1,101 @@
-<p>manage-library-versions-with-module-federation works!</p>
+<div class="mt-4">
+    <span class="title pb-0">Manage Library Versions with Module Federation</span>
+    <div class="border-b1"></div>
+    <p>Federated modules được nhóm và đóng gói độc lập với tất cả các phần phụ thuộc mà chúng cần để chạy trơn tru
+        trong các ứng dụng liên kết được gọi là remotes. Điều này có nghĩa là nếu bạn có một federated module phụ thuộc
+        vào một thư viện thì thư viện đó sẽ được gói cùng với federated module trong một remote. Sự độc lập này mang lại
+        nhiều tính linh hoạt, cho phép các federated modules riêng lẻ hoạt động mà không cần dựa vào các resources bên
+        ngoài.
+    </p>
+    <p>Một thách thức nảy sinh khi các federated modules này được tích hợp vào host hoặc các remotes khác. Do mỗi
+        federated modules mang các phần phụ thuộc riêng nên host app có thể đã vô tình tải xuống nhiều bản sao
+        của cùng một phần phụ thuộc. Sự dư thừa này gây ra hai việc:
+    </p>
+    <ul>
+        <li>1. Nhiều bản sao của cùng một phần phụ thuộc có thể tạo ra tắc nghẽn và xung đột, dẫn đến hành vi không mong
+            muốn</li>
+        <li>2. Với sự phụ thuộc dư thừa, host application có thể trở nên cồng kềnh, tăng băng thông và tiêu tốn nhiều bộ
+            nhớ cũng như tài nguyên hơn trên thiết bị của người dùng.</li>
+    </ul>
+    <p>Để giảm thiểu những vấn đề này, federated modules có shared API. Chức năng chính của nó là hoạt động như một
+        người gác cổng, đảm bảo rằng chỉ một bản sao của phần phụ thuộc được tải xuống, bất kể có bao nhiêu federated
+        modules yêu cầu nó.
+    </p>
+    <strong>Nó hoạt động như thế nào?</strong>
+    <p>Shared API duy trì sổ đăng ký của tất cả các phần phụ thuộc đã tải xuống. Khi federated modules yêu cầu phần phụ
+        thuộc, Shared API sẻ sẽ kiểm tra sổ đăng ký. Nếu phần phụ thuộc đã tồn tại, modules sẽ được hướng dẫn sử dụng
+        bản sao hiện có. Nếu không, phần phụ thuộc sẽ được tải xuống và thêm vào sổ đăng ký.</p>
+    <div class="d-flex justify-content-center">
+        <app-image-zoom [imageUrl]="'assets/micro-fe/shared-api.png'" [alt]="'shared-api'"></app-image-zoom>
+    </div>
+    <span class="title pb-0">Cách tiếp cận</span>
+    <div class="border-b1"></div>
+    <p>Mặc dù Shared API là một công cụ mạnh mẽ nhưng việc quản lý nó có thể gặp khó khăn. Shared API được định cấu
+        hình trong Module Federation Config File, là file JavaScript hoặc TypeScript. File này không phải là một phần
+        của
+        build process, vì vậy nếu bạn muốn sử dụng một phiên bản khác của workspace dependency, bạn
+        sẽ phải ghi lại thay đổi bên ngoài build process theo cách thủ công, việc này có thể tẻ nhạt và dễ xảy ra
+        lỗi.</p>
+    <p>Nx khuyến nghị Single Version Policy (SVP) để quản lý các phiên bản thư viện. SVP là một khái niệm đơn giản: một
+        thư viện chỉ nên có một phiên bản trong một ứng dụng nhất định. Điều này có nghĩa là nếu bạn có một không
+        gianworkspace library được nhiều remotes và host sử dụng thì thư viện đó chỉ nên có một phiên bản
+        cho được nhiều điều khiển từ xa và máy chủ sử dụng thì thư viện đó chỉ nên có một phiên bản cho
+        tất cả chúng. SVP trở nên cần thiết trong bối cảnh này vì nhiều lý do:</p>
+    <strong>1. Consistency - Tính nhất quán</strong>
+    <p>Việc đảm bảo rằng tất cả các federated modules đều dựa trên cùng một phiên bản của phần phụ thuộc được chia sẻ sẽ
+        mang lại hành vi nhất quán trên toàn bộ ứng dụng. Các phiên bản thư viện khác nhau có thể có hành vi hoặc lỗi
+        khác nhau, dẫn đến kết quả không mong muốn hoặc không nhất quán.</p>
+    <strong>2. Conflicts - Xung đột</strong>
+    <p>Việc trộn nhiều phiên bản của một thư viện hoặc mô-đun trong cùng một thời gian chạy có thể dẫn đến xung đột.</p>
+    <strong>3. API Compatibility - Khả năng tương thích API</strong>
+    <p>Khi thư viện phát triển, các hàm và phương thức sẽ được thêm, xóa hoặc thay đổi. Bằng cách đảm bảo một phiên bản
+        duy nhất, bạn loại bỏ rủi ro sử dụng API không tương thích trong một phiên bản nhưng không tương thích với phiên
+        bản khác.</p>
+    <strong>4. Singleton Libraries</strong>
+    <p>Một số thư viện được thiết kế thành các Singleton (React, Angular, Redux, v.v.). Các thư viện này nhằm mục đích
+        khởi tạo một lần và chia sẻ trên toàn bộ ứng dụng. Nhiều phiên bản của các thư viện như vậy có thể phá vỡ hành
+        vi dự định hoặc thậm chí gây ra lỗi thời gian chạy.</p>
+    <p>Vì những lý do này, chúng tôi khuyên bạn nên sử dụng SVP để quản lý shared workspace libraries khi sử
+        dụng Module Federation. Tuy nhiên, chúng tôi hiểu rằng có những trường hợp bạn có thể muốn sử dụng các phiên bản
+        khác nhau của thư viện. Ví dụ: bạn có thể sử dụng phiên bản thư viện khác trên remote thay vì trên host. Trong
+        những trường hợp này, bạn có thể chọn không tham gia như mô tả bên dưới.</p>
+    <span class="title pb-0">Các phiên bản thư viện được quản lý như thế nào?</span>
+    <div class="border-b1"></div>
+    <p>Với Nx có hai cách để quản lý cách chia sẻ/quản lý các phiên bản thư viện với Module Federation:</p>
+    <strong>1. Chọn tham gia chia sẻ các phiên bản thư viện</strong>
+    <p>Đây là hành vi mặc định cho Nx. Tất cả các phần phụ thuộc đều là singletons và sẽ được chia sẻ giữa remotes
+        và host.</p>
+    <strong>2. Chọn không chia sẻ phiên bản thư viện</strong>
+    <p>Điều này có nghĩa là thư viện sẽ không được chia sẻ giữa remote và host. Mỗi remote và host sẽ tải phiên bản thư
+        viện riêng của nó. Trường hợp sử dụng phổ biến cho trường hợp này là nếu bạn muốn bật tính năng tree-shaking
+        (Tree-shaking trong Lodash là một kỹ thuật được sử dụng để giảm kích thước của bundle JavaScript bằng cách loại
+        bỏ những phần mã không được sử dụng. Điều này đặc biệt hữu ích khi bạn chỉ cần sử dụng một vài hàm trong Lodash,
+        nhưng không muốn tải toàn bộ thư viện.) cho
+        một thư viện như lodash. Nếu bạn chia sẻ thư viện này, nó sẽ được đóng gói cùng với remite và host
+        và việc tree-shaking sẽ không thể thực hiện được.</p>
+    <span class="title pb-0">Phiên bản thư viện được xác định như thế nào?</span>
+    <div class="border-b1"></div>
+    <p>Nx xác định phiên bản của thư viện bằng cách xem package.json. Nếu thư viện là npm package, phiên bản được xác
+        định bởi phiên bản được khai báo trong workspace package.json. Nếu thư viện là workspace library,
+        phiên bản sẽ được xác định bởi phiên bản trong package.json của dự án sử dụng thư viện dùng chung. RemoteA sử
+        dụng Counter, là workspace library được RemoteB exposed. Phiên bản của Counter được xác định bởi phiên bản trong
+        package.json của RemoteB. Nếu package.json không tồn tại hoặc thư viện không được khai báo, Nx sẽ sử dụng phiên
+        bản trong package.json của workspace library.</p>
+    <div class="d-flex justify-content-center">
+        <app-image-zoom [imageUrl]="'assets/micro-fe/nx-library-version.png'"
+            [alt]="'nx-library-version'"></app-image-zoom>
+    </div>
+    <p>Có hai cách để quản lý các phiên bản thư viện với Nx:</p>
+    <strong>Chọn không tham gia thư viện chia sẻ</strong>
+    <p>remote/module-federation.config.ts</p>
+    <code><pre>{{text1}}</pre></code>
+    <p>Điều này sẽ dẫn đến cấu hình webpack sau</p>
+    <p>webpack.config.js</p>
+    <code><pre>{{text2}}</pre></code>
+    <strong>Chọn tham gia chia sẻ phiên bản thư viện</strong>
+    <p>remote/module-federation.config.ts</p>
+    <code><pre>{{text3}}</pre></code>
+    <p>Điều này sẽ dẫn đến cấu hình webpack sau</p>
+    <p>webpack.config.js</p>
+    <code><pre>{{text4}}</pre></code>
+</div>
