@@ -4,6 +4,7 @@ import { MainShellComponent } from 'src/app/layout/fragments/main-shell/main-she
 import { RepositoryComponent } from './repository/repository.component';
 import { UnitOfWorkComponent } from './unit-of-work/unit-of-work.component';
 import { CqrsPatternComponent } from './cqrs-pattern/cqrs-pattern.component';
+import { CleanArchitectureComponent } from './clean-architecture/clean-architecture.component';
 
 const aspdotnetRoutes: Routes = [
   {
@@ -21,6 +22,10 @@ const aspdotnetRoutes: Routes = [
       {
         path: 'cqrs-pattern',
         component: CqrsPatternComponent
+      },
+      {
+        path: 'clean-architecture',
+        component: CleanArchitectureComponent
       },
     ]
   }]

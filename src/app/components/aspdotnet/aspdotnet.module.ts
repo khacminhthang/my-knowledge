@@ -11,12 +11,14 @@ import { AspDotNetRoutingModule } from './aspdotnet-routing.module';
 import { RepositoryComponent } from './repository/repository.component';
 import { ShareModule } from '../share/share.module';
 import { CqrsPatternComponent } from './cqrs-pattern/cqrs-pattern.component';
+import { CleanArchitectureComponent } from './clean-architecture/clean-architecture.component';
 
 @NgModule({
   declarations: [
     UnitOfWorkComponent,
     RepositoryComponent,
-    CqrsPatternComponent
+    CqrsPatternComponent,
+    CleanArchitectureComponent
   ],
   imports: [
     CommonModule,

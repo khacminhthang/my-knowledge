@@ -1,0 +1,92 @@
+<div class="mt-4">
+    <span class="title pb-0">Clean architecture</span>
+    <div class="border-b1"></div>
+    <p>Các ứng dụng follow theo Dependency Inversion Principle (D in SOLID) cũng như follow theo DDD(Domain Driven
+        Design) có xu hướng đạt được một kiến trúc tương tự nhau. Kiến trúc này đã có nhiều tên gọi qua nhiều năm. Một
+        trong những tên gọi đầu tiên là Hexagonal Architecture, Ports-and-Adapters. Gần đây thì có the Onion
+        Architecture hoặc Clean Architecture</p>
+    <p>eShopOnWeb App sử dụng Clean Architecture để tổ chức code: <a
+            href="https://github.com/ardalis/cleanarchitecture">ardalis/cleanarchitecture</a></p>
+    <p>Clean architecture đặt business logic và applications model vào trung tâm của ứng dụng. Thay vì để business logic
+        phụ thuộc vào data access hoặc cơ sở hạ tầng (lớp infrastructure), sự phụ thuộc này sẽ được đảo
+        ngược(Dependency Inversion): infrastructure và implementation details sẽ phụ thuộc vào Application Core bằng
+        cách định nghĩa các abstractions hoặc interfaces trong Application Core, sau đó implement trong tầng
+        infrastructure.</p>
+    <P>Trực quan hóa kiến trúc:</P>
+    <div class="d-flex justify-content-center">
+        <app-image-zoom [imageUrl]="'assets/design_pattern/clean-architecture-onion-view.jpg'" [alt]="''"
+            [width]="'100%'"></app-image-zoom>
+    </div>
+    <p>Trong sơ đồ này các phụ thuộc hướng dần về phía tâm vòng tròn. Application Core sẽ nằm ở tâm của vòng tròn.
+        Allication Core sẽ không phụ thuộc vào các lớp khác. Entities và interfaces nằm ở trung tâm. Ngay bên ngoài
+        nhưng vẫn nằm trong Application Core, là Domain Services, thường triển khai các interfaces được định nghĩa trong
+        vòng tròn bên trong. Bên ngoài lớp Application Core là UI và Infrastructure, cả 2 đều phụ thuộc vào Application
+        Core <b>nhưng không phụ thuộc vào nhau.</b></p>
+    <div class="d-flex justify-content-center">
+        <app-image-zoom [imageUrl]="'assets/design_pattern/clean-architecture-horizontal-layer-view.jpg'" [alt]="''"
+            [width]="'100%'"></app-image-zoom>
+    </div>
+    <p>Mũi tên nét liền biểu diễn sự phụ thuộc ở compile-time, mũi tên nét đứt biểu diễn sự phụ thuộc ở
+        run-time(only-runtime). Với clean architecture lớp UI sẽ làm việc với các interfaces được định nghĩa trong
+        Application Core tại compile-time và lý tưởng nhất là không nên biết về các implementation ở lớp Infrastructure.
+        Tuy nhiên tại run-time, những implementation này là bắt buộc để ứng dụng có thể chạy được, do đó chúng phải được
+        kết nối với Application Core thông qua dependency injection.
+    </p>
+    <div class="d-flex justify-content-center">
+        <app-image-zoom [imageUrl]="'assets/design_pattern/photo_2024-08-23_13-40-04.jpg'" [alt]="''"
+            [width]="'100%'"></app-image-zoom>
+    </div>
+    <p>Vì Allication Core không phụ thuộc vào Infrastructure nên sẽ dễ để viết các automated test cho các lớp này.</p>
+    <div class="d-flex justify-content-center">
+        <app-image-zoom [imageUrl]="'assets/design_pattern/photo_2024-08-23_13-43-49.jpg'" [alt]="''"
+            [width]="'100%'"></app-image-zoom>
+    </div>
+    <div class="d-flex justify-content-center">
+        <app-image-zoom [imageUrl]="'assets/design_pattern/photo_2024-08-23_13-45-13.jpg'" [alt]="''"
+            [width]="'100%'"></app-image-zoom>
+    </div>
+    <p>Vì lớp UI không có phụ thuộc trực tiếp nào vào infrastructure, nên sẽ dễ dàng để thay đổi lớp infrastructure(lớp
+        UI sẽ không bị ảnh hưởng).</p>
+    <span class="title pb-0">Tổ chức code trong Clean Architecture</span>
+    <div class="border-b1"></div>
+    <strong>Application Core</strong>
+    <p>Application Core nắm giữ business model bao gồm: entities, services, and interfaces. Các interfaces này là các
+        lớp trừu tượng cho các hoạt động sẽ được implement bởi Infrastructure, như là data
+        access, file system access, network calls, etc. Đôi khi những services hoặc interfaces được định nghĩa ở lớp này
+        cần phải hoạt động với các non-entity type không phụ thuộc vào UI hoặc Infrastructure. Những non-entity này có
+        thể được định nghĩa là các Data Transfer Object(DTO).</p>
+    <p>Application Core types</p>
+    <ul>
+        <li>Entities (business model classes that are persisted)</li>
+        <li>Aggregates (groups of entities)</li>
+        <li>Interfaces</li>
+        <li>Domain Services</li>
+        <li>Specifications</li>
+        <li>Custom Exceptions and Guard Clauses</li>
+        <li>Domain Events and Handlers</li>
+    </ul>
+    <strong>Infrastructure</strong>
+    <p>Lớp Infrastructure bao gồm các implementation data-access. Trong một ứng dụng ASP.NET Core thông thường nó bao
+        gồm Entity Framework (EF) DbContext, any EF Core Migration objects, and data access
+        implementation classes. Thông thường sẽ sử dụng Repository design pattern để trừu tượng hóa data-access.</p>
+    <p>Ngoài việc implementation data-access, nó cũng chứa các implementation của các services được định nghĩa
+        (imterface) trong Application Core</p>
+    <p>Infrastructure types</p>
+    <ul>
+        <li>EF Core types (DbContext, Migration)</li>
+        <li>Data access implementation types (Repositories)</li>
+        <li>Infrastructure-specific services (for example, FileLogger or SmtpNotifier)</li>
+    </ul>
+    <strong>UI LayerUI Layer</strong>
+    <p>Giao diện hoặc entry point cho ứng dụng. Lớp UI tham chiếu đến lớp Application Core. Nó sẽ chỉ tương tác với
+        infrastructure thông qua các interface được định nghĩa ở Application Core.</p>
+    <p>UI Layer types</p>
+    <ul>
+        <li>Controllers</li>
+        <li>Custom Filters</li>
+        <li>Custom Middleware</li>
+        <li>Views(MVC)</li>
+        <li>ViewModels(MVC)</li>
+        <li>Startup</li>
+    </ul>
+</div>

@@ -220,6 +220,11 @@ export const menuDotNetCore = [
         "icon": "all_inbox",
         "routerLink": "cqrs-pattern"
       },
+      {
+        "text": "Clean Architecture",
+        "icon": "all_inbox",
+        "routerLink": "clean-architecture"
+      },
     ]
   }
 ];
