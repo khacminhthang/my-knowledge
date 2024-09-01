@@ -7,7 +7,7 @@
 }
 
 ::ng-deep .mat-expansion-panel-body {
-    padding: 0 !important
+    padding: 0 !important;
 }
 
 ::ng-deep .mat-expansion-panel-header {
@@ -15,17 +15,14 @@
 }
 
 ::ng-deep .mat-expansion-panel .mat-list-item {
-    padding-left: 15px !important;
+    /* padding-left: 15px !important; */
 }
 
 ::ng-deep .mat-nav-list .is-active {
     background-color: rgb(204, 204, 204);
     border-left: 8px solid rgb(139, 137, 133);
     width: calc(100% - 8px) !important;
-    ;
 }
-
-
 
 ::ng-deep .mat-list-base {
     padding-top: 0 !important;
@@ -45,4 +42,20 @@
 
 ::ng-deep .mat-tooltip {
     font-size: 15px;
+}
+
+::ng-deep .padding-level-0 {
+    padding-left: 16px !important;
+}
+::ng-deep .padding-level-1 {
+    padding-left: 32px !important;
+}
+::ng-deep .padding-level-2 {
+    padding-left: 48px !important;
+}
+::ng-deep .padding-level-3 {
+    padding-left: 64px !important;
+}
+::ng-deep .padding-level-4 {
+    padding-left: 80px !important;
 }

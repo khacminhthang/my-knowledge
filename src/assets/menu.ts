@@ -198,6 +198,148 @@ export const menuAngular = [
         "routerLink": "dynamic-component"
       },
     ]
+  },
+  {
+    "text": "NgRx",
+    "icon": "inventory_2",
+    "routerLink": "#",
+    "children": [
+      {
+        "text": "Introduction",
+        "icon": "all_inbox",
+        "routerLink": "ngrx-intro",
+      },
+      {
+        "text": "NgRx Store",
+        "icon": "all_inbox",
+        "routerLink": "#",
+        "children": [
+          {
+            "text": "Tại sao sử dụng Store?",
+            "icon": "all_inbox",
+            "routerLink": "ngrx-store"
+          },
+          {
+            "text": "Getting started",
+            "icon": "all_inbox",
+            "routerLink": "ngrx-store-get-start"
+          },
+          {
+            "text": "Hướng dẫn",
+            "icon": "all_inbox",
+            "routerLink": "ngrx-store-walkthrough"
+          },
+          {
+            "text": "Cài đặt",
+            "icon": "all_inbox",
+            "routerLink": "ngrx-store-intall"
+          },
+          {
+            "text": "Kiến trúc",
+            "icon": "all_inbox",
+            "routerLink": "#",
+            "children": [
+              {
+                "text": "Actions",
+                "icon": "all_inbox",
+                "routerLink": "ngrx-store-actions"
+              },
+              {
+                "text": "Reducers",
+                "icon": "all_inbox",
+                "routerLink": "ngrx-store-reducers"
+              },
+              {
+                "text": "Selectors",
+                "icon": "all_inbox",
+                "routerLink": "ngrx-store-selectors"
+              },
+            ]
+          },
+          {
+            "text": "Nâng cao",
+            "icon": "all_inbox",
+            "routerLink": "#",
+            "children": [
+              {
+                "text": "Meta-Reducers",
+                "icon": "all_inbox",
+                "routerLink": "ngrx-store-meta-reducers"
+              },
+              {
+                "text": "Feature Creators",
+                "icon": "all_inbox",
+                "routerLink": "ngrx-store-feture-creators"
+              },
+              {
+                "text": "Action Groups",
+                "icon": "all_inbox",
+                "routerLink": "ngrx-store-action-groups"
+              },
+            ]
+          },
+          {
+            "text": "Recipes",
+            "icon": "all_inbox",
+            "routerLink": "#",
+            "children": [
+              {
+                "text": "Injecting Reducers",
+                "icon": "all_inbox",
+                "routerLink": "ngrx-store-injecting-reducers"
+              }
+            ]
+          },
+          {
+            "text": "Configuration",
+            "icon": "all_inbox",
+            "routerLink": "#",
+            "children": [
+              {
+                "text": "Runtime checks",
+                "icon": "all_inbox",
+                "routerLink": "ngrx-store-runtime-checks"
+              }
+            ]
+          },
+          {
+            "text": "Testing",
+            "icon": "all_inbox",
+            "routerLink": "ngrx-store-testing",
+          }
+        ]
+      },
+      // {
+      //   "text": "NgRx Effects",
+      //   "icon": "all_inbox",
+      //   "routerLink": "#",
+      // },
+      // {
+      //   "text": "NgRx Router Store",
+      //   "icon": "all_inbox",
+      //   "routerLink": "#",
+      // },
+      // {
+      //   "text": "NgRx Entity",
+      //   "icon": "all_inbox",
+      //   "routerLink": "#",
+      // },
+      // {
+      //   "text": "NgRx Component Store",
+      //   "icon": "all_inbox",
+      //   "routerLink": "#",
+      // },
+      // {
+      //   "text": "NgRx Signals",
+      //   "icon": "all_inbox",
+      //   "routerLink": "#",
+      // },
+      // {
+      //   "text": "NgRx Operators",
+      //   "icon": "all_inbox",
+      //   "routerLink": "#",
+      // },
+    ]
   }
 ];
 export const menuDotNetCore = [

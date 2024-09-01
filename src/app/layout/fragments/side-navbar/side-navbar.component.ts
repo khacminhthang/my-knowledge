@@ -24,6 +24,10 @@ export class SideNavbarComponent implements OnInit {
     this.currentUrl = this.router.url;
   }
 
+  getPaddingClass(level: number): string {
+    return `padding-level-${level}`;
+  }
+
   isExpanded(menu: any): boolean {
     if (menu.children) {
       return menu.children.some((submenu: { routerLink: string; }) => this.currentUrl.includes(submenu.routerLink));

@@ -35,6 +35,25 @@ import { TemplateVariableComponent } from './template-variable/template-variable
 import { TransformationOperatorsComponent } from './transformation-operators/transformation-operators.component';
 import { TypescriptAdvTypeComponent } from './typescript-adv-type/typescript-adv-type.component';
 import { TypescriptDataTypeComponent } from './typescript-data-type/typescript-data-type.component';
+import { NgrxIntroComponent } from './ngrx-intro/ngrx-intro.component';
+import { NgrxStoreComponent } from './ngrx-store/ngrx-store.component';
+import { NgrxEffectsComponent } from './ngrx-effects/ngrx-effects.component';
+import { NgrxRouterStoreComponent } from './ngrx-router-store/ngrx-router-store.component';
+import { NgrxEntityComponent } from './ngrx-entity/ngrx-entity.component';
+import { NgrxComponentStoreComponent } from './ngrx-component-store/ngrx-component-store.component';
+import { NgrxSignalsComponent } from './ngrx-signals/ngrx-signals.component';
+import { NgrxOperatorsComponent } from './ngrx-operators/ngrx-operators.component';
+import { NgrxStoreGetStartComponent } from './ngrx-store-get-start/ngrx-store-get-start.component';
+import { NgrxStoreWalkthroughComponent } from './ngrx-store-walkthrough/ngrx-store-walkthrough.component';
+import { NgrxStoreIntallComponent } from './ngrx-store-intall/ngrx-store-intall.component';
+import { NgrxStoreActionsComponent } from './ngrx-store-actions/ngrx-store-actions.component';
+import { NgrxStoreReducersComponent } from './ngrx-store-reducers/ngrx-store-reducers.component';
+import { NgrxStoreSelectorsComponent } from './ngrx-store-selectors/ngrx-store-selectors.component';
+import { NgrxStoreMetaReducersComponent } from './ngrx-store-meta-reducers/ngrx-store-meta-reducers.component';
+import { NgrxStoreFetureCreatorsComponent } from './ngrx-store-feture-creators/ngrx-store-feture-creators.component';
+import { NgrxStoreInjectingReducersComponent } from './ngrx-store-injecting-reducers/ngrx-store-injecting-reducers.component';
+import { NgrxStoreRuntimeChecksComponent } from './ngrx-store-runtime-checks/ngrx-store-runtime-checks.component';
+import { NgrxStoreTestingComponent } from './ngrx-store-testing/ngrx-store-testing.component';
 
 const angularRoutes: Routes = [
   {
@@ -176,6 +195,62 @@ const angularRoutes: Routes = [
       {
         path: 'dynamic-component',
         component: DynamicComponentComponent
+      },
+      {
+        path: 'ngrx-intro',
+        component: NgrxIntroComponent
+      },
+      {
+        path: 'ngrx-store',
+        component: NgrxStoreComponent
+      },
+      {
+        path: 'ngrx-store-get-start',
+        component: NgrxStoreGetStartComponent
+      },
+      {
+        path: 'ngrx-store-walkthrough',
+        component: NgrxStoreWalkthroughComponent
+      },
+      {
+        path: 'ngrx-store-intall',
+        component: NgrxStoreIntallComponent
+      },
+      {
+        path: 'ngrx-store-actions',
+        component: NgrxStoreActionsComponent
+      },
+      {
+        path: 'ngrx-store-reducers',
+        component: NgrxStoreReducersComponent
+      },
+      {
+        path: 'ngrx-store-selectors',
+        component: NgrxStoreSelectorsComponent
+      },
+      {
+        path: 'ngrx-store-meta-reducers',
+        component: NgrxStoreMetaReducersComponent
+      },
+      {
+        path: 'ngrx-store-feture-creators',
+        component: NgrxStoreFetureCreatorsComponent
+      },
+      {
+        path: 'ngrx-store-action-groups',
+        component: NgrxStoreActionsComponent
+      },
+      {
+        path: 'ngrx-store-injecting-reducers',
+        component: NgrxStoreInjectingReducersComponent
+      },
+      {
+        path: 'ngrx-store-runtime-checks',
+        component: NgrxStoreRuntimeChecksComponent
+      },
+      {
+        path: 'ngrx-store-testing',
+        component: NgrxStoreTestingComponent
       },
     ]
   }]

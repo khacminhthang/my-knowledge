@@ -1,0 +1,56 @@
+<div>
+    <h1 style="font-size: 2rem;">NgRx là gì?</h1>
+    <br>
+    <p>NgRx là một framework để xây dựng các ứng dụng reactive trong Angular.
+        Cung cấp một số tính năng:</p>
+    <ul>
+        <li>
+            Quản lý global và local state.
+        </li>
+        <li>Cô lập các side effects để tạo ra kiến trúc phần mềm clean hơn.(Cô lập các hiệu ứng phụ - là việc tách các
+            hiệu ứng phụ—những hoạt động tương tác với các hệ thống bên ngoài như API, lưu trữ cục bộ hoặc các dịch vụ
+            xử lý tác vụ bất đồng bộ—ra khỏi logic cốt lõi của các thành phần Angular. Việc này rất quan trọng để duy
+            trì một kiến trúc thành phần sạch hơn.)</li>
+        <li>Quản lý Entity collection</li>
+        <li>Tích hợp với Angular Router</li>
+        <li>Công cụ cho developer giúp nâng cao trải nghiệm dev khi build nhiều loại ứng dụng khác nhau.</li>
+    </ul>
+    <br>
+
+    <span class="title pb-0">Packages</span>
+    <div class="border-b1"></div>
+    <br>
+    <p>NgRx packages được chia thành một số loại chính.</p>
+    <strong>State</strong>
+    <ul>
+        <li><b>Store</b> - Global state management cho Angular apps được hỗ trợ bởi RxJS,
+            lấy cảm hứng từ Redux</li>
+        <li><b>Effects</b> - Side effect model cho @ngrx@store</li>
+        <li><b>Router Store</b> - các ràng buộc để kết nối Angular Router với @ngrx@store</li>
+        <li><b>Entity</b> - Entity State adapter để quản lý record collections</li>
+        <li><b>ComponentStore</b> - Thư viện độc lập để quản lý local/component state.</li>
+        <li><b>Signals</b> - Reactive store và bộ tiện ích cho Angular Signals.</li>
+        <li><b>Operator</b> - Toán tử RxJS được chia sẻ cho thư viện NgRx.</li>
+    </ul>
+    <strong>Data</strong>
+    <p><b>Data</b> - Tiện ích mở rộng để đơn giản hóa việc quản lý entity data.</p>
+    <strong>View</strong>
+    <p><b>Component - </b> Tiện ích mở rộng để xây dựng reactive Angular templates.</p>
+    <strong>Developer Tools</strong>
+    <ul>
+        <li>
+            <p><b>Store Devtools</b> - Công ccuj dành cho @ngrx/store cho phép theo dõi trực quan state và debugging.
+            </p>
+        </li>
+        <li>
+            <p><b>Schematics</b> - Scaffolding library(là quá trình tự động tạo ra các cấu trúc cơ bản của một thư viện,
+                giúp cho việc phát triển và tổ chức mã nguồn trở nên dễ dàng hơn.) cho các ứng dụng Angular sử dụng
+                NgRx.</p>
+        </li>
+        <li>
+            <p><b>ESLint Plugin</b> - Quy tắc ESLint để cảnh báo các hành vi xấu. Nó cũng chứa một số bản tự động sửa
+                lỗi để code nhất quán.</p>
+        </li>
+    </ul>
+    <br>
+</div>
