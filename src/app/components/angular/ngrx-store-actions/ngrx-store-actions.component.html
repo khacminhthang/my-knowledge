@@ -1,1 +1,65 @@
-<p>ngrx-store-actions works!</p>
+<div>
+    <h1 style="font-size: 2rem;">Actions</h1>
+    <br>
+    <p>Actions là một trong những main building blocks trong NgRx. Actions thể hiện các unique events xảy ra trong ứng
+        dụng. Từ tương tác của người dùng, tương tác bên ngoài thông qua network requests, tương tác trực tiếp với
+        device APIs, những events này sẽ được mô tả với actions.</p>
+    <br>
+
+    <strong>Giới thiệu</strong>
+    <p>Actions được sử dụng trong nhiều vùng của NgRx. Actions là inputs và ouputs của nhiều hệ thống trong NgRx.
+        Actions giúp bạn hiểu cách mà cá events được xử lý trong ứng dụng. </p>
+    <br>
+
+    <span class="title pb-0">The Action interface</span>
+    <div class="border-b1"></div>
+    <p>Một Action trong NgRx được tạo thành từ một simple interface:</p>
+    <pre>
+        <code>{{text1}}</code>
+    </pre>
+    <p>Interface có một property duy nhất, type: string. Thuộc tính type dùng để mô tả hành động sẽ được gửi đi trong
+        ứng dụng của bạn. Giá trị của type có dạng [Source] Event và được sử dụng để cung cấp ngữ cảnh về loại action và
+        nơi action đó được gửi đi. Thêm properties vào action để cung cấp thêm ngữ cảnh hoặc metadata cho action.</p>
+    <p>Dưới đây là ví dụ về các hành động được viết dưới dạng đối tượng JavaScript cũ (POJO):</p>
+    <pre>
+            <code>{{text2}}</code>
+    </pre>
+
+    <p>Hành động này mô tả một sự kiện được kích hoạt bởi quá trình xác thực thành công sau khi tương tác với API.</p>
+    <pre>
+        <code>{{text3}}</code>
+    </pre>
+    <p>Action này mô tả một event được kích hoạt (trigged) khi người dùng nhấp vào nút đăng nhập từ trang đăng nhập để
+        cố gắng xác thực người dùng. username và password sẽ được xác định là metadata được cung cấp từ trang đăng nhập.
+    </p>
+    <span class="title pb-0">Writing actions</span>
+    <div class="border-b1"></div>
+    <p>Có một số quy tắc để viết một good action trong ứng dụng:</p>
+    <ul>
+        <li>Upfront - Viết actions trước khi phát triển các tính năng để hiểu và có được kiến thức chung về tính năng
+            đang được triển khai.</li>
+        <li>Divide - Phân loại các actions dự trên event source(nguồn sự kiện).</li>
+        <li>Many - actions không tốn kiếm nhiều chi phí, vì vậy viết càng nhiều actions thì cảng thể hiện các luồng
+            trong ứng dụng tốt hơn.</li>
+        <li>Event-Driven - Nắm bắt các event chứ không phải commands, như việc tách mô tả về các event và xử lý nó.</li>
+        <li>Descriotive - Cung cấp ngữ cảnh được targeted đến một event duy nhất với nhiều thông tin chi tiết hơn để hỗ
+            trợ debugging bằng dev tools.</li>
+    </ul>
+    <p>Ví dụ về một action cho login request.</p>
+    <pre><code>{{text4}}</code></pre>
+    <p>Hàm createAction returns a function, khi được gọi sẽ trả về một object in the shape of the Action interface.
+        Phương thức props được sử dụng để bổ sung metadata nào cần thiết để xử lý action. Action creator cung cấp một
+        cách nhất quán, type-safe cách để xây dựng một action.</p>
+    <p>Sử dụng action creator để trả action khi dispatching.</p>
+    <pre><code>{{text5}}</code></pre>
+    <p>login action creator nhận được một object username, password và trả về một đối tượng Javascript đơn giản có một
+        property là <b>type</b>: [Login Page] Login, với username và password làm properties bổ sung.</p>
+    <p>Action được trả về có ngữ cảnh rất cụ thể về action đến từ đâu và sự kiện nào xảy ra.</p>
+    <ul>
+        <li>Category of acion được ghi trong []</li>
+        <li>Category được sử dụng để nhóm các actions cho một khu vực cụ thể, cho dù nó là component page, backend API
+            hoặc browser API.</li>
+        <li>"Login" đằng sau category là mô tả về sự kiện nào đã xảy ra từ action này. Trong trường hợp này người dùng
+            đã bấm vào nút đăng nhập từ trang đăng nhập để cố gắng xác thực người dùng bằng username và password.</li>
+    </ul>
+</div>
