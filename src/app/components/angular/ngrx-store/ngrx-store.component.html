@@ -1,1 +1,58 @@
-<p>ngrx-store works!</p>
+<div>
+    <h1 style="font-size: 2rem;">Tại sao lại sử dụng NgRx Store cho State Management</h1>
+    <br>
+    <p>NgRx Store cung cấp state management để tạo các ứng dụng rõ ràng và dễ bảo trì thông qua việc sử dụng single
+        state và actions để thể hiện các thay đổi trạng thái. Trong trường hợp không cần dùng global cho toàn ứng dụng
+        hãy cân nhắc sử dụng NgRx ComponentStore để cung cấp giải pháp quản lý cục bộ(local state management).</p>
+    <br>
+
+    <span class="title pb-0">Khi nào nên sử dụng NgRx Store cho state management?</span>
+    <div class="border-b1"></div>
+    <br>
+    <p>Đặc biệt, có thể sử dụng NgRx khi muốn xây dựng một ứng dụng có nhiều tương tác của người dùng và nhiều nguồn dữ
+        liệu hoặc khi việc quản lý trạng thái(state) trong các services không còn đủ nữa.</p>
+    <p>Nguyên tắc SHARI để xem là có cần đến NgRx không:</p>
+    <ul>
+        <li><b>S</b>hared: state được truy cập bởi nhiều components và services</li>
+        <li><b>H</b>ydrated: state được persisted và rehydrate từ externel storage.</li>
+        <li><b>A</b>vailable: state cần có sẵn(available) khi re-entering routes.</li>
+        <li><b>R</b>etrieved: state phải được truy xuất với một side-effect.</li>
+        <li><b>I</b>mpacted: state bị ảnh hưởng bởi các actions đến từ other sources.</li>
+    </ul>
+    <p>Tuy nhiên, việc sử dụng NgRx Store đi kèm vói một số đánh đổi.
+        Nó làm cho code dài và phức tạp với nhiều mã và tập tin.</p>
+    <p>Điều quan trọng nữa là phải xem các patterns được triển khai cùng với NgRx Store. Sự hiểu biết về RxJS và Redux
+        sẽ rất có lợi trước khi học cách sử dụng NgRx Store và các thư viện state management khác.</p>
+    <app-note title="Lưu ý"
+        content="Hydrated (trạng thái đã được hydrat hóa) đề cập đến trạng thái trong ứng dụng đã được lưu trữ ở bên ngoài (chẳng hạn như trong bộ nhớ cục bộ, cơ sở dữ liệu hoặc máy chủ từ xa) và sau đó được truy xuất lại (rehydrate) khi ứng dụng hoặc thành phần được tải lại hoặc khởi động lại.
+        Cách hoạt động:
+        Lưu trữ trạng thái:
+            Khi một ứng dụng đang chạy, nó thường quản lý nhiều trạng thái khác nhau (như dữ liệu người dùng, tùy chọn giao diện, v.v.).
+        Để đảm bảo rằng các trạng thái này không bị mất khi người dùng điều hướng đi chỗ khác, làm mới trang hoặc đóng ứng dụng, chúng có thể được persisted (lưu trữ) bằng cách lưu vào bộ nhớ ngoài, như local storage, cơ sở dữ liệu, hoặc máy chủ từ xa. 
+
+        Khôi phục trạng thái (Rehydrating): Khi ứng dụng hoặc thành phần được khởi động lại, trạng thái trước đó sẽ được rehydrated (khôi phục) bằng cách truy xuất từ nơi đã lưu trữ và nạp lại vào ứng dụng. Quá trình này giúp ứng dụng tiếp tục hoạt động mà không cần phải bắt đầu lại từ đầu, giữ nguyên các cài đặt, dữ liệu hoặc trạng thái đã lưu trước đó."
+        type="info">
+    </app-note>
+    <span class="title pb-0">Một số khái niệm chính</span>
+    <div class="border-b1"></div>
+    <strong>Type Safety</strong>
+    <p>Type safety được tăng cường trong toàn bộ kiến trúc với sự phụ thuộc vào TypeScript complier để đảm bảo tính
+        chính xác của chương trình.</p>
+    <strong>Immutability and Performance</strong>
+    <p>Store được xây dựng trên một cấu trúc dữ liệu duy nhất, bất biến giúp việc thay đổi dễ dàng bằng việc sử dụng
+        OnPush strategy. NgRx Store cũng cung cấp các APIs để tạo các memoized selector functions nhằm tối ưu hóa việc
+        truy xuất dữ liệu từ state.</p>
+    <strong>Encapsulation</strong>
+    <p>Bằng cách sử dụng NgRx Effects và Store, mọi tương tác với side effects bên ngoài như network requests hoặc web
+        sockets, cũng như bất kỳ logic nghiệp vụ nào, có thể được tách biệt khỏi UI. Sự cô lập này cho phép nhiều pure
+        và single components hơn đồng thời duy trì single responsibility principle.</p>
+    <strong>Serializability</strong>
+    <p>Bằng cách normalizing state changes và pass chúng qua observables, NgRx cung cấp khả năng serializability. Điều
+        này cho phép lưu state vào bộ nhớ ngoài như localStorage.</p>
+    <p>Điều này cũng có phép inspection, download, upload, và dispatch tất cả các hành động từ Store Devtools.</p>
+    <strong>Testable</strong>
+    <p>Vì Store sử dụng các pure fuction để thay đổi và chọn dữ liệu từ state, cũng như khả năng tách biệt side effects
+        khỏi UI, việc test sẽ trở nên dễ dàng hơn. NgRx cũng cung cấp các tets resources như provideMockStore và
+        provideMockActions cho isolated test và overall test tốt hơn.</p>
+    <br>
+</div>

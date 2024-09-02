@@ -1,1 +1,33 @@
-<p>ngrx-store-get-start works!</p>
+<div>
+    <h1 style="font-size: 2rem;">@ngrx/store</h1>
+    <br>
+    <p>Store là giải pháp state management cho ứng dụng Angular, được hỗ trợ bởi RxJS, lấy cảm hứng từ Redux. </p>
+    <br>
+
+    <span class="title pb-0">Một số khái niệm:</span>
+    <div class="border-b1"></div>
+    <ul>
+        <li><b>Actions</b> mô tả các unique events được gửi đi(dispatched) từ các components và services.</li>
+        <li>State changes được xử lý bằng các pure functions được gọi là <b>reducers</b> lấy current state và latest
+            action để tính toán new state.</li>
+        <li><b>Selectors</b>: là các pure functions được sử dụng để select, lấy và tạo các pieces of state.</li>
+        <li>State được truy cập bằng <b>Store</b>, observable of state và observer of actions.</li>
+    </ul>
+    <br>
+    <strong>Local state management</strong>
+    <p>NgRx Store chủ yếu để quản lý global state trên toàn ứng dụng. Trong trường hợp cần quản lý temporary hoặc local
+        component state, hãy cân nhắc sử dụng NgRx ComponentStore.</p>
+    <strong>Diagram</strong>
+    <div class="d-flex justify-content-center">
+        <app-image-zoom [imageUrl]="'assets/angular/state-management-lifecycle.png'"
+            [alt]="'state-management-lifecycle'" style="width: 60%;" [width]="'100%'"></app-image-zoom>
+    </div>
+    <app-note title="Lưu ý"
+        content="Tất cả các Actions được gửi(dispatched) với một application state luôn được xử lý trước bởi Reducers trước khi được xử lý bởi Effects của application state."
+        type="info">
+    </app-note>
+    <strong>Tutorial</strong>
+    <br>
+    <span class="ng-star-inserted"><a target="_blank" title="live example"
+            href="generated/live-examples/ngrx-start/stackblitz.html">live example</a></span>
+</div>
