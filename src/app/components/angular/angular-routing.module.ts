@@ -54,6 +54,9 @@ import { NgrxStoreFetureCreatorsComponent } from './ngrx-store-feture-creators/n
 import { NgrxStoreInjectingReducersComponent } from './ngrx-store-injecting-reducers/ngrx-store-injecting-reducers.component';
 import { NgrxStoreRuntimeChecksComponent } from './ngrx-store-runtime-checks/ngrx-store-runtime-checks.component';
 import { NgrxStoreTestingComponent } from './ngrx-store-testing/ngrx-store-testing.component';
+import { NgrxStoreActionGroupsComponent } from './ngrx-store-action-groups/ngrx-store-action-groups.component';
+import { NgrxEffectsLifecycleComponent } from './ngrx-effects-lifecycle/ngrx-effects-lifecycle.component';
+import { NgrxEffectsOperatorsComponent } from './ngrx-effects-operators/ngrx-effects-operators.component';
 
 const angularRoutes: Routes = [
   {
@@ -238,7 +241,7 @@ const angularRoutes: Routes = [
       },
       {
         path: 'ngrx-store-action-groups',
-        component: NgrxStoreActionsComponent
+        component: NgrxStoreActionGroupsComponent
       },
       {
         path: 'ngrx-store-injecting-reducers',
@@ -251,6 +254,18 @@ const angularRoutes: Routes = [
       {
         path: 'ngrx-store-testing',
         component: NgrxStoreTestingComponent
+      },
+      {
+        path: 'ngrx-effects-overview',
+        component: NgrxEffectsComponent
+      },
+      {
+        path: 'ngrx-effects-lifecycle',
+        component: NgrxEffectsLifecycleComponent
+      },
+      {
+        path: 'ngrx-effects-operators',
+        component: NgrxEffectsOperatorsComponent
       },
     ]
   }]

@@ -224,16 +224,16 @@ export const menuAngular = [
             "icon": "all_inbox",
             "routerLink": "ngrx-store-get-start"
           },
-          {
-            "text": "Hướng dẫn",
-            "icon": "all_inbox",
-            "routerLink": "ngrx-store-walkthrough"
-          },
-          {
-            "text": "Cài đặt",
-            "icon": "all_inbox",
-            "routerLink": "ngrx-store-intall"
-          },
+          // {
+          //   "text": "Hướng dẫn",
+          //   "icon": "all_inbox",
+          //   "routerLink": "ngrx-store-walkthrough"
+          // },
+          // {
+          //   "text": "Cài đặt",
+          //   "icon": "all_inbox",
+          //   "routerLink": "ngrx-store-intall"
+          // },
           {
             "text": "Kiến trúc",
             "icon": "all_inbox",
@@ -309,11 +309,28 @@ export const menuAngular = [
           }
         ]
       },
-      // {
-      //   "text": "NgRx Effects",
-      //   "icon": "all_inbox",
-      //   "routerLink": "#",
-      // },
+      {
+        "text": "NgRx Effects",
+        "icon": "all_inbox",
+        "routerLink": "#",
+        "children": [
+          {
+            "text": "Overview",
+            "icon": "all_inbox",
+            "routerLink": "ngrx-effects-overview"
+          },
+          {
+            "text": "Lifecyle",
+            "icon": "all_inbox",
+            "routerLink": "ngrx-effects-lifecycle"
+          },
+          {
+            "text": "Operators",
+            "icon": "all_inbox",
+            "routerLink": "ngrx-effects-operators"
+          }
+        ]
+      },
       // {
       //   "text": "NgRx Router Store",
       //   "icon": "all_inbox",

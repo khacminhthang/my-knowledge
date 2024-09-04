@@ -1,1 +1,52 @@
-<p>ngrx-store-feture-creators works!</p>
+<div>
+    <h1 style="font-size: 2rem;">Feature Creators</h1>
+    <br>
+
+    <strong>What is an NgRx feature?</strong>
+    <p>Có 3 khối chính của global state management với @ngrx/store: actions, reducers, selectors. Đối với 1 feature
+        state cụ thể, tạo ra một reducer để xử lý các chuyển đổi trạng thái dựa trên các actions và selectors để thu
+        được slices of the feature state. Ngoài ra, chúng ta cần xác định feature name cần thiết để đăng ký feature
+        reducer với NgRx Store. Do đó chúng ta có thể coi NgRx feature như một nhóm gồm feature name, feature reducer và
+        selectors cho một feature cụ thể.</p>
+    <strong>Using feature creator</strong>
+    <p>createFeature function giảm sự lặp lại của code trong selector file bắng cách tạo một feature selector và child
+        selectors cho mỗi feature state property. Nó chấp nhận một object chứa một feature name và một feature reducer
+        như một input đầu vào:</p>
+    <pre><code>{{text1}}</code></pre>
+    <p>Một object được tạo bởi createFeature function chứa một feature name, một feature reducer, một feature selector
+        và một selector cho từng feature state property. Tất cả các selectors được tạo đều có tiền tố "select" và
+        feature selector chó hậu tố "State". Trong ví dụ này, tên của feature selector là selectBooksState trong đó
+        "books" là feature name. Tên của child selectors là selectBooks và selectLoading, dựa trên property name của
+        books feature state.</p>
+    <p>Các selectors được tạo ra có thể sử dụng độc lập hoặc được sử dụng để tạo các selectors khác: </p>
+    <pre><code>{{text2}}</code></pre>
+    <strong>Providing Extra Selectors</strong>
+    <p>createFeature cũng có thể được sử dụng để cung cấp extra selectors cho feature state với option extraSelectors:
+    </p>
+    <pre><code>{{text3}}</code></pre>
+    <p>Option extraSelectors chấp nhận một function cái mà lấy các selectors được tạo ra làm đổi số đầu vào và trả về
+        một object của tất cả extra selectors. Chúng ta có thể sử dụng nó để xác định bao nhiêu extra selectors mà chúng
+        ta cần.</p>
+    <strong>Reusing Extra Selectors</strong>
+    <p>Việc sử dụng lại các extra selectors có thể được thực hiện bằng cách định nghĩa extraSelectors theo cách sau:</p>
+    <pre><code>{{text4}}</code></pre>
+
+    <strong>Feature registration</strong>
+    <p>Việc đăng ký feature reducer trong store có thể được thực hiện bằng cách pass feature object cho
+        StoreModule.forFeature method:</p>
+    <pre><code>{{text5}}</code></pre>
+
+    <strong>Using the Standalone API</strong>
+    <pre><code>{{text6}}</code></pre>
+    <p>Feature states cũng có thể được đăng ký trong providers array của route config.</p>
+    <pre><code>{{text7}}</code></pre>
+
+    <strong>Restrictions</strong>
+    <p>createFeature function không thể được sử dụng cho các feature có chứa các state có optional properties. Nói cách
+        khác tất cả các state properties phải được chuyển đến initial state object.</p>
+    <p>Vì vậy nếu state chứa các optional properties:</p>
+    <pre><code>{{text8}}</code></pre>
+    <p>Mỗi optional symbol (?) phải được thay thế bằng | null hoặc | undefind.</p>
+    <pre><code>{{text9}}</code></pre>
+
+</div>

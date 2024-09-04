@@ -65,6 +65,8 @@ import { NgrxStoreActionGroupsComponent } from './ngrx-store-action-groups/ngrx-
 import { NgrxStoreInjectingReducersComponent } from './ngrx-store-injecting-reducers/ngrx-store-injecting-reducers.component';
 import { NgrxStoreRuntimeChecksComponent } from './ngrx-store-runtime-checks/ngrx-store-runtime-checks.component';
 import { NgrxStoreTestingComponent } from './ngrx-store-testing/ngrx-store-testing.component';
+import { NgrxEffectsLifecycleComponent } from './ngrx-effects-lifecycle/ngrx-effects-lifecycle.component';
+import { NgrxEffectsOperatorsComponent } from './ngrx-effects-operators/ngrx-effects-operators.component';
 
 @NgModule({
   declarations: [
@@ -124,7 +126,9 @@ import { NgrxStoreTestingComponent } from './ngrx-store-testing/ngrx-store-testi
     NgrxStoreActionGroupsComponent,
     NgrxStoreInjectingReducersComponent,
     NgrxStoreRuntimeChecksComponent,
-    NgrxStoreTestingComponent
+    NgrxStoreTestingComponent,
+    NgrxEffectsLifecycleComponent,
+    NgrxEffectsOperatorsComponent
   ],
   entryComponents: [
     ToggleComponent

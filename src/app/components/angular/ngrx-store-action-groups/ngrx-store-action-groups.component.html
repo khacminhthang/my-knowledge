@@ -1,1 +1,16 @@
-<p>ngrx-store-action-groups works!</p>
+<div>
+    <h1 style="font-size: 2rem;">Action Groups</h1>
+    <br>
+
+    <p>createActionGroup function tạo một nhóm các actions có cùng source. Nó chấp nhận một action group source và một
+        event dictionary như một input đầu vào, event có kiểu key-valye (event name - event props).</p>
+    <pre><code>{{text1}}</code></pre>
+
+    <p>Nếu chúng ta tạo một action sử dụng createAction function bằng cách copy một action trước đó nhưng quên thay đổi
+        type của nó thì vẫn pass biên dịch. Nhưng với createActionGroup function chúng ta sẽ không xảy ra trường hợp này
+        vì chúng ta sẽ gặp lỗi biên dịch nếu 2 action trong cùng một group có cùng type.</p>
+    <pre><code>{{text2}}</code></pre>
+
+    <strong>Alternative way of defining event names</strong>
+    <pre><code>{{text3}}</code></pre>
+</div>
