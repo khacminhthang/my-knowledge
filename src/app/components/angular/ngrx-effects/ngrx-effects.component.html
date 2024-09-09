@@ -1,1 +1,80 @@
-<p>ngrx-effects works!</p>
+<div>
+    <h1 style="font-size: 2rem;">@ngrx/effects</h1>
+    <br>
+    <p>NgRx Effects là một phần của thư viện NgRx dành cho Angular, được thiết kế để quản lý các side effects (tác động
+        phụ) trong ứng dụng. Trong kiến trúc quản lý trạng thái của NgRx, trạng thái ứng dụng được quản lý thông qua một
+        store trung tâm, giúp tổ chức và duy trì dữ liệu một cách hiệu quả. Tuy nhiên, khi cần thực hiện các tác vụ bất
+        đồng bộ như gọi API, xử lý logic phức tạp, hoặc tương tác với các dịch vụ ngoài, NgRx Effects sẽ đảm nhận vai
+        trò xử lý các tác vụ này.</p>
+    <br>
+
+    <span class="title pb-0">Vai trò của NgRx Effects</span>
+    <div class="border-b1"></div>
+    <p>1. Quản lý Side Effects: NgRx Effects tách biệt logic xử lý các tác vụ không đồng bộ khỏi các reducer và
+        component, giúp mã nguồn rõ ràng và dễ bảo trì hơn.</p>
+    <p>2. Xử lý Logic Bất Đồng Bộ: Cho phép xử lý các tác vụ như gọi API, truy vấn cơ sở dữ liệu, hoặc xử lý sự kiện
+        người dùng một cách hiệu quả.</p>
+    <p>3. Phản Hồi Lại Các Hành Động: Sau khi thực hiện các tác vụ side effects, Effects có thể phát đi các hành động
+        mới để cập nhật trạng thái hoặc thực hiện các hành động tiếp theo dựa trên kết quả của tác vụ.</p>
+    <br>
+
+    <span class="title pb-0">Cách hoạt động của ngrx/effects</span>
+    <div class="border-b1"></div>
+    <p>1. Lắng nghe các Actions: ngrx/effects theo dõi các actions được dispatch trong ứng dụng.</p>
+    <p>2. Thực hiện Side Effects: Khi một action nhất định được dispatch, một effect có thể thực hiện các tác vụ bất
+        đồng bộ như gọi HTTP API, hoặc lưu trữ dữ liệu vào localStorage.</p>
+    <p>3. Dispatch các Actions mới: Sau khi xử lý side effects, effect có thể dispatch một action mới để cập nhật state
+        của ứng dụng dựa trên kết quả xử lý.</p>
+
+    <span class="title pb-0">So sánh với Component-Based Side Effects</span>
+    <div class="border-b1"></div>
+    <p>Hãy tưởng tượng rằng ứng dụng của bạn quản lý phim. Đây là một component tìm nạp và hiển thị danh sách phim.</p>
+    <pre><code>{{text1}}</code></pre>
+    <pre><code>{{text2}}</code></pre>
+    <p>Component có nhiều trách nhiệm</p>
+    <ul>
+        <li>Quản lý state của movies</li>
+        <li>Sử dụng service để thực hiện side effect, gọi API bên ngoài để fetch danh sánh movies.</li>
+        <li>Thay đổi state của movies trong component</li>
+    </ul>
+    <p>Effects khi sử dụng cùng với Store, làm giảm trách nghiệm của component. Trong một ứng dụng lớn điều này trở nên
+        quan trọng hơn vì có nhiều nguồn dữ liệu, với nhiều service cần thiết để fetch những dữ liệu đó và cá service có
+        khả năng phụ thuộc lẫn nhau.</p>
+    <p>Effects xử lý dữ liệu và tương tác với bên ngoài, cho phép các service ít trạng thái hơn và chỉ thực hiện các tác
+        vụ liên quan đến tương tác bên ngoài. Tiếp theo refactor component để đưa dữ liệu movies vào Store. Effects xử
+        lý fetch dữ liệu movie.</p>
+    <pre><code>{{text3}}</code></pre>
+    <p>Movie vẫn được fetch thông qua MoviesService, nhưng component này không còn quan tâm đến cách fetch và load
+        movies nữa. Nó chí chịu trách nghiệm khai báo ý định load movies và sử dụng selectors để truy cập list data.
+        Effects là nơi xảy ra hoạt động fetch movies.</p>
+
+    <span class="title pb-0">Writing Effects</span>
+    <div class="border-b1"></div>
+    <p>Để tách biệt các side effect khỏi component, bạn có thể tạo NgRx effects để lắng nghe các sự kiện và thực hiện
+        các tác vụ.</p>
+    <p>Effects là injectable service classes với các thành phần riêng biệt:</p>
+    <ul>
+        <li>Một injectable Actions service cung cấp một observable stream của mỗi action được gửi đi (dispatched) sau
+            khi state cuối cùng đã được reduced.</li>
+        <li>Metadata được gắn vào observable streams sử dụng createEffect function. Metadata được sử dụng để đăng ký các
+            streams cái mà được subscribed bởi store. Bất kỳ action nào được trả về từ effect stream sẽ được gửi lại
+            Store sau đó.</li>
+        <li>Các action được lọc bằng cách sử dụng toán tử ofType. Toán tử này sẽ lấy một hoặc nhiều action làm đối số để
+            lọc những action cần thực hiện.</li>
+        <li>Effects được subscribed vào Store observable.</li>
+        <li>Các Service được đưa vào các effects để tương tác với API bên ngoài và xử lý streams.</li>
+    </ul>
+    <pre><code>{{text4}}</code></pre>
+    <p>LoadMovies$ effect đang lắng nghe tất cả các action được gửi đi thông qua Actions stream, nhưng chỉ quan tâm đến
+        action [Movies Page] Load Movies được lọc bởi toán tử ofType. Sau đó stream of actions được làm phẳng và ánh xạ
+        thành một observable bằng cách sử dụng toán tử exhaustMap.</p>
+    <strong>Handling Errors</strong>
+    <pre><code>{{text5}}</code></pre>
+    <strong>Functional Effects</strong>
+    <p>Functional effects cũng được tạo bằng createEffect function. Chúng cung cấp khả năng tạo effects bên ngoài effect
+        classes.</p>
+    <p>Để tạo functional effect, thêm flag functional: true. Sau đó inject services vào effect sử dụng inject function.
+    </p>
+    <pre><code>{{text6}}</code></pre>
+    <strong>Registering Root Effects</strong>
+</div>

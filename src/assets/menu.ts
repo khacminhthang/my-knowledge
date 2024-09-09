@@ -224,16 +224,6 @@ export const menuAngular = [
             "icon": "all_inbox",
             "routerLink": "ngrx-store-get-start"
           },
-          // {
-          //   "text": "Hướng dẫn",
-          //   "icon": "all_inbox",
-          //   "routerLink": "ngrx-store-walkthrough"
-          // },
-          // {
-          //   "text": "Cài đặt",
-          //   "icon": "all_inbox",
-          //   "routerLink": "ngrx-store-intall"
-          // },
           {
             "text": "Kiến trúc",
             "icon": "all_inbox",
@@ -277,35 +267,6 @@ export const menuAngular = [
                 "routerLink": "ngrx-store-action-groups"
               },
             ]
-          },
-          {
-            "text": "Recipes",
-            "icon": "all_inbox",
-            "routerLink": "#",
-            "children": [
-              {
-                "text": "Injecting Reducers",
-                "icon": "all_inbox",
-                "routerLink": "ngrx-store-injecting-reducers"
-              }
-            ]
-          },
-          {
-            "text": "Configuration",
-            "icon": "all_inbox",
-            "routerLink": "#",
-            "children": [
-              {
-                "text": "Runtime checks",
-                "icon": "all_inbox",
-                "routerLink": "ngrx-store-runtime-checks"
-              }
-            ]
-          },
-          {
-            "text": "Testing",
-            "icon": "all_inbox",
-            "routerLink": "ngrx-store-testing",
           }
         ]
       },
