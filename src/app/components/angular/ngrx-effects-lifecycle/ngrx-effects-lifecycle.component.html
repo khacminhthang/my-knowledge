@@ -1,1 +1,52 @@
-<p>ngrx-effects-lifecycle works!</p>
+<div>
+    <h1 style="font-size: 2rem;">Lifecycle</h1>
+    <br>
+    <strong>ROOT_EFFECTS_INIT</strong>
+    <p>Sau khi tất cả root effects đã được add, root effect dispatches một ROOT_EFFECTS_INIT action. Bạn có thể xem
+        action này như một lifecycle hook mà bạn có thể sử dụng để thực thi một số code sau khi tất cả các root effects
+        đã được thêm vào.</p>
+    <pre><code>{{text1}}</code></pre>
+
+    <span class="title pb-0">Effect Metadata</span>
+    <div class="border-b1"></div>
+    <strong>Non-dispatching Effects</strong>
+    <p>Đôi khi bạn không muốn các effects dispatch một action, ví dụ như bạn chỉ muốn đăng nhập hoặc điều hướng dựa trên
+        một action đến. Nhưng khi một effect không dispatch một action khác, trình duyệt sẽ gặp sự cố vì effect đó vừa
+        subscribing vừa dispatching cùng 1 action, gây ra một vòng lặp vô hạn. Để ngăn chặn điều này, thêm dispatch:
+        false vào createEffect function.</p>
+    <pre><code>{{text2}}</code></pre>
+    <strong>Resubscribe on Error</strong>
+    <p>Bắt đầu từ version 8, khi xả ra lỗi trong luồng chính của effect, nó sẽ được báo cáo bằng ErrorHandler của
+        Angular, và effect nguồn sẽ được resubscribed(thay vì hoàn thành), vì vậy nó tiếp tục lắng nghe tất cả các hành
+        động được gửi đi.</p>
+    <p>Nói chung lỗi sẽ do người dùng tự xử lý. Tuy nhiên, đối với những trường hợp lỗi bị bỏ sót, hành vi này sẽ bổ
+        sung thêm 1 lớp an toàn.</p>
+    <p>Trong một số trường hợp sử dụng toán tử RxJS, hành vi mới có thể tạo ra kết quả không mong muốn. Ví dụ, toán tử
+        startWith nằm trong pipe line của effect sẽ được triggered lại.</p>
+    <p>Để tắt tính năng resubscriptions, thêm useEffectsErrorHandler: false vào metadata của createEffect.</p>
+    <pre><code>{{text3}}</code></pre>
+
+    <strong>Customizing the Effects Error Handler</strong>
+    <p>Bạn có thể custom hành vi của resubscription bằng cách cung cấp một custom handler sử dụng EFFECTS_ERROR_HANDLER
+        injection token.</p>
+    <p>Điều này cho phép bạn cung cấp một hành vi tùy chỉnh, chẳng hạn như chỉ thử lại đối với một số lỗi "có thể thử
+        lại" nhất định hoặc thay đổi số lần thử lại tối đa. (10 lần theo mặc định)</p>
+    <pre><code>{{text4}}</code></pre>
+
+    <span class="title pb-0">Controlling Effects</span>
+    <div class="border-b1"></div>
+    <strong>OnInitEffects</strong>
+    <p>Implement interface này để dispatch một custom action sau khi effect được thêm vào. Bạn có thể listen action này
+        trong khi phần còn lại của ứng dụng thực thi điều gì đó sau khi effect được đăng ký.</p>
+    <pre><code>{{text5}}</code></pre>
+    <strong>OnRunEffects</strong>
+    <p>Theo mặc định các effects được merged và subscribed vào store. Implement OnRunEffects interface để kiểm soát vòng
+        đời của các effect đã được resolved.</p>
+    <pre><code>{{text6}}</code></pre>
+    <strong>Identify Effects Uniquely</strong>
+    <p>Theo mặc định, mỗi effect được đăng ký một lần bất kể Effects class được load bao nhiêu lần. Bằng cách
+        implementing interface này, bạn xác định một mã định danh duy nhất để đăng ký một Effects class instance nhiều
+        lần.</p>
+    <pre><code>{{text7}}</code></pre>
+    <br>
+</div>

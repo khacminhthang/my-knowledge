@@ -67,6 +67,9 @@ import { NgrxStoreRuntimeChecksComponent } from './ngrx-store-runtime-checks/ngr
 import { NgrxStoreTestingComponent } from './ngrx-store-testing/ngrx-store-testing.component';
 import { NgrxEffectsLifecycleComponent } from './ngrx-effects-lifecycle/ngrx-effects-lifecycle.component';
 import { NgrxEffectsOperatorsComponent } from './ngrx-effects-operators/ngrx-effects-operators.component';
+import { NgrxRouterStoreActionComponent } from './ngrx-router-store/ngrx-router-store-action/ngrx-router-store-action.component';
+import { NgrxRouterStoreSelectorsComponent } from './ngrx-router-store/ngrx-router-store-selectors/ngrx-router-store-selectors.component';
+import { NgrxRouterStoreConfigurationComponent } from './ngrx-router-store/ngrx-router-store-configuration/ngrx-router-store-configuration.component';
 
 @NgModule({
   declarations: [
@@ -128,7 +131,10 @@ import { NgrxEffectsOperatorsComponent } from './ngrx-effects-operators/ngrx-eff
     NgrxStoreRuntimeChecksComponent,
     NgrxStoreTestingComponent,
     NgrxEffectsLifecycleComponent,
-    NgrxEffectsOperatorsComponent
+    NgrxEffectsOperatorsComponent,
+    NgrxRouterStoreActionComponent,
+    NgrxRouterStoreSelectorsComponent,
+    NgrxRouterStoreConfigurationComponent
   ],
   entryComponents: [
     ToggleComponent

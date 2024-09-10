@@ -57,6 +57,9 @@ import { NgrxStoreTestingComponent } from './ngrx-store-testing/ngrx-store-testi
 import { NgrxStoreActionGroupsComponent } from './ngrx-store-action-groups/ngrx-store-action-groups.component';
 import { NgrxEffectsLifecycleComponent } from './ngrx-effects-lifecycle/ngrx-effects-lifecycle.component';
 import { NgrxEffectsOperatorsComponent } from './ngrx-effects-operators/ngrx-effects-operators.component';
+import { NgrxRouterStoreActionComponent } from './ngrx-router-store/ngrx-router-store-action/ngrx-router-store-action.component';
+import { NgrxRouterStoreSelectorsComponent } from './ngrx-router-store/ngrx-router-store-selectors/ngrx-router-store-selectors.component';
+import { NgrxRouterStoreConfigurationComponent } from './ngrx-router-store/ngrx-router-store-configuration/ngrx-router-store-configuration.component';
 
 const angularRoutes: Routes = [
   {
@@ -267,6 +270,22 @@ const angularRoutes: Routes = [
         path: 'ngrx-effects-operators',
         component: NgrxEffectsOperatorsComponent
       },
+      {
+        path: 'ngrx-router-store-overview',
+        component: NgrxRouterStoreComponent
+      },
+      {
+        path: 'ngrx-router-store-actions',
+        component: NgrxRouterStoreActionComponent
+      },
+      {
+        path: 'ngrx-router-store-selectors',
+        component: NgrxRouterStoreSelectorsComponent
+      },
+      {
+        path: 'ngrx-router-store-configuration',
+        component: NgrxRouterStoreConfigurationComponent
+      }
     ]
   }]
 

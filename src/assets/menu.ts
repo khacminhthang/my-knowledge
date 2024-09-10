@@ -292,11 +292,33 @@ export const menuAngular = [
           }
         ]
       },
-      // {
-      //   "text": "NgRx Router Store",
-      //   "icon": "all_inbox",
-      //   "routerLink": "#",
-      // },
+      {
+        "text": "NgRx Router Store",
+        "icon": "all_inbox",
+        "routerLink": "#",
+        "children": [
+          {
+            "text": "Overview",
+            "icon": "all_inbox",
+            "routerLink": "ngrx-router-store-overview"
+          },
+          {
+            "text": "Actions",
+            "icon": "all_inbox",
+            "routerLink": "ngrx-router-store-actions"
+          },
+          {
+            "text": "Selectors",
+            "icon": "all_inbox",
+            "routerLink": "ngrx-router-store-selectors"
+          },
+          {
+            "text": "Configuration",
+            "icon": "all_inbox",
+            "routerLink": "ngrx-router-store-configuration"
+          }
+        ]
+      },
       // {
       //   "text": "NgRx Entity",
       //   "icon": "all_inbox",
