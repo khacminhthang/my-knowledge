@@ -8,14 +8,16 @@
 }
 
 /* Canh icon + text trên cùng một hàng cho các mục lá (MDC list item) */
-::ng-deep .side-navbar .mat-mdc-list-item .mdc-list-item__content {
+::ng-deep .mat-mdc-list-item .mdc-list-item__content,
+::ng-deep .mat-list-item .mdc-list-item__content {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
 /* Wrapper thực sự chứa icon + text được Material chèn nội dung vào */
-::ng-deep .side-navbar .mat-mdc-list-item .mat-mdc-list-item-unscoped-content {
+::ng-deep .mat-mdc-list-item .mat-mdc-list-item-unscoped-content,
+::ng-deep .mat-list-item .mat-mdc-list-item-unscoped-content {
     display: flex !important;
     flex-direction: row;
     align-items: center;
@@ -23,7 +25,8 @@
     width: 100%;
 }
 
-::ng-deep .side-navbar .mat-mdc-list-item .mat-icon {
+::ng-deep .mat-mdc-list-item .mat-icon,
+::ng-deep .mat-list-item .mat-icon {
     height: 24px;
     width: 24px;
     font-size: 24px;
@@ -54,14 +57,25 @@
     padding: 0.5rem;
 }
 
-::ng-deep .side-navbar .mat-mdc-list-item {
+/* cursor: pointer for menu including submenus */
+::ng-deep .mat-mdc-list-item,
+::ng-deep .mat-mdc-list-item *,
+::ng-deep .mat-list-item,
+::ng-deep .mat-list-item *,
+::ng-deep .mat-expansion-panel-header,
+::ng-deep .mat-expansion-panel-header * {
+    cursor: pointer !important;
+}
+
+::ng-deep .mat-mdc-list-item,
+::ng-deep .mat-list-item {
     border-radius: 0.625rem;
     margin: 2px 4px;
     transition: all 0.3s ease;
-    cursor: pointer;
 }
 
-::ng-deep .side-navbar .mat-mdc-list-item:hover {
+::ng-deep .mat-mdc-list-item:hover,
+::ng-deep .mat-list-item:hover {
     background-color: var(--app-surface-3) !important;
 }
 
@@ -72,17 +86,14 @@
     border-radius: 0.625rem !important;
 }
 
-::ng-deep .mat-expansion-panel-header {
-    cursor: pointer;
-}
-
 ::ng-deep .mat-expansion-panel-header:hover {
     background-color: var(--app-surface-3) !important;
     border-radius: 0.625rem;
 }
 
 /* Active state — soft, light highlight pill */
-::ng-deep .side-navbar .mat-mdc-list-item.is-active,
+::ng-deep .mat-mdc-list-item.is-active,
+::ng-deep .mat-list-item.is-active,
 ::ng-deep .mat-nav-list .is-active {
     background-color: var(--app-primary-soft) !important;
     border-left: 3px solid var(--app-primary);
@@ -93,7 +104,8 @@
 }
 
 /* Keep active highlight stronger than hover */
-::ng-deep .side-navbar .mat-mdc-list-item.is-active:hover {
+::ng-deep .mat-mdc-list-item.is-active:hover,
+::ng-deep .mat-list-item.is-active:hover {
     background-color: var(--app-primary-soft) !important;
 }
 
@@ -139,15 +151,19 @@
 ::ng-deep .padding-level-0 {
     padding-left: 16px !important;
 }
+
 ::ng-deep .padding-level-1 {
     padding-left: 32px !important;
 }
+
 ::ng-deep .padding-level-2 {
     padding-left: 48px !important;
 }
+
 ::ng-deep .padding-level-3 {
     padding-left: 64px !important;
 }
+
 ::ng-deep .padding-level-4 {
     padding-left: 80px !important;
 }
