@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+  standalone: false,
   selector: 'app-kafka',
   templateUrl: './kafka.component.html',
   styleUrls: ['./kafka.component.css']

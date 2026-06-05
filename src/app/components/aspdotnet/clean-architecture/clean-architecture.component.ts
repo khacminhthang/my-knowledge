@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+  standalone: false,
   selector: 'app-clean-architecture',
   templateUrl: './clean-architecture.component.html',
   styleUrls: ['./clean-architecture.component.css']

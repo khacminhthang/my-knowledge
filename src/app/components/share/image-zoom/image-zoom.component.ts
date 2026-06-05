@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ShareDataService } from '../service/sharedata.service';
 
 @Component({
+  standalone: false,
   selector: 'app-image-zoom',
   templateUrl: './image-zoom.component.html',
   styleUrls: ['./image-zoom.component.css']

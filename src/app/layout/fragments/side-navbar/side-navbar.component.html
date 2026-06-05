@@ -9,15 +9,15 @@
 <ng-template #parentMenu let-menu="menu" let-level="level">
   <mat-list-item [routerLink]="menu.routerLink" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }"
     [ngClass]="getPaddingClass(level)">
-    <mat-icon>{{menu.icon}}</mat-icon>
+    <mat-icon>{{ menu | menuIcon }}</mat-icon>
     <span class="showText" matTooltip="{{ menu.text }}" matTooltipPosition="right">{{menu.text}}</span>
   </mat-list-item>
 </ng-template>
 
 <ng-template #childMenu let-menu="menu" let-level="level">
   <mat-expansion-panel [class.mat-elevation-z0]="true" [expanded]="isExpanded(menu)">
-    <mat-expansion-panel-header [ngClass]="getPaddingClass(level)">
-      <mat-icon mat-list-icon>{{menu.icon}}</mat-icon>
+    <mat-expansion-panel-header [ngClass]="getPaddingClass(level)" [class.group-active]="isExpanded(menu)">
+      <mat-icon mat-list-icon>{{ menu | menuIcon }}</mat-icon>
       <span class="showText" matTooltip="{{ menu.text }}" matTooltipPosition="right">{{menu.text}}</span>
     </mat-expansion-panel-header>
     <mat-nav-list>

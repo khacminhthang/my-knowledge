@@ -24,14 +24,10 @@
     template của component là được.</p>
   <br>
   <strong>toggle.component.html</strong>
-  <pre>
-    <code><pre>{{text1}}</pre></code>
-  </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text1 }}</code></pre>
   <br>
   <strong>app.component.html</strong>
-  <pre>
-    <code><pre>{{text2}}</pre></code>
-  </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text2 }}</code></pre>
   <br>
 
   <span style="font-size: 1.5rem;" class="title pb-0">Sử dụng multiple ng-content được không?</span>
@@ -42,9 +38,7 @@
     hiển thị gấp đôi số phần tử hay không?</p>
   <br>
   <strong>toggle.component.html</strong>
-  <pre>
-    <code><pre>{{text3}}</pre></code>
-  </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text3 }}</code></pre>
   <p>Khi nhìn vào kết quả render, chúng ta sẽ thấy chỉ có content 2 là được hiển thị với label mà chúng ta truyền vào.
     Như vậy nếu sử dụng nhiều lần ng-content sẽ dẫn đến kết quả có thể không như chúng ta mong muốn. Điều này là hoàn
     toàn bình thường, giống như bao thẻ html khác như header, chúng ta chỉ có duy nhất 1 slot để hiển thị. Vậy nên đối
@@ -60,14 +54,10 @@
     ng-content.</p>
   <br>
   <strong>toggle.component.html</strong>
-  <pre>
-    <code><pre>{{text4}}</pre></code>
-  </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text4 }}</code></pre>
   <strong>app.component.html
   </strong>
-  <pre>
-    <code><pre>{{text5}}</pre></code>
-  </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text5 }}</code></pre>
   <br>
 
   <span style="font-size: 1.5rem;" class="title pb-0">ng-content và ngProjectAs</span>
@@ -82,21 +72,26 @@
     ta đang mong muốn project content này hay không?</p>
   <p>Cứu cánh chính là ngProjectAs, nó là một cách khai báo tường minh để Angular biết lối mà xử lý.</p>
   <br>
-  <strong>app.component.html</strong>
-  <pre>
-    <code><pre>{{text6}}</pre></code>
-  </pre>
-  <br>
+  <div class="row g-3 align-items-stretch mb-4">
+    <div class="col-12 col-lg-6">
+      <p class="preview-label">Code</p>
+      <pre class="h-100 mb-0"><code class="language-markup">{{ text6 }}</code></pre>
+    </div>
+    <div class="col-12 col-lg-6">
+      <p class="preview-label">Giao diện</p>
+      <div class="preview-pane">
+        <app-content-projection-child [(checked)]="questions.question1">
+          <h3 class="toogle-header">Header 1</h3>
+          <label ngProjectAs="app-label">Question 1</label>
+          <span>Some paragraph</span>
+        </app-content-projection-child>
 
-  <app-content-projection-child [(checked)]="questions.question1">
-    <h3 class="toogle-header">Header 1</h3>
-    <label ngProjectAs="app-label">Question 1</label>
-    <span>Some paragraph</span>
-  </app-content-projection-child>
-
-  <app-content-projection-child [(checked)]="questions.question2">
-    <h3 class="toogle-header">Header 2</h3>
-    <span ngProjectAs="app-label">Some paragraph 2</span>
-    <label>Question 2</label>
-  </app-content-projection-child>
+        <app-content-projection-child [(checked)]="questions.question2">
+          <h3 class="toogle-header">Header 2</h3>
+          <span ngProjectAs="app-label">Some paragraph 2</span>
+          <label>Question 2</label>
+        </app-content-projection-child>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+  standalone: false,
   selector: 'app-strings',
   templateUrl: './strings.component.html',
   styleUrls: ['./strings.component.css']
 })
 export class StringsComponent implements OnInit {
-  text1 = `
-using System;
+  text1 = `using System;
 
 namespace Csharp
 {
@@ -43,9 +43,7 @@ namespace Csharp
 
             Console.ReadKey();
         }
-    }
-
-  `
+    }`
   constructor() { }
 
   ngOnInit(): void {

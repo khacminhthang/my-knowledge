@@ -15,9 +15,7 @@
   <p>Giả sử chúng ta sẽ sử dụng Tab Component đã được tạo từ Day 16, bây giờ chúng ta có một component Couter để đếm xem
     liệu chúng ta có bao nhiêu component đã được khởi tạo như sau:</p>
   <br>
-  <pre>
-            <code><pre>{{text1}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text1 }}</code></pre>
   <p>Thật bất ngờ, chúng ta hi vọng rằng chỉ có 1 instance của counter, nhưng thực thế chúng ta đang có đến 4 instances,
     chỉ là có 1 instances được hiển thị. Vậy nếu trong trường hợp các tabs của chúng ta có những component có phần phức
     tạp, và chúng ta mong muốn chúng được lazy initialize thì làm thế nào?
@@ -32,43 +30,29 @@
   <p>Đấy là lúc bạn sẽ có thể chọn cho mình giải pháp là sử dụng ContentChild. Và đây là typing của nó, khá là giống với
     ViewChild.</p>
   <br>
-  <pre>
-            <code><pre>{{text2}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text2 }}</code></pre>
   <p>Trước tiên, chúng ta sẽ tạo một directive đã.</p>
   <br>
-  <pre>
-            <code><pre>{{text3}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text3 }}</code></pre>
   <p>Directive sẽ giúp chúng ta thêm các tính năng lên một phần tử (DOM Node, Component chẳng hạn), chúng ta có thể thấy
     directive ở trên muốn target đến bất kỳ thẻ ng-template nào có kèm thêm attribute [tabPanelContent].</p>
   <p>Và đây là cách sử dụng ContentChild để lấy về directive đó.</p>
   <br>
-  <pre>
-            <code><pre>{{text4}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text4 }}</code></pre>
   <br>
   <p>Và chúng ta có thể thay đổi cách sử dụng TabPanelComponent như sau:</p>
-  <pre>
-    <code><pre>{{text5}}</pre></code>
-  </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text5 }}</code></pre>
   <br>
   <p>Nhưng nếu bạn đặt debugger (hoặc console.log) thì sẽ thấy nó trả về một instance của TabPanelContentDirective, vậy
     làm thế nào để chúng ta lấy được TemplateRef instance?</p>
   <p>Lúc này bạn có thể inject TemplateRef vào constructor của directive hoặc chúng ta có thể sử dụng cách khác, đó là
     thay đổi cách read một element.</p>
-  <pre>
-      <code><pre>{{text6}}</pre></code>
-    </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text6 }}</code></pre>
   <br>
   <p>Bây giờ chúng ta chỉ cần thêm thắt một chút là Tab component sẽ chạy như những gì chúng ta mong muốn.</p>
-  <pre>
-      <code><pre>{{text7}}</pre></code>
-    </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text7 }}</code></pre>
   <br>
-  <pre>
-      <code><pre>{{text8}}</pre></code>
-    </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text8 }}</code></pre>
   <br>
   <p>Vậy là bây giờ chúng ta chỉ có 2 instances được khởi tạo.</p>
   <p>Lưu ý: với các lazy initialize như trên, mỗi lần chúng ta active một tab nó sẽ tạo lại TemplateRef kia một lần.</p>
@@ -81,13 +65,9 @@
     query tất cả các TabPanelComponent được project vào không?</p>
   <p>Đây chính là lúc mà bạn có thể sử dụng đến ContentChildren.</p>
   <br>
-  <pre>
-            <code><pre>{{text9}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text9 }}</code></pre>
   <br>
-  <pre>
-            <code><pre>{{text10}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text10 }}</code></pre>
   <br>
   <p>Chỉ cần có thế là chúng ta đã có thể query được tất cả theo yêu cầu.</p>
   <p>Lưu ý: ContentChildren does not retrieve elements or directives that are in other components' templates, since a
@@ -102,9 +82,7 @@
     bắt đầu thực hiện các thao tác với nó. Ví dụ chúng ta có thể listen vào changes event để update selected tab như
     sau:</p>
   <br>
-  <pre>
-            <code><pre>{{text11}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text11 }}</code></pre>
   <p>Bạn sẽ nhận được một Error như sau:</p>
   <p>Error in src/app/bs-tab-group/bs-tab-group.component.ts
     Class 'BsTabGroupComponent' used before its declaration.</p>

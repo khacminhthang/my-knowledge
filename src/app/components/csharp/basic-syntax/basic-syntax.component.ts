@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+  standalone: false,
   selector: 'app-basic-syntax',
   templateUrl: './basic-syntax.component.html',
   styleUrls: ['./basic-syntax.component.css']
@@ -56,61 +57,49 @@ export class BasicSyntaxComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.text1 = `
-    using System;
+    this.text1 = `using System;
 
-    namespace RectangleApplication {
-       class Rectangle {
-          
-          // member variables
-          double length;
-          double width;
-          
-          public void Acceptdetails() {
-             length = 4.5;    
-             width = 3.5;
-          }
-          public double GetArea() {
-             return length * width; 
-          }
-          public void Display() {
-             Console.WriteLine("Length: {0}", length);
-             Console.WriteLine("Width: {0}", width);
-             Console.WriteLine("Area: {0}", GetArea());
-          }
-       }
-       class ExecuteRectangle {
-          static void Main(string[] args) {
-             Rectangle r = new Rectangle();
-             r.Acceptdetails();
-             r.Display();
-             Console.ReadLine(); 
-          }
-       }
-    }
-    `;
-    this.text2 = `
-    [class]="classExpr"
-    `;
-    this.text3 = `
-    <div [style.width]="”someValue”"></div>
-      `;
-    this.text4 = `
-    [style.height.%]=”containerHeight”
-      `;
-    this.text5 = `
-  <div *ngFor="let employee of employees; index as idx; count as total">
-  ({{idx}})/({{total}}): {{employee.id}} - {{employee.firstName}}
-  {{employee.lastName}}
+namespace RectangleApplication {
+   class Rectangle {
+
+      // member variables
+      double length;
+      double width;
+
+      public void Acceptdetails() {
+         length = 4.5;
+         width = 3.5;
+      }
+      public double GetArea() {
+         return length * width;
+      }
+      public void Display() {
+         Console.WriteLine("Length: {0}", length);
+         Console.WriteLine("Width: {0}", width);
+         Console.WriteLine("Area: {0}", GetArea());
+      }
+   }
+   class ExecuteRectangle {
+      static void Main(string[] args) {
+         Rectangle r = new Rectangle();
+         r.Acceptdetails();
+         r.Display();
+         Console.ReadLine();
+      }
+   }
+}`;
+    this.text2 = `[class]="classExpr"`;
+    this.text3 = `<div [style.width]="”someValue”"></div>`;
+    this.text4 = `[style.height.%]=”containerHeight”`;
+    this.text5 = `<div *ngFor="let employee of employees; index as idx; count as total">
+({{idx}})/({{total}}): {{employee.id}} - {{employee.firstName}}
+{{employee.lastName}}
+</div>`;
+    this.text6 = `<div *ngFor="”let" item of list”>
+  <div *ngIf="”somethingGoood”">
+    More code
   </div>
-      `;
-    this.text6 = `
-  <div *ngFor="”let" item of list”>
-    <div *ngIf="”somethingGoood”">
-      More code
-    </div>
-  </div>
-      `;
+</div>`;
   }
 
   changeAge(event: any) {

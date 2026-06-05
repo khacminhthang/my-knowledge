@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+  standalone: false,
   selector: 'app-ngrx-store-walkthrough',
   templateUrl: './ngrx-store-walkthrough.component.html',
   styleUrls: ['./ngrx-store-walkthrough.component.css']

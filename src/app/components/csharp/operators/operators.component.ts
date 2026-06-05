@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+  standalone: false,
   selector: 'app-operators',
   templateUrl: './operators.component.html',
   styleUrls: ['./operators.component.css']

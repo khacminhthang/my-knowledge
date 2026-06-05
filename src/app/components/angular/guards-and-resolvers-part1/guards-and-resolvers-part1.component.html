@@ -27,19 +27,13 @@
   <p>Để demo cho các nội dung tiếp theo, ứng dụng của chúng ta bao gồm các config routing như sau:</p>
   <br>
   <strong>app-routing.module.ts</strong>
-  <pre>
-            <code><pre>{{text1}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text1 }}</code></pre>
   <strong>article-routing.module.ts</strong>
   <br>
-  <pre>
-            <code><pre>{{text2}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text2 }}</code></pre>
   <strong>admin-routing.module.ts</strong>
   <br>
-  <pre>
-            <code><pre>{{text3}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text3 }}</code></pre>
 
   <br>
 
@@ -133,23 +127,15 @@
   <p>Route Guards để giải quyết câu hỏi, liệu tôi có được phép redirect đến URL này hay không.</p>
   <p>Angular Router cung cấp một số guards như sau:</p>
   <li>Activate components:</li>
-  <pre>
-            <code><pre>{{text4}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text4 }}</code></pre>
   <br>
-  <pre>
-            <code><pre>{{text5}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text5 }}</code></pre>
   <li>Deactivate components:</li>
   <br>
-  <pre>
-            <code><pre>{{text6}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text6 }}</code></pre>
   <li>Load children (lazy loading route):</li>
   <br>
-  <pre>
-            <code><pre>{{text7}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text7 }}</code></pre>
   <br>
 
   <!-- CanActivate -->
@@ -159,30 +145,20 @@
   <p>Giả sử chúng ta có chức năng edit bài viết, yêu cầu đưa ra là chỉ có ai là author mới có thể edit được bài của
     người đó. App demo sẽ có config routing như sau:</p>
   <br>
-  <pre>
-            <code><pre>{{text8}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text8 }}</code></pre>
   <p>Giờ đây bạn có thể vào bất cứ bài nào cũng sẽ có thể navigate được vào tiếp page edit.</p>
   <p>Giờ đây bạn có thể tạo một service, sau đó kiểm tra các quyền để có thể cho phép người dùng có được di chuyển vào
     hay không.</p>
   <br>
-  <pre>
-            <code><pre>{{text9}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text9 }}</code></pre>
   <p>Để có thể register guard vừa tạo, chúng ta cần thêm vào canActivate array khi config routing như sau:
   </p>
-  <pre>
-            <code><pre>{{text10}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text10 }}</code></pre>
   <br>
   <p>Giả định rằng, chúng ta có một service để biết được user hiện tại là ai như sau:</p>
-  <pre>
-    <code><pre>{{text11}}</pre></code>
-</pre>
+  <pre class="mb-0"><code class="language-markup">{{ text11 }}</code></pre>
   <p>Guard của chúng ta sẽ có thể có logic như sau:</p>
-  <pre>
-    <code><pre>{{text12}}</pre></code>
-</pre>
+  <pre class="mb-0"><code class="language-markup">{{ text12 }}</code></pre>
   <p>Thành quả có được là chúng ta không thể vào page edit của bai-viet-2, vì author không phải là user đang đăng nhập.
   </p>
   <p>Tương tự như CanActivate, chúng ta có cách hoạt động của CanActivateChild, nhưng được apply cho các children của

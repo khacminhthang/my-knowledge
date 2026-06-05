@@ -10,14 +10,10 @@
     mới, và chúng độc lập với nhau.
   </p>
   <p>Ví dụ, chúng ta có một observable như sau:</p>
-  <pre>
-          <code><pre>{{text1}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text1 }}</code></pre>
   <p>Giả sử chúng ta subscribe thêm một observer mới sau một khoảng thời gian (ví dụ: 2s)</p>
   <br>
-  <pre>
-                <code><pre>{{text2}}</pre></code>
-            </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text2 }}</code></pre>
   <p>Như các bạn có thể thấy, khi hai observer subscribe vào, chúng sinh ra các execution khác nhau.</p>
   <p>Câu hỏi đặt ra là có cách nào để bất cứ khi nào có một observer mới nào subscribe vào thì chúng sẽ share cùng một
     execution không?</p>
@@ -26,16 +22,12 @@
   <br>
   <br>
   <p>Bây giờ thay vì subscribe riêng lẻ như ở các ví dụ trên, chúng ta hãy thêm một hybrid observer như sau:</p>
-  <pre>
-            <code><pre>{{text3}}</pre></code>
-          </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text3 }}</code></pre>
   <p>Oh wow, chỉ với việc implement Observer Pattern, giờ đây chúng ta đã có thể share được execution, và hoàn toàn có
     thể share cho nhiều observer khác nữa nếu muốn.</p>
   <p>Bây giờ chúng ta sẽ thêm một số thay đổi nhỏ nữa:</p>
   <br>
-  <pre>
-            <code><pre>{{text4}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text4 }}</code></pre>
   <p>Lúc này bạn sẽ thấy rằng hybridObserver khá là giống một Observable, lại cũng có những phần của một Observer.</p>
   <p>Đây chính là một Subject ở trong RxJS.</p>
   <p>A Subject is a special type of Observable that allows values to be multicasted to many Observers. Subjects are like
@@ -43,9 +35,7 @@
   <p>Every Subject is an Observable and an Observer. You can subscribe to a Subject, and you can call next to feed
     values as well as error and complete.</p>
   <br>
-  <pre>
-                        <code><pre>{{text5}}</pre></code>
-                    </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text5 }}</code></pre>
   <br>
   <p>Với phương pháp kể trên, chúng ta đã cơ bản chuyển đổi từ một unicast Observable execution sang multicast, bằng
     cách sử dụng Subject.</p>
@@ -67,9 +57,7 @@
     tự control khi nào gửi notification). Nên nó khá hay được sử dụng trong ứng dụng, ví dụ để làm Event Bus chẳng hạn.
   </p>
   <p>Dưới đây là một ví dụ về type ahead:</p>
-  <pre>
-      <code><pre>{{text6}}</pre></code>
-  </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text6 }}</code></pre>
   <strong>Lưu ý:</strong>
   <p>Ở ví dụ trên chúng ta có thể hoàn toàn tự control khi nào cần thiết thì emit notification tương ứng.</p>
   <p>Và chúng ta có thể apply các operator của RxJS cung cấp để control được stream theo ý muốn.</p>
@@ -85,9 +73,7 @@
     đây.
   </p>
   <br>
-  <pre>
-          <code><pre>{{text7}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text7 }}</code></pre>
   <p>Để giải quyết vấn đề này, chúng ta có một trong các biến thể của Subject đó là BehaviorSubject, nó là biến thế có
     khái niệm về "the current value". BehaviorSubject lưu trữ lại giá trị mới emit gần nhất để khi một Observer mới
     subscribe vào, nó sẽ emit giá trị đó ngay lập tức cho Observer vừa rồi.</p>
@@ -99,9 +85,7 @@
     nhau trong Angular chẳng hạn.</p>
   <p>Lưu ý: BehaviorSubject yêu cầu phải có giá trị khởi tạo khi tạo ra subject.</p>
   <br>
-  <pre>
-    <code><pre>{{text8}}</pre></code>
-  </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text8 }}</code></pre>
   <br>
 
   <!-- ReplaySubject -->
@@ -120,14 +104,10 @@
     will emit those values immediately to any new subscribers in addition to emitting new values to existing
     subscribers. ReplaySubject</p>
   <br>
-  <pre>
-              <code><pre>{{text9}}</pre></code>
-          </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text9 }}</code></pre>
   <p>Hoặc kết hợp buffer với windowTime:</p>
   <br>
-  <pre>
-                <code><pre>{{text10}}</pre></code>
-            </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text10 }}</code></pre>
   <p>Trong ví dụ trên sau 1s chỉ có giá trị 3, 4 và 5 là được emit trong 500ms gần nhất và nằm trong buffer nên được
     replay lại cho observerB.</p>
   <br>
@@ -144,9 +124,7 @@
   <p>Lưu ý: Nếu stream không complete thì không có gì được emit cả.</p>
   <p>AsyncSubject khá giống Promise đấy chứ.</p>
   <br>
-  <pre>
-            <code><pre>{{text11}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text11 }}</code></pre>
   <br>
 
   <!-- Subject Completion -->
@@ -159,17 +137,11 @@
     buffer, sau đó mới thực thi complete của Observer.</p>
   <p>Kể cả khi AsyncSubject complete rồi, Observer vẫn có thể subscribe vào được và vẫn nhận giá trị cuối cùng.</p>
   <br>
-  <pre>
-            <code><pre>{{text12}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text12 }}</code></pre>
   <br>
-  <pre>
-                  <code><pre>{{text13}}</pre></code>
-              </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text13 }}</code></pre>
   <br>
-  <pre>
-                        <code><pre>{{text14}}</pre></code>
-                    </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text14 }}</code></pre>
   <br>
 
   <!-- Multicasting -->
@@ -180,9 +152,7 @@
     execution.
   </p>
   <br>
-  <pre>
-            <code><pre>{{text15}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text15 }}</code></pre>
   <p>Chúng ta sẽ có thể thay thế bằng cách dùng multicast operator như sau.</p>
 
   <strong>multicast()</strong>
@@ -192,9 +162,7 @@
     ConnectableObservable that shares a single subscription to the underlying stream. multicast</p>
   <p>Operator này sẽ trả về một Observable đặc biệt là ConnectableObservable, mà nó có thể share cùng một execution.</p>
   <br>
-  <pre>
-              <code><pre>{{text16}}</pre></code>
-          </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text16 }}</code></pre>
   <br>
   <p>Multicast nhận vào một subjectOrSubjectFactory, như trong ví dụ trên chúng ta truyền vào một instance của Subject.
     Sau đó sẽ return về một ConnectableObservable, nó có một số method đặc biệt.</p>
@@ -206,15 +174,11 @@
   <p>Lưu ý rằng, khi gọi hàm connect() chúng ta báo với stream là start đi, nhưng trong đoạn code trên không có trường
     hợp nào để disconnect, nên các bạn có thể bị memory leak.</p>
   <br>
-  <pre>
-            <code><pre>{{text17}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text17 }}</code></pre>
   <br>
   <p>Lúc này bạn cần lưu trữ lại subscription được trả về bởi lời gọi connect() để có thể unsubscribe.</p>
   <br>
-  <pre>
-            <code><pre>{{text18}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text18 }}</code></pre>
   <br>
   <p>Lúc này bạn chỉ cần connectSub.unsubscribe() là sẽ unsubscribe internal Subject do đó không cần chạy
     sub.unsubscribe() cũng được.</p>
@@ -227,9 +191,7 @@
     0 thì sẽ tự động unsubscribe. Đây chính là lúc bạn có thể sử dụng đến refCount.
   </p>
   <br>
-  <pre>
-            <code><pre>{{text19}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text19 }}</code></pre>
   <br>
 
   <strong>SubjectFactory()</strong>
@@ -239,22 +201,16 @@
     complete.
   </p>
   <br>
-  <pre>
-            <code><pre>{{text20}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text20 }}</code></pre>
   <br>
   <p>Sau 5s sharedObservable đã emit complete nên khi ở thời điểm 6s chúng ta tiếp tục subscribe thì nó không thể nhận
     được các value được nữa. Lúc này để có thể tiếp tục trigger chúng ta cần phải tạo ra một Subject mới, đó chính là
     lúc bạn sẽ có thể dùng đến SubjectFactory.</p>
   <br>
-  <pre>
-            <code><pre>{{text21}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text21 }}</code></pre>
   <br>
   <br>
-  <pre>
-            <code><pre>{{text22}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text22 }}</code></pre>
   <p>SubjectFactory là một function, nó sẽ trả về một Subject mới khi được gọi. Và khi có sự thay đổi refCount từ 0 =>
     1, nó sẽ được gọi và bắt đầu được chạy.</p>
   <br>
@@ -268,9 +224,7 @@
     before it begins emitting items to those Observers that have subscribed to it. publish</p>
   <p>Makes a cold Observable hot</p>
   <br>
-  <pre>
-            <code><pre>{{text23}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text23 }}</code></pre>
   <br>
   <p>Ngoài ra, giống như Subject có các biến thể thì publish cũng có các biến thể tương ứng với một số loại Subject.</p>
   <ul>
@@ -290,9 +244,7 @@
     unsubscribe from the source Observable. Because the Observable is multicasting it makes the stream hot. This is an
     alias for multicast(() => new Subject()), refCount(). RxJS share</p>
   <br>
-  <pre>
-            <code><pre>{{text24}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text24 }}</code></pre>
   <br>
 
 
@@ -314,8 +266,6 @@
     is what differentiates share and shareReplay.</p>
   <p>Source code & documentation: https://github.com/ReactiveX/rxjs/blob/6.x/src/internal/operators/shareReplay.ts</p>
   <p>Một use-case khá phổ biến là sử dụng shareReplay để làm caching.</p>
-  <pre>
-            <code><pre>{{text25}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text25 }}</code></pre>
   <br>
 </div>

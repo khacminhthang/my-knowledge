@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+  standalone: false,
   selector: 'app-nx-module-federation-technical-overview',
   templateUrl: './nx-module-federation-technical-overview.component.html',
   styleUrls: ['./nx-module-federation-technical-overview.component.css']

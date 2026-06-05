@@ -1,61 +1,544 @@
-/* You can add global styles to this file, and also import other style files */
-@import '~bootstrap/dist/css/bootstrap.min.css';
+/* ============================================================
+   Global styles — Modern Minimalist / SaaS Dashboard
+   Bootstrap 5.3 + Angular Material, Dark Mode first
+   ============================================================ */
+@import 'bootstrap/dist/css/bootstrap.min.css';
 
+/* ------------------------------------------------------------
+   1. Design tokens (Design System)
+   ------------------------------------------------------------ */
+:root {
+  --app-font-sans: 'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', ui-sans-serif, system-ui, sans-serif;
+  --app-font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --app-radius-sm: 0.5rem;
+  --app-radius: 0.75rem;
+  --app-radius-lg: 1rem;
+
+  --app-transition: all 0.3s ease;
+  --app-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.18);
+  --app-shadow: 0 4px 16px rgba(0, 0, 0, 0.28);
+  --app-shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.40);
+}
+
+/* Dark theme tokens (default) */
+[data-bs-theme="dark"] {
+  --app-bg: #0b0f19;
+  /* deep dark background */
+  --app-surface: #151b29;
+  /* cards / one tone lighter */
+  --app-surface-2: #1e293b;
+  /* sidebar / elevated layer */
+  --app-surface-3: #243045;
+  /* hover / active layer */
+  --app-border: rgba(148, 163, 184, 0.14);
+  --app-border-strong: rgba(148, 163, 184, 0.24);
+  --app-text: #e2e8f0;
+  --app-text-muted: #94a3b8;
+  --app-primary: #6366f1;
+  --app-primary-soft: rgba(99, 102, 241, 0.16);
+
+  /* Bootstrap 5.3 variable overrides */
+  --bs-body-bg: var(--app-bg);
+  --bs-body-color: var(--app-text);
+  --bs-border-color: var(--app-border);
+  --bs-secondary-color: var(--app-text-muted);
+  --bs-emphasis-color: #f8fafc;
+  --bs-tertiary-bg: var(--app-surface);
+}
+
+/* Light theme tokens */
+[data-bs-theme="light"] {
+  --app-bg: #f4f6fb;
+  --app-surface: #ffffff;
+  --app-surface-2: #ffffff;
+  --app-surface-3: #eef1f7;
+  --app-border: rgba(15, 23, 42, 0.10);
+  --app-border-strong: rgba(15, 23, 42, 0.16);
+  --app-text: #1e293b;
+  --app-text-muted: #64748b;
+  --app-primary: #4f46e5;
+  --app-primary-soft: rgba(79, 70, 229, 0.10);
+
+  /* Bootstrap 5.3 variable overrides */
+  --bs-body-bg: var(--app-bg);
+  --bs-body-color: var(--app-text);
+  --bs-border-color: var(--app-border);
+  --bs-secondary-color: var(--app-text-muted);
+  --bs-emphasis-color: #0f172a;
+  --bs-tertiary-bg: var(--app-surface);
+}
+
+/* ------------------------------------------------------------
+   2. Base
+   ------------------------------------------------------------ */
 html,
 body {
-  font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   height: 100%;
 }
 
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: #fff;
+  font-family: var(--app-font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  letter-spacing: 0.1px;
+  background-color: var(--app-bg);
+  color: var(--app-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+/* Keep legacy selector working with the new surface color */
 body>app-root>div>app-main-shell>app-sidebar>div>mat-sidenav-container>mat-sidenav-content {
-  background-color: #fff;
+  background-color: var(--app-bg);
 }
 
-.basic-container {
-  padding: 5px;
+::selection {
+  background: var(--app-primary-soft);
+  color: var(--app-text);
+}
+
+/* ------------------------------------------------------------
+   3. Typography
+   ------------------------------------------------------------ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--app-font-sans);
+  font-weight: 600;
+  color: var(--bs-emphasis-color, var(--app-text));
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  line-height: 1.25 !important;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+}
+
+p {
+  line-height: 1.7;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--app-text);
+}
+
+strong {
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--bs-emphasis-color, var(--app-text));
+}
+
+a {
+  color: var(--app-primary);
+  text-decoration: none;
+  transition: var(--app-transition);
+}
+
+a:hover {
+  color: #818cf8;
 }
 
 .version-info {
   font-size: 8pt;
   float: right;
+  color: var(--app-text-muted);
+}
+
+/* ------------------------------------------------------------
+   4. Surfaces, cards & layout helpers
+   ------------------------------------------------------------ */
+.basic-container {
+  padding: 1.5rem;
 }
 
 .border-b1 {
-  border-bottom: 2px solid grey;
-  margin-bottom: 10px;
+  border-bottom: 1px solid var(--app-border);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1rem;
 }
 
+/* Bootstrap card refinement for the dashboard look */
+.card {
+  background-color: var(--app-surface);
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius-lg);
+  box-shadow: var(--app-shadow-sm);
+  transition: var(--app-transition);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: var(--app-border-strong);
+  box-shadow: var(--app-shadow);
+}
+
+.card .card-header,
+.card .card-footer {
+  background-color: transparent;
+  border-color: var(--app-border);
+}
+
+/* Generic elevated surface utility */
+.surface {
+  background-color: var(--app-surface);
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--app-shadow-sm);
+  transition: var(--app-transition);
+}
+
+.surface:hover {
+  box-shadow: var(--app-shadow);
+}
+
+/* ------------------------------------------------------------
+   5. Buttons & inputs
+   ------------------------------------------------------------ */
+.btn {
+  border-radius: var(--app-radius);
+  font-weight: 500;
+  transition: var(--app-transition);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.form-control,
+.form-select {
+  background-color: var(--app-surface-2);
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius);
+  color: var(--app-text);
+  transition: var(--app-transition);
+}
+
+.form-control:focus,
+.form-select:focus {
+  background-color: var(--app-surface-2);
+  border-color: var(--app-primary);
+  box-shadow: 0 0 0 0.2rem var(--app-primary-soft);
+  color: var(--app-text);
+}
+
+/* ------------------------------------------------------------
+   6. Code & preformatted blocks  (modern "code window" look)
+   ------------------------------------------------------------ */
 pre {
-  background: lightgrey;
+  position: relative;
+  background: var(--app-surface-2);
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius);
+  padding: 2.85rem 1.25rem 1.1rem;
+  margin: 0 0 1rem;
+  overflow: auto;
+  font-family: var(--app-font-mono);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  box-shadow: var(--app-shadow);
+}
+
+/* Window title bar */
+pre::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2.25rem;
+  background: var(--app-surface-3);
+  border-bottom: 1px solid var(--app-border);
+  border-radius: var(--app-radius) var(--app-radius) 0 0;
+}
+
+/* macOS-style traffic-light dots */
+pre::after {
+  content: "";
+  position: absolute;
+  top: 0.83rem;
+  left: 1.15rem;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: #ff5f56;
+  box-shadow: 1.2rem 0 0 #ffbd2e, 2.4rem 0 0 #27c93f;
 }
 
 code {
   white-space: break-spaces;
+  font-family: var(--app-font-mono);
+  font-size: 0.9em;
+  color: #f0abfc;
 }
 
-h1 {
-  line-height: initial !important;
+pre code {
+  color: var(--app-text);
 }
 
-strong {
-  font-size: 20px;
+/* Reset the inner <pre> used in the <pre><code><pre> pattern so the
+   window chrome is only rendered once by the outer block. */
+pre code pre {
+  position: static;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  box-shadow: none;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+pre code pre::before,
+pre code pre::after {
+  content: none;
+}
+
+/* --- Prism.js integration: keep our "code window" chrome, use Prism tokens --- */
+pre[class*="language-"] {
+  background: var(--app-surface-2);
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius);
+  padding: 2.85rem 1.25rem 1.1rem;
+  margin: 0 0 1rem;
+  box-shadow: var(--app-shadow);
+  text-shadow: none;
+}
+
+code[class*="language-"] {
+  background: transparent;
+  text-shadow: none;
+  font-family: var(--app-font-mono);
+  font-size: 0.9rem;
+}
+
+/* --- Light mode: override Prism "tomorrow" (dark) tokens for readability --- */
+[data-bs-theme="light"] code {
+  color: #a21caf;
+}
+
+[data-bs-theme="light"] pre code,
+[data-bs-theme="light"] pre[class*="language-"],
+[data-bs-theme="light"] code[class*="language-"] {
+  color: #1e293b;
+}
+
+[data-bs-theme="light"] .token.comment,
+[data-bs-theme="light"] .token.prolog,
+[data-bs-theme="light"] .token.doctype,
+[data-bs-theme="light"] .token.cdata {
+  color: #6b7280;
+}
+
+[data-bs-theme="light"] .token.punctuation {
+  color: #334155;
+}
+
+[data-bs-theme="light"] .token.tag,
+[data-bs-theme="light"] .token.deleted,
+[data-bs-theme="light"] .token.keyword,
+[data-bs-theme="light"] .token.selector,
+[data-bs-theme="light"] .token.important,
+[data-bs-theme="light"] .token.atrule {
+  color: #d6336c;
+}
+
+[data-bs-theme="light"] .token.attr-name,
+[data-bs-theme="light"] .token.property,
+[data-bs-theme="light"] .token.class-name {
+  color: #7048e8;
+}
+
+[data-bs-theme="light"] .token.boolean,
+[data-bs-theme="light"] .token.number,
+[data-bs-theme="light"] .token.constant,
+[data-bs-theme="light"] .token.symbol {
+  color: #1971c2;
+}
+
+[data-bs-theme="light"] .token.string,
+[data-bs-theme="light"] .token.char,
+[data-bs-theme="light"] .token.attr-value,
+[data-bs-theme="light"] .token.regex,
+[data-bs-theme="light"] .token.inserted {
+  color: #2b8a3e;
+}
+
+[data-bs-theme="light"] .token.function,
+[data-bs-theme="light"] .token.function-name {
+  color: #0c8599;
+}
+
+[data-bs-theme="light"] .token.operator,
+[data-bs-theme="light"] .token.entity,
+[data-bs-theme="light"] .token.url,
+[data-bs-theme="light"] .token.variable {
+  color: #c2410c;
+}
+
+[data-bs-theme="light"] .token.namespace {
+  opacity: 0.7;
+}
+
+/* Copy-to-clipboard button rendered in the code-window title bar */
+.code-copy-btn {
+  position: absolute;
+  top: 0.42rem;
+  right: 0.55rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.22rem 0.55rem;
+  font-family: var(--app-font-sans);
+  font-size: 0.74rem;
   font-weight: 500;
-  line-height: 1.5;
+  line-height: 1;
+  color: var(--app-text-muted);
+  background: rgba(148, 163, 184, 0.10);
+  border: 1px solid var(--app-border);
+  border-radius: 0.4rem;
+  cursor: pointer;
+  opacity: 0;
+  transition: var(--app-transition);
 }
 
-p {
-  line-height: 1.6;
-  font-size: 16px;
-  font-weight: 400;
+pre:hover .code-copy-btn,
+.code-copy-btn:focus-visible {
+  opacity: 1;
 }
 
-.title {
-  font-size: 2rem; 
-  line-height: 1.5;
+.code-copy-btn:hover {
+  color: var(--app-text);
+  background: rgba(148, 163, 184, 0.18);
+  border-color: var(--app-border-strong);
+}
+
+.code-copy-btn svg {
+  width: 0.85rem;
+  height: 0.85rem;
+}
+
+.code-copy-btn.copied {
+  color: #27c93f;
+  border-color: rgba(39, 201, 63, 0.5);
+  opacity: 1;
+}
+
+/* Code + live-preview split layout (Code | Giao diện) */
+.preview-label {
+  margin-bottom: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--app-text-muted);
+}
+
+.preview-pane {
+  height: 100%;
+  background: var(--app-surface);
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius);
+  padding: 1.1rem 1.25rem;
+  box-shadow: var(--app-shadow-sm);
+}
+
+.preview-pane > :last-child {
+  margin-bottom: 0;
+}
+
+/* ------------------------------------------------------------
+   7. Tables
+   ------------------------------------------------------------ */
+.table {
+  --bs-table-bg: transparent;
+  --bs-table-color: var(--app-text);
+  border-color: var(--app-border);
+}
+
+.table> :not(caption)>*>* {
+  border-bottom-color: var(--app-border);
+}
+
+/* ------------------------------------------------------------
+   8. Custom scrollbar
+   ------------------------------------------------------------ */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--app-surface-3) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--app-surface-3);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--app-border-strong);
+}
+
+/* ------------------------------------------------------------
+   9. Angular Material dark alignment
+   ------------------------------------------------------------ */
+.mat-mdc-card,
+.mat-expansion-panel {
+  background-color: var(--app-surface) !important;
+  color: var(--app-text) !important;
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius) !important;
+}
+
+.mat-mdc-list-base,
+.mat-mdc-nav-list {
+  background-color: transparent !important;
+}
+
+.mat-mdc-list-item,
+.mat-mdc-list-item .mdc-list-item__primary-text {
+  color: var(--app-text) !important;
+}
+
+.mat-icon {
+  color: var(--app-text-muted);
+}
+
+.mat-toolbar.mat-primary {
+  background-color: var(--app-surface-2);
+  color: var(--app-text);
+}
+
+.mat-drawer-container {
+  background-color: var(--app-bg) !important;
+  color: var(--app-text) !important;
+}
+
+.mat-drawer {
+  background-color: var(--app-surface-2) !important;
+  border-right: 1px solid var(--app-border) !important;
 }

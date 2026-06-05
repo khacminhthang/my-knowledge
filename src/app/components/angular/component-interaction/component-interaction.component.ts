@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+  standalone: false,
   selector: 'app-component-interaction',
   templateUrl: './component-interaction.component.html',
   styleUrls: ['./component-interaction.component.scss']
@@ -56,49 +57,37 @@ export class ComponentInteractionComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.text1 = `
-    ShowNameComponent:
-    
-    @Input() name: string = "";
+    this.text1 = `ShowNameComponent:
 
-    constructor() { }
-  
-    ngOnInit(): void {
-    }
-    `;
-    this.text2 = `
-    ngOnChanges(changes: SimpleChanges) {
-      if ("progress" in changes) {
-        if (typeof changes["progress"].currentValue !== "number") {
-          const progress = Number(changes["progress"].currentValue);
-          if (Number.isNaN(progress)) {
-            this.progress = 0;
-          } else {
-            this.progress = progress;
-          }
-        }
+@Input() name: string = "";
+
+constructor() { }
+
+ngOnInit(): void {
+}`;
+    this.text2 = `ngOnChanges(changes: SimpleChanges) {
+  if ("progress" in changes) {
+    if (typeof changes["progress"].currentValue !== "number") {
+      const progress = Number(changes["progress"].currentValue);
+      if (Number.isNaN(progress)) {
+        this.progress = 0;
+      } else {
+        this.progress = progress;
       }
     }
-    `;
-    this.text3 = `
-    <div [style.width]="”someValue”"></div>
-      `;
-    this.text4 = `
-    [style.height.%]=”containerHeight”
-      `;
-    this.text5 = `
-  <div *ngFor="let employee of employees; index as idx; count as total">
-  ({{idx}})/({{total}}): {{employee.id}} - {{employee.firstName}}
-  {{employee.lastName}}
+  }
+}`;
+    this.text3 = `<div [style.width]="”someValue”"></div>`;
+    this.text4 = `[style.height.%]=”containerHeight”`;
+    this.text5 = `<div *ngFor="let employee of employees; index as idx; count as total">
+({{idx}})/({{total}}): {{employee.id}} - {{employee.firstName}}
+{{employee.lastName}}
+</div>`;
+    this.text6 = `<div *ngFor="”let" item of list”>
+  <div *ngIf="”somethingGoood”">
+    More code
   </div>
-      `;
-    this.text6 = `
-  <div *ngFor="”let" item of list”>
-    <div *ngIf="”somethingGoood”">
-      More code
-    </div>
-  </div>
-      `;
+</div>`;
   }
 
   changeAge(event: any) {

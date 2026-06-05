@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+  standalone: false,
   selector: 'app-pipe',
   templateUrl: './pipe.component.html',
   styleUrls: ['./pipe.component.scss']
@@ -33,6 +34,8 @@ export class PipeComponent implements OnInit {
     name: "Thang",
     age: 24
   }
+
+  now = "2020-06-24T09:00:00.000Z";
 
   ages: any = [
     { value: 10 },
@@ -68,148 +71,108 @@ export class PipeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.text1 = `
-    export class PipeExampleComponent implements OnInit {
-      now = "2020-06-24T09:00:00.000Z";
-    }
-    `;
-    this.text2 = `
-    <div>{{ now | date }}</div> //Jun 24, 2020 
-    <div>{{ now | date:'medium'}}</div> //Jun 24, 2020, 5:00:00
-    PM
-    `;
-    this.text3 = `
-    {{ interpolated_value | pipe_name }}
-      `;
-    this.text4 = `
-    {{ interpolated_value | pipe_name:parameter1:parameter2:...:parameterN }}
-      `;
-    this.text5 = `
-    {{ interpolated_value | pipe_name_1 | pipe_name_2 |... | pipe_name_n }}
-      `;
-    this.text6 = `
-    {{ itemId ? "Edit" : "Add" }}
-      `;
-    this.text7 = `
-    interface PipeTransform {
-      transform(value: any, ...args: any[]): any;
-    }
-      `;
-    this.text8 = `
-    export class AppTitlePipe implements PipeTransform {
-      transform(resourceId: string): string {
-        return resourceId ? "Edit" : "Add";
-      }
-    }
-      `;
-    this.text9 = `
-    @Pipe({
-      name: 'appTitle'
-    })
-    export class AppTitlePipe implements PipeTransform {
-      transform(resourceId: string): string {
-        return resourceId ? "Edit" : "Add";
-      }
-    }
-      `;
-    this.text10 = `
-    <h2 class="ibox-title">{{ userId | appTitle }} User</h2>
-      `;
-    this.text11 = `
-    transform(
-      resourceId: string,
-      addText: string = "Add",
-      editText: string = "Edit"
-    ): string {
-      return resourceId ? editText : addText;
-    }
-      `;
-    this.text12 = `
-    {{ userId | appTitle:"Set":"Change"}}
-      `;
-    this.text13 = `
-    export class PipeExampleComponent implements OnInit {
-      userIdChangeAfterFiveSeconds = "14324";
-      time$: Observable<number> = timer(0, 1000).pipe(
-        map((val) => 5 - (val + 1)),
-        startWith(5),
-        finalize(() => {
-          this.userIdChangeAfterFiveSeconds = "";
-        }),
-        takeWhile((val) => val >= 0)
-      );
-    }
-      `;
-    this.text14 = `
-    <p>
-  Set userId to empty string after {{ timer | async }} seconds, notice the text
-  "Edit" will be set to "Add"
+    this.text1 = `export class PipeExampleComponent implements OnInit {
+  now = "2020-06-24T09:00:00.000Z";
+}`;
+    this.text2 = `<div>{{ now | date }}</div> //Jun 24, 2020
+<div>{{ now | date:'medium'}}</div> //Jun 24, 2020, 5:00:00
+PM`;
+    this.text3 = `{{ interpolated_value | pipe_name }}`;
+    this.text4 = `{{ interpolated_value | pipe_name:parameter1:parameter2:...:parameterN }}`;
+    this.text5 = `{{ interpolated_value | pipe_name_1 | pipe_name_2 |... | pipe_name_n }}`;
+    this.text6 = `{{ itemId ? "Edit" : "Add" }}`;
+    this.text7 = `interface PipeTransform {
+  transform(value: any, ...args: any[]): any;
+}`;
+    this.text8 = `export class AppTitlePipe implements PipeTransform {
+  transform(resourceId: string): string {
+    return resourceId ? "Edit" : "Add";
+  }
+}`;
+    this.text9 = `@Pipe({
+  name: 'appTitle'
+})
+export class AppTitlePipe implements PipeTransform {
+  transform(resourceId: string): string {
+    return resourceId ? "Edit" : "Add";
+  }
+}`;
+    this.text10 = `<h2 class="ibox-title">{{ userId | appTitle }} User</h2>`;
+    this.text11 = `transform(
+  resourceId: string,
+  addText: string = "Add",
+  editText: string = "Edit"
+): string {
+  return resourceId ? editText : addText;
+}`;
+    this.text12 = `{{ userId | appTitle:"Set":"Change"}}`;
+    this.text13 = `export class PipeExampleComponent implements OnInit {
+  userIdChangeAfterFiveSeconds = "14324";
+  time$: Observable<number> = timer(0, 1000).pipe(
+    map((val) => 5 - (val + 1)),
+    startWith(5),
+    finalize(() => {
+      this.userIdChangeAfterFiveSeconds = "";
+    }),
+    takeWhile((val) => val >= 0)
+  );
+}`;
+    this.text14 = `<p>
+Set userId to empty string after {{ timer | async }} seconds, notice the text
+"Edit" will be set to "Add"
 </p>
 <pre ngNonBindable>{{ userIdChangeAfterFiveSeconds | appTitle}}</pre>
-<div>Form title: {{ userIdChangeAfterFiveSeconds | appTitle}} User</div>
-      `;
-    this.text15 = `
-    users: User[] = [
-      {
-        name: "Tiep Phan",
-        age: 30
-      },
-      {
-        name: "Trung Vo",
-        age: 28
-      },
-      {
-        name: "Chau Tran",
-        age: 29
-      },
-      {
-        name: "Tuan Anh",
-        age: 16
-      }
-    ];
-      `;
-    this.text16 = `
-    @Pipe({
-      name: "isAdult",
-    })
-    export class IsAdultPipe implements PipeTransform {
-      transform(arr: User[]): User[] {
-        return arr.filter((x) => x.age > 18);
-      }
-    }
-      `;
-    this.text17 = `
-    <div class="row">
-    <div class="col-xs-6">
-      <h4>Full user list</h4>
-      <div *ngFor="let user of users">{{ user.name }}</div>
-    </div>
-    <div class="col-xs-6">
-      <div class="ml-4">
-        <h4>Adult user list</h4>
-        <div *ngFor="let user of users | isAdult">{{ user.name }}</div>
-      </div>
-    </div>
+<div>Form title: {{ userIdChangeAfterFiveSeconds | appTitle}} User</div>`;
+    this.text15 = `users: User[] = [
+  {
+    name: "Tiep Phan",
+    age: 30
+  },
+  {
+    name: "Trung Vo",
+    age: 28
+  },
+  {
+    name: "Chau Tran",
+    age: 29
+  },
+  {
+    name: "Tuan Anh",
+    age: 16
+  }
+];`;
+    this.text16 = `@Pipe({
+  name: "isAdult",
+})
+export class IsAdultPipe implements PipeTransform {
+  transform(arr: User[]): User[] {
+    return arr.filter((x) => x.age > 18);
+  }
+}`;
+    this.text17 = `<div class="row">
+<div class="col-xs-6">
+  <h4>Full user list</h4>
+  <div *ngFor="let user of users">{{ user.name }}</div>
+</div>
+<div class="col-xs-6">
+  <div class="ml-4">
+    <h4>Adult user list</h4>
+    <div *ngFor="let user of users | isAdult">{{ user.name }}</div>
   </div>
-      `;
-    this.text18 = `
-    addUser() {
-      this.users.push(this.newUser);
-      this.newUser = new User()
-    }
-      `;
-    this.text19 = `
-    addUserByUpdateReference() {
-      this.users = [...this.users, this.newUser];
-      this.newUser = new User();
-    }
-      `;
-    this.text20 = `
-    @Pipe({
-      name: 'isAdult',
-      pure: false
-    })
-      `;
+</div>
+</div>`;
+    this.text18 = `addUser() {
+  this.users.push(this.newUser);
+  this.newUser = new User()
+}`;
+    this.text19 = `addUserByUpdateReference() {
+  this.users = [...this.users, this.newUser];
+  this.newUser = new User();
+}`;
+    this.text20 = `@Pipe({
+  name: 'isAdult',
+  pure: false
+})`;
   }
 
   changeAge(event: any) {

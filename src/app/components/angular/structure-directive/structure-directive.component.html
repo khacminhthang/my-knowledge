@@ -10,26 +10,36 @@
   <br>
   <p>Để hiển thị một phần view (template) theo điều kiện, chúng ta sẽ gắn thêm một property đặc biệt vào một tag</p>
   <br>
-  <pre>
-      <code><pre>{{text1}}</pre></code>
-  </pre>
-  <p>Hiển thị "Bạn có thể xem nội dung PG-13" nếu chọn tuổi lớn hơn hoặc bằng 13
-    và hiển thị "Bạn không thể xem nội dung PG-13" nếu tuổi bé hơn 13
-  </p>
-  <mat-form-field appearance="fill">
-    <mat-label>Chọn tuổi</mat-label>
-    <mat-select (selectionChange)="changeAge($event)">
-      <mat-option *ngFor="let age of ages" [value]="age.value">
-        {{age.value}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <div *ngIf="user.age >= 13">
-    Bạn có thể xem nội dung PG-13
+  <div class="row g-3 align-items-stretch mb-5">
+    <div class="col-12 col-lg-6">
+      <p class="preview-label">Code</p>
+      <pre class="h-100 mb-0"><code class="language-markup">{{ text1View }}</code></pre>
+    </div>
+    <div class="col-12 col-lg-6">
+      <p class="preview-label">Giao diện</p>
+      <div class="preview-pane">
+        <p>Hiển thị "Bạn có thể xem nội dung PG-13" nếu chọn tuổi lớn hơn hoặc bằng 13
+          và hiển thị "Bạn không thể xem nội dung PG-13" nếu tuổi bé hơn 13
+        </p>
+        <mat-form-field appearance="fill">
+          <mat-label>Chọn tuổi</mat-label>
+          <mat-select (selectionChange)="changeAge($event)">
+            <mat-option *ngFor="let age of ages" [value]="age.value">
+              {{age.value}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div *ngIf="user.age >= 13">
+          Bạn có thể xem nội dung PG-13
+        </div>
+        <div *ngIf="user.age < 13">
+          Bạn không thể xem nội dung PG-13
+        </div>
+      </div>
+    </div>
   </div>
-  <div *ngIf="user.age < 13">
-    Bạn không thể xem nội dung PG-13
-  </div>
+  <p class="mt-4"><strong>Ts file:</strong></p>
+  <pre><code class="language-typescript">{{ text1Ts }}</code></pre>
   <br>
 
   <!-- NG-TEMPLATE -->
@@ -41,9 +51,7 @@
     render bằng code</p>
   <p>Đoạn code trên tương đương với</p>
   <br>
-  <pre>
-      <code><pre>{{text2}}</pre></code>
-  </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text2 }}</code></pre>
   <br>
 
   <!-- NGFOROF -->
@@ -52,20 +60,24 @@
   <br>
   <p>Để hiển thị một danh sách các phần tử ra ngoài template, thực hiện vòng lặp ở template.</p>
   <p>Giả sử chúng ta có một danh sách các nhân viên như sau.</p>
-  <br>
-  <pre>
-      <code><pre>{{text3}}</pre></code>
-  </pre>
   <p>Cú pháp sử dụng NgForOf.</p>
-  <br>
-  <pre>
-      <code><pre>{{text4}}</pre></code>
-  </pre>
-  <p>Hiển thị danh sách nhân viên bằng NgForOf
-  </p>
-  <div *ngFor="let e of employees">
-    {{e.id}} - {{e.firstName}} {{e.lastName}}
+  <div class="row g-3 align-items-stretch mb-5">
+    <div class="col-12 col-lg-6">
+      <p class="preview-label">Code</p>
+      <pre class="h-100 mb-0"><code class="language-markup">{{ text4 }}</code></pre>
+    </div>
+    <div class="col-12 col-lg-6">
+      <p class="preview-label">Giao diện</p>
+      <div class="preview-pane">
+        <p>Hiển thị danh sách nhân viên bằng NgForOf</p>
+        <div *ngFor="let e of employees">
+          {{e.id}} - {{e.firstName}} {{e.lastName}}
+        </div>
+      </div>
+    </div>
   </div>
+  <p class="mt-4"><strong>Ts file:</strong></p>
+  <pre><code class="language-typescript">{{ text3 }}</code></pre>
   <br>
 
   <!-- MỘT SỐ LOCAL VARIABLE TRONG MỘT NGFOROF TEMPLATE -->
@@ -110,9 +122,7 @@
   </table>
   <p>Cú pháp sử dụng</p>
   <br>
-  <pre>
-      <code><pre>{{text5}}</pre></code>
-  </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text5 }}</code></pre>
   <br>
 
     <!-- SỬ DỤNG NHIỀU STRUCUTRE DIRECTIVE TRÊN CÙNG MỘT PHẦN TỬ -->
@@ -122,9 +132,7 @@
     <p>Không thể đặt nhiều hơn một structure directive lên một phần tử.</p>
     <p>Chúng ta có thể tách chúng ra và sử dụng thêm 1 tầng wrapper nữa</p>
     <br>
-    <pre>
-        <code><pre>{{text6}}</pre></code>
-    </pre>
+    <pre class="mb-0"><code class="language-markup">{{ text6 }}</code></pre>
     <br>
   
 </div>

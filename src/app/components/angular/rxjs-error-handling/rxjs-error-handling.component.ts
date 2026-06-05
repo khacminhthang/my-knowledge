@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+  standalone: false,
   selector: 'app-rxjs-error-handling',
   templateUrl: './rxjs-error-handling.component.html',
   styleUrls: ['./rxjs-error-handling.component.css']
@@ -81,197 +82,177 @@ export class RxjsErrorHandlingComponent implements OnInit {
       error: (err: any) => console.log(err),
       complete: () => console.log('complete'),
     };
-    this.text1 = `
-    const observer = {
-      next: (val) => console.log(val),
-      error: (err) => console.log(err),
-      complete: () => console.log('complete'),
-    };
-    `;
-    this.text2 = `
-    import { of } from "rxjs";
-    import { map, catchError } from "rxjs/operators";
-    const cached = [4, 5];
-    of(1, 2, 3, 4, 5)
-      .pipe(
-        map(n => {
-          if (cached.includes(n)) {
-            throw new Error("Duplicated: " + n);
-          }
-          return n;
-        }),
-        catchError((err, caught) => of(err))
-      )
-      .subscribe(observer);
-    
-    /**
-    * Output:
-    * --1--2--3--(next: Error)--|
-    */
-    `;
-    this.text3 = `
-    forkJoin([
-      of(1),
-      of(2),
-      throwError(new Error('401')),
-    ]).subscribe(observer);
-    /**
-    * Output:
-    * --(x: Error 401)--
-    */
-    
-    
-    // with catchError
-    
-    forkJoin([
-      of(1),
-      of(2),
-      throwError(new Error('401')).pipe(
-        catchError(err => of(err))
-      ),
-    ]).subscribe(observer);
-    
-    /**
-    * Output:
-    * --(next: [1, 2, Error 401])|--
-    */
-      `;
-    this.text4 = `
-    of(1, 2, 3, 4, 5)
-    .pipe(
-      map(n => {
-        if (cached.includes(n)) {
-          throw new Error("Duplicated: " + n);
-        }
-        return n;
-      }),
-      catchError((err, caught) => caught),
-      take(10)
-    )
-    .subscribe(observer);
-  
-  /**
-  * Output:
-  * --1--2--3--1--2--3--1|
-  */
-      `;
-    this.text5 = `
-    const cached = [4, 5];
-    of(1, 2, 3, 4, 5)
-      .pipe(
-        map(n => {
-          if (cached.includes(n)) {
-            throw new Error("Duplicated: " + n);
-          }
-          return n;
-        }),
-        retry(3)
-      )
-      .subscribe(observer);
-    
-    /**
-    * Output:
-    * --1--2--3--1--2--3--1--2--3--1--2--3--(x: Error)
-    */
-      `;
-    this.text6 = `
-    export function retryBackoff(
-      config: number | RetryBackoffConfig
-    ): <T>(source: Observable<T>) => Observable<T> {
-      const {
-        initialInterval,
-        maxRetries = Infinity,
-        maxInterval = Infinity,
-        shouldRetry = () => true,
-        resetOnSuccess = false,
-        backoffDelay = exponentialBackoffDelay,
-      } = typeof config === 'number' ? { initialInterval: config } : config;
-      return <T>(source: Observable<T>) =>
-        defer(() => {
-          let index = 0;
-          return source.pipe(
-            retryWhen<T>(errors =>
-              errors.pipe(
-                concatMap(error => {
-                  const attempt = index++;
-                  return iif(
-                    () => attempt < maxRetries && shouldRetry(error),
-                    timer(
-                      getDelay(backoffDelay(attempt, initialInterval), maxInterval)
-                    ),
-                    throwError(error)
-                  );
-                })
-              )
-            ),
-            tap(() => {
-              if (resetOnSuccess) {
-                index = 0;
-              }
-            })
-          );
-        });
+    this.text1 = `const observer = {
+  next: (val) => console.log(val),
+  error: (err) => console.log(err),
+  complete: () => console.log('complete'),
+};`;
+    this.text2 = `import { of } from "rxjs";
+import { map, catchError } from "rxjs/operators";
+const cached = [4, 5];
+of(1, 2, 3, 4, 5)
+  .pipe(
+    map(n => {
+      if (cached.includes(n)) {
+        throw new Error("Duplicated: " + n);
+      }
+      return n;
+    }),
+    catchError((err, caught) => of(err))
+  )
+  .subscribe(observer);
+
+/**
+* Output:
+* --1--2--3--(next: Error)--|
+*/`;
+    this.text3 = `forkJoin([
+  of(1),
+  of(2),
+  throwError(new Error('401')),
+]).subscribe(observer);
+/**
+* Output:
+* --(x: Error 401)--
+*/
+
+
+// with catchError
+
+forkJoin([
+  of(1),
+  of(2),
+  throwError(new Error('401')).pipe(
+    catchError(err => of(err))
+  ),
+]).subscribe(observer);
+
+/**
+* Output:
+* --(next: [1, 2, Error 401])|--
+*/`;
+    this.text4 = `of(1, 2, 3, 4, 5)
+.pipe(
+  map(n => {
+    if (cached.includes(n)) {
+      throw new Error("Duplicated: " + n);
     }
-      `;
-    this.text7 = `
-    import { fromEvent, timer } from 'rxjs';
-    import { throwIfEmpty, takeUntil } from 'rxjs/operators';
-     
-    const click$ = fromEvent(document, 'click');
-     
-    click$.pipe(
-      takeUntil(timer(1000)),
-      throwIfEmpty(
-        () => new Error('the document was not clicked within 1 second')
-      ),
-    )
-    .subscribe(observer);
-      `;
-    this.text8 = `
-    of(1, 2, 3, 4, 5, 6).pipe(
-      every(x => x < 5),
-    )
-    .subscribe(observer);
-    
-    /**
-    * Output:
-    * ------false|
-    */
-      `;
-    this.text9 = `
-    of(1, 2, 3, 14, 5, 6).pipe(
-      first(x => x > 10, false),
-      map(v => Boolean(v))
-    )
-    .subscribe(observer);
-    
-    /**
-    * Output:
-    * ------true|
-    */
-      `;
-    this.text10 = `
-    import { iif, of } from 'rxjs';
- 
-    let subscribeToFirst;
-    const firstOrSecond = iif(
-      () => subscribeToFirst,
-      of('first'),
-      of('second'),
-    );
-     
-    subscribeToFirst = true;
-    firstOrSecond.subscribe(value => console.log(value));
-     
-    // Logs:
-    // "first"
-     
-    subscribeToFirst = false;
-    firstOrSecond.subscribe(value => console.log(value));
-     
-    // Logs:
-    // "second"
-      `;
+    return n;
+  }),
+  catchError((err, caught) => caught),
+  take(10)
+)
+.subscribe(observer);
+
+/**
+* Output:
+* --1--2--3--1--2--3--1|
+*/`;
+    this.text5 = `const cached = [4, 5];
+of(1, 2, 3, 4, 5)
+  .pipe(
+    map(n => {
+      if (cached.includes(n)) {
+        throw new Error("Duplicated: " + n);
+      }
+      return n;
+    }),
+    retry(3)
+  )
+  .subscribe(observer);
+
+/**
+* Output:
+* --1--2--3--1--2--3--1--2--3--1--2--3--(x: Error)
+*/`;
+    this.text6 = `export function retryBackoff(
+  config: number | RetryBackoffConfig
+): <T>(source: Observable<T>) => Observable<T> {
+  const {
+    initialInterval,
+    maxRetries = Infinity,
+    maxInterval = Infinity,
+    shouldRetry = () => true,
+    resetOnSuccess = false,
+    backoffDelay = exponentialBackoffDelay,
+  } = typeof config === 'number' ? { initialInterval: config } : config;
+  return <T>(source: Observable<T>) =>
+    defer(() => {
+      let index = 0;
+      return source.pipe(
+        retryWhen<T>(errors =>
+          errors.pipe(
+            concatMap(error => {
+              const attempt = index++;
+              return iif(
+                () => attempt < maxRetries && shouldRetry(error),
+                timer(
+                  getDelay(backoffDelay(attempt, initialInterval), maxInterval)
+                ),
+                throwError(error)
+              );
+            })
+          )
+        ),
+        tap(() => {
+          if (resetOnSuccess) {
+            index = 0;
+          }
+        })
+      );
+    });
+}`;
+    this.text7 = `import { fromEvent, timer } from 'rxjs';
+import { throwIfEmpty, takeUntil } from 'rxjs/operators';
+
+const click$ = fromEvent(document, 'click');
+
+click$.pipe(
+  takeUntil(timer(1000)),
+  throwIfEmpty(
+    () => new Error('the document was not clicked within 1 second')
+  ),
+)
+.subscribe(observer);`;
+    this.text8 = `of(1, 2, 3, 4, 5, 6).pipe(
+  every(x => x < 5),
+)
+.subscribe(observer);
+
+/**
+* Output:
+* ------false|
+*/`;
+    this.text9 = `of(1, 2, 3, 14, 5, 6).pipe(
+  first(x => x > 10, false),
+  map(v => Boolean(v))
+)
+.subscribe(observer);
+
+/**
+* Output:
+* ------true|
+*/`;
+    this.text10 = `import { iif, of } from 'rxjs';
+
+let subscribeToFirst;
+const firstOrSecond = iif(
+  () => subscribeToFirst,
+  of('first'),
+  of('second'),
+);
+
+subscribeToFirst = true;
+firstOrSecond.subscribe(value => console.log(value));
+
+// Logs:
+// "first"
+
+subscribeToFirst = false;
+firstOrSecond.subscribe(value => console.log(value));
+
+// Logs:
+// "second"`;
   }
 
   changeAge(event: any) {

@@ -33,13 +33,9 @@
   </ul>
   <p>Mình sẽ setup form như ở dưới nhé.</p>
   <br>
-  <pre>
-      <code><pre>{{text1}}</pre></code>
-  </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text1 }}</code></pre>
   <p>Phần HTML của form sẽ có dạng như sau.</p>
-  <pre>
-    <code><pre>{{text2}}</pre></code>
-</pre>
+  <pre class="mb-0"><code class="language-markup">{{ text2 }}</code></pre>
   <br>
 
   <!--Custom Validators-->
@@ -63,9 +59,7 @@
   <p>Vì ko có API nên mình sẽ mock một hàm để check username và sẽ trả về false nếu như input là một trong 3 giá trị:
     trungvo, tieppt, chautran, nếu ko sẽ trả lại true. Mỗi khi validateUsername dc gọi mình cũng sẽ in ra console một
     dòng text Trigger API call để tiện cho việc demo ở dưới.</p>
-  <pre>
-      <code><pre>{{text3}}</pre></code>
-    </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text3 }}</code></pre>
   <p>Giờ mình sẽ tiến hành viết custom async validator để validate username trùng khớp. Để viết đc một async validator,
     các bạn có hai lựa chọn:</p>
   <ul>
@@ -84,13 +78,9 @@
       nhưng thông tin nên có giá trị một chút để sau này còn dùng hiển thị thông báo lỗi cho user chẳng hạn</li>
   </ul>
   <br>
-  <pre>
-    <code><pre>{{text4}}</pre></code>
-</pre>
+  <pre class="mb-0"><code class="language-markup">{{ text4 }}</code></pre>
   <p>Sau khi viết xong function, chúng ta cần config control để sử dụng validator đó.</p>
-  <pre>
-    <code><pre>{{text5}}</pre></code>
-</pre>
+  <pre class="mb-0"><code class="language-markup">{{ text5 }}</code></pre>
   <p>Tại sao phải có bind(this) thì đây là một chủ đề khá dài dòng 😂 Mình sẽ giải thích sau nhé.</p>
   <p>Kết quả như hình dưới. Khi điền đủ 6 kí tự alpha, khi đó username đã pass toàn bộ sync validator thì async
     validator sẽ đc trigger ngay sau khi bạn điền kí tự thứ 6. Sau đó, mỗi kí tự khi được nhập từ bàn phím vào sẽ
@@ -99,13 +89,9 @@
   <p>Bạn có thấy screenshot có điểm nào quen quen ko? Use case khi điền vào searchbox ko trigger API call ngay lập tức
     mà chỉ call API nếu như giữa hai keystroke cách nhau một khoảng thời gian, thường là 300ms. Chúng ta cũng có thể
     implement behavior đó tương tự như dùng async validator. Sửa đoạn code ở trên có dùng timer như ở dưới:</p>
-  <pre>
-      <code><pre>{{text6}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text6 }}</code></pre>
   <p>Sau đó config control để dùng validateUserNameFromAPIDebounce.</p>
-  <pre>
-    <code><pre>{{text7}}</pre></code>
-    </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text7 }}</code></pre>
   <p>Kết quả đây, sau khi đã type chautr đủ 6 kí tự. Mình sẽ type ba lăng nhăng và sau khi dừng ko type nữa thì API sẽ
     được trigger sau 300ms, chứ ko phải sau mỗi keystroke.
   </p>
@@ -121,29 +107,21 @@
     khi đã validate xong, nếu username bị trùng lặp thì nút Register mới lại đc vô hiệu hóa.</p>
   <br>
   <p>Để chứng minh thì mình sẽ add thêm hàm onSubmit:</p>
-  <pre>
-      <code><pre>{{text8}}</pre></code>
-  </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text8 }}</code></pre>
   <p>Có thể thấy là mình vẫn bấm được nút Register trong khi đang validate username 😂 Để fix lỗi này thì mình có tham
     khảo một câu trả lời trên stackoveflow.</p>
   <p>Ý tưởng là thay vì ngSubmit sẽ trigger thẳng hàm submit, thay vào đó mình sẽ tạo ra một Subject tên là formSubmit$
     và handle chỉ khi nào status của form chuyển thành VALID thì formSubmit$ mới emit một value, từ đó mới call hàm
     submitForm.</p>
-  <pre>
-      <code><pre>{{text8}}</pre></code>
-  </pre>
-  <pre>
-    <code><pre>{{text9}}</pre></code>
-  </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text8 }}</code></pre>
+  <pre class="mb-0"><code class="language-markup">{{ text9 }}</code></pre>
   <p>Test thôi anh em. Như trong hình thì trong khoảng thời gian đang validate mà nút Register đc enable thì có bấm nút
     cũng sẽ ko trigger hàm submitForm và ko có console hiện ra.</p>
   <strong>2. Bonus: Validate confirm password</strong>
   <p>Use case để validate confirm password trùng với password thì chúng ta chỉ cần viết một hàm custom validator đơn
     giản hơn, nhưng hàm này vì cần value của 2 controls nên mình sẽ apply validator này cho formGroup nhé. Code của
     function validateControlsValue sẽ như sau:</p>
-  <pre>
-      <code><pre>{{text10}}</pre></code>
-  </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text10 }}</code></pre>
   <ul>
     <li>Mình tạo ra hàm validateControlsValue và truyền vào tên của 2 controls. Function này sẽ return lại một function
       làm nhiệm vụ validate.</li>
@@ -152,8 +130,6 @@
       báo lỗi để dựa vào đó ta có thể hiển thị lên UI.</li>
   </ul>
   <p>Sau đó mình apply validator này vào form group.</p>
-  <pre>
-    <code><pre>{{text11}}</pre></code>
-</pre>
+  <pre class="mb-0"><code class="language-markup">{{ text11 }}</code></pre>
   <br>
 </div>

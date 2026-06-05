@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+  standalone: false,
   selector: 'app-type-conversion',
   templateUrl: './type-conversion.component.html',
   styleUrls: ['./type-conversion.component.css']

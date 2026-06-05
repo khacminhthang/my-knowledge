@@ -6,29 +6,36 @@
   <nav class="nav">
     <ul>
       <li><span class="d-flex align-items-center p-2" style="cursor: pointer;"
-          routerLink="/angular/data-binding">Angular</span></li>
-      <li><span class="d-flex align-items-center p-2" style="cursor: pointer;" routerLink="/csharp/overview">C#</span>
+          [class.is-active]="isSectionActive('/angular')" routerLink="/angular/data-binding">Angular</span></li>
+      <li><span class="d-flex align-items-center p-2" style="cursor: pointer;"
+          [class.is-active]="isSectionActive('/csharp')" routerLink="/csharp/overview">C#</span>
       </li>
       <li> <span class="d-flex align-items-center p-2" style="cursor: pointer;"
-          routerLink="/dotnetcore/repository">ASP.NetCore</span></li>
-      <li><span class="d-flex align-items-center p-2" style="cursor: pointer;" routerLink="/efcore/intro">EFCore</span>
+          [class.is-active]="isSectionActive('/dotnetcore')" routerLink="/dotnetcore/repository">ASP.NetCore</span></li>
+      <li><span class="d-flex align-items-center p-2" style="cursor: pointer;"
+          [class.is-active]="isSectionActive('/efcore')" routerLink="/efcore/intro">EFCore</span>
       </li>
       <li><span class="d-flex align-items-center p-2" style="cursor: pointer;"
-          routerLink="/message-broker/overview">Message
+          [class.is-active]="isSectionActive('/message-broker')" routerLink="/message-broker/overview">Message
           Broker</span></li>
       <li><span class="d-flex align-items-center p-2" style="cursor: pointer;"
-          routerLink="/micro-fe/micro-fe-overview">Micro frontends</span></li>
+          [class.is-active]="isSectionActive('/micro-fe')" routerLink="/micro-fe/micro-fe-overview">Micro frontends</span></li>
     </ul>
   </nav>
+  <button type="button" class="theme-toggle" (click)="toggleTheme()"
+    [matTooltip]="theme === 'dark' ? 'Light mode' : 'Dark mode'" matTooltipPosition="below"
+    [attr.aria-label]="theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'">
+    <mat-icon>{{ theme === 'dark' ? 'light_mode' : 'dark_mode' }}</mat-icon>
+  </button>
 </header>
 
 <div class="dropdown mobile-menu" [ngClass]="{'open': isMenuOpen}">
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <li style="cursor: pointer;" routerLink="/angular/data-binding"><span>Angular</span></li>
-    <li style="cursor: pointer;" routerLink="/csharp/overview"><span>C#</span></li>
-    <li style="cursor: pointer;" routerLink="/dotnetcore/repository"><span>ASP.NetCore</span></li>
-    <li style="cursor: pointer;" routerLink="/efcore/intro"><span>EFCore</span></li>
-    <li style="cursor: pointer;" routerLink="/message-broker/overview"><span>Message Broker</span></li>
-    <li style="cursor: pointer;" routerLink="/micro-fe/micro-fe-overview"><span>Micro frontends</span></li>
+    <li style="cursor: pointer;" [class.is-active]="isSectionActive('/angular')" routerLink="/angular/data-binding"><span>Angular</span></li>
+    <li style="cursor: pointer;" [class.is-active]="isSectionActive('/csharp')" routerLink="/csharp/overview"><span>C#</span></li>
+    <li style="cursor: pointer;" [class.is-active]="isSectionActive('/dotnetcore')" routerLink="/dotnetcore/repository"><span>ASP.NetCore</span></li>
+    <li style="cursor: pointer;" [class.is-active]="isSectionActive('/efcore')" routerLink="/efcore/intro"><span>EFCore</span></li>
+    <li style="cursor: pointer;" [class.is-active]="isSectionActive('/message-broker')" routerLink="/message-broker/overview"><span>Message Broker</span></li>
+    <li style="cursor: pointer;" [class.is-active]="isSectionActive('/micro-fe')" routerLink="/micro-fe/micro-fe-overview"><span>Micro frontends</span></li>
   </ul>
 </div>

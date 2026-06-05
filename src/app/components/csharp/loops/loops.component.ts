@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+  standalone: false,
   selector: 'app-loops',
   templateUrl: './loops.component.html',
   styleUrls: ['./loops.component.css']
 })
 export class LoopsComponent implements OnInit {
-  text1 = `
-using System;
+  text1 = `using System;
 
 namespace Csharp
 {
@@ -24,8 +24,7 @@ namespace Csharp
             }
         }
     }
-}
-`
+}`
   constructor() { }
 
   ngOnInit(): void {

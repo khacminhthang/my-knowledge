@@ -87,15 +87,11 @@
   <strong>Config router cơ bản</strong>
   <p>Khi tạo ứng dụng mới theo step ở trên thì CLI đã mặc định tạo ra một module với tên gọi AppRoutingModule và tự động
     import vào AppModule cho chúng ta.</p>
-  <pre>
-            <code><pre>{{text1}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text1 }}</code></pre>
   <p>Có ba thành phần chính khi làm việc với Router</p>
   <p>1. Bạn cần import RouterModule and Routes vào trong router module của bạn, ở đây, chính là AppRoutingModule</p>
   <br>
-  <pre>
-                  <code><pre>{{text2}}</pre></code>
-              </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text2 }}</code></pre>
   <p>hú ý là AppRoutingModule vừa import và export RouterModule. Điều này có nghĩa là khi bạn import AppRoutingModule
     vào các module khác, bạn ko cần import lại RouterModule để sử dụng nữa vì nó đã được đc re-export từ
     AppRoutingModule.</p>
@@ -116,9 +112,7 @@
 
   <p>2. Config routes trong mảng Routes</p>
   <p>Với yêu cầu của mình và hai component vừa được tạo, thì cấu hình sẽ như ở dưới</p>
-  <pre>
-              <code><pre>{{text3}}</pre></code>
-            </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text3 }}</code></pre>
   <p>Mỗi object Route có hai thành phần chính quan trọng là path và component. Ở đây với định nghĩa như ở trên, thì khi
     bạn mở ứng dụng, mặc định sẽ load component ArticleListComponent, và nếu bạn mở đường link /detail thì router sẽ
     load component ArticleDetailComponent tương ứng.</p>
@@ -127,9 +121,7 @@
   <p>3. Sử dụng route trong ứng dụng</p>
   <p>Sau khi đã config ở bước hai, thì giờ mình có thể sử dụng router được rồi. Dùng routerLink trong thẻ a> để gán phần
     URL như đã config và router-outlet> sẽ là nơi phần component được load tương ứng khi mở URL tương ứng.</p>
-  <pre>
-              <code><pre>{{text4}}</pre></code>
-          </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text4 }}</code></pre>
   <p>Chạy thử thì thấy router đã hoạt động như kì vọng.</p>
 
   <strong>Thứ tự route khi config</strong>
@@ -152,32 +144,22 @@
     lấy thông tin của bản ghi chi tiết.
   </p>
   <p>Bây giờ mình sẽ render ra một danh sách các bài viết dựa vào data.</p>
-  <pre>
-                          <code><pre>{{text5}}</pre></code>
-                      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text5 }}</code></pre>
 
   <p>Và trong component list, mình sẽ render ra dựa vào data ở trên.</p>
   <br>
-  <pre>
-    <code><pre>{{text6}}</pre></code>
-</pre>
-  <pre>
-  <code><pre>{{text7}}</pre></code>
-</pre>
+  <pre class="mb-0"><code class="language-markup">{{ text6 }}</code></pre>
+  <pre class="mb-0"><code class="language-markup">{{ text7 }}</code></pre>
   <p>Giờ phần việc còn lại là config để route detail có thể nhận dc slug khi mình truyền qua URL, các bạn sửa lại phần
     Router config như này nhé.</p>
   <br>
-  <pre>
-        <code><pre>{{text8}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text8 }}</code></pre>
   <p>Thay vì path: 'detail', giờ mình sửa lại thành path: ':slug'. Dấu hai chấm là cú pháp của router cho phép bạn định
     nghĩa ra một parameter trên URL. Phần sau dấu hai chấm là tên của parameter mà bạn có thể lấy được từ trong
     ArticleDetailComponent</p>
   <p>Ở trong ArticleDetailComponent, để lấy được slug từ URL. Mình inject ActivatedRoute vào và lấy thông tin của params
     tên slug từ route snapshoot.</p>
-  <pre>
-      <code><pre>{{text9}}</pre></code>
-  </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text9 }}</code></pre>
   <p>Xong rồi đấy, giờ xem thành quả nhé. Bạn thấy không, ngay cả khi reload lại page thì ArticleDetailComponent vẫn lấy
     được thông tin về slug và dựa vào đó để lấy data rồi hiển thị thông tin như mình mong muốn.</p>
   <p>Phần xử lý lỗi khi không tìm thấy bài viết chúng ta sẽ cùng tìm hiểu ở các bài viết sau.</p>

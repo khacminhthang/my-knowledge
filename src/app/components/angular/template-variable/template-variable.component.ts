@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+  standalone: false,
   selector: 'app-template-variable',
   templateUrl: './template-variable.component.html',
   styleUrls: ['./template-variable.component.scss']
@@ -57,71 +58,57 @@ export class TemplateVariableComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.text1 = `
-    <button (click)="doSomething">Toggle</button>
+    this.text1 = `<button (click)="doSomething">Toggle</button>
 
-    <br>
-    
-    <app-toggle></app-toggle>
-    `;
-    this.text2 = `
-    <button (click)="toggleComp.toggle()">Toggle</button>
+<br>
 
-    <br>
+<app-toggle></app-toggle>`;
+    this.text2 = `<button (click)="toggleComp.toggle()">Toggle</button>
 
-    <app-toggle #toggleComp></app-toggle>
-    `;
-    this.text3 = `
-  <form #nameForm="ngForm">
-    <input
-      type="text" class="form-control"
-      required
-      [(ngModel)]="model.name" name="name"
-      #name="ngModel">
-    <button>Submit</button>
-  </form>
-      `;
-    this.text4 = `
-    VIEW: 
-    <button (click)="toggleInside()">Toggle inside class</button>
-    <br>
-    <br>
-    
-    <app-toggle #toggleComp></app-toggle>
+<br>
 
-  TS class
-  export class AppComponent  {
-    @ViewChild('toggleComp') toggleComp: ToggleComponent;
-    toggleInside() {
-      this.toggleComp.toggle();
-    }
-  }
-      `;
-    this.text5 = `
-    <div #chartContainer></div>
+<app-toggle #toggleComp></app-toggle>`;
+    this.text3 = `<form #nameForm="ngForm">
+  <input
+    type="text" class="form-control"
+    required
+    [(ngModel)]="model.name" name="name"
+    #name="ngModel">
+  <button>Submit</button>
+</form>`;
+    this.text4 = `VIEW:
+<button (click)="toggleInside()">Toggle inside class</button>
+<br>
+<br>
 
-    export class AppComponent  {
-      @ViewChild('chartContainer') container: ElementRef<HTMLDivElement>;
-    }
-      `;
-    this.text6 = `
-    // View queries are set before the ngAfterViewInit callback is called.
-    ViewChild(selector: string | Function | Type<any>, opts?: {
-      read?: any;
-      static?: boolean;
-    })
-      `;
-    this.text7 = `
-    <app-toggle></app-toggle>
-    <br>
-    <app-toggle></app-toggle>
+<app-toggle #toggleComp></app-toggle>
 
-    @ViewChildren(ToggleComponent) toggleList: QueryList<ToggleComponent>;
+TS class
+export class AppComponent  {
+@ViewChild('toggleComp') toggleComp: ToggleComponent;
+toggleInside() {
+  this.toggleComp.toggle();
+}
+}`;
+    this.text5 = `<div #chartContainer></div>
 
-    ngAfterViewInit() {
-      console.log(this.toggleList);
-    }
-      `;
+export class AppComponent  {
+  @ViewChild('chartContainer') container: ElementRef<HTMLDivElement>;
+}`;
+    this.text6 = `// View queries are set before the ngAfterViewInit callback is called.
+ViewChild(selector: string | Function | Type<any>, opts?: {
+  read?: any;
+  static?: boolean;
+})`;
+    this.text7 = `<app-toggle></app-toggle>
+<br>
+<app-toggle></app-toggle>
+
+@ViewChildren(ToggleComponent) toggleList: QueryList<ToggleComponent>;
+
+ngAfterViewInit() {
+  console.log(this.toggleList);
+}`;
   }
 
   changeAge(event: any) {

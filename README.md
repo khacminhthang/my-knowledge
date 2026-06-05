@@ -30,3 +30,40 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 npm install -g firebase-tools@9.23.0
 firebase login
 firebase init
+
+## Architecture Overview
+
+This repository is organized as a knowledge hub with one Angular app and multiple
+domain-focused feature areas.
+
+### High-level structure
+
+- `src/app/app-routing.module.ts`: top-level lazy-loaded domains (`angular`, `csharp`, `dotnetcore`, `efcore`, `message-broker`, `micro-fe`).
+- `src/app/layout/fragments/`: shared shell (`MainShellComponent`) + sidebar/header/footer.
+- `src/assets/menu.ts`: central menu tree used by the shell to render navigation.
+
+### Angular domain structure
+
+The Angular domain is now split into topic modules to keep feature growth manageable:
+
+- `src/app/components/angular/angular-common-concepts.module.ts`
+- `src/app/components/angular/angular-rxjs.module.ts`
+- `src/app/components/angular/angular-router-concepts.module.ts`
+- `src/app/components/angular/angular-forms.module.ts`
+- `src/app/components/angular/angular-ngrx.module.ts`
+- shared imports: `src/app/components/angular/angular-shared-feature.module.ts`
+
+Routing is grouped by topic:
+
+- `src/app/components/angular/routes/common-concepts.routes.ts`
+- `src/app/components/angular/routes/rxjs.routes.ts`
+- `src/app/components/angular/routes/router.routes.ts`
+- `src/app/components/angular/routes/forms.routes.ts`
+- `src/app/components/angular/routes/ngrx.routes.ts`
+
+### Conventions
+
+- Menu state is route-driven via `data.menuKey` on top-level routes.
+- Menu model is strongly typed with recursive nodes in `src/app/core/interface/IMenu.ts`.
+- Slugs are normalized with backward-compatible redirects in Angular routes
+	(for example typo fixes such as `ngrx-store-intall` -> `ngrx-store-install`).

@@ -42,9 +42,7 @@
   <p>Bây giờ chúng ta thử implement giải pháp thông thường và giải pháp với RxJS xem sao. Các bạn hãy khoan đi vào chi
     tiết những phần code RxJS dưới đây:</p>
   <br>
-  <pre>
-            <code><pre>{{text1}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text1 }}</code></pre>
   <p>Với cách sử dụng RxJS cho bài toán trên quả không tệ, và nếu cần transform thêm nữa thì chúng ta hoàn toàn có thể
     handle được</p>
   <br>
@@ -98,14 +96,10 @@
   <strong>Creating Observables</strong>
   <p>Để create một Observable chúng ta chỉ cần gọi constructor và truyền vào một function (gọi là subscribe), trong đó
     subscribe function sẽ nhận đầu vào là một Observer.</p>
-  <pre>
-            <code><pre>{{text2}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text2 }}</code></pre>
   <br>
   <p>Để có thể clean up chúng ta sẽ return về một function trong subscribe function như sau:</p>
-  <pre>
-            <code><pre>{{text3}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text3 }}</code></pre>
   <br>
 
   <strong>Invoking Observable</strong>
@@ -115,9 +109,7 @@
   <p>Để invoke một Observable bạn chỉ cần subscribe vào nó là được. Và sau khi subscribe thì nó sẽ trả về một
     Subscription.</p>
 
-  <pre>
-            <code><pre>{{text4}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text4 }}</code></pre>
   <br>
   <p>Ở trong ví dụ trên chúng ta đã cung cấp đầy đủ 3 hàm callback cho một Observer, bạn hoàn toàn có thể không cung cấp
     một callback nào hoặc cung cấp một vài callback cũng được.</p>
@@ -154,9 +146,7 @@
     liệu này có một method unsubscribe khi chúng ta gọi đến, nó sẽ thực hiện cơ chế để hủy việc thực thi.</p>
   <p>Lưu ý: nếu bạn tự tạo Observable (bằng new Observable chẳng hạn) thì bạn phải tự thiết lập cơ chế để hủy.</p>
 
-  <pre>
-            <code><pre>{{text5}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text5 }}</code></pre>
   <br>
   <p>Ở trong ví dụ trên chúng ta đã cung cấp đầy đủ 3 hàm callback cho một Observer, bạn hoàn toàn có thể không cung cấp
     một callback nào hoặc cung cấp một vài callback cũng được.</p>
@@ -170,15 +160,11 @@
     tương ứng cho mỗi loại notification được gửi từ Observable: next, error, complete.</p>
   <p>Một Observer có dạng như sau:</p>
   <br>
-  <pre>
-          <code><pre>{{text6}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text6 }}</code></pre>
   <br>
   <p>Observer được cung cấp là tham số đầu vào của subscribe để kích hoạt Observable execution.</p>
   <br>
-  <pre>
-          <code><pre>{{text7}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text7 }}</code></pre>
   <br>
   <p>Observe có thể chỉ có một số callbacks trong bộ 3 callbacks kể trên (có thể là một object không có callback nào
     trong bộ kể trên, trường hợp này ít dùng đến).</p>
@@ -187,15 +173,11 @@
   <p>Cách dùng này hiện tại không khuyến cáo sử dụng, chỉ dùng cách truyền function nếu bạn có một hàm để handle Next
     notification.</p>
   <br>
-  <pre>
-          <code><pre>{{text8}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text8 }}</code></pre>
   <br>
   <p>Lưu ý: Nếu bạn không muốn truyền error handler function vào, hãy truyền null/undefined:</p>
   <br>
-  <pre>
-          <code><pre>{{text9}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text9 }}</code></pre>
   <br>
 
   <!--Subscription-->
@@ -208,18 +190,14 @@
   <p>Ví dụ: chúng ta có một đồng hồ đếm thời gian, mỗi giây sẽ gửi đi một giá trị, giả sử sau khi chạy 5s chúng ta cần
     hủy phần thực thi này.</p>
   <br>
-  <pre>
-          <code><pre>{{text10}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text10 }}</code></pre>
   <br>
   <p>Một Subscription có thể chứa trong nó nhiều Subscriptions con, khi Subscription unsubscribe, các Subscriptions con
     cũng sẽ unsubscribe.</p>
   <p>Ở Subscription cha, chúng ta có thể gọi method add để thêm các Subscriptions con mà phụ thuộc Subscription cha
     này.</p>
   <br>
-  <pre>
-          <code><pre>{{text11}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text11 }}</code></pre>
   <br>
   <br>
 </div>

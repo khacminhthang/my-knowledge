@@ -1,16 +1,18 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { MenuNode } from 'src/app/core/interface/IMenu';
 
 @Component({
+  standalone: false,
   selector: 'app-side-navbar',
   templateUrl: './side-navbar.component.html',
   styleUrls: ['./side-navbar.component.css']
 })
 export class SideNavbarComponent implements OnInit {
 
-  currentUrl: string;
+  currentUrl = '';
 
-  @Input() menuList: any;
+  @Input() menuList: MenuNode[] = [];
 
   constructor(private router: Router) {
     this.router.events.subscribe(event => {
@@ -28,10 +30,19 @@ export class SideNavbarComponent implements OnInit {
     return `padding-level-${level}`;
   }
 
-  isExpanded(menu: any): boolean {
-    if (menu.children) {
-      return menu.children.some((submenu: { routerLink: string; }) => this.currentUrl.includes(submenu.routerLink));
+  isExpanded(menu: MenuNode): boolean {
+    if (!menu.children?.length) {
+      return false;
     }
-    return false;
+
+    return menu.children.some((submenu: MenuNode) => this.isRouteActive(submenu));
+  }
+
+  private isRouteActive(menu: MenuNode): boolean {
+    if (menu.routerLink && menu.routerLink !== '#') {
+      return this.currentUrl.includes(menu.routerLink);
+    }
+
+    return menu.children?.some((submenu: MenuNode) => this.isRouteActive(submenu)) ?? false;
   }
 }

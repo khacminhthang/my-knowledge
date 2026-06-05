@@ -34,17 +34,11 @@
     như thế?</p>
   <p>Chúng ta sẽ tạo mới một component để tiến hành bài học:</p>
   <br>
-  <pre>
-        <code><pre>{{text1}}</pre></code>
-    </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text1 }}</code></pre>
   <br>
-  <pre>
-          <code><pre>{{text2}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text2 }}</code></pre>
   <p>Component của chúng ta sẽ có template như form từ những ngày đã qua.</p>
-  <pre>
-      <code><pre>{{text3}}</pre></code>
-    </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text3 }}</code></pre>
   <br>
 
   <!--Integrate Angular Forms-->
@@ -54,9 +48,7 @@
   <p>Để sử dụng được Reactive Forms ở trong ứng dụng, chúng ta cần imports một NgModule là ReactiveFormsModule vào
     NgModule quản lý component của chúng ta - trong trường hợp của component hiện tại là AppModule.</p>
   <br>
-  <pre>
-      <code><pre>{{text4}}</pre></code>
-  </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text4 }}</code></pre>
 
   <!--FormGroup, FormControl, FormArray-->
   <span  class="title pb-0">FormGroup, FormControl, FormArray</span>
@@ -73,9 +65,7 @@
   </ul>
   <p>Thông thường, mỗi một form sẽ bắt đầu bởi một FormGroup, nó sẽ đăng ký các AbstractControl khác bên trong nó.</p>
   <p>Đối với Sign In form của chúng ta ở trên, chúng ta có thể khởi tạo nó như sau.</p>
-  <pre>
-        <code><pre>{{text5}}</pre></code>
-    </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text5 }}</code></pre>
   <br>
 
   <!--Binding Form-->
@@ -83,15 +73,11 @@
   <div class="border-b1"></div>
   <br>
   <p>Để binding giữa form model và template lại với nhau, chúng ta sẽ dùng directive [formGroup] như sau:</p>
-  <pre>
-    <code><pre>{{text6}}</pre></code>
-    </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text6 }}</code></pre>
   <br>
   <p>Để binding các FormControl vào các form control như textbox, checkbox chúng ta sẽ dùng một directive đó là
     formControlName. Đầu vào của nó sẽ là key mà chúng ta dùng để khai báo control trong FormGroup gần nhất:</p>
-  <pre>
-        <code><pre>{{text7}}</pre></code>
-    </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text7 }}</code></pre>
   <p>Như vậy, chỉ với một vài bước đơn giản, các bạn đã có thể có được form ưng ý.</p>
   <br>
 
@@ -104,9 +90,7 @@
     Angular Reactive Forms cung cấp luôn cho chúng ta một service là FormBuilder để các bạn có thể khởi tạo form nhanh
     hơn.</p>
   <p>Để sử dụng service này, bạn chỉ cần inject vào constructor là được.</p>
-  <pre>
-          <code><pre>{{text8}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text8 }}</code></pre>
   <br>
 
   <!--Cập nhật giá trị cho Reactive Forms qua pathValue hoặc setValue-->
@@ -126,9 +110,7 @@
   <p>Vậy nên nếu bạn muốn cập nhật một phần của form thì hãy dùng patchValue, nếu bạn muốn set lại tất cả và đảm bảo
     không cái nào bị thiếu thì dùng setValue để tận dụng việc báo lỗi của nó.</p>
   <p>Ngoài ra, còn có phương thức reset để bạn có thể reset lại trạng thái lúc khởi tạo của form hoặc control.</p>
-  <pre>
-      <code><pre>{{text9}}</pre></code>
-    </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text9 }}</code></pre>
   <br>
 
   <!--Event Submit vs NgSubmit-->
@@ -137,11 +119,7 @@
   <br>
   <p>Angular Reactive Forms cũng cung cấp event ngSubmit giống như Template-driven Forms, các bạn chỉ cần listen vào
     event đó là được.</p>
-  <pre>
-                      <code><pre>{{text10}}</pre></code>
-                  </pre>
-  <pre>
-                      <code><pre>{{text11}}</pre></code>
-                  </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text10 }}</code></pre>
+  <pre class="mb-0"><code class="language-markup">{{ text11 }}</code></pre>
   <br>
 </div>

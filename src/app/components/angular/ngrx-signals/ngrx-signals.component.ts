@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+  standalone: false,
   selector: 'app-ngrx-signals',
   templateUrl: './ngrx-signals.component.html',
   styleUrls: ['./ngrx-signals.component.css']

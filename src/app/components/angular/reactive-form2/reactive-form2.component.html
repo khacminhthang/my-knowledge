@@ -13,14 +13,10 @@
     một checkbox.
   </p>
   <br>
-  <pre>
-        <code><pre>{{text1}}</pre></code>
-    </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text1 }}</code></pre>
   <p>Phần HTML của form sẽ có dạng như sau.</p>
   <br>
-  <pre>
-          <code><pre>{{text2}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text2 }}</code></pre>
 
   <ul>
     <li>Đầu tiên, set formGroup input của thẻ form tới signInForm mình đã tạo bằng FormBuilder</li>
@@ -59,31 +55,23 @@
     <li>Hoặc null tức là control này ko có lỗi gì.</li>
   </ul>
   <p>Ví dụ như input cần có độ dài tối thiểu là 6, thì function validate khi nhận control đầu vào sẽ check ngay giá trị
-    của control đó xem có đủ độ dài hay ko, đơn giản như control.value.length 6 ? "notValid" : "input too short!" }
+    của control đó xem có đủ độ dài hay ko, đơn giản như control.value.length 6 ? "notValid" : "input too short!" &#125;
     : null</p>
   <p>Khi khởi tạo FormControl thì Sync validators sẽ được truyền vào ở argument số 2. Argument số 1 sẽ là giá trị mặc
     định khi khởi tạo form nhé.</p>
-  <pre>
-      <code><pre>{{text3}}</pre></code>
-    </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text3 }}</code></pre>
   <strong>2. Async validators (bất đồng bộ)</strong>
   <p>Đây là các validate function sẽ trả về Promise hoặc Observable. Ví dụ như bạn muốn validate xem username nhập vào
     đã có trong hệ thống hay chưa. Thì bắt buộc bạn phải gửi một yêu cầu lên server để làm việc này, HTTP request thường
     sẽ trả về Promise/Observable.</p>
   <p>Khi khởi tạo FormControl thì async validators sẽ được truyển vào ở argument số 3.</p>
-  <pre>
-    <code><pre>{{text4}}</pre></code>
-</pre>
+  <pre class="mb-0"><code class="language-markup">{{ text4 }}</code></pre>
   <strong>Implement validate function</strong>
   <p>Angular có cung cấp một set các validate function trong class Validators, cụ thể:</p>
-  <pre>
-    <code><pre>{{text5}}</pre></code>
-</pre>
+  <pre class="mb-0"><code class="language-markup">{{ text5 }}</code></pre>
   <p>Mình sẽ cần dùng Validators.required, Validators.minLength và Validators.pattern cho yêu cầu như đã nói kể trên.
     Phần code khởi tạo form với validators sẽ trông như sau.</p>
-  <pre>
-      <code><pre>{{text6}}</pre></code>
-  </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text6 }}</code></pre>
   <p>Mình dùng Validators.compose và truyển vào một mảng các validators để có thể kết hợp được nhiều loại validators với
     nhau. Pattern cho username và password mình copy từ code của anh Tiệp trong Day 34 nhé, có gì cứ blame anh ấy 😂.
   </p>
@@ -103,16 +91,12 @@
     valid. Nếu bạn thử điền chỉ toàn dấu cách thì control này cũng sẽ được pass Validators.require.</p>
   <p>Như ví dụ ở trên thì sau khi mình điền đủ 6 kí tự khoảng trắng, thì Validators.required và Validators.minLength đã
     pass. Nhưng vì có Validators.pattern nên control vẫn invalid. Ví dụ bây giờ username sẽ cho phép điền toàn bộ kí tự.
-    Để minh họa thì mình sẽ tạm bỏ Validators.pattern(/^[a-z]6,32}$/i) đi nhé.</p>
-  <pre>
-      <code><pre>{{text6}}</pre></code>
-  </pre>
+    Để minh họa thì mình sẽ tạm bỏ Validators.pattern(/^[a-z]6,32&#125;$/i) đi nhé.</p>
+  <pre class="mb-0"><code class="language-markup">{{ text6 }}</code></pre>
   <p>Bây giờ khi điền dủ 6 dấu cách thì input đã pass validators!</p>
-  <p>Để xử lý trường hợp trên mà ko dùng thêm tới Validators.pattern(/^[a-z]6,32}$/i), mình sẽ viết một custom
+  <p>Để xử lý trường hợp trên mà ko dùng thêm tới Validators.pattern(/^[a-z]6,32&#125;$/i), mình sẽ viết một custom
     validator có tên là</p>
-  <pre>
-      <code><pre>{{text7}}</pre></code>
-  </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text7 }}</code></pre>
   <p>Phần code khá đơn giản</p>
   <ul>
     <li>1. Lấy giá trị của control</li>
@@ -122,9 +106,7 @@
     <li>4. Dựa vào đó và return lại errors hay null.</li>
   </ul>
   <p>Giờ thì mình sẽ bỏ Validators.required và thay bằng NoWhitespaceValidator.</p>
-  <pre>
-    <code><pre>{{text9}}</pre></code>
-</pre>
+  <pre class="mb-0"><code class="language-markup">{{ text9 }}</code></pre>
   <p>Test thử thì thấy hoạt động khá mượt mà như ý muốn. Vậy là đã xong custom validator đầu tiên rồi đấy 😂</p>
   <br>
 </div>

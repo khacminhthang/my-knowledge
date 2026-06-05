@@ -15,9 +15,7 @@
   <p>Như signature trên thì filter() sẽ nhận vào 1 predicate là 1 function mà function này phải trả về giá trị truthy
     hoặc falsy. Nếu như truthy thì filter() sẽ emit giá trị của Observable tại thời điểm đó. Ngược lại nếu như falsy,
     thì filter() sẽ không emit giá trị đó. Cách hoạt động giống như Array.prototype.filter() vậy.</p>
-  <pre>
-      <code><pre>{{text1}}</pre></code>
-  </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text1 }}</code></pre>
   <br>
 
   <!-- first() -->
@@ -32,17 +30,13 @@
     mà không nhận vào giá trị nào).
   </p>
   <br>
-  <pre>
-      <code><pre>{{text2}}</pre></code>
-  </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text2 }}</code></pre>
   <p>Ngoài ra, first() còn có thể nhận vào 2 tham số optional: predicate và defaultValue. Nếu như bạn truyền vào
     predicate thì first() sẽ throw Error nếu như Observable đã complete mà chưa có giá trị nào thoả được điều kiện của
     predicate. Nếu như bạn truyền vào predicate và không muốn có Error thì hãy truyền thêm vào defaultValue.</p>
   <p>Nếu bạn nào từng làm qua .NET LINQ thì first(predicate, defaultValue) hoạt động tương tự FirstOrDefault</p>
   <br>
-  <pre>
-                  <code><pre>{{text3}}</pre></code>
-              </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text3 }}</code></pre>
   <br>
 
   <!--last()-->
@@ -60,9 +54,7 @@
     <li>Emit defaultValue nếu như có predicate và defaultValue và không có giá trị nào thoả điều kiện.</li>
   </ul>
   <br>
-  <pre>
-                <code><pre>{{text4}}</pre></code>
-            </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text4 }}</code></pre>
   <br>
 
   <!--find()-->
@@ -74,9 +66,7 @@
   <p>Lại là một operator có signature khác quen thuộc. Giống như Array.prototype.find(), find() sẽ emit giá trị đầu tiên
     mà thoả mãn được điều kiện từ predicate rồi complete. Khác với first(), find() phải có predicate và find() sẽ không
     emit Error nếu như không có giá trị nào thoả mãn điều kiện.</p>
-  <pre>
-                <code><pre>{{text5}}</pre></code>
-            </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text5 }}</code></pre>
   <br>
 
   <!--single()-->
@@ -88,9 +78,7 @@
     giá trị thoả điều kiện. single() không nhận vào defautlValue và sẽ emit undefined nếu như không có giá trị nào thoả
     điều kiện khi truyền vào tham số predicate. Phần lớn single() chỉ nên sử dụng khi bạn có điều kiện predicate cần
     phải thoả mãn. Nếu dùng single() lên 1 Observable emit nhiều hơn 1 giá trị, single() sẽ throw Error.</p>
-  <pre>
-                <code><pre>{{text6}}</pre></code>
-            </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text6 }}</code></pre>
 
   <br>
 
@@ -101,9 +89,7 @@
   <p>take T>(count: number): MonoTypeOperatorFunction T></p>
   <p>take() nhận vào 1 tham số count để dùng cho số lần lấy giá trị được emit từ Observable sau đó sẽ complete.</p>
   <br>
-  <pre>
-                <code><pre>{{text7}}</pre></code>
-            </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text7 }}</code></pre>
   <strong>3Special case: take(1)</strong>
   <br>
   <p>Như các bạn cũng đã nhận ra là không có gì ngăn cản chúng ta truyền vào số 1 cho take() để có take(1). Thoạt nhìn
@@ -126,9 +112,7 @@
     từ Observable. Các bạn chú ý là takeLast() chỉ emit khi nào Observable gốc complete, nếu như Observable gốc là 1
     long-live Observable (ví dụ: interval()) thì takeLast() sẽ không bao giờ emit.</p>
   <br>
-  <pre>
-                <code><pre>{{text8}}</pre></code>
-            </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text8 }}</code></pre>
   <br>
 
   <!--takeUntil()-->
@@ -139,9 +123,7 @@
   <p>takeUntil() nhận vào 1 tham số là 1 Observable như là 1 notifier (người báo hiệu) và takeUntil() sẽ emit giá trị
     của Observable gốc CHO TỚI KHI notifier emit.</p>
   <br>
-  <pre>
-                <code><pre>{{text9}}</pre></code>
-            </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text9 }}</code></pre>
   <strong>Use-case trong Angular:</strong>
   <p>takeUntil() được dùng để unsubscribe Observable trong ngOnDestroy() là rất phổ biến. Các bạn suy nghĩ mình có 1
     destroySubject: Subject void> tượng trưng cho notifier. Khi ngOnDestroy() thực thi, chúng ta sẽ cho
@@ -159,9 +141,7 @@
     Nhiều người sẽ sử dụng takeWhile() và takeUntil() thay đổi qua lại nhưng takeWhile() hoạt động rất khác với
     takeUntil(). Các bạn xem qua 2 bài post trên group về vấn đề này nhé: post 1 và post 2</p>
   <br>
-  <pre>
-                <code><pre>{{text10}}</pre></code>
-            </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text10 }}</code></pre>
   <p>takeWhile() hoạt động hiệu quả nhất khi bạn muốn unsusbcribe từ chính giá trị mà Observable emit (internal). Giống
     như ví dụ trên, mình lấy chính giá trị của interval để kiểm tra điều kiện. takeUntil() hoạt động hiệu quả khi bạn có
     notifier từ bên ngoài (external).</p>
@@ -175,9 +155,7 @@
   <p>skip() hoạt động tương tự như take() nhưng mang tính chất ngược lại so với take(). Như take() là mình sẽ emit n giá
     trị ban đầu, còn skip() là mình sẽ bỏ qua n giá trị ban đầu.</p>
   <br>
-  <pre>
-                <code><pre>{{text11}}</pre></code>
-            </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text11 }}</code></pre>
   <br>
 
   <!--skipUntil()-->
@@ -187,9 +165,7 @@
   <p>skipUntil T>(notifier: Observable any>): MonoTypeOperatorFunction T></p>
   <p>skipUntil() hoạt động tương tự takeUntil() và mang tính chất giống với skip().</p>
   <br>
-  <pre>
-                <code><pre>{{text12}}</pre></code>
-            </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text12 }}</code></pre>
   <br>
 
   <!--skipWhile()-->
@@ -199,9 +175,7 @@
   <p>skipWhile T>(predicate: (value: T, index: number) => boolean): MonoTypeOperatorFunction T></p>
   <p>skipWhile() hoạt động tương tự takeWhile() và mang tính chất giống với skip()</p>
   <br>
-  <pre>
-                  <code><pre>{{text13}}</pre></code>
-              </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text13 }}</code></pre>
   <br>
 
   <!--distinct()-->
@@ -211,15 +185,11 @@
   <p>distinct T, K>(keySelector?: (value: T) => K, flushes?: Observable any>): MonoTypeOperatorFunction T></p>
   <p>distinct() sẽ so sánh các giá trị được emit từ Observable và chỉ emit các giá trị chưa được emit qua.</p>
   <br>
-  <pre>
-      <code><pre>{{text14}}</pre></code>
-    </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text14 }}</code></pre>
   <p>distinct() có thể nhận vào 1 tham số là hàm keySelector để có thể chọn được property nào cần được so sánh nếu như
     Observable emit giá trị là 1 complex Object</p>
   <br>
-  <pre>
-      <code><pre>{{text15}}</pre></code>
-    </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text15 }}</code></pre>
   <br>
 
   <!--distinctUntilChanged()-->
@@ -231,18 +201,14 @@
   <p>distinctUntilChanged() có concept tương tự distinct() nhưng khác ở chỗ distinctUntilChanged() chỉ so sánh giá trị
     sắp được emit với giá trị vừa được emit (giá trị cuối) chứ không so sánh với tất cả giá trị đã được emit.</p>
   <br>
-  <pre>
-      <code><pre>{{text16}}</pre></code>
-    </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text16 }}</code></pre>
   <p>distinctUntilChanged() cũng có thể nhận vào 2 tham số optional: compare function và keySelector function. Tham số
     keySelector hoạt động giống như tham số keySelector của distinct(). Khi compare function không được truyền vào cho
     distinctUntilChanged() thì distinctUntilChanged() sẽ dùng === để so sánh 2 giá trị. Để thay đổi behavior này, các
     bạn truyền vào compare function, nếu compare function trả về truthy thì distinctUntilChanged sẽ bỏ qua giá trị đó.
   </p>
   <br>
-  <pre>
-    <code><pre>{{text17}}</pre></code>
-  </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text17 }}</code></pre>
   <br>
 
   <!--distinctUntilKeyChanged()-->
@@ -254,9 +220,7 @@
   <p>distinctUntilKeyChanged() là short-cut của distinctUntilChanged() + keySelector.</p>
   <br>
   <br>
-  <pre>
-      <code><pre>{{text18}}</pre></code>
-    </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text18 }}</code></pre>
   <br>
   <strong>Note</strong>
   <p>Chúng ta còn 8 operators nữa. Tuy nhiên, 8 operators này đi theo cặp ví dụ: throttle/throttleTime,
@@ -281,9 +245,7 @@
     tượng trưng cho durationSelector. Khi durationSelector này emit (hoặc complete) thì timer sẽ ngưng, và throttle sẽ
     chờ giá trị tiếp theo của Observable gốc và quá trình này được lặp lại.</p>
   <br>
-  <pre>
-      <code><pre>{{text19}}</pre></code>
-    </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text19 }}</code></pre>
   <br>
   <p>throttleTime() có thể nhận vào tham số ThrottleConfig: leading: boolean, trailing: boolean để xác định xem
     throttleTime() sẽ emit giá trị đầu hay giá trị cuối khi timer chạy xong. Default là leading: true, trailing:
@@ -309,9 +271,7 @@
   <p>debounce() hoạt động giống như debounceTime() nhưng thay vì truyền vào dueTime thì debounce nhận vào 1 Observable
     tượng trưng cho durationSelector. timer của debounce sẽ hoạt động dựa trên durationSelector này thay vì dueTime</p>
   <br>
-  <pre>
-      <code><pre>{{text20}}</pre></code>
-    </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text20 }}</code></pre>
   <br>
   <p>Vì cách hoạt động như trên, debounceTime() được dùng phổ biến nhất cho 1 input dùng để filter 1 danh sách gì đó.
   </p>
@@ -325,7 +285,7 @@
     (duration: number, scheduler: SchedulerLike = async): MonoTypeOperatorFunction T>
   </p>
   <p>auditTime() nhận vào 1 tham số duration có đơn vị là milliseconds. auditTime() hoạt động tương tự throttleTime()
-    với trailing: true}. Nghĩa là sau khi timer chạy và chạy xong duration, auditTime() sẽ emit giá trị gần nhất mà
+    với trailing: true&#125;. Nghĩa là sau khi timer chạy và chạy xong duration, auditTime() sẽ emit giá trị gần nhất mà
     Observable gốc emit.</p>
   <p>throttle hoạt động giống nhu throttleTime nhưng thay vì truyền vào duration thì throttle nhận vào 1 Observable
     tượng trưng cho durationSelector. Khi durationSelector này emit (hoặc complete) thì timer sẽ ngưng, và throttle sẽ
@@ -333,9 +293,7 @@
   <p>debounce() hoạt động giống như debounceTime() nhưng thay vì truyền vào dueTime thì debounce nhận vào 1 Observable
     tượng trưng cho durationSelector. timer của debounce sẽ hoạt động dựa trên durationSelector này thay vì dueTime</p>
   <br>
-  <pre>
-      <code><pre>{{text21}}</pre></code>
-    </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text21 }}</code></pre>
   <br>
 
   <!--sample()/sampleTime()-->
@@ -349,8 +307,6 @@
     sampleTime() sẽ chạy ngay lập tức và cứ sau mỗi period, sampleTime() sẽ emit giá trị gần nhất của Observable gốc..
   </p>
   <br>
-  <pre>
-        <code><pre>{{text22}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text22 }}</code></pre>
   <br>
 </div>

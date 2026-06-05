@@ -22,20 +22,14 @@
   <p>Đầu tiên chúng ta sẽ tạo mới một NgModule và đưa những phần cần quản lý bởi NgModule đó vào trong như components,
     services, etc.
   </p>
-  <pre>
-              <code><pre>{{text1}}</pre></code>
-          </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text1 }}</code></pre>
   <p>Tiếp theo, chúng ta sẽ config RouterModule giống như đã từng làm với AppRoutingModule, nhưng thay vì gọi forRoot
     thì chúng ta sẽ gọi forChild (nguyên nhân tại sao thì các bạn quay trở lại Day 27).</p>
   <br>
-  <pre>
-                    <code><pre>{{text2}}</pre></code>
-                </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text2 }}</code></pre>
   <p>Như thế là chúng ta đã tạo xong Feature Module kèm theo Router, bây giờ chúng ta cần import nó vào AppModule để có
     thể sử dụng.</p>
-  <pre>
-                <code><pre>{{text3}}</pre></code>
-              </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text3 }}</code></pre>
   <br>
 
   <!-- Route config redirect -->
@@ -44,9 +38,7 @@
   <br>
   <p>Để redirect người dùng khi vào một route nào đó đến một route khác, bạn có thể config như sau:
   </p>
-  <pre>
-                <code><pre>{{text4}}</pre></code>
-            </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text4 }}</code></pre>
   <p>Các bạn lưu ý rằng ở trong trường hợp redirect, thông thường chúng ta nên dùng strategy để check path là full.</p>
   <p>Vậy có những strategy nào?</p>
   <p>Với config pathMatch, chúng ta sẽ có thể có 2 strategy là full và prefix, giá trị mặc định khi bạn không set cho
@@ -77,17 +69,13 @@
     riêng, và được sử dụng kèm với một NgModule thông thường. Trường hợp của AppRoutingModule là một ví dụ.
   </p>
   <p>Bạn hoàn toàn có thể áp dụng kỹ thuật này với các Feature Module như sau.</p>
-  <pre>
-                            <code><pre>{{text5}}</pre></code>
-                        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text5 }}</code></pre>
 
   <p>Ở đây chúng ta sẽ config routing với RouterModule.forChild(routes), sau đó chúng ta exports RouterModule ra ngoài
     để ArticleModule có thể sử dụng những directives/components mà RouterModule cung cấp mà không cần imports
     RouterModule.</p>
   <br>
-  <pre>
-      <code><pre>{{text6}}</pre></code>
-  </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text6 }}</code></pre>
 
   <!-- Child Routes -->
   <span  class="title pb-0">Child Routes</span>
@@ -97,20 +85,14 @@
     cho dạng parent-child hay không?
   </p>
   <p>Cách 1</p>
-  <pre>
-    <code><pre>{{text7}}</pre></code>
-  </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text7 }}</code></pre>
   <p>Angular Router cho phép bạn truyền vào cấu trúc parent-child như sau:</p>
   <br>
-  <pre>
-          <code><pre>{{text8}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text8 }}</code></pre>
   <p>Đây là cách config tương đương với Cách 1. Chúng ta sẽ có dạng parent + child cho path ở trên.</p>
   <p>Ngoài ra, parent route có thể activate một component, chúng ta thường gọi nó là layout component. Trong component
     này nhất định phải có chứa router-outlet, nó sẽ là điểm đánh dấu để activate các child component.</p>
-  <pre>
-        <code><pre>{{text9}}</pre></code>
-    </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text9 }}</code></pre>
   <br>
 
 
@@ -124,14 +106,10 @@
   <strong>Retrieve params</strong>
   <p>Ví dụ trong Day 27, chúng ta muốn lấy thông tin của params, lúc đó chúng ta đã inject service này vào
     ArticleDetailComponent như sau:</p>
-  <pre>
-    <code><pre>{{text10}}</pre></code>
-  </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text10 }}</code></pre>
   <p>Ngoài cách sử dụng snapshot ở trên chúng ta có thể sử dụng Observable để observe như sau</p>
   <br>
-  <pre>
-          <code><pre>{{text11}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text11 }}</code></pre>
   <p>Lý do tại sao chúng ta sử dụng Observable ở đây mà không phải là snapshot?</p>
   <p>Về nguyên tắc mặc định, khi di chuyển vào một path, Angular Router sẽ cố gắng reuse component trước đó, nếu chưa
     có, hoặc khác config thì mới tạo mới component.</p>
@@ -149,9 +127,7 @@
     queryParamMap.</p>
   <p>Ví dụ bạn vào một URL là tiepphan.com/page/2?sort=createdDate, thì bạn có thể lấy về sort query qua
     snapshot.queryParamMap.get('sort') hoặc</p>
-  <pre>
-        <code><pre>{{text12}}</pre></code>
-    </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text12 }}</code></pre>
   <br>
 
   <!-- Router Service. -->
@@ -165,15 +141,9 @@
     chủ chẳng hạn. Lúc này bạn có thể sử dụng 1 trong hai method sau để navigate.</p>
   <p>Ví dụ trong Day 27, chúng ta muốn lấy thông tin của params, lúc đó chúng ta đã inject service này vào
     ArticleDetailComponent như sau:</p>
-  <pre>
-    <code><pre>{{text13}}</pre></code>
-  </pre>
-  <pre>
-          <code><pre>{{text14}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text13 }}</code></pre>
+  <pre class="mb-0"><code class="language-markup">{{ text14 }}</code></pre>
   <p>Ngoài ra bạn có thể observe Router Event để làm gì đó:</p>
-  <pre>
-        <code><pre>{{text15}}</pre></code>
-    </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text15 }}</code></pre>
   <br>
 </div>

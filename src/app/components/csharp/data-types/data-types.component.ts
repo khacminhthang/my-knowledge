@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+  standalone: false,
   selector: 'app-data-types',
   templateUrl: './data-types.component.html',
   styleUrls: ['./data-types.component.css']
@@ -56,33 +57,21 @@ export class DataTypesComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.text1 = `
-  <div [class.tab-active]="isTabActive">
-    some content
+    this.text1 = `<div [class.tab-active]="isTabActive">
+  some content
+</div>`;
+    this.text2 = `[class]="classExpr"`;
+    this.text3 = `<div [style.width]="”someValue”"></div>`;
+    this.text4 = `[style.height.%]=”containerHeight”`;
+    this.text5 = `<div *ngFor="let employee of employees; index as idx; count as total">
+({{idx}})/({{total}}): {{employee.id}} - {{employee.firstName}}
+{{employee.lastName}}
+</div>`;
+    this.text6 = `<div *ngFor="”let" item of list”>
+  <div *ngIf="”somethingGoood”">
+    More code
   </div>
-    `;
-    this.text2 = `
-    [class]="classExpr"
-    `;
-    this.text3 = `
-    <div [style.width]="”someValue”"></div>
-      `;
-    this.text4 = `
-    [style.height.%]=”containerHeight”
-      `;
-    this.text5 = `
-  <div *ngFor="let employee of employees; index as idx; count as total">
-  ({{idx}})/({{total}}): {{employee.id}} - {{employee.firstName}}
-  {{employee.lastName}}
-  </div>
-      `;
-    this.text6 = `
-  <div *ngFor="”let" item of list”>
-    <div *ngIf="”somethingGoood”">
-      More code
-    </div>
-  </div>
-      `;
+</div>`;
   }
 
   changeAge(event: any) {

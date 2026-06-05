@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+  standalone: false,
   selector: 'app-existing-database',
   templateUrl: './existing-database.component.html',
   styleUrls: ['./existing-database.component.css']

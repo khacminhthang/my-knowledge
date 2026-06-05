@@ -10,17 +10,13 @@
     Pipe Symbol ( | )</p>
   <p>Ví dụ chúng ta có một hàm listen() như sau:</p>
   <br>
-  <pre>
-        <code><pre>{{text1}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text1 }}</code></pre>
   <br>
 
   <p><strong>typeof</strong></p>
   <p>Trả về kiểu dữ liệu của biến</p>
   <br>
-  <pre>
-          <code><pre>{{text2}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text2 }}</code></pre>
   <br>
   <p>Quay trở lại hàm listen(), hàm listen() nhận vào 1 tham số port có type là unknown, nghĩa là chúng ta truyền vào 1
     tham số với type nào đó mà chúng ta chưa biết (unknown) tại thời điểm viết code. Nói cách khác, hàm listen() trên có
@@ -29,24 +25,18 @@
     thật sự không hay tí nào, vì implementation của hàm listen() chỉ xử lý 2 types là string và number mà thôi. Giờ xử
     lý như thế nào? Cách tốt nhất là dùng Union Type. Chúng ta sẽ viết lại hàm listen() như sau:</p>
   <br>
-  <pre>
-    <code><pre>{{text3}}</pre></code>
-  </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text3 }}</code></pre>
   <br>
   <p>TS sẽ báo (Compilation Time Error) ngay nếu như truyền vào 1 boolean (không phải string HOẶC number) hoặc không
     truyền vào gì khi gọi hàm listen().</p>
   <br>
   <p>Tương tự như tạo Union Type cho tham số, các bạn cũng có thể tạo Union Type cho giá trị trả về của hàm nhé.</p>
   <br>
-  <pre>
-          <code><pre>{{text5}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text5 }}</code></pre>
   <br>
   <p>Để tái sử dụng (reuse) 1 Union Type bất kỳ, các bạn có thể tạo Type Alias cho Union Type đó.</p>
   <br>
-  <pre>
-          <code><pre>{{text6}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text6 }}</code></pre>
   <br>
 
   <!-- Intersection Type-->
@@ -56,18 +46,14 @@
   <p>Ngược với Union Type, Intersection Type là type mà kết hợp nhiều type lại với nhau. Nói cách khác, Intersection
     Type là type có tính chất: AND (dịch nôm na là và).</p>
   <br>
-  <pre>
-          <code><pre>{{text7}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text7 }}</code></pre>
   <br>
-  <p>Hàm merge( foo: 'bar' }, bar: 'foo' }) này sẽ có giá trị trả về là foo: string } & bar: string }.</p>
+  <p>Hàm merge( foo: 'bar' &#125;, bar: 'foo' &#125;) này sẽ có giá trị trả về là foo: string &#125; & bar: string &#125;.</p>
   <p>Ngoài những cách sử dụng thông thường trong function hoặc trong những đoạn code mà khái niệm OOP thông thường không
     áp dụng được thì Intersection Type được dùng rất nhiều trong việc thiết kế hệ thống type cho những thư viện UI
     Components. Ví dụ:</p>
   <br>
-  <pre>
-            <code><pre>{{text8}}</pre></code>
-          </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text8 }}</code></pre>
   <br>
   <p>Những Component này có những type Style khác nhau, nhưng cũng có những type cơ bản giống nhau. Ví dụ như Text sẽ có
     thêm fontSize, fontWeight còn Button sẽ có onClick. Tác giả của những thư viện UI này sẽ sử dụng Intersection Type
@@ -80,9 +66,7 @@
   <br>
   <p>Giúp chúng ta tạo ra những type điều kiện</p>
   <br>
-  <pre>
-           <code><pre>{{text9}}</pre></code>
-         </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text9 }}</code></pre>
   <br>
   <p>Đoạn code trên có thể hiểu nôm na là khi type T có thể gán được cho type U thì sẽ trả về type X, còn không thì trả
     về type Y</p>
@@ -95,9 +79,7 @@
     trên và kết hợp chúng lại với nhau, thì TS còn cung cấp cho chúng ta 1 số built-in type rất hay. Chúng ta cùng điểm
     qua một số built-in types hay dùng nhé:</p>
   <br>
-  <pre>
-           <code><pre>{{text10}}</pre></code>
-         </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text10 }}</code></pre>
   <br>
   <p>Đoạn code trên có thể hiểu nôm na là khi type T có thể gán được cho type U thì sẽ trả về type X, còn không thì trả
     về type Y</p>

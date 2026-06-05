@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+  standalone: false,
   selector: 'app-micro-fe-overview',
   templateUrl: './micro-fe-overview.component.html',
   styleUrls: ['./micro-fe-overview.component.css']

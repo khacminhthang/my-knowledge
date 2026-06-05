@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+  standalone: false,
   selector: 'app-variables',
   templateUrl: './variables.component.html',
   styleUrls: ['./variables.component.css']

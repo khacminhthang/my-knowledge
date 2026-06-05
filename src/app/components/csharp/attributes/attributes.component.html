@@ -9,7 +9,7 @@
         nghĩa trước và các Custom Attribute.</p>
     <strong>Xác định một Attribute trong C#</strong>
     <p>Cú pháp để xác định một Attribute trong C# như sau:</p>
-    <code><pre>{{text1}}</pre></code>
+    <pre class="mb-0"><code class="language-markup">{{ text1 }}</code></pre>
     <p>Tên của Attribute và giá trị của nó được xác định bên trong dấu ngoặc vuông, ở trước phần tử từ đó thuộc tính
         được áp dụng cho. positional_parameter xác định thông tin thiết yếu và name_parameter xác định thông tin tùy ý.
     </p>
@@ -24,7 +24,7 @@
     <p>Attribute được định nghĩa trước AttributeUsage miêu tả cách một lớp custom Attribute có thể được sử dụng. Nó xác
         định kiểu của các item, mà từ đó Attribute có thể áp dụng cho.</p>
     <p>Cú pháp để xác định Attribute này trong C# như sau:</p>
-    <code><pre>{{text2}}</pre></code>
+    <pre class="mb-0"><code class="language-markup">{{ text2 }}</code></pre>
     <p>Tại đây:</p>
     <p>Tham số validon xác định các phần tử ngôn ngữ mà Attribute có thể được đặt. Nó là một sự tổ hợp giá trị của một
         AttributeTargets enumerator. Giá trị mặc định là AttributeTargets.All.</p>
@@ -33,38 +33,38 @@
     <p>Tham số inherited (tùy ý) cung cấp giá trị cho thuộc tính Inherited của attribute này, một giá trị Boolean. Nếu
         nó là true, Attribute được kế thừa bởi các lớp kế thừa. Giá trị mặc định là false (không được kế thừa).</p>
     <p>Ví dụ:</p>
-    <code><pre>{{text3}}</pre></code>
+    <pre class="mb-0"><code class="language-markup">{{ text3 }}</code></pre>
     <strong>Conditional trong C#</strong>
     <p>Attribute tiền định nghĩa này đánh dấu một phương thức có điều kiện mà sự thực thi của nó phụ thuộc vào một tiến
         trình tiền xử lý định danh đã cho.</p>
     <p>Nó tạo sự biên dịch có điều kiện của các lời gọi phương thức, phụ thuộc vào giá trị đã cho, như Debug hoặc Trace.
         Ví dụ: nó hiển thị các giá trị của các biến trong khi debug một code.</p>
     <p>Cú pháp để xác định Attribute này trong C# là như sau:</p>
-    <code><pre>{{text4}}</pre></code>
+    <pre class="mb-0"><code class="language-markup">{{ text4 }}</code></pre>
     <p>Ví dụ:</p>
-    <code><pre>{{text5}}</pre></code>
+    <pre class="mb-0"><code class="language-markup">{{ text5 }}</code></pre>
     <p>Sau đây là ví dụ minh họa Conditional trong C#: Tạo hai lớp có tên lần lượt là TestAttribute, TestScharp như sau:
     </p>
     <p>Lớp TestAttribute:</p>
-    <code><pre>{{text6}}</pre></code>
+    <pre class="mb-0"><code class="language-markup">{{ text6 }}</code></pre>
     <p>Lớp TestCsharp:</p>
-    <code><pre>{{text7}}</pre></code>
+    <pre class="mb-0"><code class="language-markup">{{ text7 }}</code></pre>
     <strong>Obsolete trong C#</strong>
     <p>Attribute tiền định nghĩa này trong C# đánh dấu một thực thể chương trình mà không nên được sử dụng. Nó cho bạn
         khả năng để thông báo cho compiler để loại bỏ một phần tử target cụ thể. Ví dụ, khi một phương thức mới đang
         được sử dụng trong một lớp và nếu bạn vẫn muốn giữ lại phương thức cũ trong lớp này, bạn có thể đánh dấu nó là
         obsolete bằng việc hiển thị một thông báo là phương thức mới nên được sử dụng, thay cho phương thức cũ.</p>
     <p>Cú pháp để xác định Attribute này trong C# là như sau:</p>
-    <code><pre>{{text8}}</pre></code>
+    <pre class="mb-0"><code class="language-markup">{{ text8 }}</code></pre>
     <p>Tại đây,</p>
     <p>Tham số message là một chuỗi miêu tả lý do tại sao item là obsolete và cái gì được sử dụng thay cho nó.</p>
     <p>Tham số iserror là một giá trị Boolean. Nếu giá trị của nó là true, compiler nên đối xử sự sử dụng của item này
         như là một lỗi. Giá trị mặc định là false (tức là compiler tạo một warning).</p>
     <p>Ví dụ sau minh họa obsolete trong C#:</p>
-    <code><pre>{{text9}}</pre></code>
+    <pre class="mb-0"><code class="language-markup">{{ text9 }}</code></pre>
     <p>Khi đó, ở lời gọi PhuongThuc1() trong hàm main() sẽ xuất hiện dấu gạch đỏ, nếu bạn rê chuột qua sẽ có một thông
         báo có dạng:</p>
-    <code><pre>{{text10}}</pre></code>
+    <pre class="mb-0"><code class="language-markup">{{ text10 }}</code></pre>
     <strong>Tạo Custom Attribute trong C#</strong>
     <p>Còn gọi là Attribute tùy biến hay Attribute do người dùng tự định nghĩa. .Net Framework cho phép tạo các Custom
         Attribute mà có thể được sử dụng để lưu giữ thông tin tường thuật và có thể được thu nhận tại runtime. Thông tin
@@ -78,7 +78,7 @@
     </ul>
     <strong>Khai báo một Custom Attribute trong C#</strong>
     <p>Một Custom Attribute mới nên được kế thừa từ lớp System.Attribute trong C#. Ví dụ:</p>
-    <code><pre>{{text11}}</pre></code>
+    <pre class="mb-0"><code class="language-markup">{{ text11 }}</code></pre>
     <p>Trong code trên, chúng ta đã khai báo một Custom Attribute là DeBugInfo.</p>
     <strong>Xây dựng Custom Attribute trong C#</strong>
     <p>Chúng ta cùng xây dựng Custom Attribute có tên là DeBugInfo, mà lưu giữ thông tin thu được bởi việc debug bất kỳ
@@ -94,8 +94,8 @@
         DeBugInfo và thông báo là một tham số tùy ý.</p>
     <p>Mỗi Attribute phải có ít nhất một constructor. Các tham số vị trí tương ứng nên được truyền thông qua constructor
         đó. Ví dụ sau minh họa lớp DeBugInfo trên:</p>
-    <code><pre>{{text12}}</pre></code>
+    <pre class="mb-0"><code class="language-markup">{{ text12 }}</code></pre>
     <strong>Áp dụng Custom Attribute trong C#</strong>
     <p>Custom Attribute trong C# được áp dụng bằng việc đặt nó ngay trước target của nó:</p>
-    <code><pre>{{text13}}</pre></code>
+    <pre class="mb-0"><code class="language-markup">{{ text13 }}</code></pre>
 </div>

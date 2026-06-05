@@ -1,4 +1,6 @@
-export const menuAngular = [
+import { MenuNode } from 'src/app/core/interface/IMenu';
+
+export const menuAngular: MenuNode[] = [
   {
     "text": "Common Concept",
     "icon": "inventory_2",
@@ -112,7 +114,7 @@ export const menuAngular = [
       {
         "text": "Rxjs Higher Order Observables",
         "icon": "all_inbox",
-        "routerLink": "rxjs-hoos"
+        "routerLink": "rxjs-higher-order-observables"
       },
       {
         "text": "RxJS Subject and Multicasting",
@@ -259,7 +261,7 @@ export const menuAngular = [
               {
                 "text": "Feature Creators",
                 "icon": "all_inbox",
-                "routerLink": "ngrx-store-feture-creators"
+                "routerLink": "ngrx-store-feature-creators"
               },
               {
                 "text": "Action Groups",
@@ -281,7 +283,7 @@ export const menuAngular = [
             "routerLink": "ngrx-effects-overview"
           },
           {
-            "text": "Lifecyle",
+            "text": "Lifecycle",
             "icon": "all_inbox",
             "routerLink": "ngrx-effects-lifecycle"
           },
@@ -342,7 +344,7 @@ export const menuAngular = [
     ]
   }
 ];
-export const menuDotNetCore = [
+export const menuDotNetCore: MenuNode[] = [
   {
     "text": "design pattern",
     "icon": "inventory_2",
@@ -371,7 +373,7 @@ export const menuDotNetCore = [
   }
 ];
 
-export const menuEFCore = [
+export const menuEFCore: MenuNode[] = [
   {
     "text": "Intro",
     "icon": "inventory_2",
@@ -474,7 +476,7 @@ export const menuEFCore = [
   },
 ];
 
-export const menuCSharp = [
+export const menuCSharp: MenuNode[] = [
   {
     "text": "Basic",
     "icon": "inventory_2",
@@ -679,7 +681,7 @@ export const menuCSharp = [
   }
 ];
 
-export const menuMessageBroker = [
+export const menuMessageBroker: MenuNode[] = [
   {
     "text": "Overview",
     "icon": "inventory_2",
@@ -697,7 +699,7 @@ export const menuMessageBroker = [
   }
 ];
 
-export const menuMicroFrontend = [
+export const menuMicroFrontend: MenuNode[] = [
   {
     "text": "Micro frontends overview",
     "icon": "inventory_2",

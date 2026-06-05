@@ -2,10 +2,40 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    background-color: #3f51b5;
-    color: white;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--app-surface-2);
+    color: var(--app-text);
+    border-bottom: 1px solid var(--app-border);
     position: relative;
+}
+
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin-left: auto;
+    padding: 0;
+    border: 1px solid var(--app-border);
+    border-radius: 0.625rem;
+    background-color: transparent;
+    color: var(--app-text-muted);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    color: var(--app-primary);
+    background-color: var(--app-primary-soft);
+    border-color: var(--app-border-strong);
+}
+
+.theme-toggle mat-icon {
+    width: 22px;
+    height: 22px;
+    font-size: 22px;
+    line-height: 22px;
 }
 
 .nav ul {
@@ -13,21 +43,43 @@
     list-style: none;
     padding: 0;
     margin: 0;
+    gap: 0.25rem;
 }
 
 .nav li {
-    margin-left: 20px;
+    margin-left: 0.25rem;
 }
 
+.nav li span,
 .nav a {
-    color: white;
+    color: var(--app-text-muted);
     text-decoration: none;
+    border-radius: 0.625rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.nav li span:hover {
+    color: var(--app-text);
+    background-color: var(--app-surface-3);
+}
+
+/* Active section — soft, light highlight pill (matches sidebar) */
+.nav li span.is-active {
+    color: var(--app-primary);
+    background-color: var(--app-primary-soft);
+    font-weight: 600;
+}
+
+.nav li span.is-active:hover {
+    color: var(--app-primary);
+    background-color: var(--app-primary-soft);
 }
 
 .mobile-menu {
     display: none;
     flex-direction: column;
-    background-color: #3f51b5;
+    background-color: var(--app-surface-2);
 }
 
 .mobile-menu.open {
@@ -53,11 +105,25 @@
 
     .dropdown-menu {
         display: block;
-        color: #fff;
-        background-color: #3f51b5;
+        color: var(--app-text);
+        background-color: var(--app-surface-2);
+        border: 1px solid var(--app-border);
+        border-radius: 0.75rem;
+        overflow: hidden;
+    }
+
+    .dropdown-menu li {
+        padding: 0.5rem 1rem;
+        transition: all 0.3s ease;
     }
 
     li:hover {
-        background-color: cadetblue !important;
+        background-color: var(--app-surface-3) !important;
+    }
+
+    .dropdown-menu li.is-active {
+        background-color: var(--app-primary-soft) !important;
+        color: var(--app-primary);
+        font-weight: 600;
     }
 }

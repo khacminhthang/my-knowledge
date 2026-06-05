@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+  standalone: false,
   selector: 'app-intro-dependence-injection',
   templateUrl: './intro-dependence-injection.component.html',
   styleUrls: ['./intro-dependence-injection.component.scss']
@@ -57,126 +58,108 @@ export class IntroDependenceInjectionComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.text1 = `
-    class ProductModel {
-      sku: string;
-      name: string;
-      price: number;
-    }
-    
-    interface CartItem {
-      product: ProductModel;
-      quantity: number;
-    }
-    
-    class CartService {
-      selectedProducts: CartItem[] = [];
-      calculateTotal(): number {
-        return this.selectedProducts.reduce(
-          (total, item) => item.product.price * item.quantity + total,
-          0
-        );
-      }
-      addToCart(): void {
-        // logic here
-      }
-    }
-    
-    class ProductComponent {
-      cartService: CartService;
-    }
-    `;
-    this.text2 = `
-    class ProductComponent {
-      cartService: CartService;
-      constructor() {
-        this.cartService = new CartService();
-      }
-    }
-    
-    // tương đương với
-    
-    class ProductComponent {
-      cartService: CartService = new CartService();
-    }
-    `;
-    this.text3 = `
-    class ProductComponent {
-      cartService: CartService;
-      constructor(cartService: CartService) {
-        this.cartService = cartService;
-      }
-    }
-    
-    // tương đương cú pháp sau trong TypeScript
-    class ProductComponent {
-      constructor(public cartService: CartService) {}
-    }
-      `;
-    this.text4 = `
-    (function container() {
-      const service = new CartService(); // và các dependencies của CartService nếu có
-      const productComp = new ProductComponent(service);
-      // other code logic
-    })();
-      `;
-    this.text5 = `
-    @Injectable({
-      providedIn: "root",
-    })
-    export class CartService {
-      // properties and methods
-    }
-      `;
-    this.text6 = `
-    @Component({
-      selector: "app-product",
-      templateUrl: "./product.component.html",
-      styleUrls: ["./product.component.css"],
-    })
-    export class ProductComponent implements OnInit {
-      constructor(private cartService: CartService) {}
-    
-      ngOnInit() {
-        console.log(this.cartService.calculateTotal());
-      }
-    }
-      `;
-    this.text7 = `
-    @Injectable()
-    export class CartExtService {
-      calculateTotal(): number {
-        // call external datasource
-        // return data from exteral datasource
-        return Math.random() * 100;
-      }
-      addToCart(): void {
-        // logic here
-      }
-    }
-    }
-      `;
-    this.text8 = `
-    @NgModule({
-      // other metadata
-      providers: [
-        {
-          provide: CartService,
-          useClass: CartExtService,
-        },
-      ],
-    })
-    export class AppModule {}
-      `;
-    this.text9 = `
-    @Injectable({
-      providedIn: "root",
+    this.text1 = `class ProductModel {
+  sku: string;
+  name: string;
+  price: number;
+}
+
+interface CartItem {
+  product: ProductModel;
+  quantity: number;
+}
+
+class CartService {
+  selectedProducts: CartItem[] = [];
+  calculateTotal(): number {
+    return this.selectedProducts.reduce(
+      (total, item) => item.product.price * item.quantity + total,
+      0
+    );
+  }
+  addToCart(): void {
+    // logic here
+  }
+}
+
+class ProductComponent {
+  cartService: CartService;
+}`;
+    this.text2 = `class ProductComponent {
+  cartService: CartService;
+  constructor() {
+    this.cartService = new CartService();
+  }
+}
+
+// tương đương với
+
+class ProductComponent {
+  cartService: CartService = new CartService();
+}`;
+    this.text3 = `class ProductComponent {
+  cartService: CartService;
+  constructor(cartService: CartService) {
+    this.cartService = cartService;
+  }
+}
+
+// tương đương cú pháp sau trong TypeScript
+class ProductComponent {
+  constructor(public cartService: CartService) {}
+}`;
+    this.text4 = `(function container() {
+  const service = new CartService(); // và các dependencies của CartService nếu có
+  const productComp = new ProductComponent(service);
+  // other code logic
+})();`;
+    this.text5 = `@Injectable({
+  providedIn: "root",
+})
+export class CartService {
+  // properties and methods
+}`;
+    this.text6 = `@Component({
+  selector: "app-product",
+  templateUrl: "./product.component.html",
+  styleUrls: ["./product.component.css"],
+})
+export class ProductComponent implements OnInit {
+  constructor(private cartService: CartService) {}
+
+  ngOnInit() {
+    console.log(this.cartService.calculateTotal());
+  }
+}`;
+    this.text7 = `@Injectable()
+export class CartExtService {
+  calculateTotal(): number {
+    // call external datasource
+    // return data from exteral datasource
+    return Math.random() * 100;
+  }
+  addToCart(): void {
+    // logic here
+  }
+}
+}`;
+    this.text8 = `@NgModule({
+  // other metadata
+  providers: [
+    {
+      provide: CartService,
       useClass: CartExtService,
-    })
-    export class CartService {
-      // logic here
-    }
-      `;
+    },
+  ],
+})
+export class AppModule {}`;
+    this.text9 = `@Injectable({
+  providedIn: "root",
+  useClass: CartExtService,
+})
+export class CartService {
+  // logic here
+}`;
   }
 
   changeAge(event: any) {

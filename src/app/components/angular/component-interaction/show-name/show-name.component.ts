@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
+  standalone: false,
   selector: 'app-show-name',
   templateUrl: './show-name.component.html',
   styleUrls: ['./show-name.component.scss']

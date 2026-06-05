@@ -1,11 +1,10 @@
-export interface IMenu {
-    text: string,
-    icon: string,
+export interface MenuNode {
+    text: string;
+    icon: string;
     routerLink?: string;
-    children: IMenuItem[]
+    children?: MenuNode[];
 }
-export interface IMenuItem {
-    text: string,
-    icon: string,
-    routerLink: string;
-}
+
+// Backward-compatible aliases for existing imports.
+export type IMenu = MenuNode;
+export type IMenuItem = MenuNode;

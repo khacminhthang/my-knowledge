@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
+  standalone: false,
   selector: 'app-content-projection-child',
   templateUrl: './content-projection-child.component.html',
   styleUrls: ['./content-projection-child.component.scss']

@@ -10,9 +10,23 @@
   <br>
   <p>Hiển thị dữ liệu nào đó với sự kết hợp giữa "interpolation và expression"</p>
   <br>
-  <pre>
-    <code><pre>{{text1}}</pre></code>
-  </pre>
+  <p><strong>View:</strong></p>
+  <div class="row g-3 align-items-stretch mb-5">
+    <div class="col-12 col-lg-6">
+      <p class="preview-label">Code</p>
+      <pre class="h-100 mb-0"><code class="language-markup">{{ text1View }}</code></pre>
+    </div>
+    <div class="col-12 col-lg-6">
+      <p class="preview-label">Giao diện</p>
+      <div class="preview-pane">
+        <h2>Hello there!</h2>
+        <h3>Your name: {{ user.name }}</h3>
+        <p>Your name: {{ user.age }}</p>
+      </div>
+    </div>
+  </div>
+  <p class="mt-4"><strong>Ts file:</strong></p>
+  <pre><code class="language-typescript">{{ text1Ts }}</code></pre>
   <br>
   <!-- PROPERTY BINDING -->
   <span  class="title pb-0">PROPERTY BINDING</span>
@@ -25,9 +39,7 @@
     cho phép tương tác với phần HTML đó bằng Javascript thông qua DOM.</p>
   <p>Ví dụ một object(node) thuộc type HTMLInputElement</p>
   <br>
-  <pre>
-    <code><pre>{{text2}}</pre></code>
-  </pre>
+  <pre><code class="language-typescript">{{ text2 }}</code></pre>
   <p>Attribute được dùng để chỉ những gì được đặt vào phần opening tag còn lại là property của object.
     Các attribute sẽ được lưu vào property attribute của node tương ứng.
     Có những attribute sẽ được map sang thành property tương ứng, ví dụ như type và value(như trên),
@@ -35,15 +47,25 @@
   </p>
   <p>Trong Angular chẳng hạn chúng ta muốn thay đổi data ở cùng 1 template lúc hiển thị:
   </p>
-  <pre>
-    <code><pre>{{text3}}</pre></code>
-  </pre>
-  <div class="d-flex mb-2">
-    <input type="text" class="form-control w-25" placeholder="Username" aria-label="Username"
-      aria-describedby="basic-addon1" [value]="name">
-    <button type="button" class="btn btn-primary" style="margin-left: 20px;" (click)="randomeName()">Random
-      Name</button>
+  <div class="row g-3 align-items-stretch mb-5">
+    <div class="col-12 col-lg-6">
+      <p class="preview-label">Code</p>
+      <pre class="h-100 mb-0"><code class="language-markup">{{ text3 }}</code></pre>
+    </div>
+    <div class="col-12 col-lg-6">
+      <p class="preview-label">Giao diện</p>
+      <div class="preview-pane">
+        <div class="d-flex mb-2">
+          <input type="text" class="form-control w-25" placeholder="Username" aria-label="Username"
+            aria-describedby="basic-addon1" [value]="name">
+          <button type="button" class="btn btn-primary" style="margin-left: 20px;" (click)="randomeName()">Random
+            Name</button>
+        </div>
+      </div>
+    </div>
   </div>
+  <p class="mt-4"><strong>Ts file:</strong></p>
+  <pre><code class="language-typescript">{{ text3Ts }}</code></pre>
   <p><strong>Lưu ý:</strong> ngoài property binding cho các phần tử HTML, chúng ta cũng có thể áp dụng property binding
     cho các component.</p>
   <br>
@@ -56,12 +78,21 @@
     Với Angular chúng ta có Event binding để gắn event listener vào một phần tử nào đó trên template với cú pháp như
     sau:
   </p>
-  <pre>
-    <code><pre>{{text4}}</pre></code>
-  </pre>
-  <p>Khi bấm vào button "Click me!" chúng ta muốn hiển thị alert cho người dùng thấy
-    <button type="button" class="btn btn-primary" (click)="showInfo()">Click me!</button>
-  </p>
+  <div class="row g-3 align-items-stretch mb-5">
+    <div class="col-12 col-lg-6">
+      <p class="preview-label">Code</p>
+      <pre class="h-100 mb-0"><code class="language-markup">{{ text4View }}</code></pre>
+    </div>
+    <div class="col-12 col-lg-6">
+      <p class="preview-label">Giao diện</p>
+      <div class="preview-pane">
+        <p>Khi bấm vào button "Click me!" chúng ta muốn hiển thị alert cho người dùng thấy</p>
+        <button type="button" class="btn btn-primary" (click)="showInfo()">Click me!</button>
+      </div>
+    </div>
+  </div>
+  <p class="mt-4"><strong>Ts file:</strong></p>
+  <pre><code class="language-typescript">{{ text4Ts }}</code></pre>
   <br>
   <!-- TWO-WAY BINDING -->
   <span  class="title pb-0">TWO-WAY BINDING</span>
@@ -72,13 +103,23 @@
   </p>
   <p>Cú pháp như sau
   </p>
-  <pre>
-     <code><pre>{{text5}}</pre></code>
-   </pre>
-  <div class="d-flex mb-2">
-    <input type="text" class="form-control w-25" placeholder="name2way" aria-label="name2way"
-      aria-describedby="basic-addon1" [(ngModel)]="name2way">
+  <div class="row g-3 align-items-stretch mb-5">
+    <div class="col-12 col-lg-6">
+      <p class="preview-label">Code</p>
+      <pre class="h-100 mb-0"><code class="language-markup">{{ text5 }}</code></pre>
+    </div>
+    <div class="col-12 col-lg-6">
+      <p class="preview-label">Giao diện</p>
+      <div class="preview-pane">
+        <div class="d-flex mb-2">
+          <input type="text" class="form-control w-25" placeholder="name2way" aria-label="name2way"
+            aria-describedby="basic-addon1" [(ngModel)]="name2way">
+        </div>
+        <p><strong>Tên bạn nhập</strong> {{name2way}}</p>
+      </div>
+    </div>
   </div>
-  <p><strong>Tên bạn nhập</strong> {{name2way}}</p>
+  <p class="mt-4"><strong>Ts file:</strong></p>
+  <pre><code class="language-typescript">{{ text5Ts }}</code></pre>
   <br>
 </div>

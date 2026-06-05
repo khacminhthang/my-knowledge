@@ -28,12 +28,8 @@
   <strong>Step 3: Code container components</strong>
   <p>Chúng ta khởi tạo template example-component với 2 nút và 1 ViewChild như sau.</p>
   <br>
-  <pre>
-          <code><pre>{{text1}}</pre></code>
-      </pre>
-  <pre>
-          <code><pre>{{text2}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text1 }}</code></pre>
+  <pre class="mb-0"><code class="language-markup">{{ text2 }}</code></pre>
 
   <p>Flow chính:</p>
   <p>1. Tạo 1 ViewChild trong template. Ở đây là thẻ div #dynamicComponent. Đây sẽ là nơi chúng ta load những
@@ -42,41 +38,29 @@
   <p>3. Inject CompanyFactoryResolver của Angular vào component ExampleContainerComponent.</p>
   <p>4. Dùng Resolver connect với component nào chúng ta muốn load dynamic. => Kết quả sẽ trả về 1 Component
     Factory</p>
-  <pre>
-    <code><pre>{{text3}}</pre></code>
-</pre>
+  <pre class="mb-0"><code class="language-markup">{{ text3 }}</code></pre>
   <p>Dùng ViewContainerRef với Component Factory chúng ta vừa tạo ở trên để load Dynamic Component.</p>
-  <pre>
-  <code><pre>{{text4}}</pre></code>
-</pre>
+  <pre class="mb-0"><code class="language-markup">{{ text4 }}</code></pre>
 
   <strong>Step 4: Add các dynamic components vào entryComponents</strong>
   <p>Để code trên hoạt động được, các bạn cần add 2 components DynamicContentOne và DynamicContentTwo vào
     entryComponents như sau. Nếu không sẽ xảy ra lỗi "No component factory found ... "</p>
-  <pre>
-      <code><pre>{{text5}}</pre></code>
-    </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text5 }}</code></pre>
   <p>Ngoài ra từ khi có Angular Ivy, chúng ta có thể bỏ đi step này.</p>
 
   <strong>Step 5: Clear các dynamic components</strong>
   <p>Tiếp đến chúng ta thực hiện 1 tính năng là clear các components đã load dynamic. Chúng ta làm điều này
     như sau:</p>
-  <pre>
-      <code><pre>{{text6}}</pre></code>
-    </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text6 }}</code></pre>
 
   <strong>Step 6: Tương tác với các dynamic components</strong>
   <p>Chúng ta tương tác giữa containers và các dynamic components cũng tương tự như cách tương tác giữa
     component cha với con. Cụ thể như sau:</p>
   <p>Ở component con, chúng ta tạo 1 @Input như sau:</p>
-  <pre>
-    <code><pre>{{text7}}</pre></code>
-  </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text7 }}</code></pre>
   <p>Ở component cha, chúng ta sẽ truyền data thông qua componentRef (Đây là kết quả trả về sau khi chúng ta
     dùng ViewContainerRef load dynamic component)</p>
-  <pre>
-      <code><pre>{{text8}}</pre></code>
-    </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text8 }}</code></pre>
   <br>
 
   <strong>Step 7: Update with Angular Ivy Lazy Load</strong>
@@ -92,14 +76,10 @@
     <li>Sửa 2 hàm addDynamicComp</li>
   </ul>
   <p>Code sẽ như sau:</p>
-  <pre>
-    <code><pre>{{text9}}</pre></code>
-  </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text9 }}</code></pre>
   <strong>Step 7.3 Update code ở app.module.ts</strong>
   <p>Remove 2 cái import components ở đầu file. Code sẽ như sau:</p>
-  <pre>
-    <code><pre>{{text10}}</pre></code>
-  </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text10 }}</code></pre>
   <p>Vậy là đã xong, các bạn đã thực hiện thành công việc lazy load các dynamic components mà không phải
     add trực tiếp vào như ở những step đầu. Lưu ý: Đối với những bạn nào dùng Angular phiên bản cũ thì
     nhớ update angular để sử dụng tính năng Angular Ivy.</p>

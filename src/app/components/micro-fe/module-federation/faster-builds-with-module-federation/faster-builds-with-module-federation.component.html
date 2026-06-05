@@ -20,29 +20,29 @@
     </div>
     <strong>Tạo một workspace mẫu</strong>
     <p>creating an empty Nx workspace.</p>
-    <code><pre>{{text1}}</pre></code>
+    <pre class="mb-0"><code class="language-markup">{{ text1 }}</code></pre>
     <p>Then, for React users, install the @nx/react plugin; and for Angular users, install the @nx/angular plugin.</p>
-    <code><pre>{{text2}}</pre></code>
+    <pre class="mb-0"><code class="language-markup">{{ text2 }}</code></pre>
     <p>Next, generate the host and remote applications.</p>
-    <code><pre>{{text3}}</pre></code>
+    <pre class="mb-0"><code class="language-markup">{{ text3 }}</code></pre>
     <p>Now, serve host to view it in your browser.</p>
-    <code><pre>{{text4}}</pre></code>
+    <pre class="mb-0"><code class="language-markup">{{ text4 }}</code></pre>
     <p>Để chạy một hoặc nhiều remote app trong development mode</p>
-    <code><pre>{{text5}}</pre></code>
+    <pre class="mb-0"><code class="language-markup">{{ text5 }}</code></pre>
     <strong>Một số file config:</strong>
     <strong>apps/host/project.json</strong>
     <p>Tạo các phụ thuộc mà giữa host và remote app:</p>
-    <code><pre>{{text6}}</pre></code>
+    <pre class="mb-0"><code class="language-markup">{{ text6 }}</code></pre>
     <strong>apps/host/webpack.config.ts</strong>
     <p>Cấu hình webpack sử dụng chức năng tiện ích mà Nx cung cấp: withModuleFederation.</p>
-    <code><pre>{{text7}}</pre></code>
+    <pre class="mb-0"><code class="language-markup">{{ text7 }}</code></pre>
     <p>Mở rộng Webpack Config</p>
     <p>Nếu bạn thấy mình cần thêm các plugin webpack bổ sung vào cấu hình của mình, bạn có thể làm như vậy bằng cách làm
         theo mẫu dưới đây. Ví dụ này cho thấy cách bạn có thể sử dụng nó để thêm LicenseWebpackPlugin nhưng bạn có thể
         sử dụng phương pháp này để áp dụng bất kỳ plugin webpack nào bạn cần</p>
-    <code><pre>{{text8}}</pre></code>
+    <pre class="mb-0"><code class="language-markup">{{ text8 }}</code></pre>
     <strong>apps/host/module-federation.config.ts</strong>
-    <code><pre>{{text9}}</pre></code>
+    <pre class="mb-0"><code class="language-markup">{{ text9 }}</code></pre>
     <span class="title pb-0">withModuleFederation làm gì?</span>
     <div class="border-b1"></div>
     <p>Hàm này là một sự trừu tượng hóa bên trên @module-federation/enhanced với một số hành vi dành riêng cho Nx.</p>
@@ -60,7 +60,7 @@
     <strong>Excluding or overriding shared libraries - Loại trừ hoặc ghi đè thư viện dùng chung</strong>
     <p>To exclude a library or change its configuration, you can provide the shared: (libraryName, sharedConfig) =>
         sharedConfig function in your configuration file.</p>
-    <code><pre>{{text10}}</pre></code>
+    <pre class="mb-0"><code class="language-markup">{{ text10 }}</code></pre>
     <span class="title pb-0">Remote computation caching with Nx Cloud</span>
     <div class="border-b1"></div>
     <p>Để sử dụng tốt Module Federation, chúng tôi khuyên bạn nên bật Nx Cloud. Nếu bạn chưa kích hoạt nó khi sử dụng
@@ -69,26 +69,26 @@
         CI/CD).Khi bạn chạy các bản dựng thông qua Nx + Nx Cloud, các thành phần lạ sẽ được lưu trữ trong bộ đệm từ xa,
         do đó, miễn là source của remote app không thay đổi thì nó sẽ được cung cấp từ bộ đệm.</p>
     <p>Khi serve host 2 lần bạn có thể thấy:</p>
-    <code><pre>{{text11}}</pre></code>
+    <pre class="mb-0"><code class="language-markup">{{ text11 }}</code></pre>
     <p>Lần serve thứ 2 sẽ nhanh hơn nhiều, bởi vì các remote app được đọc từ cache.</p>
-    <code><pre>{{text12}}</pre></code>
+    <pre class="mb-0"><code class="language-markup">{{ text12 }}</code></pre>
     <span class="title pb-0">Production build and deployment with Nx Cloud</span>
     <div class="border-b1"></div>
     <p>set up your production build and a deployment to http://localhost:3000.</p>
     <p>Trước tiên, hãy đảm bảo rằng bạn có các phụ thuộc ngầm từ host app đến từng remote app. Trong trường hợp bạn
         chưa thiết lập tính năng này, hãy thêm dòng sau vào cấu hình host app.</p>
-    <code><pre>{{text13}}</pre></code>
+    <pre class="mb-0"><code class="language-markup">{{ text13 }}</code></pre>
     <p>Tiếp theo, mở tệp production webpack configuration và cập nhật các remote URLs vào thư mục con của riêng chúng
         trong http://localhost:3000.</p>
-    <code><pre>{{text14}}</pre></code>
+    <pre class="mb-0"><code class="language-markup">{{ text14 }}</code></pre>
     <p>Bây giờ bạn có thể chạy nx build host để xây dựng tất cả host và tất cả các implicit dependencies in production
         mode.</p>
     <p>Sau khi chạy lệnh đó, bạn sẽ thấy các tạo phẩm sau trong thư mục dist.</p>
-    <code><pre>{{text15}}</pre></code>
+    <pre class="mb-0"><code class="language-markup">{{ text15 }}</code></pre>
     <p>Bây giờ, chúng ta có thể thêm một lệnh deploy đơn giản để mô phỏng việc deploy thư mục này cho production.
     </p>
-    <code><pre>{{text16}}</pre></code>
+    <pre class="mb-0"><code class="language-markup">{{ text16 }}</code></pre>
     <p>Sau đó bạn có thể chạy nx deploy host để xem ứng dụng đang chạy trên http://localhost:3000. Nếu bạn kiểm
         tra production folder, bạn sẽ thấy các tệp sau</p>
-    <code><pre>{{text17}}</pre></code>
+    <pre class="mb-0"><code class="language-markup">{{ text17 }}</code></pre>
 </div>

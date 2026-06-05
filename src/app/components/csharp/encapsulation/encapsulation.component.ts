@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+  standalone: false,
   selector: 'app-encapsulation',
   templateUrl: './encapsulation.component.html',
   styleUrls: ['./encapsulation.component.css']
 })
 export class EncapsulationComponent implements OnInit {
-  text1 = `
-using System;
+  text1 = `using System;
 
 namespace Csharp
 {
@@ -29,10 +29,8 @@ namespace Csharp
             Console.WriteLine("Dien tich: {0}", GetArea());
         }
     }
-}
-  `
-  text2 = `
-using System;
+}`
+  text2 = `using System;
 
 namespace Csharp
 {
@@ -55,11 +53,9 @@ namespace Csharp
             Console.ReadKey();
         }
     }
-}
-  `;
+}`;
 
-  text3 = `
-using System;
+  text3 = `using System;
 
 namespace Csharp
 {
@@ -88,11 +84,9 @@ namespace Csharp
             Console.WriteLine("Dien tich: {0}", GetArea());
         }
     }
-}
-  `
+}`
 
-  text4 = `
-using System;
+  text4 = `using System;
 
 namespace Csharp
 {
@@ -116,61 +110,56 @@ namespace Csharp
             Console.ReadKey();
         }
     }
-}
-  `
+}`
 
-  text5 = `
-  using System;
+  text5 = `using System;
 
 namespace Csharp
 {
-    class Rectangle
-    {
-        //cac bien thanh vien
-        internal double length;
-        internal double width;
+  class Rectangle
+  {
+      //cac bien thanh vien
+      internal double length;
+      internal double width;
 
-        //cac phuong thuc
-        double GetArea()
-        {
-            return length * width;
-        }
-        public void Display()
-        {
-            Console.WriteLine("Chieu dai: {0}", length);
-            Console.WriteLine("Chieu rong: {0}", width);
-            Console.WriteLine("Dien tich: {0}", GetArea());
-        }
-    }
-}
-  `
+      //cac phuong thuc
+      double GetArea()
+      {
+          return length * width;
+      }
+      public void Display()
+      {
+          Console.WriteLine("Chieu dai: {0}", length);
+          Console.WriteLine("Chieu rong: {0}", width);
+          Console.WriteLine("Dien tich: {0}", GetArea());
+      }
+  }
+}`
 
-  text6 = `
-  using System;
+  text6 = `using System;
 
 namespace Csharp
 {
-    class ExecuteRectangle
-    {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Tinh dong goi trong C#");
-            Console.WriteLine("-------------------------------");
+  class ExecuteRectangle
+  {
+      static void Main(string[] args)
+      {
+          Console.WriteLine("Tinh dong goi trong C#");
+          Console.WriteLine("-------------------------------");
 
-            //tao doi tuong Rectangle
-            Rectangle r = new Rectangle();
-            //thiet lap cac thuoc tinh
-            r.length = 4.5;
-            r.width = 3.5;
-            //goi phuong thuc
-            r.Display();
-            Console.ReadLine();
+          //tao doi tuong Rectangle
+          Rectangle r = new Rectangle();
+          //thiet lap cac thuoc tinh
+          r.length = 4.5;
+          r.width = 3.5;
+          //goi phuong thuc
+          r.Display();
+          Console.ReadLine();
 
-            Console.ReadKey();
-        }
-    }
-}
-  `
+          Console.ReadKey();
+      }
+  }
+}`
   constructor() { }
 
   ngOnInit(): void {

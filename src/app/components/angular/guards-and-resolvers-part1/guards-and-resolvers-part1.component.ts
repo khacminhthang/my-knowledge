@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+  standalone: false,
   selector: 'app-guards-and-resolvers-part1',
   templateUrl: './guards-and-resolvers-part1.component.html',
   styleUrls: ['./guards-and-resolvers-part1.component.css']
@@ -62,177 +63,149 @@ export class GuardsAndResolversPart1Component implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.text1 = `
-    const routes: Routes = [
-      {
-        path: 'admin',
-        loadChildren: () =>
-          import('./admin/admin.module').then((m) => m.AdminModule),
-      },
-      {
-        path: '',
-        redirectTo: 'article',
-        pathMatch: 'full'
-      }
-    ];
-    `;
-    this.text2 = `
-    const routes: Routes = [
-      {
-        path: 'article',
-        component: ArticleComponent,
-        children: [
-          {
-            path: '',
-            component: ArticleListComponent,
-          },
-          {
-            path: ':slug',
-            component: ArticleDetailComponent
-          }
-        ]
-      },
-    ];
-    `;
-    this.text3 = `
-    const routes: Routes = [
+    this.text1 = `const routes: Routes = [
+  {
+    path: 'admin',
+    loadChildren: () =>
+      import('./admin/admin.module').then((m) => m.AdminModule),
+  },
+  {
+    path: '',
+    redirectTo: 'article',
+    pathMatch: 'full'
+  }
+];`;
+    this.text2 = `const routes: Routes = [
+  {
+    path: 'article',
+    component: ArticleComponent,
+    children: [
       {
         path: '',
-        component: AdminComponent,
-        children: [
-          {
-            path: '',
-            component: AdminArticleListComponent,
-          },
-        ],
+        component: ArticleListComponent,
       },
-    ];
-      `;
-    this.text4 = `
-    interface CanActivate {
-      canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree
-    }
-      `;
-    this.text5 = `
-    interface CanActivateChild {
-      canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree
-    }
-      `;
-    this.text6 = `
-    interface CanDeactivate<T> {
-      canDeactivate(component: T, currentRoute: ActivatedRouteSnapshot, currentState: RouterStateSnapshot, nextState?: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree
-    }
-      `;
-    this.text7 = `
-    interface CanLoad {
-      canLoad(route: Route, segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree
-    }
-      `;
-    this.text8 = `
-    const routes: Routes = [
       {
-        path: 'article',
-        component: ArticleComponent,
-        children: [
-          {
-            path: '',
-            component: ArticleListComponent,
-          },
-          {
-            path: ':slug',
-            component: ArticleDetailComponent
-          },
-          {
-            path: ':slug/edit',
-            component: ArticleEditComponent
-          }
-        ]
-      },
-    ];
-      `;
-    this.text9 = `
-    import { Injectable } from '@angular/core';
-    import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
-    import { Observable } from 'rxjs';
-    
-    @Injectable({
-      providedIn: 'root' // you can change to any level if needed
-    })
-    export class CanEditArticleGuard implements CanActivate {
-      canActivate(
-        next: ActivatedRouteSnapshot,
-        state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-        return true; // replace with actual logic
+        path: ':slug',
+        component: ArticleDetailComponent
       }
-    }
-      `;
-    this.text10 = `
-    const routes: Routes = [
+    ]
+  },
+];`;
+    this.text3 = `const routes: Routes = [
+  {
+    path: '',
+    component: AdminComponent,
+    children: [
       {
-        path: 'article',
-        component: ArticleComponent,
-        children: [
-          // other configurations
-          {
-            path: ':slug/edit',
-            component: ArticleEditComponent,
-            canActivate: [CanEditArticleGuard] // <== this is an array, we can have multiple guards
-          }
-        ]
+        path: '',
+        component: AdminArticleListComponent,
       },
-    ];
-      `;
-    this.text11 = `
-    import { Injectable } from '@angular/core';
+    ],
+  },
+];`;
+    this.text4 = `interface CanActivate {
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree
+}`;
+    this.text5 = `interface CanActivateChild {
+  canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree
+}`;
+    this.text6 = `interface CanDeactivate<T> {
+  canDeactivate(component: T, currentRoute: ActivatedRouteSnapshot, currentState: RouterStateSnapshot, nextState?: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree
+}`;
+    this.text7 = `interface CanLoad {
+  canLoad(route: Route, segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree
+}`;
+    this.text8 = `const routes: Routes = [
+  {
+    path: 'article',
+    component: ArticleComponent,
+    children: [
+      {
+        path: '',
+        component: ArticleListComponent,
+      },
+      {
+        path: ':slug',
+        component: ArticleDetailComponent
+      },
+      {
+        path: ':slug/edit',
+        component: ArticleEditComponent
+      }
+    ]
+  },
+];`;
+    this.text9 = `import { Injectable } from '@angular/core';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { Observable } from 'rxjs';
 
-    @Injectable({
-      providedIn: 'root'
-    })
-    export class UserService {
-      currentUser = {
-        username: 'TiepPhan'
-      };
-      constructor() { }
-    
-    }
-      `;
-    this.text12 = `
-    @Injectable({
-      providedIn: 'root'
-    })
-    export class CanEditArticleGuard implements CanActivate {
-      constructor(private userService: UserService, private articleService: ArticleService) {}
-      canActivate(
-        next: ActivatedRouteSnapshot,
-        state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-        return this.articleService.getArticleBySlug(next.paramMap.get('slug')).pipe(
-          map(article => article.author === this.userService.currentUser.username)
-        );
+@Injectable({
+  providedIn: 'root' // you can change to any level if needed
+})
+export class CanEditArticleGuard implements CanActivate {
+  canActivate(
+    next: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    return true; // replace with actual logic
+  }
+}`;
+    this.text10 = `const routes: Routes = [
+  {
+    path: 'article',
+    component: ArticleComponent,
+    children: [
+      // other configurations
+      {
+        path: ':slug/edit',
+        component: ArticleEditComponent,
+        canActivate: [CanEditArticleGuard] // <== this is an array, we can have multiple guards
+      }
+    ]
+  },
+];`;
+    this.text11 = `import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class UserService {
+  currentUser = {
+    username: 'TiepPhan'
+  };
+  constructor() { }
+
+}`;
+    this.text12 = `@Injectable({
+  providedIn: 'root'
+})
+export class CanEditArticleGuard implements CanActivate {
+  constructor(private userService: UserService, private articleService: ArticleService) {}
+  canActivate(
+    next: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    return this.articleService.getArticleBySlug(next.paramMap.get('slug')).pipe(
+      map(article => article.author === this.userService.currentUser.username)
+    );
+  }
+}`;
+    this.text13 = `@Component({
+  providers: [
+    {
+      provide: SomeClass,
+      useFactory: function() {
+        return aValue;
       }
     }
-      `;
-    this.text13 = `
-    @Component({
-      providers: [
-        {
-          provide: SomeClass,
-          useFactory: function() {
-            return aValue;
-          }
-        }
-      ]
-    })
-      `;
-    this.text14 = `
-    @Component({
-      providers: [
-        {
-          provide: SomeToken,
-          useValue: someValue
-        }
-      ]
-    })
-      `;
+  ]
+})`;
+    this.text14 = `@Component({
+  providers: [
+    {
+      provide: SomeToken,
+      useValue: someValue
+    }
+  ]
+})`;
   }
 
   changeAge(event: any) {

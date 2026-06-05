@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+  standalone: false,
   selector: 'app-component-interaction-p2',
   templateUrl: './component-interaction-p2.component.html',
   styleUrls: ['./component-interaction-p2.component.scss']
@@ -56,77 +57,65 @@ export class ComponentInteractionP2Component implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.text1 = `
-  VIEW: 
-    <app-user-detail
-    *ngFor="let user of users"
-    [user]="user"
-  ></app-user-detail>
-
-  TS class
-  export class userListComponent implements OnInit {
-    users = users;
-    constructor() {}
-    ngOnInit() {}
-  }
-    `;
-    this.text2 = `
-    VIEW: 
-    <div *ngIf="user">
-      <strong>{{ user.firstName }} {{ user.lastName }}</strong>
-      <button (click)="handleDelete()">x</button>
-    </div>
-
-  TS class
-  export class UserDetailComponent implements OnInit {
-    @Input() user: user;
-    constructor() {}
-    ngOnInit() {}
-    handleDelete() {}
-  }
-    `;
-    this.text3 = `
-    export class UserDetailComponent implements OnInit {
-      @Input() user: user;
-      @Output() deleteuser = new EventEmitter<user>();
-      constructor() {}
-      ngOnInit() {}
-      handleDelete() {
-        this.deleteuser.emit(this.user);
-      }
-    }
-      `;
-    this.text4 = `
-    VIEW: 
+    this.text1 = `VIEW:
   <app-user-detail
-    *ngFor="let user of users"
-    [user]="user"
-    (deleteuser)="handleDelete($event)"
-  >
-  </app-user-detail>
+  *ngFor="let user of users"
+  [user]="user"
+></app-user-detail>
 
-  TS class
-  export class UserListComponent implements OnInit {
-    users = users;
-    constructor() {}
-    ngOnInit() {}
-    handleDelete(user: user) {
-      this.users = this.users.filter((item) => item.id !== user.id);
-    }
-      `;
-    this.text5 = `
-  <div *ngFor="let employee of employees; index as idx; count as total">
-  ({{idx}})/({{total}}): {{employee.id}} - {{employee.firstName}}
-  {{employee.lastName}}
+TS class
+export class userListComponent implements OnInit {
+  users = users;
+  constructor() {}
+  ngOnInit() {}
+}`;
+    this.text2 = `VIEW:
+<div *ngIf="user">
+  <strong>{{ user.firstName }} {{ user.lastName }}</strong>
+  <button (click)="handleDelete()">x</button>
+</div>
+
+TS class
+export class UserDetailComponent implements OnInit {
+@Input() user: user;
+constructor() {}
+ngOnInit() {}
+handleDelete() {}
+}`;
+    this.text3 = `export class UserDetailComponent implements OnInit {
+  @Input() user: user;
+  @Output() deleteuser = new EventEmitter<user>();
+  constructor() {}
+  ngOnInit() {}
+  handleDelete() {
+    this.deleteuser.emit(this.user);
+  }
+}`;
+    this.text4 = `VIEW:
+<app-user-detail
+*ngFor="let user of users"
+[user]="user"
+(deleteuser)="handleDelete($event)"
+>
+</app-user-detail>
+
+TS class
+export class UserListComponent implements OnInit {
+users = users;
+constructor() {}
+ngOnInit() {}
+handleDelete(user: user) {
+  this.users = this.users.filter((item) => item.id !== user.id);
+}`;
+    this.text5 = `<div *ngFor="let employee of employees; index as idx; count as total">
+({{idx}})/({{total}}): {{employee.id}} - {{employee.firstName}}
+{{employee.lastName}}
+</div>`;
+    this.text6 = `<div *ngFor="”let" item of list”>
+  <div *ngIf="”somethingGoood”">
+    More code
   </div>
-      `;
-    this.text6 = `
-  <div *ngFor="”let" item of list”>
-    <div *ngIf="”somethingGoood”">
-      More code
-    </div>
-  </div>
-      `;
+</div>`;
   }
 
   changeAge(event: any) {

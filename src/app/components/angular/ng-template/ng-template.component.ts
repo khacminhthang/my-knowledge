@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+  standalone: false,
   selector: 'app-ng-template',
   templateUrl: './ng-template.component.html',
   styleUrls: ['./ng-template.component.scss']
@@ -55,75 +56,63 @@ export class NgTemplateComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.text1 = `
-    <div class="card">
-    <div class="card-header">
-        You have selected <span class="badge badge-primary">{{ counter }}</span> items.
-    </div>
-    <div class="card-body">
-        There are <span class="badge badge-primary">{{ counter }}</span> items was selected.
-    </div>
-    <div class="card-footer">
-        You have selected <span class="badge badge-primary">{{ counter }}</span> items.
-    </div>
+    this.text1 = `<div class="card">
+<div class="card-header">
+    You have selected <span class="badge badge-primary">{{ counter }}</span> items.
 </div>
-    `;
-    this.text2 = `
-    <div class="card">
-    <div class="card-header">
-        You have selected <ng-container [ngTemplateOutlet]="counterTmpl"></ng-container>.
-    </div>
-    <div class="card-body">
-        There are <ng-container [ngTemplateOutlet]="counterTmpl"></ng-container> was selected.
-    </div>
-    <div class="card-footer">
-        You have selected <ng-container [ngTemplateOutlet]="counterTmpl"></ng-container>.
-    </div>
+<div class="card-body">
+    There are <span class="badge badge-primary">{{ counter }}</span> items was selected.
+</div>
+<div class="card-footer">
+    You have selected <span class="badge badge-primary">{{ counter }}</span> items.
+</div>
+</div>`;
+    this.text2 = `<div class="card">
+<div class="card-header">
+    You have selected <ng-container [ngTemplateOutlet]="counterTmpl"></ng-container>.
+</div>
+<div class="card-body">
+    There are <ng-container [ngTemplateOutlet]="counterTmpl"></ng-container> was selected.
+</div>
+<div class="card-footer">
+    You have selected <ng-container [ngTemplateOutlet]="counterTmpl"></ng-container>.
+</div>
 </div>
 
 <ng-template #counterTmpl>
-    <span class="badge badge-primary">{{ counter }}</span> items
+<span class="badge badge-primary">{{ counter }}</span> items
+</ng-template>`;
+    this.text3 = `<ng-template #defaultTabButtonsTmpl>
+  <div class="default-tab-buttons">
+    ...
+  </div>
 </ng-template>
-    `;
-    this.text3 = `
-    <ng-template #defaultTabButtonsTmpl>
-      <div class="default-tab-buttons">
-        ...
-      </div>
-    </ng-template>
-    <ng-container *ngTemplateOutlet="headerTemplate || defaultTabButtons"></ng-container>
-    ... rest of tab container component ...
+<ng-container *ngTemplateOutlet="headerTemplate || defaultTabButtons"></ng-container>
+... rest of tab container component ...
 
-    export class TabContainerComponent {
-      @Input() headerTemplate: TemplateRef<any>; // Custom template provided by parent
-  }
-      `;
-    this.text4 = `
-    <ng-template #customTabButtons>
-      <div class="custom-class">
-        <button class="tab-button" (click)="login()">
-          {{loginText}}
-        </button>
-        <button class="tab-button" (click)="signUp()">
-          {{signUpText}}
-        </button>
-      </div>
-    </ng-template>
-    <tab-container [headerTemplate]="customTabButtons"></tab-container>      
-      `;
-    this.text5 = `
-  <div *ngFor="let employee of employees; index as idx; count as total">
-  ({{idx}})/({{total}}): {{employee.id}} - {{employee.firstName}}
-  {{employee.lastName}}
+export class TabContainerComponent {
+  @Input() headerTemplate: TemplateRef<any>; // Custom template provided by parent
+}`;
+    this.text4 = `<ng-template #customTabButtons>
+  <div class="custom-class">
+    <button class="tab-button" (click)="login()">
+      {{loginText}}
+    </button>
+    <button class="tab-button" (click)="signUp()">
+      {{signUpText}}
+    </button>
   </div>
-      `;
-    this.text6 = `
-  <div *ngFor="”let" item of list”>
-    <div *ngIf="”somethingGoood”">
-      More code
-    </div>
+</ng-template>
+<tab-container [headerTemplate]="customTabButtons"></tab-container>`;
+    this.text5 = `<div *ngFor="let employee of employees; index as idx; count as total">
+({{idx}})/({{total}}): {{employee.id}} - {{employee.firstName}}
+{{employee.lastName}}
+</div>`;
+    this.text6 = `<div *ngFor="”let" item of list”>
+  <div *ngIf="”somethingGoood”">
+    More code
   </div>
-      `;
+</div>`;
   }
 
   changeAge(event: any) {

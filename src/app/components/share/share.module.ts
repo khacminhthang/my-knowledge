@@ -3,18 +3,21 @@ import { CommonModule } from '@angular/common';
 import { ImageZoomComponent } from './image-zoom/image-zoom.component';
 import { ShareDataService } from './service/sharedata.service';
 import { NoteComponent } from './note/note.component';
+import { HighlightCodeDirective } from './highlight-code.directive';
 
 @NgModule({
   declarations: [
     ImageZoomComponent,
-    NoteComponent
+    NoteComponent,
+    HighlightCodeDirective
   ],
   imports: [
     CommonModule,
   ],
   exports: [
     ImageZoomComponent,
-    NoteComponent
+    NoteComponent,
+    HighlightCodeDirective
   ],
   providers: [ShareDataService]
 })

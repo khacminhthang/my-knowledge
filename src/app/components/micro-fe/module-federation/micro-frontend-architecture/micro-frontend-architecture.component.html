@@ -25,7 +25,7 @@
     <p>Generator cho MFEs cũng giống với cho Module Federation. Bạn có thể dùng <b>nx g host</b> để tạo một host app và
         <b>nx g remote</b> để tạo remote app.
     </p>
-    <code><pre>{{text1}}</pre></code>
+    <pre class="mb-0"><code class="language-markup">{{ text1 }}</code></pre>
     <p>Bạn có thể chạy <b>nx serve shell</b> để develop shell app, trong khi vẫn giữ tất cả remote app static. Để
         develop một hay nhiều remote app, truyền thêm tham số <b>--devRemotes</b>.</p>
     <b>nx serve shell --devRemotes=cart,shop.</b>
@@ -47,8 +47,8 @@
     <p>Chia sẻ càng ít càng tốt.</p>
     <p>Ví dụ: tạo base configuration file chỉ chia sẻ các thư viện cốt cần được chia sẻ.</p>
     <p>module-federation.config.ts</p>
-    <code><pre>{{text2}}</pre></code>
+    <pre class="mb-0"><code class="language-markup">{{ text2 }}</code></pre>
     <p>Sau đó trong host app và remote app, có thể extend từ base configuration.</p>
     <p>apps/shell/module-federation.config.ts</p>
-    <code><pre>{{text3}}</pre></code>
+    <pre class="mb-0"><code class="language-markup">{{ text3 }}</code></pre>
 </div>

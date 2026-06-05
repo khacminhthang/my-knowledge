@@ -14,9 +14,7 @@
   <p>Giả sử chúng ta đang xây dựng Tabs Component để thao tác với các tab. Chúng ta sẽ có hai component bao gồm
     TabGroupComponent để quản lý các tab panel và TabPanelComponent tương ứng với mỗi panel.</p>
   <br>
-  <pre>
-          <code><pre>{{text1}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text1 }}</code></pre>
   <p>Các bạn có thể thấy rằng, class ProductComponent của chúng ta bị phụ thuộc vào (depend on) class CartService. Khi
     ProductComponent cần call các method của CartService chúng ta cần khởi tạo hoặc yêu cầu để lấy về một instance của
     service đó.
@@ -33,19 +31,13 @@
     các hành động tương ứng.</p>
   <p>Giả sử bạn cài đặt tab-group.component.ts như sau:</p>
   <br>
-  <pre>
-          <code><pre>{{text2}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text2 }}</code></pre>
   <p>Và đây là phần UI cho tab-group.component.html::</p>
   <br>
-  <pre>
-          <code><pre>{{text3}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text3 }}</code></pre>
   <p>Việc của chúng ta bây giờ chỉ là inject và call các method để register và remove:</p>
   <br>
-  <pre>
-          <code><pre>{{text4}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text4 }}</code></pre>
   <br>
 
   <!--Provide một tab group khác có cùng APIs -->
@@ -58,19 +50,13 @@
   <p>Đây là nơi tỏa sáng của DI. Bạn chỉ cần đơn giản là provide một provider để override là được.</p>
   <p>bs-tab-group.component.ts</p>
   <br>
-  <pre>
-          <code><pre>{{text5}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text5 }}</code></pre>
   <p>bs-tab-group.component.html</p>
   <br>
-  <pre>
-          <code><pre>{{text6}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text6 }}</code></pre>
   <p>Template khi sử dụng:</p>
   <br>
-  <pre>
-          <code><pre>{{text7}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text7 }}</code></pre>
   <br>
 
   <!-- Forward Reference -->
@@ -83,18 +69,14 @@
     var keyword).</p>
   <p>Bây giờ giả sử bạn tách phần provider ở decorator ra một variable đặt ở trước khi khai báo class.</p>
   <br>
-  <pre>
-          <code><pre>{{text8}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text8 }}</code></pre>
   <p>Bạn sẽ nhận được một Error như sau:</p>
   <p>Error in src/app/bs-tab-group/bs-tab-group.component.ts
     Class 'BsTabGroupComponent' used before its declaration.</p>
   <p>Do đó chúng ta cần dùng đến closure, đó là tạo một function nó sẽ được call sau khi chúng ta tạo xong class, và nó
     sẽ có thể refer đến class đó ở thời điểm được gọi.</p>
   <br>
-  <pre>
-          <code><pre>{{text9}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text9 }}</code></pre>
   <p>Bạn có thể thắc mắc là tại sao sử dụng trực tiếp trong decorator thì lại không lỗi? Câu trả lời là vì bản thân
     Class Decorator sẽ được call sau khi mà bạn đã tạo xong class.
   </p>
@@ -108,29 +90,19 @@
   <p>Ví dụ về cách provide CartService:</p>
   <br>
   <p>useClass:</p>
-  <pre>
-          <code><pre>{{text10}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text10 }}</code></pre>
   <br>
   <p>Tương đương với cú pháp:</p>
-  <pre>
-          <code><pre>{{text11}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text11 }}</code></pre>
   <br>
   <p>useExisting:</p>
-  <pre>
-          <code><pre>{{text12}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text12 }}</code></pre>
   <br>
   <p>useFactory:</p>
-  <pre>
-          <code><pre>{{text13}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text13 }}</code></pre>
   <br>
   <p>useValue:</p>
-  <pre>
-          <code><pre>{{text14}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text14 }}</code></pre>
   <br>
 
 </div>

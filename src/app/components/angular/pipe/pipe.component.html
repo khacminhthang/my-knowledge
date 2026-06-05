@@ -38,21 +38,27 @@
   <p>Như đã nói, pipe sẽ nhận vào input và output ra một giá trị mình mong muốn.</p>
   <p>Mình có một biến tên là now ở trong component.</p>
   <br>
-  <pre>
-              <code><pre>{{text1}}</pre></code>
-          </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text1 }}</code></pre>
   <p>Và đây là cách mình hiển thị với built in pipe Date trong Angular
   </p>
   <br>
-  <pre>
-              <code><pre>{{text2}}</pre></code>
-          </pre>
+  <div class="row g-3 align-items-stretch mb-4">
+    <div class="col-12 col-lg-6">
+      <p class="preview-label">Code</p>
+      <pre class="h-100 mb-0"><code class="language-markup">{{ text2 }}</code></pre>
+    </div>
+    <div class="col-12 col-lg-6">
+      <p class="preview-label">Giao diện</p>
+      <div class="preview-pane">
+        <div>{{ now | date }}</div>
+        <div>{{ now | date:'medium' }}</div>
+      </div>
+    </div>
+  </div>
   <p>Chú ý phần giữa hai dấu ngoặc nhọn, ngoài việc truyền vào variable bạn muốn hiển thì thì có thêm dấu xổ dọc
     |. Đó là pipe operator, sau đó là tên của pipe bạn đã định nghĩa. Tất cả pipe đều hoạt động theo cách này.</p>
   <br>
-  <pre>
-              <code><pre>{{text3}}</pre></code>
-          </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text3 }}</code></pre>
 
   <!--Pipe and parameters-->
   <span  class="title pb-0">Pipe and parameters</span>
@@ -62,9 +68,7 @@
     bằng dấu hai chấm :. Đó cũng là cú pháp để pass parameter cho pipe.</p>
   <p>Đây chính là lúc mà bạn có thể sử dụng đến ContentChildren.</p>
   <br>
-  <pre>
-              <code><pre>{{text4}}</pre></code>
-          </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text4 }}</code></pre>
   <p>Bạn có thể truyền vào số lượng parameter không giới hạn.</p>
   <br>
 
@@ -74,9 +78,7 @@
   <br>
   <p>Pipes cho phép chúng ta dùng nhiều pipe để transform một value, cú pháp có dạng như sau.</p>
   <br>
-  <pre>
-              <code><pre>{{text5}}</pre></code>
-          </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text5 }}</code></pre>
   <p>Sau khi có output pipe_name_1, thì output này sẽ được xử lý qua pipe_name_2 rồi tương tự đến pipe_name_n để ra
     output cuối cùng hiển thị lên UI. Vẫn ví dụ với date ở trên, mình sẽ thêm pipe uppercase để chuyển hết text thành
     chữ hoa. Sau khi biến now được xử lý bằng date pipe sẽ có value Jun 24, 2020, 5:00:00 PM, sau đó uppercase sẽ
@@ -141,9 +143,7 @@
     sẽ không có itemId.</p>
   <p>Thông thường bọn mình có thể viết đi viết lại một cái logic trong từng component.</p>
   <br>
-  <pre>
-                <code><pre>{{text6}}</pre></code>
-            </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text6 }}</code></pre>
   <br>
   <p>Cho đến một ngày một dev mắc một lỗi typo ngớ ngẩn là thay vì Add, bạn ấy type thành Adđ (Vì có bật Unikey :)))</p>
   <p>Thế là mình quyết định viết một pipe đơn giản là nhận vào một string, nếu string này có value, show Edit, còn không
@@ -153,31 +153,23 @@
   <strong>1. Trước tiên chúng ta cần tạo một class có implement interface PipeTransform.</strong>
   <p>Interface này chỉ bao gồm một method duy nhất tên là transform.</p>
   <p>Đây là interface PipeTransform cần implement</p>
-  <pre>
-    <code><pre>{{text7}}</pre></code>
-</pre>
+  <pre class="mb-0"><code class="language-markup">{{ text7 }}</code></pre>
   <br>
   <p>Đây là ví dụ một class sau khi đã implement PipeTransform</p>
-  <pre>
-    <code><pre>{{text8}}</pre></code>
-</pre>
+  <pre class="mb-0"><code class="language-markup">{{ text8 }}</code></pre>
   <br>
   <p>Đại khái là method transform ở đây rất đơn giản. Nếu resourceId là truthy thì return Edit, nếu ko thì return lại
     Add.</p>
 
   <strong>Thêm Pipe decorator cho class đã implement PipeTransform</strong>
   <p>Giống như component có decorator @Component. Pipe cũng có decorator @Pipe..</p>
-  <pre>
-    <code><pre>{{text9}}</pre></code>
-</pre>
+  <pre class="mb-0"><code class="language-markup">{{ text9 }}</code></pre>
   <br>
   <p>Khi thêm Pipe decorator thì có một property là required, đó chính là tên của pipe. Mình đặt là appTitle.</p>
   <p>Nhớ là phải đặt AppTitlePipe trong mảng declarations ở module tương ứng mà bạn muốn sử dụng. Nếu không Angular sẽ
     báo lỗi.</p>
   <p>Xong rồi đây, giờ mình có thể dùng appTitle như bình thường.</p>
-  <pre>
-    <code><pre>{{text10}}</pre></code>
-</pre>
+  <pre class="mb-0"><code class="language-markup">{{ text10 }}</code></pre>
   <br>
   <p>Chú ý cách đặt tên cho pipe và class:</p>
   <ul>
@@ -193,14 +185,10 @@
   <p>Mình hoàn toàn có thể truyền vào hai parameters tương ứng với hai text này. Và nếu mặc định không truyền mình sẽ
     set lại Add và Edit tương ứng.</p>
   <p>Code của mình có thể được viết lại như sau:</p>
-  <pre>
-    <code><pre>{{text11}}</pre></code>
-</pre>
+  <pre class="mb-0"><code class="language-markup">{{ text11 }}</code></pre>
   <br>
   <p>Và dùng trên UI</p>
-  <pre>
-    <code><pre>{{text12}}</pre></code>
-</pre>
+  <pre class="mb-0"><code class="language-markup">{{ text12 }}</code></pre>
   <br>
   <p>Method transform sẽ nhận vào nhiều argument. Trong đó:</p>
   <ul>
@@ -221,13 +209,9 @@
   <p>Với pipe appTitle ở trên, vì mình truyền vào giá trị string cho argument resourceId. Nên khi value của resourceId
     thay đổi, pipe nhận biết được là có sự thay đổi và update UI tương ứng. Ví dụ:</p>
   <br>
-  <pre>
-              <code><pre>{{text13}}</pre></code>
-          </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text13 }}</code></pre>
   <br>
-  <pre>
-              <code><pre>{{text14}}</pre></code>
-          </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text14 }}</code></pre>
   <br>
   <p>Vậy đối với primitive type như string, boolean, number. Angular detech changes khá là straight forward. Mỗi khi
     value thay đổi thì pipe cũng sẽ update theo. Còn đối với các reference type như object hay array thì sao nhỉ?</p>
@@ -235,30 +219,22 @@
   <strong>Reference type</strong>
   <p>Ví dụ như có một mảng của users như sau.</p>
   <br>
-  <pre>
-              <code><pre>{{text15}}</pre></code>
-          </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text15 }}</code></pre>
   <br>
   <p>Mình có một pipe tên là isAdult, để filter ra những user lớn hơn 18 tuổi.</p>
   <br>
-  <pre>
-    <code><pre>{{text16}}</pre></code>
-</pre>
+  <pre class="mb-0"><code class="language-markup">{{ text16 }}</code></pre>
   <br>
   <p>Và mình render cả 2 list lên màn hình</p>
   <br>
-  <pre>
-    <code><pre>{{text17}}</pre></code>
-</pre>
+  <pre class="mb-0"><code class="language-markup">{{ text17 }}</code></pre>
   <br>
   <p>Như các bạn thấy list những người trưởng thành hiện không có user Tuan Anh dc render, chứng tỏ pipe đã hoạt động
     như ý mình muốn</p>
   <p>Bây giờ mình add thêm 2 textbox để điền user và tuổi, cùng với một button để add thêm user vào mảng users. Tuy
     nhiên khi add thêm một user với tuổi lớn 18 vào mảng users. Phần render list người lớn bên phải ko tự update.</p>
   <br>
-  <pre>
-    <code><pre>{{text18}}</pre></code>
-</pre>
+  <pre class="mb-0"><code class="language-markup">{{ text18 }}</code></pre>
   <br>
   <p>Mình push thêm phần tử mới vào mảng khi click add. Tức là mutate giá trị của mảng trực tiếp, chứ không gán một
     reference mới cho mảng. Điều này dẫn đến một đặc điểm quan trọng của Pipe.</p>
@@ -272,18 +248,14 @@
   <p>Tức là thay vì mình push một item vô mảng users. Thì mình sẽ gán mảng users bằng một mảng mới với tất cả items cũ
     và item mới được add. Đoạn code ở trên sẽ được sửa lại thành.</p>
   <br>
-  <pre>
-    <code><pre>{{text19}}</pre></code>
-</pre>
+  <pre class="mb-0"><code class="language-markup">{{ text19 }}</code></pre>
   <br>
   <strong>2. Set impure Pipe</strong>
   <p>Nếu bạn muốn trigger pipe khi có thay đổi value của một phần tử trong array, hay khi một property của object bị
     thay đổi. Bạn có thể cấu hình pipe của bạn với thuộc tính pure với giá trị false trong decorator. Mặc định, pure
     luôn có giá trị true.</p>
   <br>
-  <pre>
-    <code><pre>{{text20}}</pre></code>
-</pre>
+  <pre class="mb-0"><code class="language-markup">{{ text20 }}</code></pre>
   <p>Tuy nhiên khi sử dụng impure pipe phải hết sức cẩn thận vì như đã đề cập ở trên. Việc check từng phần trong array
     hay từng property trong object xem có thay đổi hay không rất tốn performance. Nên khi tập dữ liệu của bạn đủ lớn,
     chắc chắn app sẽ chậm đi trông thấy.</p>

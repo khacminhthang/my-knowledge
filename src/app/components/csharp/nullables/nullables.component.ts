@@ -1,16 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+  standalone: false,
   selector: 'app-nullables',
   templateUrl: './nullables.component.html',
   styleUrls: ['./nullables.component.css']
 })
 export class NullablesComponent implements OnInit {
-  text1=`
-  < kiểu_dữ_liệu > ? <tên_biến> = null;
-  `;
-  text2 = `
-using System;
+  text1=`< kiểu_dữ_liệu > ? <tên_biến> = null;`;
+  text2 = `using System;
 namespace Csharp
 {
     class TestCsharp
@@ -34,10 +32,8 @@ namespace Csharp
             Console.ReadKey();
         }
     }
-}
-  `
-  text3 = `
-using System;
+}`
+  text3 = `using System;
 namespace Csharp
 {
     class TestCsharp
@@ -58,8 +54,7 @@ namespace Csharp
             Console.ReadKey();
         }
     }
-}
-  `
+}`
   constructor() { }
 
   ngOnInit(): void {

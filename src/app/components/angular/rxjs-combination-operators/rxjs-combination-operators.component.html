@@ -5,9 +5,7 @@
     rất quan trọng khi làm việc với Angular vì những operators này sẽ cho phép các bạn kết hợp nhiều Observable lại với
     nhau. Những operators này gọi là Combination Operators.</p>
   <br>
-  <pre>
-    <code><pre>{{text1}}</pre></code>
-</pre>
+  <pre class="mb-0"><code class="language-markup">{{ text1 }}</code></pre>
   <br>
 
   <!-- forkJoin() -->
@@ -23,9 +21,7 @@
     children Observables complete hết thì forkJoin() sẽ emit giá trị của các children Observables theo dạng Array hoặc
     Dictionary (tuỳ vào tham số truyền vào) rồi sau đó sẽ complete.</p>
   <br>
-  <pre>
-        <code><pre>{{text2}}</pre></code>
-    </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text2 }}</code></pre>
   <strong>Lưu ý:</strong>
   <ul>
     <li>forkJoin() chỉ emit khi các children Observables complete. Nếu như 1 trong số các children Observables không
@@ -38,16 +34,12 @@
   <strong>Use-case:</strong>
   <p>forkJoin() sử dụng rất nhiều trong ứng dụng Angular, đặc biệt là khi bạn cần request cùng lúc một loạt các
     Dropdown/Select.</p>
-  <pre>
-    <code><pre>{{text3}}</pre></code>
-  </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text3 }}</code></pre>
   <p>forkJoin() khi dùng với children Observables là 1 Array, thì forkJoin() có thể nhận vào 1 tham số thứ 2 gọi là
     projectFunction. projectFunction này sẽ được gọi với các tham số là giá trị của children Observables và kết quả của
     projectFunction sẽ là kết quả emit của forkJoin(). projectFunction chỉ được thực thi nếu như forkJoin() SẼ emit
     (nghĩa là tất cả children Observables đều complete)</p>
-  <pre>
-      <code><pre>{{text4}}</pre></code>
-  </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text4 }}</code></pre>
   <br>
 
   <!--combineLatest()-->
@@ -66,16 +58,14 @@
     khuyên dùng cách 1 hơn vì nó nhất quán với forkJoin() hơn và cũng dễ dự đoán được kết quả hơn, vì kết quả của
     combineLatest() là 1 Array. Vì vậy, mình chỉ đề cập đến cách dùng combineLatest([obs1, obs2])
   </p>
-  <pre>
-                  <code><pre>{{text5}}</pre></code>
-              </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text5 }}</code></pre>
   <strong>Lưu ý:</strong>
   <ul>
     <li>Qua ví dụ, các bạn cũng có thể thấy là combineLatest(), sau lần emit đầu tiên của các children Observables, thì
       sẽ emit giá trị mới nhất của child Observable đang emit + giá trị gần nhất của các children Observables đã emit.
     </li>
-    <li>Cũng qua ví dụ, các bạn có thể thấy là Observable thứ 2 2} (interval(1000)) bị nuốt mất 2 giá trị đầu tiên là 0
-      và 1 vì 2} đã emit với tần suất nhanh hơn là Observable có khoảng thời gian lâu nhất 3}. Đây là điều các bạn cần
+    <li>Cũng qua ví dụ, các bạn có thể thấy là Observable thứ 2 2&#125; (interval(1000)) bị nuốt mất 2 giá trị đầu tiên là 0
+      và 1 vì 2&#125; đã emit với tần suất nhanh hơn là Observable có khoảng thời gian lâu nhất 3&#125;. Đây là điều các bạn cần
       lưu ý để có thể tránh hiện tượng racing condition.</li>
     <li>combineLatest() sẽ complete khi tất cả children Observables complete.</li>
     <li>combineLatest() sẽ không bao giờ complete nếu như 1 trong số các children Observables không bao giờ complete.
@@ -88,13 +78,9 @@
   <p>Dùng rất nhiều trong việc combine state khi dùng Service trong Angular. Vì tính chất long-lived không complete sau
     1 lần emit, combineLatest() là sự lựa chọn tốt cho việc combine các state trong Service và kết hợp với AsyncPipe để
     dùng trong template.</p>
-  <pre>
-      <code><pre>{{text6}}</pre></code>
-  </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text6 }}</code></pre>
   <br>
-  <pre>
-                  <code><pre>{{text7}}</pre></code>
-              </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text7 }}</code></pre>
   <p>Như trên là 1 ví dụ khá hoàn chỉnh về việc xử lý PaginationComponent trong Angular sử dụng combineLatest() và
     AsyncPipe. Khi updateSize() và updatePage() được thực thi thì currentPage$ và currentSize$ sẽ emit giá trị mới, dẫn
     đến combineLatest() (vm$) sẽ emit giá trị mới và template sẽ được update (vm$ | async).</p>
@@ -104,9 +90,7 @@
     combineLatest([obs1, obs2]) vì tính nhất quán với forkJoin(), và khả năng dùng projectFunction. Sau đây là ví dụ
     về vm$ ở trên viết lại với projectFunction</p>
   <br>
-  <pre>
-                    <code><pre>{{text8}}</pre></code>
-                </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text8 }}</code></pre>
   <br>
 
   <!--zip()-->
@@ -121,33 +105,23 @@
   <p>Nghĩa là sao? Ví dụ: obs1 emit 1 - 2 - 3, obs2 emit 4 - 5 - 6, obs3 emit 7 - 8 - 9. Nếu như bạn dùng
     combineLatest() thì giá trị mà các bạn nhận được là:</p>
   <br>
-  <pre>
-                  <code><pre>{{text9}}</pre></code>
-              </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text9 }}</code></pre>
   <p>Nhưng khi dùng zip với ví dụ trên:</p>
-  <pre>
-                  <code><pre>{{text10}}</pre></code>
-              </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text10 }}</code></pre>
   <p>zip() sẽ complete khi 1 trong các children Observables complete. Nghĩa là các bạn chỉ luôn luôn nhận được giá trị
     đã được gộp lại của zip</p>
-  <pre>
-                  <code><pre>{{text11}}</pre></code>
-              </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text11 }}</code></pre>
   <p>zip() sẽ throw error nếu 1 trong các children Observables throw error.</p>
   <p>Nếu tham số cuối cùng của zip() là 1 Function thì zip() sẽ coi tham số này là projectFunction. Cách thức hoạt động
     hoàn toàn giống với projectFunction của combineLatest() và forkJoin().</p>
   <strong>Use-case</strong>
   <p>zip() cực kỳ hữu hiệu nếu như các bạn rơi vào các trường hợp sau:</p>
   <p>Giá trị cuối cùng mà bạn cần được cung cấp bởi nhiều Observables khác nhau. Ví dụ:</p>
-  <pre>
-    <code><pre>{{text12}}</pre></code>
-</pre>
+  <pre class="mb-0"><code class="language-markup">{{ text12 }}</code></pre>
   <p>Kết hợp giá trị của 2 Observables khác nhau ở 2 thời điểm khác nhau. Ví dụ: các bạn muốn biết toạ độ chuột của
     người dùng từ lúc họ mousedown cho đến lúc họ mouseup, hoặc có thể lấy khoảng thời gian họ rê chuột (dùng new Date()
     thay vì getCoords() như ví dụ bên dưới)</p>
-  <pre>
-      <code><pre>{{text13}}</pre></code>
-  </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text13 }}</code></pre>
   <br>
 
   <!--concat()-->
@@ -159,27 +133,23 @@
   <p>concat() nhận vào tham số ...Observable để tượng trưng cho các child Observable được truyền vào lần lượt thay vì
     truyền vào 1 Array Observable></p>'
   <p>concat() sẽ subscribe vào các children Observables theo thứ tự được truyền vào và sẽ emit khi Observable đang được
-    subscribe complete (gọi là 1}).</p>
+    subscribe complete (gọi là 1&#125;).</p>
   <ul>
-    <li>Nếu 1} emit và complete, concat() sẽ emit giá trị mà 1} emit rồi sẽ subscribe vào Observable kế tiếp.</li>
-    <li>Nếu 1} error, concat() sẽ error ngay lặp tức và chuỗi Observable phía sau sẽ bị bỏ qua.</li>
-    <li>Nếu 1} complete mà không emit, concat() sẽ bỏ qua và subscribe vào Observable kế tiếp</li>
-    <li>Nếu 1} emit và không complete, concat() sẽ emit giá trị mà 1} emit NHƯNG sẽ không subscribe vào Observable kế
-      tiếp vì 1} không complete.</li>
+    <li>Nếu 1&#125; emit và complete, concat() sẽ emit giá trị mà 1&#125; emit rồi sẽ subscribe vào Observable kế tiếp.</li>
+    <li>Nếu 1&#125; error, concat() sẽ error ngay lặp tức và chuỗi Observable phía sau sẽ bị bỏ qua.</li>
+    <li>Nếu 1&#125; complete mà không emit, concat() sẽ bỏ qua và subscribe vào Observable kế tiếp</li>
+    <li>Nếu 1&#125; emit và không complete, concat() sẽ emit giá trị mà 1&#125; emit NHƯNG sẽ không subscribe vào Observable kế
+      tiếp vì 1&#125; không complete.</li>
   </ul>
   <p>concat() sẽ hoạt động tương tự cho LẦN LƯỢT từng children Observables cho đến khi không còn Observable nào thì
     concat() sẽ complete.</p>
   <br>
-  <pre>
-        <code><pre>{{text14}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text14 }}</code></pre>
   <p>Các bạn có thể thấy là concat() sẽ chờ cho of(4, 5, 6).pipe(delay(1000)) emit và complete thì concat() mới emit
     4-5-6 rồi subscribe vào of(1, 2, 3).</p>
   <p>Các bạn cũng có thể truyền 1 Observable nhiều lần vào cho concat().</p>
   <br>
-  <pre>
-        <code><pre>{{text15}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text15 }}</code></pre>
   <br>
 
   <!--merge()-->
@@ -201,22 +171,16 @@
     <li>complete khi và chỉ khi tất cả children Observables complete.</li>
   </ul>
   <br>
-  <pre>
-        <code><pre>{{text16}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text16 }}</code></pre>
   <p>Các bạn thấy sự khác biệt với concat() chưa? Ở đây, merge() emit luôn 1,2,3 rồi mới tới 4,5,6 và không hề quan tâm
     đến thứ tự mà các children Observables này được truyền vào. Mình thêm 1 ví dụ khác để các bạn thấy rõ hơn cách hoạt
     động của merge()
   </p>
   <br>
-  <pre>
-      <code><pre>{{text17}}</pre></code>
-    </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text17 }}</code></pre>
   <p>Ví dụ trên sẽ cho các bạn thấy merge() sẽ emit khi mà child Observable emit thôi và có thể emit xen kẽ nhau. Sau
     đây sẽ là ví dụ truyền vào tham số concurrent</p>
-  <pre>
-      <code><pre>{{text18}}</pre></code>
-    </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text18 }}</code></pre>
   <p>Các bạn sẽ thấy khi truyền vào tham số concurrent là 2, merge sẽ chỉ subscribe vào first và second song song mà
     thôi. Cho đến khi first complete, thì third mới bắt đầu đc subscribe. Điều này cũng sẽ cho các bạn thấy được rằng
     thật ra concat() chính là merge() với concurrent là 1.</p>
@@ -225,9 +189,7 @@
     FormControl.valueChanges để thực hiện 1 nghiệp vụ nào đó. Lúc này, các bạn không hề quan tâm thứ tự việc FormControl
     nào sẽ thay đổi, các bạn chỉ cần quan tâm là nếu FormControl đó thay đổi thì sẽ xử lý hợp lý.</p>
   <br>
-  <pre>
-          <code><pre>{{text19}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text19 }}</code></pre>
   <br>
 
   <!--race-->
@@ -244,9 +206,7 @@
     <li>race() sẽ error ngay lập tức nếu Observable nhanh nhất lại throw error thay vì emit giá trị.</li>
   </ul>
   <br>
-  <pre>
-        <code><pre>{{text20}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text20 }}</code></pre>
   <br>
   <strong>Use-case:</strong>
   <p>Ở một ứng dụng bất kỳ, các bạn lâu lâu sẽ phải hiển thị 1 Banner nào đó dựa vào hành động của người dùng. Ví dụ:
@@ -260,9 +220,7 @@
   <p>Lúc này, operator thích hợp nhất chính là race() vì các bạn chỉ muốn đóng Banner khi 1 trong 3 điều kiện trên được
     thoả mà thôi.</p>
   <br>
-  <pre>
-          <code><pre>{{text21}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text21 }}</code></pre>
   <p>Tất cả các operators trên đây đều là static function. Các operators sau sẽ là các pipeable operator, nghĩa là các
     operator sau đây đều được dùng với pipe() và sẽ được bao bên ngoài 1 Observable gọi là Outer Observable.</p>
   <br>
@@ -276,9 +234,7 @@
   <p>withLatestFrom() nhận vào tham số là 1 Observable. withLatestFrom() sẽ gộp giá trị emit của Outer Observable với
     giá trị gần nhất của tham số Observable thành 1 Array rồi emit Array này.</p>
   <br>
-  <pre>
-            <code><pre>{{text22}}</pre></code>
-          </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text22 }}</code></pre>
   <p>withLatestFrom() cũng nhận vào tham số thứ 2 optional là projectFunction. Cách thức hoạt động như những
     projectFunction được đề cập trong bài viết này.</p>
   <strong>Use-case</strong>
@@ -287,9 +243,7 @@
     combineLatest() thì mỗi lần Observable khác kia emit, thì combineLatest() cũng emit và đây là điều chúng ta không
     muốn.</p>
   <br>
-  <pre>
-              <code><pre>{{text23}}</pre></code>
-            </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text23 }}</code></pre>
   <br>
 
 
@@ -303,15 +257,11 @@
     Observable emit giá trị của startWith() trước rồi mới emit đến giá trị của Outer Observable. startWith() sẽ emit giá
     trị ngay lặp tức mà không phụ thuộc vào việc Outer Observable có emit hay là chưa.</p>
   <br>
-  <pre>
-            <code><pre>{{text24}}</pre></code>
-          </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text24 }}</code></pre>
   <strong>Use-case</strong>
   <p>startWith() có thể được dùng trong Angular để cung cấp giá trị ban đầu cho các API call. Ví dụ:</p>
   <br>
-  <pre>
-              <code><pre>{{text25}}</pre></code>
-            </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text25 }}</code></pre>
   <br>
 
   <!--endWith-->
@@ -323,9 +273,7 @@
   <p>endWith() cũng nhận vào 1 list các tham số như startWith() nhưng cách hoạt động thì ngược lại với startWith(). Một
     điểm khác biệt lớn là endWith() chỉ emit giá trị của endWith() khi Outer Observable complete mà thôi.</p>
   <br>
-  <pre>
-            <code><pre>{{text26}}</pre></code>
-          </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text26 }}</code></pre>
   <br>
 
   <!--pairwise-->
@@ -337,9 +285,7 @@
   <p>pairwise() là 1 operator rất thú vị và rất kén nghiệp vụ. pairwise() sẽ gộp giá trị emit gần nhất và giá trị đang
     được emit của Outer Observable thành 1 Array (1 cặp giá trị) và emit Array này.</p>
   <br>
-  <pre>
-              <code><pre>{{text27}}</pre></code>
-            </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text27 }}</code></pre>
   <br>
 
 </div>

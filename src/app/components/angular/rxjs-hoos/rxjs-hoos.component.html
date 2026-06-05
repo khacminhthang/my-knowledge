@@ -10,9 +10,7 @@
     Observable (hay còn gọi là Destination) khác. Nhắc lại ngày trước 1 chút, chúng ta đã cùng tìm hiểu về map(), là
     Transformation Operator
   </p>
-  <pre>
-        <code><pre>{{text1}}</pre></code>
-    </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text1 }}</code></pre>
   <p>Các bạn sẽ thấy là map() dùng giá trị của interval(1000) là 0 -- 1 -- 2 -- 3 -- 4... và trả về giá trị mới là nhân
     đôi của giá trị ban đầu 0 -- 2 -- 4 -- 6 -- 8.... HOOs cũng là những Transformation Operators nhưng thay vì
     transform thành value mới thì chúng sẽ trả về Observable mới để chúng ta có thể subscribe vào Observable mới này và
@@ -25,17 +23,13 @@
     rồi emit giá trị mới này. Ở ví dụ trên, chúng ta thấy map() trả về 1 giá trị bình thường. Vậy trường hợp map() trả
     về giá trị là 1 Observable thì sao? Chúng ta hãy thử nhé.</p>
   <br>
-  <pre>
-              <code><pre>{{text2}}</pre></code>
-          </pre>
-  <p>Như các bạn thấy, chúng ta nhận được Observable } ở trên Console. Lí do là vì map() trả về 1 Observable, là
+  <pre class="mb-0"><code class="language-markup">{{ text2 }}</code></pre>
+  <p>Như các bạn thấy, chúng ta nhận được Observable &#125; ở trên Console. Lí do là vì map() trả về 1 Observable, là
     interval(1000) ở đây. Và lúc này các bạn đang có 1 Higher Order Observable (aka Observable Observable>). Các bạn có
     thể hiểu là mỗi lần click, chúng ta sẽ có 1 interval() mới. Lúc này, chúng ta có thể dùng 1 trong 3 operators mình
     vừa liệt kê ở trên để pipe vào Source Observable này:</p>
   <br>
-  <pre>
-          <code><pre>{{text3}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text3 }}</code></pre>
   <p>Cả 3 merge/switch/concatAll sẽ giúp các bạn chuyển Higher Order Observable về lại First Order Observable bằng cách
     sẽ subscribe vào Observable mà map() trả về. Nói cách khác, các Higher Order Observables chính là
     merge/switch/concatAll + map(). Cách thức hoạt động cũng như tính chất của merge/switch/concat khác nhau như thế nào
@@ -45,9 +39,7 @@
   <strong>Tại sao lại cần HOOs?</strong>'
   <p>Chúng ta xem qua ví dụ sau:</p>
   <br>
-  <pre>
-          <code><pre>{{text4}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text4 }}</code></pre>
   <p>Chúng ta có một use-case rất quen thuộc: một FormControl là queryInput dùng để xử lý một Text Input. Chúng ta cần
     lắng nghe vào valueChanges trên FormControl này để thực hiện việc gọi backend với query mới. Nhưng các bạn có thấy
     điều gì sai sai không? Đó là chúng ta đã vi phạm một trong những lỗi dễ gặp nhất khi làm việc với RxJS: Nested
@@ -59,18 +51,18 @@
 
   <p>1. Người dùng type: "abc" vào queryInput và ngừng type.</p>
   <p>2. Sau 500ms (debounceTime()), valueChanges emit giá trị abc và chúng ta subscribe vào valueChanges với observer:
-    query => ...}</p>
+    query => ...&#125;</p>
   <p>3. Từ query, chúng ta ngay lặp tức gọi apiService.filterData(query) và đây cũng là 1 Observable, nên chúng ta
     subscribe.</p>
   <p>4. Sau 1 khoảng thời gian ngẫu nhiên (vì là API request mà, hên xui 😅), chúng ta có data và bắt đầu hiển thị lên
     template.</p>
   <p>Mọi thứ đều đẹp như mơ, cho đến khi có thêm các bước như sau.</p>
   <p>5.Người dùng xoá abc đi và type vào xyz. Mọi thứ diễn ra dưới 500ms và người dùng dừng lại ở xyz. 6-7. Như bước 2
-    và 3, chúng ta có query với giá trị là xyz và sẽ gọi apiService.filterData(query). (tạm gọi đây là 1})</p>
+    và 3, chúng ta có query với giá trị là xyz và sẽ gọi apiService.filterData(query). (tạm gọi đây là 1&#125;)</p>
   <p>6.Sau 1 khoảng thời gian KHÁ LÂU, người dùng lại tiếp tục đổi query từ xyz thành abcxyz.</p>
-  <p>7. Sau 500ms, chúng ta lại có query là abcxyz và sẽ tiếp tục gọi apiService.filterData(query) (tạm gọi đây là 2})
+  <p>7. Sau 500ms, chúng ta lại có query là abcxyz và sẽ tiếp tục gọi apiService.filterData(query) (tạm gọi đây là 2&#125;)
   </p>
-  <p>Lúc này, 1} hoàn tất và chúng ta có data. Hiển thị lên template nhưng hỡi ơi, data của 1} là data mà liên quan
+  <p>Lúc này, 1&#125; hoàn tất và chúng ta có data. Hiển thị lên template nhưng hỡi ơi, data của 1&#125; là data mà liên quan
     đến query = 'xyz' cơ mà. Hiện tại query là abcxyz mất rồi. Thế là bạn nhận ra behavior của đoạn code trên có Racing
     Condition trầm trọng.</p>
   <p>Trên đây chỉ là 1 ví dụ trong vô vàn ví dụ vì sao Nested Subscription là không tốt. Lí do ở đây chính là đối với
@@ -88,9 +80,7 @@
     (Inner Observable) mới. Giá trị cuối cùng của Outer Observable khi dùng với switchMap() sẽ là giá trị mà Inner
     Observable emit. Vì đây là HOO đầu tiên nên mình sẽ cố giải thích kĩ càng và đầy đủ hơn. Các bạn hình dung case sau:
   </p>
-  <pre>
-                      <code><pre>{{text5}}</pre></code>
-                  </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text5 }}</code></pre>
   <br>
   <ul>
     <li>fromEvent(document, 'click'): Rất đơn giản. Tạo 1 Observable từ sự kiện click lên document. Mỗi lần click sẽ
@@ -106,16 +96,16 @@
     Nói cách khác, switchMap() sẽ chỉ giữ 1 và chỉ 1 Subscription bất cứ lúc nào. Bây giờ chúng ta sẽ cùng thực hiện các
     bước sau với đoạn code trên và phân tích kết quả cũng như behavior của switchMap() nhé:</p>
   <p>1. Click lên Document. Lúc này, Outer emit, dẫn đến 1 interval() được return cho switchMap(). Mình tạm gọi
-    interval() này là 1}.</p>
-  <p>2. switchMap() bắt đầu subscribe vào 1}</p>
-  <p>3. Console bắt đầu hiển thị giá trị của 1}: 0 -- 1 -- 2 -- 3 -- 4 .... Các bạn nhớ là interval() này sẽ tốn 10s để
+    interval() này là 1&#125;.</p>
+  <p>2. switchMap() bắt đầu subscribe vào 1&#125;</p>
+  <p>3. Console bắt đầu hiển thị giá trị của 1&#125;: 0 -- 1 -- 2 -- 3 -- 4 .... Các bạn nhớ là interval() này sẽ tốn 10s để
     complete nhé.</p>
   <p>4. Ở giây thứ 5 - 6 gì đó, chúng ta lại Click lên Document lần nữa. Điều này sẽ làm cho Outer emit lần thứ 2, dẫn
     đến
-    1 interval() mới được return cho switchMap(), tạm gọi đây là 2}</p>
-  <p>5. switchMap() đang subscribe vào 1}, nhận thấy có Observable mới là 2}, sẽ ngay lặp tức unsubscribe khỏi 1} và
-    subscribe vào 2}.</p>
-  <p>6. Nhìn vào Console, chúng ta sẽ thấy giá trị lặp lại từ: 0 -- 1 -- 2 -- 3 .... Lí do là đây là giá trị của 2}, là
+    1 interval() mới được return cho switchMap(), tạm gọi đây là 2&#125;</p>
+  <p>5. switchMap() đang subscribe vào 1&#125;, nhận thấy có Observable mới là 2&#125;, sẽ ngay lặp tức unsubscribe khỏi 1&#125; và
+    subscribe vào 2&#125;.</p>
+  <p>6. Nhìn vào Console, chúng ta sẽ thấy giá trị lặp lại từ: 0 -- 1 -- 2 -- 3 .... Lí do là đây là giá trị của 2&#125;, là
     1 interval() mới cho nên giá trị sẽ bắt đầu chạy từ số 0.</p>
   <p>Qua phân tích như trên, các bạn đã thấy rằng switchMap() sẽ unsubscribe Inner Observable nếu như Inner Observable
     đang được subscribe chưa complete MÀ Outer Observable lại emit tiếp. Điều này cực kỳ hữu dụng nếu như chúng ta áp
@@ -124,9 +114,7 @@
     thì data được filter theo query cũ chúng ta đâu cần quan tâm làm gì. Các bạn thử dùng switchMap() cho ví dụ đầu tiên
     rồi chạy xem sao nhé:
   </p>
-  <pre>
-    <code><pre>{{text6}}</pre></code>
-</pre>
+  <pre class="mb-0"><code class="language-markup">{{ text6 }}</code></pre>
   <strong>Lưu ý:</strong>
   <p>Như ở phần Nguồn gốc, mình có đề cập đến switchMap = switchAll + map. Tuy nhiên, một số trường hợp sẽ làm cho
     switchAll + map không hoạt động đúng tính chất của switchMap() nữa. Điển hình là khi bạn dùng với Promise. Vì tính
@@ -150,9 +138,7 @@
     cần/được dừng Inner Observable nếu như Outer Observable có emit giá trị mới (ví dụ những nghiệp vụ liên quan đến
     Write vào Database, switchMap() sẽ thích hợp với Read).</p>
   <br>
-  <pre>
-        <code><pre>{{text7}}</pre></code>
-    </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text7 }}</code></pre>
   <p>Các bạn đã thấy sự khác biệt với switchMap() rồi chứ? Vì mergeMap() sẽ không unsubscribe Inner Observable nên số
     lượng Subscription mà mergeMap() tạo ra có khi lên rất nhiều, các bạn chú ý khi dừng mergeMap() nhé. Không cẩn thận
     là ăn Memory Leak đấy.</p>
@@ -171,24 +157,18 @@
     sẽ CHỜ cho đến khi Inner Observable này complete thì mới subscribe vào Inner Observable tiếp theo (nếu như có Inner
     Observable tiếp theo). Chúng ta sẽ tiếp tục phân tích lại ví dụ ở trên nhé:</p>
   <br>
-  <pre>
-          <code><pre>{{text8}}</pre></code>
-      </pre>
-  <p>Các bạn thấy chứ? concatMap() sẽ chờ cho đến khi 1} complete rồi mới subscribe vào 2} và tương tự cho 3}. Với
+  <pre class="mb-0"><code class="language-markup">{{ text8 }}</code></pre>
+  <p>Các bạn thấy chứ? concatMap() sẽ chờ cho đến khi 1&#125; complete rồi mới subscribe vào 2&#125; và tương tự cho 3&#125;. Với
     tính chất này, concatMap() rất thích hợp trong các nghiệp vụ phải cần quan tâm đến THỨ TỰ thực hiện. Ví dụ: đèn giao
     thông, gọi số báo danh, hoặc nghiệp vụ dễ demo hơn là upload hình theo thứ tự.</p>
   <br>
-  <pre>
-            <code><pre>{{text9}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text9 }}</code></pre>
   <strong>Lưu ý:</strong>
   <p>Như phần Nguồn gốc mình có đề cập tới concatMap = concatAll + map. Tuy nhiên, có một số trường hợp concatAll + map
     sẽ hoạt động không đúng với tính chất của concatMap. Điển hình chính là khi các bạn nhúng Promise vào. Các bạn xem
     ví dụ sau:</p>
   <br>
-  <pre>
-              <code><pre>{{text10}}</pre></code>
-          </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text10 }}</code></pre>
   <p>Lúc này, vì bản chất eager của Promise, khi được invoke là sẽ gửi request ngay lặp tức, nghĩa là axios(...) kia đã
     gửi request tại thời điểm map() mất rồi cho nên concatAll() ở đây để thực thi theo thứ tự thì hoàn toàn vô nghĩa, và
     nhiều trường hợp sẽ bị Racing Condition ngay.</p>
@@ -206,9 +186,7 @@
   <p>Cách hoạt động khá khá giống với throttle mà chúng ta đã tìm hiểu qua. Để thấy rõ được cách hoạt động của
     exhaustMap(), chúng ta xem qua ví dụ sau:</p>
   <br>
-  <pre>
-          <code><pre>{{text11}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text11 }}</code></pre>
   <p>Các bạn có thể thấy là khi exhaustMap() đang chạy Inner Observable của second timer mà last timer emit, thì
     exhaustMap() bỏ qua hoàn toàn Inner Observable của last timer và mọi nghiệp vụ dừng lại sau khi Inner Observable của
     second timer complete. Đây là tính chất của exhaustMap(), là 1 trong những Rate Limiting HOO hiếm hoi 😎</p>
@@ -220,9 +198,7 @@
     nhận vào projectFunction thì các bạn truyền hẳn vào Inner Observable luôn. Nếu các bạn có các nghiệp vụ cần dùng đến
     cái HOOs này mà không quan tâm giá trị của Outer Observable, thì cứ dùng các HOO *mapTo() này.</p>
   <br>
-  <pre>
-          <code><pre>{{text12}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text12 }}</code></pre>
   <br>
 
   <strong>partition()</strong>
@@ -240,9 +216,7 @@
     </li>
   </ul>
   <br>
-  <pre>
-          <code><pre>{{text13}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text13 }}</code></pre>
   <p>partition() cực kỳ hữu ích trong trường hợp 1 WebSocket về notifications từ backend và các bạn muốn phân chia thành
     readNotification$ và unreadNotification$ để xử lý 2 Observables này 1 cách khác nhau.</p>
   <p>Trên đây là những HOOs thường dùng nhất trong RxJS. Ngoài ra, RxJS còn có các HOOs sau: expand(), groupBy(), và
@@ -273,9 +247,7 @@
   <p>Log giá trị được emit ở bất cứ thời điểm nào trong Observable. Điều này giúp debug được giá trị của 1 Observable
     trước và sau khi dùng 1 operator nào đó.</p>
   <br>
-  <pre>
-          <code><pre>{{text14}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text14 }}</code></pre>
   <p>Để thực thi 1 nghiệp vụ nào đó mà nghiệp vụ sử dụng giá trị của Observable emit và mutate giá trị đó. Việc này được
     coi là side effect đối với Observable hiện tại</p>
   <p>Để thực thi 1 nghiệp vụ nào đó mà hoàn toàn không liên quan đến giá trị mà Observable emit. Ví dụ, để start/stop
@@ -293,18 +265,14 @@
   <p>Log giá trị được emit ở bất cứ thời điểm nào trong Observable. Điều này giúp debug được giá trị của 1 Observable
     trước và sau khi dùng 1 operator nào đó.</p>
   <br>
-  <pre>
-          <code><pre>{{text15}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text15 }}</code></pre>
   <p>delayWhen T>(delayDurationSelector: (value: T, index: number) => Observable any>, subscriptionDelay?: Observable
     any>): MonoTypeOperatorFunction T></p>
   <p>delayWhen() tính chất hoạt động giống như delay() nhưng thay vì truyền vào khoảng thời gian Number hoặc ngày Date,
     thì chúng ta truyền vào 1 function mà trả về 1 Observable. delayWhen() sẽ hoãn emit giá trị của Source Observable
     cho đến khi Observable truyền vào emit.</p>
   <br>
-  <pre>
-            <code><pre>{{text16}}</pre></code>
-        </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text16 }}</code></pre>
   <br>
 
   <strong>finalize()</strong>
@@ -315,9 +283,7 @@
     complete hoặc error. Use-case thường gặp nhất của finalize() chính là stop loader/spinner, vì chúng ta sẽ muốn cái
     loader/spinner dừng lại/không hiển thị khi 1 API Request thực hiện xong, cho dù có lỗi hay không có lỗi.</p>
   <br>
-  <pre>
-          <code><pre>{{text17}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text17 }}</code></pre>
   <br>
 
   <strong>repeat()</strong>
@@ -327,9 +293,7 @@
   <p>repeat(), đúng như tên gọi, sẽ nhận vào tham số count và sẽ lặp lại Source Observable đúng với số count mà được
     truyền vào.</p>
   <br>
-  <pre>
-          <code><pre>{{text18}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text18 }}</code></pre>
   <br>
 
   <strong>timeInterval()</strong>
@@ -340,9 +304,7 @@
     lần click của người dùng. timerInterval() sẽ chạy timer ở thời điểm Observable được subscribe. Nghĩa là khi bắt đầu
     subscribe cho đến lúc có giá trị đầu tiên được emit, thì timeInterval() sẽ track được khoảng thời gian này.</p>
   <br>
-  <pre>
-          <code><pre>{{text19}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text19 }}</code></pre>
   <br>
 
   <strong>timeout()</strong>
@@ -353,9 +315,7 @@
     throw error nếu như Source Observable không emit giá trị trong khoảng thời gian (nếu như tham số là Number) hoặc cho
     tới khi thời gian hiện tại bằng với ngày được truyền vào (nếu như tham số là Date).</p>
   <br>
-  <pre>
-          <code><pre>{{text20}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text20 }}</code></pre>
   <br>
 
   <strong>timeoutWith()</strong>
@@ -367,9 +327,7 @@
     Observable emit giá trị quá chậm so với due thì timeoutWith() thay vì throw error, timeoutWith() sẽ subscribe vào
     tham số Observable kia.</p>
   <br>
-  <pre>
-          <code><pre>{{text20}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text20 }}</code></pre>
   <br>
 
   <strong>toPromise()</strong>
@@ -380,9 +338,7 @@
     v7 sắp tới, các bạn nào dùng thì cẩn thận nhé.
   </p>
   <br>
-  <pre>
-          <code><pre>{{text21}}</pre></code>
-      </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text21 }}</code></pre>
   <p>Trên đây là các Utility Operator mà RxJS cung cấp. Sử dụng nhiều nhất chắc chắn là tap() vì các bạn sẽ dùng tap()
     để debug Observable Flow rất nhiều 😂</p>
   <br>

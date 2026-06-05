@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+  standalone: false,
   selector: 'app-nx-installation',
   templateUrl: './nx-installation.component.html',
   styleUrls: ['./nx-installation.component.css']

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+  standalone: false,
   selector: 'app-program-structure',
   templateUrl: './program-structure.component.html',
   styleUrls: ['./program-structure.component.css']
@@ -56,41 +57,29 @@ export class ProgramStructureComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.text1 = `
-    using System;
+    this.text1 = `using System;
 
-    namespace HelloWorldApplication {
-       class HelloWorld {
-          static void Main(string[] args) {
-             /* my first program in C# */
-             Console.WriteLine("Hello World");
-             Console.ReadKey();
-          }
-       }
-    }
-    `;
-    this.text2 = `
-    [class]="classExpr"
-    `;
-    this.text3 = `
-    <div [style.width]="”someValue”"></div>
-      `;
-    this.text4 = `
-    [style.height.%]=”containerHeight”
-      `;
-    this.text5 = `
-  <div *ngFor="let employee of employees; index as idx; count as total">
-  ({{idx}})/({{total}}): {{employee.id}} - {{employee.firstName}}
-  {{employee.lastName}}
+namespace HelloWorldApplication {
+   class HelloWorld {
+      static void Main(string[] args) {
+         /* my first program in C# */
+         Console.WriteLine("Hello World");
+         Console.ReadKey();
+      }
+   }
+}`;
+    this.text2 = `[class]="classExpr"`;
+    this.text3 = `<div [style.width]="”someValue”"></div>`;
+    this.text4 = `[style.height.%]=”containerHeight”`;
+    this.text5 = `<div *ngFor="let employee of employees; index as idx; count as total">
+({{idx}})/({{total}}): {{employee.id}} - {{employee.firstName}}
+{{employee.lastName}}
+</div>`;
+    this.text6 = `<div *ngFor="”let" item of list”>
+  <div *ngIf="”somethingGoood”">
+    More code
   </div>
-      `;
-    this.text6 = `
-  <div *ngFor="”let" item of list”>
-    <div *ngIf="”somethingGoood”">
-      More code
-    </div>
-  </div>
-      `;
+</div>`;
   }
 
   changeAge(event: any) {

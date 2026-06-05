@@ -10,41 +10,25 @@
     đó mà chưa save thông tin lại, và nếu người dùng redirect sang một trang khác, thì sẽ phải hỏi người dùng xem có
     thật sự muốn rời khỏi trang hay không.</p>
   <p>Giả sử phần config routing của chúng ta sẽ có từ bài trước như sau:</p>
-  <pre>
-              <code><pre>{{text1}}</pre></code>
-          </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text1 }}</code></pre>
   <p>Lúc này chúng ta có thể thêm một service, và nó sẽ implement CanDeactivate guard để check như sau.</p>
   <br>
-  <pre>
-              <code><pre>{{text2}}</pre></code>
-          </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text2 }}</code></pre>
   <p>Sau đó chúng ta sẽ thêm guard vào config routing như đối với CanActivate trong ngày hôm trước.</p>
   <br>
-  <pre>
-              <code><pre>{{text3}}</pre></code>
-          </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text3 }}</code></pre>
   <p>Giờ đây mỗi khi người dùng navigate ra khỏi màn hình edit này, Angular Router sẽ chạy
     CanLeaveEditGuard.canDeactivate, do đó chúng ta có thể check những điều kiện cần thiết để có thể cho phép redirect
     hay không.</p>
-  <pre>
-      <code><pre>{{text4}}</pre></code>
-  </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text4 }}</code></pre>
   <p>Để tăng tính reuse của guard, chúng ta có thể sử dụng implement interface như sau.</p>
-  <pre>
-    <code><pre>{{text5}}</pre></code>
-</pre>
+  <pre class="mb-0"><code class="language-markup">{{ text5 }}</code></pre>
   <p>Sau đó component của chúng ta sẽ chịu trách nhiệm implement logic này.</p>
-  <pre>
-    <code><pre>{{text6}}</pre></code>
-</pre>
-  <pre>
-    <code><pre>{{text7}}</pre></code>
-</pre>
+  <pre class="mb-0"><code class="language-markup">{{ text6 }}</code></pre>
+  <pre class="mb-0"><code class="language-markup">{{ text7 }}</code></pre>
   <p>Trường hợp cần thiết chúng ta hoàn toàn có thể hiển thị confirm dialog để hỏi người dùng xem có muốn rời khỏi trang
     hay không.</p>
-  <pre>
-      <code><pre>{{text8}}</pre></code>
-  </pre>
+  <pre class="mb-0"><code class="language-markup">{{ text8 }}</code></pre>
   <br>
 
   <!--CanLoad -->
@@ -57,15 +41,9 @@
     ta không cần thiết phải tải phần code của route /admin về. Lúc đó CanLoad sẽ là một guard hữu ích cho chúng ta sử
     dụng.
   </p>
-  <pre>
-    <code><pre>{{text9}}</pre></code>
-</pre>
-  <pre>
-    <code><pre>{{text10}}</pre></code>
-</pre>
+  <pre class="mb-0"><code class="language-markup">{{ text9 }}</code></pre>
+  <pre class="mb-0"><code class="language-markup">{{ text10 }}</code></pre>
   <p>Từ đây chúng ta có thể implement các logic để check xem có thể load về hay không, ví dụ như sau:</p>
-  <pre>
-    <code><pre>{{text11}}</pre></code>
-</pre>
+  <pre class="mb-0"><code class="language-markup">{{ text11 }}</code></pre>
   <br>
 </div>

@@ -8,9 +8,10 @@ import { MaterialModule } from 'src/app/material.module';
 import { RouterModule } from '@angular/router';
 import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 import { MainShellComponent } from './main-shell/main-shell.component';
+import { MenuIconPipe } from './side-navbar/menu-icon.pipe';
 
 @NgModule({
-  declarations: [SidebarComponent, SideNavbarComponent, HeaderComponent, FooterComponent,MainShellComponent],
+  declarations: [SidebarComponent, SideNavbarComponent, HeaderComponent, FooterComponent,MainShellComponent, MenuIconPipe],
   exports: [SidebarComponent, SideNavbarComponent, HeaderComponent, FooterComponent],
   imports: [
     CommonModule,MaterialModule, RouterModule, HttpClientModule, HttpClientJsonpModule

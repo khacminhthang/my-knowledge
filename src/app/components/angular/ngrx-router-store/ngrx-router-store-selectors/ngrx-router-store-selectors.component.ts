@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+  standalone: false,
   selector: 'app-ngrx-router-store-selectors',
   templateUrl: './ngrx-router-store-selectors.component.html',
   styleUrls: ['./ngrx-router-store-selectors.component.css']
